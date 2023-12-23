@@ -1,0 +1,6 @@
+path_from_root_indicator
+========================
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.path_from_root_indicator

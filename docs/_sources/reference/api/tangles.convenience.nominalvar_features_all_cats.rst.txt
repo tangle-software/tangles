@@ -1,0 +1,6 @@
+nominalvar_features_all_cats
+============================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: nominalvar_features_all_cats

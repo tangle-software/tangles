@@ -1,0 +1,6 @@
+tree
+====
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: TangleSweepFeatureSys.tree

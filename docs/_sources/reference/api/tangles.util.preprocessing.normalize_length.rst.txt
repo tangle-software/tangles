@@ -1,0 +1,6 @@
+normalize_length
+================
+
+.. currentmodule:: tangles.util.preprocessing
+
+.. autofunction:: normalize_length

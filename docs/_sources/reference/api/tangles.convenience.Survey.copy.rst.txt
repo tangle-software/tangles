@@ -1,0 +1,6 @@
+copy
+====
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.copy

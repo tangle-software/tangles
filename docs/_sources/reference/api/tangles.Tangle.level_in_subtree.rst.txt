@@ -1,0 +1,6 @@
+level_in_subtree
+================
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.level_in_subtree

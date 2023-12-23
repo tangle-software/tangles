@@ -1,0 +1,6 @@
+value_class
+===========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.value_class

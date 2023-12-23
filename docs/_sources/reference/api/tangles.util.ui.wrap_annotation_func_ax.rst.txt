@@ -1,0 +1,6 @@
+wrap_annotation_func_ax
+=======================
+
+.. currentmodule:: tangles.util.ui
+
+.. autofunction:: wrap_annotation_func_ax

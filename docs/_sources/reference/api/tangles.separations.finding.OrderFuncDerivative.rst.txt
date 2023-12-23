@@ -1,0 +1,25 @@
+OrderFuncDerivative
+===================
+
+.. currentmodule:: tangles.separations.finding
+
+.. autoclass:: OrderFuncDerivative
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.finding.OrderFuncDerivative.change_discrete_derivative
+      tangles.separations.finding.OrderFuncDerivative.discrete_derivative
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`change_discrete_derivative`
+        - This method does not need to be overwritten but it could help performance to overwrite it
+      * - :func:`discrete_derivative`
+        - Returns an array, the same shape as the feature, containing how the order of the feature

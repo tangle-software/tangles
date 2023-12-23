@@ -1,0 +1,6 @@
+create_values
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.create_values

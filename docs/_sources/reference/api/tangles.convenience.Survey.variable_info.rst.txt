@@ -1,0 +1,6 @@
+variable_info
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.variable_info

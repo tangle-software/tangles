@@ -1,0 +1,6 @@
+search
+======
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.search

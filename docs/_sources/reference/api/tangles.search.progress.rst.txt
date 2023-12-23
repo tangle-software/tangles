@@ -1,0 +1,21 @@
+tangles.search.progress
+=======================
+
+.. currentmodule:: tangles.search.progress
+
+.. automodule:: tangles.search.progress
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.search.progress.DefaultProgressCallback
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`DefaultProgressCallback`
+        - A default progress callable for the tangle search
+

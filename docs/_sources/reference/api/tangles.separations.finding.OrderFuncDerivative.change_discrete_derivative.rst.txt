@@ -1,0 +1,6 @@
+change_discrete_derivative
+==========================
+
+.. currentmodule:: tangles.separations.finding
+
+.. automethod:: OrderFuncDerivative.change_discrete_derivative

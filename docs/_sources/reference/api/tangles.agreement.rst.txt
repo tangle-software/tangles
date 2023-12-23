@@ -1,0 +1,30 @@
+tangles.agreement
+=================
+
+.. currentmodule:: tangles.agreement
+
+.. automodule:: tangles.agreement
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.agreement.AgreementFunc
+      tangles.agreement.AgreementFuncBitarray
+      tangles.agreement.AgreementFuncBitarrayBips
+      tangles.agreement.CalculateAgreement
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`AgreementFunc`
+        - 
+      * - :class:`AgreementFuncBitarray`
+        - 
+      * - :class:`AgreementFuncBitarrayBips`
+        - 
+      * - :class:`CalculateAgreement`
+        - 
+

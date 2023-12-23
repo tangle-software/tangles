@@ -1,0 +1,9 @@
+GraphNode
+=========
+
+.. currentmodule:: tangles.util.tree
+
+.. autoclass:: GraphNode
+
+
+

@@ -1,0 +1,6 @@
+root
+====
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchTree.root

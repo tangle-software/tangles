@@ -1,0 +1,15 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tangles/tests"
+]
+markers = [
+    "short: marks tests with very short run time",
+    "long: marks tests with very long run time"
+]

@@ -1,0 +1,6 @@
+load
+====
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.load

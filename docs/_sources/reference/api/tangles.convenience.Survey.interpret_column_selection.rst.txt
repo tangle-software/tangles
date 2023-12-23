@@ -1,0 +1,6 @@
+interpret_column_selection
+==========================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.interpret_column_selection

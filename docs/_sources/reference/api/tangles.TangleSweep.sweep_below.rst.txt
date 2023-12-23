@@ -1,0 +1,6 @@
+sweep_below
+===========
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSweep.sweep_below

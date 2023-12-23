@@ -1,0 +1,55 @@
+tangles.separations.finding
+===========================
+
+.. currentmodule:: tangles.separations.finding
+
+.. automodule:: tangles.separations.finding
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.finding.OrderFuncDerivative
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`OrderFuncDerivative`
+        - Abstract Base Class for use with the minimize cut method
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.finding.add_all_corners_of_features
+      tangles.separations.finding.min_S_T_cut
+      tangles.separations.finding.minimize_cut
+      tangles.separations.finding.nodal_domains
+      tangles.separations.finding.pca_features
+      tangles.separations.finding.random_features
+      tangles.separations.finding.spectral_features
+      tangles.separations.finding.spectral_features_splitted
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`add_all_corners_of_features`
+        - Calculates the four corners of every pair of features from an input array
+      * - :func:`min_S_T_cut`
+        - Search a minimal weight `S`-`T`-cut in the graph with adjacency matrix `A`
+      * - :func:`minimize_cut`
+        - Find a locally minimal cut in a graph starting with the cut specified by `starting_feature`
+      * - :func:`nodal_domains`
+        - Calculate the nodal domains of a function from the vertices of the graph with adjacency matrix `A` to the real numbers
+      * - :func:`pca_features`
+        - Generate features using a method inspired by Principal Component Analysis (PCA)
+      * - :func:`random_features`
+        - Generates an array of features randomly
+      * - :func:`spectral_features`
+        - Compute spectral bipartitions directly by computing eigenvectors of the complete graph
+      * - :func:`spectral_features_splitted`
+        - Compute spectral bipartitions of a graph after splitting into connected components

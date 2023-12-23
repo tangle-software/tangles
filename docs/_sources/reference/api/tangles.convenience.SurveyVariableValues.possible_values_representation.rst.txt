@@ -1,0 +1,6 @@
+possible_values_representation
+==============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariableValues.possible_values_representation

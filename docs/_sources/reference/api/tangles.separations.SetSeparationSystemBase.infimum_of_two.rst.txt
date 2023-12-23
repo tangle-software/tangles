@@ -1,0 +1,6 @@
+infimum_of_two
+==============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.infimum_of_two

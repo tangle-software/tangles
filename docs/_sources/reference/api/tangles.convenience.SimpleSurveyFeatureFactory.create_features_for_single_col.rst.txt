@@ -1,0 +1,6 @@
+create_features_for_single_col
+==============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SimpleSurveyFeatureFactory.create_features_for_single_col

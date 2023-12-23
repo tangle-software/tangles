@@ -1,0 +1,6 @@
+is_numeric_type
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.is_numeric_type

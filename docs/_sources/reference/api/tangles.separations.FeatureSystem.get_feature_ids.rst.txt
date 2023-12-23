@@ -1,0 +1,6 @@
+get_feature_ids
+===============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.get_feature_ids

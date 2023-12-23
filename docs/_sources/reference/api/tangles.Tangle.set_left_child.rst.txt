@@ -1,0 +1,6 @@
+set_left_child
+==============
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.set_left_child

@@ -1,0 +1,6 @@
+laplacian
+=========
+
+.. currentmodule:: tangles.util.graph
+
+.. autofunction:: laplacian

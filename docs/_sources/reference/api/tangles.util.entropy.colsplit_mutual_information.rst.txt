@@ -1,0 +1,6 @@
+colsplit_mutual_information
+===========================
+
+.. currentmodule:: tangles.util.entropy
+
+.. autofunction:: colsplit_mutual_information

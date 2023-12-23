@@ -1,0 +1,6 @@
+set_right_child
+===============
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.set_right_child

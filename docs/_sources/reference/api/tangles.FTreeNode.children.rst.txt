@@ -1,0 +1,6 @@
+children
+========
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.children

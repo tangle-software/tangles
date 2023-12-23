@@ -1,0 +1,40 @@
+tangles.util.ui
+===============
+
+.. currentmodule:: tangles.util.ui
+
+.. automodule:: tangles.util.ui
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.ui.SplitGraph
+      tangles.util.ui.XYPicker
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`SplitGraph`
+        - 
+      * - :class:`XYPicker`
+        - Interactive plot, which allows the user to pick different points from a two-dimensional plot
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.ui.plot_annotated
+      tangles.util.ui.wrap_annotation_func_ax
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`plot_annotated`
+        - A plot with annotations that can either be images or texts
+      * - :func:`wrap_annotation_func_ax`
+        - Create an AnnotationFuncImg that calls the given AnnotationFuncAx

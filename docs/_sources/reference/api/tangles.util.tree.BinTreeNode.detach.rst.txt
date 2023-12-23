@@ -1,0 +1,6 @@
+detach
+======
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.detach

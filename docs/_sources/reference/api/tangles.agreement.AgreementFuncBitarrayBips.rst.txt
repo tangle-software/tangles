@@ -1,0 +1,9 @@
+AgreementFuncBitarrayBips
+=========================
+
+.. currentmodule:: tangles.agreement
+
+.. autoclass:: AgreementFuncBitarrayBips
+
+
+

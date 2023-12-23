@@ -1,0 +1,6 @@
+separation_metadata
+===================
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.separation_metadata

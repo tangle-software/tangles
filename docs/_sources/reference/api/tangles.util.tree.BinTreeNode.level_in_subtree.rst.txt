@@ -1,0 +1,6 @@
+level_in_subtree
+================
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.level_in_subtree

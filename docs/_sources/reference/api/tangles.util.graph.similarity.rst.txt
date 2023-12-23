@@ -1,0 +1,36 @@
+tangles.util.graph.similarity
+=============================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. automodule:: tangles.util.graph.similarity
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.similarity.cosine_similarity
+      tangles.util.graph.similarity.cosine_similarity_graph_csr_data
+      tangles.util.graph.similarity.epsilon_neighborhood_graph
+      tangles.util.graph.similarity.grid_distance_graph
+      tangles.util.graph.similarity.image_to_similarity_graph
+      tangles.util.graph.similarity.k_nearest_neighbors
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`cosine_similarity`
+        - Return the cosine similarity matrix of the rows of the matrix data
+      * - :func:`cosine_similarity_graph_csr_data`
+        - Creates a similarity graph on the data based on cosine similarity between the data points
+      * - :func:`epsilon_neighborhood_graph`
+        - Creates a neighborhood graph from precomputed distances
+      * - :func:`grid_distance_graph`
+        - A function to create a grid-like graph where every vertex is connected to all neighbors that are close (in grid coordinates)
+      * - :func:`image_to_similarity_graph`
+        - Computes a similarity graph for pixels of an image
+      * - :func:`k_nearest_neighbors`
+        - Creates a k-nearest neighbor graph (or something like a k-nearest neighbor graph) from distances

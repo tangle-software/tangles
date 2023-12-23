@@ -1,0 +1,6 @@
+guided_tangle
+=============
+
+.. currentmodule:: tangles.guiding
+
+.. autofunction:: guided_tangle

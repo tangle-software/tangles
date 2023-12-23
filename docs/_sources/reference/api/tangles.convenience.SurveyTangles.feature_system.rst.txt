@@ -1,0 +1,6 @@
+feature_system
+==============
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: SurveyTangles.feature_system

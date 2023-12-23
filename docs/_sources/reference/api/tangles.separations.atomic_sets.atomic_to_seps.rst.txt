@@ -1,0 +1,6 @@
+atomic_to_seps
+==============
+
+.. currentmodule:: tangles.separations.atomic_sets
+
+.. autofunction:: atomic_to_seps

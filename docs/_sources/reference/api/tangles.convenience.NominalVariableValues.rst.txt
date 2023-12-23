@@ -1,0 +1,28 @@
+NominalVariableValues
+=====================
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: NominalVariableValues
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.NominalVariableValues.invert_op
+      tangles.convenience.NominalVariableValues.possible_values_representation
+      tangles.convenience.NominalVariableValues.update_values_for_specification
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`invert_op`
+        - Invert an operation contained in a metadata tuple
+      * - :func:`possible_values_representation`
+        - Return a representation of the possible values the corresponding variable can take (according to specifications seen so far)
+      * - :func:`update_values_for_specification`
+        - Update the list of possible values a variable can take

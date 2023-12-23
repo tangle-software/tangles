@@ -1,0 +1,6 @@
+neighbours
+==========
+
+.. currentmodule:: tangles
+
+.. autoproperty:: ToTNode.neighbours

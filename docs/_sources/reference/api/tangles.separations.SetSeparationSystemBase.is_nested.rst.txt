@@ -1,0 +1,6 @@
+is_nested
+=========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.is_nested

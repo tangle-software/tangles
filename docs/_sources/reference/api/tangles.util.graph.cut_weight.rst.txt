@@ -1,0 +1,46 @@
+tangles.util.graph.cut_weight
+=============================
+
+.. currentmodule:: tangles.util.graph.cut_weight
+
+.. automodule:: tangles.util.graph.cut_weight
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.cut_weight.CutWeightOrder
+      tangles.util.graph.cut_weight.NCutOrder
+      tangles.util.graph.cut_weight.RatioCutOrder
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`CutWeightOrder`
+        - 
+      * - :class:`NCutOrder`
+        - 
+      * - :class:`RatioCutOrder`
+        - 
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.cut_weight.cut_weight_order
+      tangles.util.graph.cut_weight.ncut_order
+      tangles.util.graph.cut_weight.ratiocut_order
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`cut_weight_order`
+        - Return the cut weight order function for a graph described by the given `adjacency_matrix`
+      * - :func:`ncut_order`
+        - Return the ncut order function for a graph described by the given `adjacency_matrix`
+      * - :func:`ratiocut_order`
+        - Return the ratiocut order function for a graph described by the given `adjacency_matrix`

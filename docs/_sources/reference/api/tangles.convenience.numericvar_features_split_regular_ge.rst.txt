@@ -1,0 +1,6 @@
+numericvar_features_split_regular_ge
+====================================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: numericvar_features_split_regular_ge

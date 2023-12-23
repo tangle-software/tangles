@@ -1,0 +1,6 @@
+typical_answers
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.typical_answers

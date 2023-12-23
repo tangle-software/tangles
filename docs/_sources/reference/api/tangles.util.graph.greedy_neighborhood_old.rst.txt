@@ -1,0 +1,6 @@
+greedy_neighborhood_old
+=======================
+
+.. currentmodule:: tangles.util.graph
+
+.. autofunction:: greedy_neighborhood_old

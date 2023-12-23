@@ -1,0 +1,21 @@
+tangles.search.extending_tangles
+================================
+
+.. currentmodule:: tangles.search.extending_tangles
+
+.. automodule:: tangles.search.extending_tangles
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.search.extending_tangles.ExtendingTangles
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`ExtendingTangles`
+        - The Algorithm responsible for extending tangles
+

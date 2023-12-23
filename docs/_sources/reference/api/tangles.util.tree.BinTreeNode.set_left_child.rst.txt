@@ -1,0 +1,6 @@
+set_left_child
+==============
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.set_left_child

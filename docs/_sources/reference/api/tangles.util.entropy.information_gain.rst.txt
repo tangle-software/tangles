@@ -1,0 +1,6 @@
+information_gain
+================
+
+.. currentmodule:: tangles.util.entropy
+
+.. autofunction:: information_gain

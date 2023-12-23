@@ -1,0 +1,6 @@
+cosine_similarity
+=================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: cosine_similarity

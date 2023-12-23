@@ -1,0 +1,6 @@
+atomic_set_indicators
+=====================
+
+.. currentmodule:: tangles.separations.atomic_sets
+
+.. autofunction:: atomic_set_indicators

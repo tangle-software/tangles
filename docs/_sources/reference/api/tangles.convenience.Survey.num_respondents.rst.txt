@@ -1,0 +1,6 @@
+num_respondents
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: Survey.num_respondents

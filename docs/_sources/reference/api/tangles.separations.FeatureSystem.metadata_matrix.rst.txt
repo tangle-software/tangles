@@ -1,0 +1,6 @@
+metadata_matrix
+===============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.metadata_matrix

@@ -1,0 +1,6 @@
+load
+====
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.load

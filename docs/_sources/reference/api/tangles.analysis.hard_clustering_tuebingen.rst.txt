@@ -1,0 +1,6 @@
+hard_clustering_tuebingen
+=========================
+
+.. currentmodule:: tangles.analysis
+
+.. autofunction:: hard_clustering_tuebingen

@@ -1,0 +1,6 @@
+k_tangles
+=========
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.k_tangles

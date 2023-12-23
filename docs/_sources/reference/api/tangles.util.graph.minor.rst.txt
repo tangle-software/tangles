@@ -1,0 +1,21 @@
+tangles.util.graph.minor
+========================
+
+.. currentmodule:: tangles.util.graph.minor
+
+.. automodule:: tangles.util.graph.minor
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.minor.contract_graph
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`contract_graph`
+        - Calculate the minor of a graph given a matrix of bag indicators

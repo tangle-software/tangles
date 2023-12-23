@@ -1,0 +1,21 @@
+tangles.util.logic.sep_to_term
+==============================
+
+.. currentmodule:: tangles.util.logic.sep_to_term
+
+.. automodule:: tangles.util.logic.sep_to_term
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.logic.sep_to_term.RecursionLogic
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`RecursionLogic`
+        - 
+

@@ -1,0 +1,6 @@
+initialize_search
+=================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.initialize_search

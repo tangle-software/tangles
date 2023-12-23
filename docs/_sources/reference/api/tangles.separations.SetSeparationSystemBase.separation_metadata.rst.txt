@@ -1,0 +1,6 @@
+separation_metadata
+===================
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.separation_metadata

@@ -1,0 +1,6 @@
+search_tangles_uncrossed
+========================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: search_tangles_uncrossed

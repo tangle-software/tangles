@@ -1,0 +1,6 @@
+with_array
+==========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.with_array

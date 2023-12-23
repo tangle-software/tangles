@@ -1,0 +1,6 @@
+binary_unique_value_features
+============================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: binary_unique_value_features

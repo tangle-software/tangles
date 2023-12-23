@@ -1,0 +1,6 @@
+set_variable_value_lists
+========================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.set_variable_value_lists

@@ -1,0 +1,6 @@
+compute_infimum
+===============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.compute_infimum

@@ -1,0 +1,6 @@
+pca_features
+============
+
+.. currentmodule:: tangles.separations.finding
+
+.. autofunction:: pca_features

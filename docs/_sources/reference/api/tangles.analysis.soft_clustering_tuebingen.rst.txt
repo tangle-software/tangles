@@ -1,0 +1,6 @@
+soft_clustering_tuebingen
+=========================
+
+.. currentmodule:: tangles.analysis
+
+.. autofunction:: soft_clustering_tuebingen

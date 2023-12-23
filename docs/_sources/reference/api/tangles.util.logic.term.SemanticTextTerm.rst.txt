@@ -1,0 +1,9 @@
+SemanticTextTerm
+================
+
+.. currentmodule:: tangles.util.logic.term
+
+.. autoclass:: SemanticTextTerm
+
+
+

@@ -1,0 +1,6 @@
+copy
+====
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.copy

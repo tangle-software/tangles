@@ -1,0 +1,6 @@
+replace_values
+==============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.replace_values

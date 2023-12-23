@@ -1,0 +1,6 @@
+copy_subtree
+============
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.copy_subtree

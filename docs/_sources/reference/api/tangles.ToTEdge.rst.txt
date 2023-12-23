@@ -1,0 +1,22 @@
+ToTEdge
+=======
+
+.. currentmodule:: tangles
+
+.. autoclass:: ToTEdge
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.ToTEdge.other_end
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`other_end`
+        - Return the node contained in this edge that is not equal to the given `node`

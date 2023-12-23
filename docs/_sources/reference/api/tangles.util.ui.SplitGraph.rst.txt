@@ -1,0 +1,28 @@
+SplitGraph
+==========
+
+.. currentmodule:: tangles.util.ui
+
+.. autoclass:: SplitGraph
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.ui.SplitGraph.draw_ellipses
+      tangles.util.ui.SplitGraph.draw_side_and_boundary
+      tangles.util.ui.SplitGraph.draw_stacked_circles
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`draw_ellipses`
+        - Visualise a bipartition by plotting the nodes arranged in four ellipses
+      * - :func:`draw_side_and_boundary`
+        - Draw one side of the bipartition
+      * - :func:`draw_stacked_circles`
+        - Visualise a bipartition by plotting the nodes arranged in circles

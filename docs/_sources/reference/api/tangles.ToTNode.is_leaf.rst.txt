@@ -1,0 +1,6 @@
+is_leaf
+=======
+
+.. currentmodule:: tangles
+
+.. automethod:: ToTNode.is_leaf

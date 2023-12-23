@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SetSeparationSystemBase &#8212; Tangles  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/tangles.separations.SetSeparationSystemBase';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="__getitem__" href="tangles.separations.SetSeparationSystemBase.__getitem__.html" />
+    <link rel="prev" title="with_sparse_array" href="tangles.separations.SetSeparationSystem.with_sparse_array.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Tangles  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorials/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tangles.html">tangles</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.agreement.html">tangles.agreement</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.agreement.AgreementFunc.html">AgreementFunc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.agreement.AgreementFuncBitarray.html">AgreementFuncBitarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.agreement.AgreementFuncBitarrayBips.html">AgreementFuncBitarrayBips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.agreement.CalculateAgreement.html">CalculateAgreement</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.analysis.html">tangles.analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.analysis.coherence_levels.html">coherence_levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.analysis.complexity_levels.html">complexity_levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.analysis.hard_clustering_tuebingen.html">hard_clustering_tuebingen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.analysis.soft_clustering_tuebingen.html">soft_clustering_tuebingen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.analysis.tangle_score.html">tangle_score</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.analysis.visibility.html">visibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.convenience.html">tangles.convenience</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.NominalVariableValues.html">NominalVariableValues</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.NominalVariableValues.invert_op.html">invert_op</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.NominalVariableValues.possible_values_representation.html">possible_values_representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.NominalVariableValues.update_values_for_specification.html">update_values_for_specification</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.NumericalVariableValues.html">NumericalVariableValues</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.NumericalVariableValues.invert_op.html">invert_op</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.NumericalVariableValues.possible_values_representation.html">possible_values_representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.NumericalVariableValues.update_values_for_specification.html">update_values_for_specification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.OrderFunctionO1.html">OrderFunctionO1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.OrderFunctionO1biased.html">OrderFunctionO1biased</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.OrderFunctionO2.html">OrderFunctionO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.OrderFunctionO3.html">OrderFunctionO3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.OrderFunctionO4.html">OrderFunctionO4</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.OrdinalVariableValues.html">OrdinalVariableValues</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.OrdinalVariableValues.invert_op.html">invert_op</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.OrdinalVariableValues.possible_values_representation.html">possible_values_representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.OrdinalVariableValues.update_values_for_specification.html">update_values_for_specification</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory.html">SimpleSurveyFeatureFactory</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory.create_features_for_single_col.html">create_features_for_single_col</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesBothSides.html">SimpleSurveyFeatureFactory_MissingValuesBothSides</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesBothSides.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesBothSides.create_features_for_single_col.html">create_features_for_single_col</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesImplicit.html">SimpleSurveyFeatureFactory_MissingValuesImplicit</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesImplicit.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesImplicit.create_features_for_single_col.html">create_features_for_single_col</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesOwnFeatures.html">SimpleSurveyFeatureFactory_MissingValuesOwnFeatures</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesOwnFeatures.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesOwnFeatures.create_features_for_single_col.html">create_features_for_single_col</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.Survey.html">Survey</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.num_questions.html">num_questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.num_respondents.html">num_respondents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.shape.html">shape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.__getitem__.html">__getitem__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.check_variables.html">check_variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.complete_rows.html">complete_rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.copy.html">copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.count_number_of_unique_answers.html">count_number_of_unique_answers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.count_valid_answers_per_respondent.html">count_valid_answers_per_respondent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.guess_missing_variable_ranges.html">guess_missing_variable_ranges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.guess_missing_variable_types.html">guess_missing_variable_types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.interpret_column_selection.html">interpret_column_selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.load.html">load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.replace_variable_names.html">replace_variable_names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.replace_variable_value_labels.html">replace_variable_value_labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.replace_variable_values.html">replace_variable_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.save.html">save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.select_questions.html">select_questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.select_respondents.html">select_respondents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.set_pyreadstat_meta_data.html">set_pyreadstat_meta_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.set_variable_labels.html">set_variable_labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.set_variable_types.html">set_variable_types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.set_variable_value_lists.html">set_variable_value_lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.summarize.html">summarize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.Survey.variable_info.html">variable_info</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory.html">SurveyFeatureFactory</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory.create_features_for_single_col.html">create_features_for_single_col</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactoryDecorator.html">SurveyFeatureFactoryDecorator</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactoryDecorator.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactoryDecorator.create_features_for_single_col.html">create_features_for_single_col</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory_CherryPicker.html">SurveyFeatureFactory_CherryPicker</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory_CherryPicker.create_features.html">create_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory_CherryPicker.create_features_for_single_col.html">create_features_for_single_col</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyFeatureFactory_CherryPicker.set_factoryfunc.html">set_factoryfunc</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SurveyTangles.html">SurveyTangles</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.feature_system.html">feature_system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.valid_agreement_lower_bound.html">valid_agreement_lower_bound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.change_agreement.html">change_agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.initialize_search.html">initialize_search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.ordered_metadata.html">ordered_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.search.html">search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.sepcified_features.html">sepcified_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.tangle_matrix.html">tangle_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyTangles.typical_answers.html">typical_answers</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SurveyVariable.html">SurveyVariable</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.add_values.html">add_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.all_values_as_list.html">all_values_as_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.create_values.html">create_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.invalid_values_as_list.html">invalid_values_as_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.is_nominal_type.html">is_nominal_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.is_numeric_type.html">is_numeric_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.is_ordinal_type.html">is_ordinal_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.is_valid_type.html">is_valid_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.is_valid_type_name.html">is_valid_type_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.replace_values.html">replace_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.set_value_labels.html">set_value_labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.set_values.html">set_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.to_row.html">to_row</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.valid_values_as_list.html">valid_values_as_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariable.value_class.html">value_class</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.SurveyVariableValues.html">SurveyVariableValues</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariableValues.invert_op.html">invert_op</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariableValues.possible_values_representation.html">possible_values_representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.SurveyVariableValues.update_values_for_specification.html">update_values_for_specification</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.html">TangleSweepFeatureSys</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.all_oriented_sep_ids.html">all_oriented_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.original_sep_ids.html">original_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.tree.html">tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.append_separation.html">append_separation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.greedy_search.html">greedy_search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.insert_separation.html">insert_separation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.lower_agreement.html">lower_agreement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.sweep_below.html">sweep_below</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.sweep_one.html">sweep_one</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.convenience.TangleSweepFeatureSys.tangle_matrix.html">tangle_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.UnionOfIntervals.html">UnionOfIntervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.binary_unique_value_features.html">binary_unique_value_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.extensive_numericvar_features.html">extensive_numericvar_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.feats2seps_invalids_to_both_sides.html">feats2seps_invalids_to_both_sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.nominalvar_features_all_cats.html">nominalvar_features_all_cats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.numericvar_features_inside_regular_bins.html">numericvar_features_inside_regular_bins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.numericvar_features_split_regular_ge.html">numericvar_features_split_regular_ge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.ordinalvar_features_ge_all_splits.html">ordinalvar_features_ge_all_splits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.search_tangles.html">search_tangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.search_tangles_uncrossed.html">search_tangles_uncrossed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.convenience.simple_unique_value_features.html">simple_unique_value_features</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.guiding.html">tangles.guiding</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.guiding.get_tangle_by_path.html">get_tangle_by_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.guiding.guided_tangle.html">guided_tangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.guiding.is_guiding.html">is_guiding</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.search.html">tangles.search</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.search.extending_tangles.html">tangles.search.extending_tangles</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.search.extending_tangles.ExtendingTangles.html">ExtendingTangles</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.search.progress.html">tangles.search.progress</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.search.progress.DefaultProgressCallback.html">DefaultProgressCallback</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="tangles.separations.html">tangles.separations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.separations.atomic_sets.html">tangles.separations.atomic_sets</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.atomic_sets.atomic_set_indicators.html">atomic_set_indicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.atomic_sets.atomic_sets.html">atomic_sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.atomic_sets.atomic_to_seps.html">atomic_to_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.atomic_sets.seps_to_atomic.html">seps_to_atomic</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.separations.finding.html">tangles.separations.finding</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.OrderFuncDerivative.html">OrderFuncDerivative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.add_all_corners_of_features.html">add_all_corners_of_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.min_S_T_cut.html">min_S_T_cut</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.minimize_cut.html">minimize_cut</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.nodal_domains.html">nodal_domains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.pca_features.html">pca_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.random_features.html">random_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.spectral_features.html">spectral_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.finding.spectral_features_splitted.html">spectral_features_splitted</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.separations.util.html">tangles.separations.util</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.util.order_func_balance.html">order_func_balance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.util.order_func_min_side_size.html">order_func_min_side_size</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.separations.FeatureSystem.html">FeatureSystem</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.__getitem__.html">__getitem__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.add_features.html">add_features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.add_seps.html">add_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.all_feature_ids.html">all_feature_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.all_sep_ids.html">all_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.assemble_meta_info.html">assemble_meta_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.compute_infimum.html">compute_infimum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.crossing_seps.html">crossing_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.feature_metadata.html">feature_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.get_corners.html">get_corners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.get_feature_ids.html">get_feature_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.get_sep_ids.html">get_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.infimum_of_two.html">infimum_of_two</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.is_le.html">is_le</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.is_nested.html">is_nested</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.is_subset.html">is_subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.metadata_matrix.html">metadata_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.separation_metadata.html">separation_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.with_array.html">with_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.FeatureSystem.with_sparse_array.html">with_sparse_array</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.separations.MetaData.html">MetaData</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.MetaData.append.html">append</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.separations.SetSeparationSystem.html">SetSeparationSystem</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.__getitem__.html">__getitem__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.add_seps.html">add_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.all_sep_ids.html">all_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.assemble_meta_info.html">assemble_meta_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.compute_infimum.html">compute_infimum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.crossing_seps.html">crossing_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.get_corners.html">get_corners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.get_sep_ids.html">get_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.infimum_of_two.html">infimum_of_two</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.is_le.html">is_le</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.is_nested.html">is_nested</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.metadata_matrix.html">metadata_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.separation_metadata.html">separation_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.with_array.html">with_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystem.with_sparse_array.html">with_sparse_array</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">SetSeparationSystemBase</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.__getitem__.html">__getitem__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.add_seps.html">add_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.all_sep_ids.html">all_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.assemble_meta_info.html">assemble_meta_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.compute_infimum.html">compute_infimum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.crossing_seps.html">crossing_seps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.get_corners.html">get_corners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.get_sep_ids.html">get_sep_ids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.infimum_of_two.html">infimum_of_two</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.is_le.html">is_le</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.is_nested.html">is_nested</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.metadata_matrix.html">metadata_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.separation_metadata.html">separation_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.with_array.html">with_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.with_sparse_array.html">with_sparse_array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.separations.SetSeparationSystemOrderFunc.html">SetSeparationSystemOrderFunc</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.util.html">tangles.util</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.entropy.html">tangles.util.entropy</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.entropy.colsplit_mutual_information.html">colsplit_mutual_information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.entropy.datapointwise_information_gains.html">datapointwise_information_gains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.entropy.entropy.html">entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.entropy.information_gain.html">information_gain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.entropy.joint_entropy.html">joint_entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.entropy.pairwise_mutual_information.html">pairwise_mutual_information</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.graph.html">tangles.util.graph</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.cut_weight.html">tangles.util.graph.cut_weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.minor.html">tangles.util.graph.minor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.similarity.html">tangles.util.graph.similarity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.connected_component_indicators.html">connected_component_indicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.greedy_neighborhood.html">greedy_neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.greedy_neighborhood_old.html">greedy_neighborhood_old</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.laplacian.html">laplacian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.modularity_matrix.html">modularity_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.graph.normalized_laplacian.html">normalized_laplacian</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.logic.html">tangles.util.logic</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.sep_to_term.html">tangles.util.logic.sep_to_term</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.term.html">tangles.util.logic.term</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.ConjunctiveNormalForm.html">ConjunctiveNormalForm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.DisjunctiveNormalForm.html">DisjunctiveNormalForm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.LogicTerm.html">LogicTerm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.TextTerm.html">TextTerm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.append.html">append</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.distribute.html">distribute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.logic.simplify.html">simplify</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.matrix_order.html">tangles.util.matrix_order</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.MatrixOrderSVD.html">MatrixOrderSVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.covariance_order.html">covariance_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.logdet_order.html">logdet_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.margin_order_matrix.html">margin_order_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.matrix_order.html">matrix_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.o_five.html">o_five</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.matrix_order.o_seven.html">o_seven</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.preprocessing.html">tangles.util.preprocessing</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.preprocessing.balance.html">balance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.preprocessing.normalize_length.html">normalize_length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.preprocessing.standardize.html">standardize</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.tree.html">tangles.util.tree</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.tree.BinTreeNetworkX.html">BinTreeNetworkX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.tree.BinTreeNode.html">BinTreeNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.tree.GraphNode.html">GraphNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.tree.TreeNode.html">TreeNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.tree.plot_tree.html">plot_tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.tree.print_node_label.html">print_node_label</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tangles.util.ui.html">tangles.util.ui</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.ui.SplitGraph.html">SplitGraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.ui.XYPicker.html">XYPicker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.ui.plot_annotated.html">plot_annotated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tangles.util.ui.wrap_annotation_func_ax.html">wrap_annotation_func_ax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.FTreeNode.html">FTreeNode</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.children.html">children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.copy.html">copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.copy_subtree.html">copy_subtree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.copy_subtree_into_children.html">copy_subtree_into_children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.detach.html">detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.from_indicator_matrix.html">from_indicator_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.is_leaf.html">is_leaf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.leaves_in_subtree.html">leaves_in_subtree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.level.html">level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.level_in_subtree.html">level_in_subtree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.path_from_root_indicator.html">path_from_root_indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.set_left_child.html">set_left_child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.set_right_child.html">set_right_child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.FTreeNode.to_indicator_matrix.html">to_indicator_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.Tangle.html">Tangle</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.children.html">children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.copy.html">copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.copy_subtree.html">copy_subtree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.copy_subtree_into_children.html">copy_subtree_into_children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.detach.html">detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.equal_data.html">equal_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.from_indicator_matrix.html">from_indicator_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.is_leaf.html">is_leaf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.leaves_in_subtree.html">leaves_in_subtree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.level.html">level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.level_in_subtree.html">level_in_subtree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.open.html">open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.path_from_root_indicator.html">path_from_root_indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.set_left_child.html">set_left_child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.set_right_child.html">set_right_child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.Tangle.to_indicator_matrix.html">to_indicator_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.TangleSearchTree.html">TangleSearchTree</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.limit.html">limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.number_of_separations.html">number_of_separations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.root.html">root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.sep_ids.html">sep_ids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.get_efficient_distinguishers.html">get_efficient_distinguishers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.k_tangles.html">k_tangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.load.html">load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.maximal_tangles.html">maximal_tangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.save.html">save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.search_tree.html">search_tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.tangle_matrix.html">tangle_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSearchTree.tree_height_for_agreement.html">tree_height_for_agreement</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.TangleSweep.html">TangleSweep</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSweep.tree.html">tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSweep.append_separation.html">append_separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSweep.greedy_search.html">greedy_search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSweep.insert_separation.html">insert_separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSweep.sweep_below.html">sweep_below</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TangleSweep.sweep_one.html">sweep_one</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.ToTEdge.html">ToTEdge</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.ToTEdge.other_end.html">other_end</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.ToTNode.html">ToTNode</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.ToTNode.neighbours.html">neighbours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.ToTNode.degree.html">degree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.ToTNode.is_leaf.html">is_leaf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.ToTNode.set_label.html">set_label</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.TreeOfTangles.html">TreeOfTangles</a><input class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-46"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.TreeOfTangles.any_node.html">any_node</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tangles.UncrossingSweep.html">UncrossingSweep</a><input class="toctree-checkbox" id="toctree-checkbox-47" name="toctree-checkbox-47" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-47"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="tangles.UncrossingSweep.tree.html">tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.UncrossingSweep.sweep_below.html">sweep_below</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.UncrossingSweep.sweep_one.html">sweep_one</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tangles.UncrossingSweep.tangle_matrix.html">tangle_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tangles.agreement_func.html">agreement_func</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tangles.uncross_distinguishers.html">uncross_distinguishers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="tangles.separations.html" class="nav-link">tangles.separations</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">SetSeparatio...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="setseparationsystembase">
+<h1>SetSeparationSystemBase<a class="headerlink" href="#setseparationsystembase" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tangles.separations.SetSeparationSystemBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tangles.separations.</span></span><span class="sig-name descname"><span class="pre">SetSeparationSystemBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tangles.separations.SetSeparationSystemBase" title="Link to this definition">#</a></dt>
+<dd><p class="rubric">Methods</p>
+<div class="toctree-wrapper compound">
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.__getitem__.html#tangles.separations.SetSeparationSystemBase.__getitem__" title="tangles.separations.SetSeparationSystemBase.__getitem__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getitem__()</span></code></a></p></td>
+<td><p>Access the data of the separation or separations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.add_seps.html#tangles.separations.SetSeparationSystemBase.add_seps" title="tangles.separations.SetSeparationSystemBase.add_seps"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_seps()</span></code></a></p></td>
+<td><p>Add separations to the separation system</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.all_sep_ids.html#tangles.separations.SetSeparationSystemBase.all_sep_ids" title="tangles.separations.SetSeparationSystemBase.all_sep_ids"><code class="xref py py-func docutils literal notranslate"><span class="pre">all_sep_ids()</span></code></a></p></td>
+<td><p>Returns</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.assemble_meta_info.html#tangles.separations.SetSeparationSystemBase.assemble_meta_info" title="tangles.separations.SetSeparationSystemBase.assemble_meta_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">assemble_meta_info()</span></code></a></p></td>
+<td><p>If the user has entered custom meta info for a separation, then that is prioritised before everything else</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.compute_infimum.html#tangles.separations.SetSeparationSystemBase.compute_infimum" title="tangles.separations.SetSeparationSystemBase.compute_infimum"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_infimum()</span></code></a></p></td>
+<td><p>Calculate the infimum of a list of separation ids and orientations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.crossing_seps.html#tangles.separations.SetSeparationSystemBase.crossing_seps" title="tangles.separations.SetSeparationSystemBase.crossing_seps"><code class="xref py py-func docutils literal notranslate"><span class="pre">crossing_seps()</span></code></a></p></td>
+<td><p>Generator to get all crossing separations from the list of separations</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.get_corners.html#tangles.separations.SetSeparationSystemBase.get_corners" title="tangles.separations.SetSeparationSystemBase.get_corners"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_corners()</span></code></a></p></td>
+<td><p>Calculate the four corners of two separations in the separation system</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.get_sep_ids.html#tangles.separations.SetSeparationSystemBase.get_sep_ids" title="tangles.separations.SetSeparationSystemBase.get_sep_ids"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_sep_ids()</span></code></a></p></td>
+<td><p>If the separations are already contained inside of the separation system then return the</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.infimum_of_two.html#tangles.separations.SetSeparationSystemBase.infimum_of_two" title="tangles.separations.SetSeparationSystemBase.infimum_of_two"><code class="xref py py-func docutils literal notranslate"><span class="pre">infimum_of_two()</span></code></a></p></td>
+<td><p>Calculate the infimum of two oriented separations from the separation system and add this infimum as a</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.is_le.html#tangles.separations.SetSeparationSystemBase.is_le" title="tangles.separations.SetSeparationSystemBase.is_le"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_le()</span></code></a></p></td>
+<td><p>Check if separation <span class="math notranslate nohighlight">\(a\)</span> specified by <cite>sep_id_a</cite> is less than or equal to separation <span class="math notranslate nohighlight">\(b\)</span> specified by <cite>sep_id_b</cite>,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.is_nested.html#tangles.separations.SetSeparationSystemBase.is_nested" title="tangles.separations.SetSeparationSystemBase.is_nested"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_nested()</span></code></a></p></td>
+<td><p>Checks whether two separations are nested</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.metadata_matrix.html#tangles.separations.SetSeparationSystemBase.metadata_matrix" title="tangles.separations.SetSeparationSystemBase.metadata_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">metadata_matrix()</span></code></a></p></td>
+<td><p>Explain the meaning of a separation, generated by repeatedly taking corners of separations,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.separation_metadata.html#tangles.separations.SetSeparationSystemBase.separation_metadata" title="tangles.separations.SetSeparationSystemBase.separation_metadata"><code class="xref py py-func docutils literal notranslate"><span class="pre">separation_metadata()</span></code></a></p></td>
+<td><p>Returns the metadata of the separation <cite>sep_id</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.with_array.html#tangles.separations.SetSeparationSystemBase.with_array" title="tangles.separations.SetSeparationSystemBase.with_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">with_array()</span></code></a></p></td>
+<td><p>Create a new SetSeparationSystem from a separation matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tangles.separations.SetSeparationSystemBase.with_sparse_array.html#tangles.separations.SetSeparationSystemBase.with_sparse_array" title="tangles.separations.SetSeparationSystemBase.with_sparse_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">with_sparse_array()</span></code></a></p></td>
+<td><p>Create a new SetSeparationSystem from a sparse separation matrix</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tangles.separations.SetSeparationSystem.with_sparse_array.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">with_sparse_array</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tangles.separations.SetSeparationSystemBase.__getitem__.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">__getitem__</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tangles.separations.SetSeparationSystemBase"><code class="docutils literal notranslate"><span class="pre">SetSeparationSystemBase</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/reference/api/tangles.separations.SetSeparationSystemBase.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Tangle Software Contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

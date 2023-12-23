@@ -1,0 +1,6 @@
+get_corners
+===========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.get_corners

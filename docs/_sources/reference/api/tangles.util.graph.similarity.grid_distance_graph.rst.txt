@@ -1,0 +1,6 @@
+grid_distance_graph
+===================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: grid_distance_graph

@@ -1,0 +1,6 @@
+set_variable_labels
+===================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.set_variable_labels

@@ -1,0 +1,46 @@
+tangles.util.tree
+=================
+
+.. currentmodule:: tangles.util.tree
+
+.. automodule:: tangles.util.tree
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.tree.BinTreeNetworkX
+      tangles.util.tree.BinTreeNode
+      tangles.util.tree.GraphNode
+      tangles.util.tree.TreeNode
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`BinTreeNetworkX`
+        - Responsible for generating and managing a NetworkX representation of a list of BinTreeNodes
+      * - :class:`BinTreeNode`
+        - Node of a BinTree
+      * - :class:`GraphNode`
+        - 
+      * - :class:`TreeNode`
+        - 
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.tree.plot_tree
+      tangles.util.tree.print_node_label
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`plot_tree`
+        - Plot a tree
+      * - :func:`print_node_label`
+        - A default callback function that plots the node's label

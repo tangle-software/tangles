@@ -1,0 +1,6 @@
+update
+======
+
+.. currentmodule:: tangles.util.ui
+
+.. automethod:: XYPicker.update

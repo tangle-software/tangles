@@ -1,0 +1,6 @@
+create_features
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyFeatureFactoryDecorator.create_features

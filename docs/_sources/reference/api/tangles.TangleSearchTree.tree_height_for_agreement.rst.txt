@@ -1,0 +1,6 @@
+tree_height_for_agreement
+=========================
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.tree_height_for_agreement

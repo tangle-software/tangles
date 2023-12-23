@@ -1,0 +1,6 @@
+draw_stacked_circles
+====================
+
+.. currentmodule:: tangles.util.ui
+
+.. automethod:: SplitGraph.draw_stacked_circles

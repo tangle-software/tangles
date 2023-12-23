@@ -1,0 +1,6 @@
+extend_tangles
+==============
+
+.. currentmodule:: tangles.search.extending_tangles
+
+.. automethod:: ExtendingTangles.extend_tangles

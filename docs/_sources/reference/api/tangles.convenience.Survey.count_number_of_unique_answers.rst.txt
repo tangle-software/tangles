@@ -1,0 +1,6 @@
+count_number_of_unique_answers
+==============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.count_number_of_unique_answers

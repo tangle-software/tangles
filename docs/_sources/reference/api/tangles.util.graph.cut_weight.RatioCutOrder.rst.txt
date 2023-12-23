@@ -1,0 +1,25 @@
+RatioCutOrder
+=============
+
+.. currentmodule:: tangles.util.graph.cut_weight
+
+.. autoclass:: RatioCutOrder
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.cut_weight.RatioCutOrder.change_discrete_derivative
+      tangles.util.graph.cut_weight.RatioCutOrder.discrete_derivative
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`change_discrete_derivative`
+        - This method does not need to be overwritten but it could help performance to overwrite it
+      * - :func:`discrete_derivative`
+        - Returns an array, the same shape as the feature, containing how the order of the feature

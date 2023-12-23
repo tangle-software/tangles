@@ -1,0 +1,6 @@
+random_features
+===============
+
+.. currentmodule:: tangles.separations.finding
+
+.. autofunction:: random_features

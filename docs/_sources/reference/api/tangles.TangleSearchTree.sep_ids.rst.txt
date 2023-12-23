@@ -1,0 +1,6 @@
+sep_ids
+=======
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchTree.sep_ids

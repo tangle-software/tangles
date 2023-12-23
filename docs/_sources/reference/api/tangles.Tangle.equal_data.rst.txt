@@ -1,0 +1,6 @@
+equal_data
+==========
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.equal_data

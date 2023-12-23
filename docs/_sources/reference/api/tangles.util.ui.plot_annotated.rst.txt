@@ -1,0 +1,6 @@
+plot_annotated
+==============
+
+.. currentmodule:: tangles.util.ui
+
+.. autofunction:: plot_annotated

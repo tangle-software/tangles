@@ -1,0 +1,36 @@
+tangles.util.entropy
+====================
+
+.. currentmodule:: tangles.util.entropy
+
+.. automodule:: tangles.util.entropy
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.entropy.colsplit_mutual_information
+      tangles.util.entropy.datapointwise_information_gains
+      tangles.util.entropy.entropy
+      tangles.util.entropy.information_gain
+      tangles.util.entropy.joint_entropy
+      tangles.util.entropy.pairwise_mutual_information
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`colsplit_mutual_information`
+        - Mutual information in the two sides of partitions
+      * - :func:`datapointwise_information_gains`
+        - Compute information gains between `feats` and every single column of `data`
+      * - :func:`entropy`
+        - Compute the discrete entropy of every column of `X`
+      * - :func:`information_gain`
+        - Order function based on information gain by adding each feature
+      * - :func:`joint_entropy`
+        - Compute the discrete joint entropy of `X`
+      * - :func:`pairwise_mutual_information`
+        - Compute a matrix that contains the pairwise mutual information between the columns of `data`

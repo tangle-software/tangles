@@ -1,0 +1,6 @@
+level
+=====
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.level

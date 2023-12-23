@@ -1,0 +1,6 @@
+invert_op
+=========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: NominalVariableValues.invert_op

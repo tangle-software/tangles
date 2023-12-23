@@ -1,0 +1,6 @@
+set_pyreadstat_meta_data
+========================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.set_pyreadstat_meta_data

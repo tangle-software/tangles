@@ -1,0 +1,6 @@
+cut_weight_order
+================
+
+.. currentmodule:: tangles.util.graph.cut_weight
+
+.. autofunction:: cut_weight_order

@@ -1,0 +1,28 @@
+SurveyVariableValues
+====================
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: SurveyVariableValues
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.SurveyVariableValues.invert_op
+      tangles.convenience.SurveyVariableValues.possible_values_representation
+      tangles.convenience.SurveyVariableValues.update_values_for_specification
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`invert_op`
+        - Invert an operation contained in a metadata tuple
+      * - :func:`possible_values_representation`
+        - Return a representation of the possible values the corresponding variable can take (according to specifications seen so far)
+      * - :func:`update_values_for_specification`
+        - Update the list of possible values a variable can take

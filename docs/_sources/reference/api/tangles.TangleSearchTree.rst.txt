@@ -1,0 +1,65 @@
+TangleSearchTree
+================
+
+.. currentmodule:: tangles
+
+.. autoclass:: TangleSearchTree
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.TangleSearchTree.limit
+      tangles.TangleSearchTree.number_of_separations
+      tangles.TangleSearchTree.root
+      tangles.TangleSearchTree.sep_ids
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`limit`
+        - The maximum order of a node which we have not yet extended
+      * - :attr:`number_of_separations`
+        - The number of separations in the search tree
+      * - :attr:`root`
+        - The root of the search tree
+      * - :attr:`sep_ids`
+        - The separation ids associated with the levels
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.TangleSearchTree.get_efficient_distinguishers
+      tangles.TangleSearchTree.k_tangles
+      tangles.TangleSearchTree.load
+      tangles.TangleSearchTree.maximal_tangles
+      tangles.TangleSearchTree.save
+      tangles.TangleSearchTree.search_tree
+      tangles.TangleSearchTree.tangle_matrix
+      tangles.TangleSearchTree.tree_height_for_agreement
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`get_efficient_distinguishers`
+        - Find the efficient distinguishers of the tangles
+      * - :func:`k_tangles`
+        - Return all tangles of the `k`-th level which have at least the specified `agreement` value
+      * - :func:`load`
+        - Build a search tree from the data in `filename`
+      * - :func:`maximal_tangles`
+        - Return all maximal tangles of at least the specified `agreement` and level at most `max_level`
+      * - :func:`save`
+        - Saves the search tree data to a file
+      * - :func:`search_tree`
+        - Build a copy of the tangle search tree
+      * - :func:`tangle_matrix`
+        - Return the tangle matrix of all maximal tangles, taken from the set of tangles of at least the specified agreement
+      * - :func:`tree_height_for_agreement`
+        - Compute the tree height for the given agreement

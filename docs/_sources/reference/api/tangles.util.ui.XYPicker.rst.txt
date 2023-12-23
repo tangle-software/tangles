@@ -1,0 +1,25 @@
+XYPicker
+========
+
+.. currentmodule:: tangles.util.ui
+
+.. autoclass:: XYPicker
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.ui.XYPicker.show
+      tangles.util.ui.XYPicker.update
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`show`
+        - Connects all of the listeners and redraws the plot
+      * - :func:`update`
+        - Redraws the plot

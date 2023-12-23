@@ -1,0 +1,6 @@
+relabel
+=======
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNetworkX.relabel

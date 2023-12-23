@@ -1,0 +1,6 @@
+shape
+=====
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: Survey.shape

@@ -1,0 +1,6 @@
+numericvar_features_inside_regular_bins
+=======================================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: numericvar_features_inside_regular_bins

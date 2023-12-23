@@ -1,0 +1,61 @@
+FTreeNode
+=========
+
+.. currentmodule:: tangles
+
+.. autoclass:: FTreeNode
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.FTreeNode.children
+      tangles.FTreeNode.copy
+      tangles.FTreeNode.copy_subtree
+      tangles.FTreeNode.copy_subtree_into_children
+      tangles.FTreeNode.detach
+      tangles.FTreeNode.from_indicator_matrix
+      tangles.FTreeNode.is_leaf
+      tangles.FTreeNode.leaves_in_subtree
+      tangles.FTreeNode.level
+      tangles.FTreeNode.level_in_subtree
+      tangles.FTreeNode.path_from_root_indicator
+      tangles.FTreeNode.set_left_child
+      tangles.FTreeNode.set_right_child
+      tangles.FTreeNode.to_indicator_matrix
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`children`
+        - Return the list of children of this node
+      * - :func:`copy`
+        - Create a new BinTreeNode (note: this is a kind of abstract base function)
+      * - :func:`copy_subtree`
+        - Copy the subtree starting at this node
+      * - :func:`copy_subtree_into_children`
+        - Replace each child by a copy of the subtree starting at this node
+      * - :func:`detach`
+        - Detach the node by removing its pointer to its parent and the parents pointer to it
+      * - :func:`from_indicator_matrix`
+        - Turn an indicator matrix back into a binary tree
+      * - :func:`is_leaf`
+        - Whether this node is a leaf
+      * - :func:`leaves_in_subtree`
+        - Find all leaves in the binary tree
+      * - :func:`level`
+        - Returns the level of this node
+      * - :func:`level_in_subtree`
+        - Return all the nodes at a certain `depth` below this node
+      * - :func:`path_from_root_indicator`
+        - Returns the list of sides one has to take to go from the root to this node
+      * - :func:`set_left_child`
+        - Set the left child of the node
+      * - :func:`set_right_child`
+        - Set the right child of the node
+      * - :func:`to_indicator_matrix`
+        - Turn a list of nodes into an indicator matrix

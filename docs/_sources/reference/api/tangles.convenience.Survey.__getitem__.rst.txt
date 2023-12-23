@@ -1,0 +1,6 @@
+__getitem__
+===========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.__getitem__

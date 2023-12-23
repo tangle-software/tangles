@@ -1,0 +1,104 @@
+Survey
+======
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: Survey
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.Survey.num_questions
+      tangles.convenience.Survey.num_respondents
+      tangles.convenience.Survey.shape
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`num_questions`
+        - Number of questions (or variables)
+      * - :attr:`num_respondents`
+        - Number of respondents
+      * - :attr:`shape`
+        - The shape of the data
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.Survey.__getitem__
+      tangles.convenience.Survey.check_variables
+      tangles.convenience.Survey.complete_rows
+      tangles.convenience.Survey.copy
+      tangles.convenience.Survey.count_number_of_unique_answers
+      tangles.convenience.Survey.count_valid_answers_per_respondent
+      tangles.convenience.Survey.guess_missing_variable_ranges
+      tangles.convenience.Survey.guess_missing_variable_types
+      tangles.convenience.Survey.interpret_column_selection
+      tangles.convenience.Survey.load
+      tangles.convenience.Survey.replace_variable_names
+      tangles.convenience.Survey.replace_variable_value_labels
+      tangles.convenience.Survey.replace_variable_values
+      tangles.convenience.Survey.save
+      tangles.convenience.Survey.select_questions
+      tangles.convenience.Survey.select_respondents
+      tangles.convenience.Survey.set_pyreadstat_meta_data
+      tangles.convenience.Survey.set_variable_labels
+      tangles.convenience.Survey.set_variable_types
+      tangles.convenience.Survey.set_variable_value_lists
+      tangles.convenience.Survey.summarize
+      tangles.convenience.Survey.variable_info
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`__getitem__`
+        - Retrieve a data element/slice/subset/
+      * - :func:`check_variables`
+        - Check if we can conveniently use the information in this survey for a tangle analysis
+      * - :func:`complete_rows`
+        - Find out which rows are complete
+      * - :func:`copy`
+        - Create a copy of this Survey
+      * - :func:`count_number_of_unique_answers`
+        - Count the number of unique answers for selected columns
+      * - :func:`count_valid_answers_per_respondent`
+        - Count the number of valid answers for each respondent
+      * - :func:`guess_missing_variable_ranges`
+        - Guess missing variable value lists from data
+      * - :func:`guess_missing_variable_types`
+        - Guess missing variable types from data
+      * - :func:`interpret_column_selection`
+        - Interpret different ways to select a subset of columns (or variables)
+      * - :func:`load`
+        - Load a :class:`Survey` from files
+      * - :func:`replace_variable_names`
+        - Replace the names of selected variables
+      * - :func:`replace_variable_value_labels`
+        - Replace variable value labels according to the dictionary `mapping`
+      * - :func:`replace_variable_values`
+        - Replace the values found in the selected columns by different values
+      * - :func:`save`
+        - Save this survey to a folder:
+      * - :func:`select_questions`
+        - A new survey containing a subset of the columns
+      * - :func:`select_respondents`
+        - A new survey containing a subset of the rows
+      * - :func:`set_pyreadstat_meta_data`
+        - Use metadata returned from the python package pyreadstat to set properties of the variables (or questions)
+      * - :func:`set_variable_labels`
+        - Set the labels (which often is the question text) of selected variables
+      * - :func:`set_variable_types`
+        - Guess missing variable value lists from data
+      * - :func:`set_variable_value_lists`
+        - Set the dictionaries of valid and invalid values (and their labels) for selected variables
+      * - :func:`summarize`
+        - Create a summary of some interesting aspects of this survey
+      * - :func:`variable_info`
+        - A pandas dataframe containing information about the variables (or questions)

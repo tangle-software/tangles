@@ -1,0 +1,6 @@
+add_all_corners_of_features
+===========================
+
+.. currentmodule:: tangles.separations.finding
+
+.. autofunction:: add_all_corners_of_features

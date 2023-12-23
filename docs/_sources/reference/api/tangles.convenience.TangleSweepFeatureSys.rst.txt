@@ -1,0 +1,59 @@
+TangleSweepFeatureSys
+=====================
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: TangleSweepFeatureSys
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.TangleSweepFeatureSys.all_oriented_sep_ids
+      tangles.convenience.TangleSweepFeatureSys.original_sep_ids
+      tangles.convenience.TangleSweepFeatureSys.tree
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`all_oriented_sep_ids`
+        - The list of separation ids of all separations that have been oriented
+      * - :attr:`original_sep_ids`
+        - The list of separation ids of all separations that have been oriented
+      * - :attr:`tree`
+        - The TangleSearchTree on which this TangleSweep operates
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.TangleSweepFeatureSys.append_separation
+      tangles.convenience.TangleSweepFeatureSys.greedy_search
+      tangles.convenience.TangleSweepFeatureSys.insert_separation
+      tangles.convenience.TangleSweepFeatureSys.lower_agreement
+      tangles.convenience.TangleSweepFeatureSys.sweep_below
+      tangles.convenience.TangleSweepFeatureSys.sweep_one
+      tangles.convenience.TangleSweepFeatureSys.tangle_matrix
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`append_separation`
+        - Append a new separation to the tree
+      * - :func:`greedy_search`
+        - Greedily search for tangles
+      * - :func:`insert_separation`
+        - Insert a new separation into a specified level in the tree
+      * - :func:`lower_agreement`
+        - Extend nodes in the tangle search tree until the agreement search limit has decreased below the
+      * - :func:`sweep_below`
+        - Extend nodes in the tree until the agreement search limit has decreased below the specified agreement value
+      * - :func:`sweep_one`
+        - Extend nodes in the tree until the agreement search limit has decreased
+      * - :func:`tangle_matrix`
+        - Return the tangle matrix that describes all maximal tangles of at least the specified agreement

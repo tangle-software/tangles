@@ -1,0 +1,27 @@
+tangles.guiding
+===============
+
+.. currentmodule:: tangles.guiding
+
+.. automodule:: tangles.guiding
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.guiding.get_tangle_by_path
+      tangles.guiding.guided_tangle
+      tangles.guiding.is_guiding
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`get_tangle_by_path`
+        - Method for finding a tangle in the tangle search tree by path
+      * - :func:`guided_tangle`
+        - For a given subset, find the maximal guided tangle
+      * - :func:`is_guiding`
+        - Whether the specified subset is a guiding subset for the given tangle

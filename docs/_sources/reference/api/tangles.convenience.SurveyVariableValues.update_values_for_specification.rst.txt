@@ -1,0 +1,6 @@
+update_values_for_specification
+===============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariableValues.update_values_for_specification

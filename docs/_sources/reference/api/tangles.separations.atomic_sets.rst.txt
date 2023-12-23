@@ -1,0 +1,30 @@
+tangles.separations.atomic_sets
+===============================
+
+.. currentmodule:: tangles.separations.atomic_sets
+
+.. automodule:: tangles.separations.atomic_sets
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.atomic_sets.atomic_set_indicators
+      tangles.separations.atomic_sets.atomic_sets
+      tangles.separations.atomic_sets.atomic_to_seps
+      tangles.separations.atomic_sets.seps_to_atomic
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`atomic_set_indicators`
+        - Turn a list of atomic sets into a sparse indicator matrix
+      * - :func:`atomic_sets`
+        - Find the atomic sets for a separation array
+      * - :func:`atomic_to_seps`
+        - Turns a contracted separation matrix back to a normal one
+      * - :func:`seps_to_atomic`
+        - Contract the rows of a matrix to their atoms

@@ -1,0 +1,6 @@
+order_func_min_side_size
+========================
+
+.. currentmodule:: tangles.separations.util
+
+.. autofunction:: order_func_min_side_size

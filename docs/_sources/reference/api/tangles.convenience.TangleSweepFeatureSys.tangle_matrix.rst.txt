@@ -1,0 +1,6 @@
+tangle_matrix
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: TangleSweepFeatureSys.tangle_matrix

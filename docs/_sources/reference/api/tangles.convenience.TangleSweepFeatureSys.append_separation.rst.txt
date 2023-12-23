@@ -1,0 +1,6 @@
+append_separation
+=================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: TangleSweepFeatureSys.append_separation

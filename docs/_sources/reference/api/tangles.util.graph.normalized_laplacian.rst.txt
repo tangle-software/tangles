@@ -1,0 +1,6 @@
+normalized_laplacian
+====================
+
+.. currentmodule:: tangles.util.graph
+
+.. autofunction:: normalized_laplacian

@@ -1,0 +1,6 @@
+sweep_below
+===========
+
+.. currentmodule:: tangles
+
+.. automethod:: UncrossingSweep.sweep_below

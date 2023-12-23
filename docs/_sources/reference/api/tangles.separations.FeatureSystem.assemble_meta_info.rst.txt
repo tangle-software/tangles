@@ -1,0 +1,6 @@
+assemble_meta_info
+==================
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.assemble_meta_info

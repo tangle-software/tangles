@@ -1,0 +1,6 @@
+graph
+=====
+
+.. currentmodule:: tangles.util.tree
+
+.. autoproperty:: BinTreeNetworkX.graph

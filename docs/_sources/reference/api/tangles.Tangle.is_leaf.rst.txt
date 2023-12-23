@@ -1,0 +1,6 @@
+is_leaf
+=======
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.is_leaf

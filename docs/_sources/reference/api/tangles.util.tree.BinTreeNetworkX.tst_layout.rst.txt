@@ -1,0 +1,6 @@
+tst_layout
+==========
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNetworkX.tst_layout

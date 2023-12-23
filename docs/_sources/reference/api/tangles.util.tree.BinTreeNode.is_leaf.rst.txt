@@ -1,0 +1,6 @@
+is_leaf
+=======
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.is_leaf

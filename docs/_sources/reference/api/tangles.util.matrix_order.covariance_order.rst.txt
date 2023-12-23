@@ -1,0 +1,6 @@
+covariance_order
+================
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: covariance_order

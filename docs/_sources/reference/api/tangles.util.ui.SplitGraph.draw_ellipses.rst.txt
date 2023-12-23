@@ -1,0 +1,6 @@
+draw_ellipses
+=============
+
+.. currentmodule:: tangles.util.ui
+
+.. automethod:: SplitGraph.draw_ellipses

@@ -1,0 +1,6 @@
+crossing_seps
+=============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystem.crossing_seps

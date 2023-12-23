@@ -1,0 +1,6 @@
+is_subset
+=========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.is_subset

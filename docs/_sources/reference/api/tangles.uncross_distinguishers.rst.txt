@@ -1,0 +1,6 @@
+uncross_distinguishers
+======================
+
+.. currentmodule:: tangles
+
+.. autofunction:: uncross_distinguishers

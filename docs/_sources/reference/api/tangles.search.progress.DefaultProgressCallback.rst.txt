@@ -1,0 +1,9 @@
+DefaultProgressCallback
+=======================
+
+.. currentmodule:: tangles.search.progress
+
+.. autoclass:: DefaultProgressCallback
+
+
+

@@ -1,0 +1,6 @@
+guess_missing_variable_ranges
+=============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.guess_missing_variable_ranges

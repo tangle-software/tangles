@@ -1,0 +1,6 @@
+other_end
+=========
+
+.. currentmodule:: tangles
+
+.. automethod:: ToTEdge.other_end

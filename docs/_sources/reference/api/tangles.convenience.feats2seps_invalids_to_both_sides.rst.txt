@@ -1,0 +1,6 @@
+feats2seps_invalids_to_both_sides
+=================================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: feats2seps_invalids_to_both_sides

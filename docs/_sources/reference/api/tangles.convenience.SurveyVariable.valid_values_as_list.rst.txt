@@ -1,0 +1,6 @@
+valid_values_as_list
+====================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.valid_values_as_list

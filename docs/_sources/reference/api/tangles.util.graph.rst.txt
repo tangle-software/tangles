@@ -1,0 +1,55 @@
+tangles.util.graph
+==================
+
+.. currentmodule:: tangles.util.graph
+
+.. automodule:: tangles.util.graph
+
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.cut_weight
+      tangles.util.graph.minor
+      tangles.util.graph.similarity
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.util.graph.cut_weight`
+        - 
+      * - :mod:`tangles.util.graph.minor`
+        - 
+      * - :mod:`tangles.util.graph.similarity`
+        - 
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.graph.connected_component_indicators
+      tangles.util.graph.greedy_neighborhood
+      tangles.util.graph.greedy_neighborhood_old
+      tangles.util.graph.laplacian
+      tangles.util.graph.modularity_matrix
+      tangles.util.graph.normalized_laplacian
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`connected_component_indicators`
+        - Compute a matrix containing indicator vectors of the connected components of a graph as columns
+      * - :func:`greedy_neighborhood`
+        - Search a neighborhood in the graph with adjacency matrix `A`
+      * - :func:`greedy_neighborhood_old`
+        - Search a neighborhood in the graph with adjacency matrix `A`
+      * - :func:`laplacian`
+        - Compute the combinatorial laplacian :math:`L = D-A`, where :math:`A` is the adjacency matrix of a graph :math:`G`
+      * - :func:`modularity_matrix`
+        - Compute the modularity matrix of the graph with adjacency matrix `A`
+      * - :func:`normalized_laplacian`
+        - Compute the normalized laplacian :math:`L' = I - D^{-1/2} A D^{-1/2}`, where :math:`A` is the adjacency matrix of

@@ -1,0 +1,6 @@
+limit
+=====
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchTree.limit

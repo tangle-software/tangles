@@ -1,0 +1,6 @@
+update_values_for_specification
+===============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: OrdinalVariableValues.update_values_for_specification

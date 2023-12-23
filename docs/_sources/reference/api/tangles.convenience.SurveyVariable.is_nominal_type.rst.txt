@@ -1,0 +1,6 @@
+is_nominal_type
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.is_nominal_type

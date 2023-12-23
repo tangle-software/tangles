@@ -1,0 +1,6 @@
+complete_rows
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.complete_rows

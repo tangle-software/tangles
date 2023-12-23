@@ -1,0 +1,6 @@
+select_questions
+================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.select_questions

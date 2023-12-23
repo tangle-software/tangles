@@ -1,0 +1,6 @@
+show
+====
+
+.. currentmodule:: tangles.util.ui
+
+.. automethod:: XYPicker.show

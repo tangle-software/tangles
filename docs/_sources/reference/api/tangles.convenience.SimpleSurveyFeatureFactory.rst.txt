@@ -1,0 +1,25 @@
+SimpleSurveyFeatureFactory
+==========================
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: SimpleSurveyFeatureFactory
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.SimpleSurveyFeatureFactory.create_features
+      tangles.convenience.SimpleSurveyFeatureFactory.create_features_for_single_col
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`create_features`
+        - Create features for a set of variables corresponding to the columns specified by `column_selection`
+      * - :func:`create_features_for_single_col`
+        - Create a set of binary features given a variable and a column of the data containing all answers to the

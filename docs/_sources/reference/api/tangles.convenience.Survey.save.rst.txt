@@ -1,0 +1,6 @@
+save
+====
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.save

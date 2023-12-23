@@ -1,0 +1,6 @@
+replace_variable_names
+======================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.replace_variable_names

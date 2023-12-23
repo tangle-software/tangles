@@ -1,0 +1,64 @@
+SurveyVariable
+==============
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: SurveyVariable
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.SurveyVariable.add_values
+      tangles.convenience.SurveyVariable.all_values_as_list
+      tangles.convenience.SurveyVariable.create_values
+      tangles.convenience.SurveyVariable.invalid_values_as_list
+      tangles.convenience.SurveyVariable.is_nominal_type
+      tangles.convenience.SurveyVariable.is_numeric_type
+      tangles.convenience.SurveyVariable.is_ordinal_type
+      tangles.convenience.SurveyVariable.is_valid_type
+      tangles.convenience.SurveyVariable.is_valid_type_name
+      tangles.convenience.SurveyVariable.replace_values
+      tangles.convenience.SurveyVariable.set_value_labels
+      tangles.convenience.SurveyVariable.set_values
+      tangles.convenience.SurveyVariable.to_row
+      tangles.convenience.SurveyVariable.valid_values_as_list
+      tangles.convenience.SurveyVariable.value_class
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`add_values`
+        - Add `valid_values` and `invalid_values` to this survey variable's valid and invalid values, respectively
+      * - :func:`all_values_as_list`
+        - Return all (raw) values as a list
+      * - :func:`create_values`
+        - Create a :class:`SurveyVariableValues` object for this variable
+      * - :func:`invalid_values_as_list`
+        - Return the (raw) invalid values as a list
+      * - :func:`is_nominal_type`
+        - Check if this variable is nominal
+      * - :func:`is_numeric_type`
+        - Check if this variable is numeric
+      * - :func:`is_ordinal_type`
+        - Check if this variable is ordinal
+      * - :func:`is_valid_type`
+        - Check the validity of this variable's type string
+      * - :func:`is_valid_type_name`
+        - A static function that checks if a string is a valid variable typename
+      * - :func:`replace_values`
+        - Replace values by other values
+      * - :func:`set_value_labels`
+        - Replace value labels by other labels, if the corresponding values are in the mapping
+      * - :func:`set_values`
+        - Set this survey variable's valid and invalid values
+      * - :func:`to_row`
+        - Return the information contained in this object as a row
+      * - :func:`valid_values_as_list`
+        - Return the (raw) valid values as a list
+      * - :func:`value_class`
+        - Return the :class:`SurveyVariableValues` subclass that this variable is an instance of

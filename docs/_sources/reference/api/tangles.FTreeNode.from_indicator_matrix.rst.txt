@@ -1,0 +1,6 @@
+from_indicator_matrix
+=====================
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.from_indicator_matrix

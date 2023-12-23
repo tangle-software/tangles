@@ -1,0 +1,6 @@
+from_indicator_matrix
+=====================
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.from_indicator_matrix

@@ -1,0 +1,6 @@
+sweep_one
+=========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: TangleSweepFeatureSys.sweep_one

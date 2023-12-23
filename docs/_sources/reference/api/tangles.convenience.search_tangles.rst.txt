@@ -1,0 +1,6 @@
+search_tangles
+==============
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: search_tangles

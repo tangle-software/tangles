@@ -1,0 +1,6 @@
+standardize
+===========
+
+.. currentmodule:: tangles.util.preprocessing
+
+.. autofunction:: standardize

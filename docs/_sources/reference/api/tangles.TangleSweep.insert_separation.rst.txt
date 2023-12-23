@@ -1,0 +1,6 @@
+insert_separation
+=================
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSweep.insert_separation

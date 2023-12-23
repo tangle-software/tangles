@@ -1,0 +1,6 @@
+create_features
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SimpleSurveyFeatureFactory_MissingValuesBothSides.create_features

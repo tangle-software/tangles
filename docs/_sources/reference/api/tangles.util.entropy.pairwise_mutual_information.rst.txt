@@ -1,0 +1,6 @@
+pairwise_mutual_information
+===========================
+
+.. currentmodule:: tangles.util.entropy
+
+.. autofunction:: pairwise_mutual_information

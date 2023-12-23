@@ -1,0 +1,6 @@
+ordinalvar_features_ge_all_splits
+=================================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: ordinalvar_features_ge_all_splits

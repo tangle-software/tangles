@@ -1,0 +1,6 @@
+all_values_as_list
+==================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.all_values_as_list

@@ -1,0 +1,9 @@
+CalculateAgreement
+==================
+
+.. currentmodule:: tangles.agreement
+
+.. autoclass:: CalculateAgreement
+
+
+

@@ -1,0 +1,6 @@
+cosine_similarity_graph_csr_data
+================================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: cosine_similarity_graph_csr_data

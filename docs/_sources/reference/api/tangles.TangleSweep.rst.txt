@@ -1,0 +1,47 @@
+TangleSweep
+===========
+
+.. currentmodule:: tangles
+
+.. autoclass:: TangleSweep
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.TangleSweep.tree
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`tree`
+        - The TangleSearchTree on which this TangleSweep operates
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.TangleSweep.append_separation
+      tangles.TangleSweep.greedy_search
+      tangles.TangleSweep.insert_separation
+      tangles.TangleSweep.sweep_below
+      tangles.TangleSweep.sweep_one
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`append_separation`
+        - Append a new separation to the tree
+      * - :func:`greedy_search`
+        - Greedily search for tangles
+      * - :func:`insert_separation`
+        - Insert a new separation into a specified level in the tree
+      * - :func:`sweep_below`
+        - Extend nodes in the tree until the agreement search limit has decreased below the specified agreement value
+      * - :func:`sweep_one`
+        - Extend nodes in the tree until the agreement search limit has decreased

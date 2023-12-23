@@ -1,0 +1,6 @@
+print_node_label
+================
+
+.. currentmodule:: tangles.util.tree
+
+.. autofunction:: print_node_label

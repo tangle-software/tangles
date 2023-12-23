@@ -1,0 +1,6 @@
+discrete_derivative
+===================
+
+.. currentmodule:: tangles.util.graph.cut_weight
+
+.. automethod:: CutWeightOrder.discrete_derivative

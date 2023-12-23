@@ -1,0 +1,6 @@
+assemble_meta_info
+==================
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.assemble_meta_info

@@ -1,0 +1,6 @@
+o_seven
+=======
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: o_seven

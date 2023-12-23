@@ -1,0 +1,6 @@
+margin_order_matrix
+===================
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: margin_order_matrix

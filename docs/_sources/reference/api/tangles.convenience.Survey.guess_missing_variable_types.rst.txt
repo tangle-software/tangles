@@ -1,0 +1,6 @@
+guess_missing_variable_types
+============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.guess_missing_variable_types

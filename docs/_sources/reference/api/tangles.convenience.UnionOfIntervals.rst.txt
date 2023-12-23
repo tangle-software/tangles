@@ -1,0 +1,9 @@
+UnionOfIntervals
+================
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: UnionOfIntervals
+
+
+

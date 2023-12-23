@@ -1,0 +1,6 @@
+change_agreement
+================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.change_agreement

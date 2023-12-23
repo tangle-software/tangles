@@ -1,0 +1,6 @@
+any_node
+========
+
+.. currentmodule:: tangles
+
+.. automethod:: TreeOfTangles.any_node

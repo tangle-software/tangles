@@ -1,0 +1,6 @@
+open
+====
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.open

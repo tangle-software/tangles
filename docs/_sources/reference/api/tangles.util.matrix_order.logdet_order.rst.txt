@@ -1,0 +1,6 @@
+logdet_order
+============
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: logdet_order

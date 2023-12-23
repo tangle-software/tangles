@@ -1,0 +1,6 @@
+children
+========
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.children

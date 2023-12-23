@@ -1,0 +1,6 @@
+is_le
+=====
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystem.is_le

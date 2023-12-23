@@ -1,0 +1,6 @@
+is_ordinal_type
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.is_ordinal_type

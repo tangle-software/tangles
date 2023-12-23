@@ -1,0 +1,41 @@
+ToTNode
+=======
+
+.. currentmodule:: tangles
+
+.. autoclass:: ToTNode
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.ToTNode.neighbours
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`neighbours`
+        - All neighbors of this node
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.ToTNode.degree
+      tangles.ToTNode.is_leaf
+      tangles.ToTNode.set_label
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`degree`
+        - Return the degree of this node
+      * - :func:`is_leaf`
+        - Check if this node is a leaf
+      * - :func:`set_label`
+        - Set the label of this node

@@ -1,0 +1,9 @@
+DisjunctiveNormalForm
+=====================
+
+.. currentmodule:: tangles.util.logic
+
+.. autoclass:: DisjunctiveNormalForm
+
+
+

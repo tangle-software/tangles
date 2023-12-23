@@ -1,0 +1,6 @@
+balance
+=======
+
+.. currentmodule:: tangles.util.preprocessing
+
+.. autofunction:: balance

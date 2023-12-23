@@ -1,0 +1,6 @@
+datapointwise_information_gains
+===============================
+
+.. currentmodule:: tangles.util.entropy
+
+.. autofunction:: datapointwise_information_gains

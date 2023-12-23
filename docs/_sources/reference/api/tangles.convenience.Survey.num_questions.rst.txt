@@ -1,0 +1,6 @@
+num_questions
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: Survey.num_questions

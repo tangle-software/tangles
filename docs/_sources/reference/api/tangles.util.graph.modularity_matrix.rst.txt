@@ -1,0 +1,6 @@
+modularity_matrix
+=================
+
+.. currentmodule:: tangles.util.graph
+
+.. autofunction:: modularity_matrix

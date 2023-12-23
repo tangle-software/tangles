@@ -1,0 +1,22 @@
+TreeOfTangles
+=============
+
+.. currentmodule:: tangles
+
+.. autoclass:: TreeOfTangles
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.TreeOfTangles.any_node
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`any_node`
+        - Return a node of the tree

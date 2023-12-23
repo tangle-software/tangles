@@ -1,0 +1,6 @@
+copy
+====
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.copy

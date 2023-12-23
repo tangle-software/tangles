@@ -1,0 +1,41 @@
+UncrossingSweep
+===============
+
+.. currentmodule:: tangles
+
+.. autoclass:: UncrossingSweep
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.UncrossingSweep.tree
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`tree`
+        - The tangle search tree on which this TangleSweep operates
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.UncrossingSweep.sweep_below
+      tangles.UncrossingSweep.sweep_one
+      tangles.UncrossingSweep.tangle_matrix
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`sweep_below`
+        - Extends nodes in the tree until the agreement search limit has decreased below the specified agreement value
+      * - :func:`sweep_one`
+        - Extends nodes in the tree until the agreement search limit has decreased
+      * - :func:`tangle_matrix`
+        - Returns a matrix containing all the found tangles in rows

@@ -1,0 +1,6 @@
+extensive_numericvar_features
+=============================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: extensive_numericvar_features

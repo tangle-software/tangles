@@ -1,0 +1,6 @@
+invalid_values_as_list
+======================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.invalid_values_as_list

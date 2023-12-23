@@ -1,0 +1,6 @@
+summarize
+=========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.summarize

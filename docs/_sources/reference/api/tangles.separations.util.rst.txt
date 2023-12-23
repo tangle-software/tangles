@@ -1,0 +1,24 @@
+tangles.separations.util
+========================
+
+.. currentmodule:: tangles.separations.util
+
+.. automodule:: tangles.separations.util
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.util.order_func_balance
+      tangles.separations.util.order_func_min_side_size
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`order_func_balance`
+        - Order function that takes lower values on less balanced partitions
+      * - :func:`order_func_min_side_size`
+        - Order function that takes lower values on less balanced partitions

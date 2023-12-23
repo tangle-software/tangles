@@ -1,0 +1,6 @@
+joint_entropy
+=============
+
+.. currentmodule:: tangles.util.entropy
+
+.. autofunction:: joint_entropy

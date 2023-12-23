@@ -1,0 +1,6 @@
+k_nearest_neighbors
+===================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: k_nearest_neighbors

@@ -1,0 +1,6 @@
+append
+======
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: MetaData.append

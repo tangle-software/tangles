@@ -1,0 +1,6 @@
+count_valid_answers_per_respondent
+==================================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.count_valid_answers_per_respondent

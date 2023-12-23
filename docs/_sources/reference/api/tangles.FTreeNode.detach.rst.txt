@@ -1,0 +1,6 @@
+detach
+======
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.detach

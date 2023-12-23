@@ -1,0 +1,6 @@
+spectral_features_splitted
+==========================
+
+.. currentmodule:: tangles.separations.finding
+
+.. autofunction:: spectral_features_splitted

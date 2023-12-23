@@ -1,0 +1,6 @@
+get_ids_from_label
+==================
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNetworkX.get_ids_from_label

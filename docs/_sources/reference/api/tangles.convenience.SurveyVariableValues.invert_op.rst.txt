@@ -1,0 +1,6 @@
+invert_op
+=========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariableValues.invert_op

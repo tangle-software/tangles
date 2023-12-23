@@ -1,0 +1,49 @@
+tangles.util.matrix_order
+=========================
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. automodule:: tangles.util.matrix_order
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.matrix_order.MatrixOrderSVD
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`MatrixOrderSVD`
+        - Class representing function objects computing approximations of covariance order functions by using singular value decomposition
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.matrix_order.covariance_order
+      tangles.util.matrix_order.logdet_order
+      tangles.util.matrix_order.margin_order_matrix
+      tangles.util.matrix_order.matrix_order
+      tangles.util.matrix_order.o_five
+      tangles.util.matrix_order.o_seven
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`covariance_order`
+        - Order function defined by the matrix :math:`A^T A`
+      * - :func:`logdet_order`
+        - Order function defined by :math:`|f| = log( det( M_A )) + log( det( M_B ))` where :math:`f` is the bipartition indicator
+      * - :func:`margin_order_matrix`
+        - Turns a matrix of positions into a matrix of similarities (simply based on distances)
+      * - :func:`matrix_order`
+        - A general order function defined by a quadratic matrix
+      * - :func:`o_five`
+        - (O5) from the tangles book
+      * - :func:`o_seven`
+        - (O7) from the tangles book

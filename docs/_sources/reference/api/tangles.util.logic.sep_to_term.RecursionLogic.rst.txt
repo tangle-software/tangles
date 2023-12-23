@@ -1,0 +1,9 @@
+RecursionLogic
+==============
+
+.. currentmodule:: tangles.util.logic.sep_to_term
+
+.. autoclass:: RecursionLogic
+
+
+

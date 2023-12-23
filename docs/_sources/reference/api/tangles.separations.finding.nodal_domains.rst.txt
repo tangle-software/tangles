@@ -1,0 +1,6 @@
+nodal_domains
+=============
+
+.. currentmodule:: tangles.separations.finding
+
+.. autofunction:: nodal_domains

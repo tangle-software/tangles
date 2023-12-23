@@ -1,0 +1,9 @@
+OrderFunctionO3
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: OrderFunctionO3
+
+
+

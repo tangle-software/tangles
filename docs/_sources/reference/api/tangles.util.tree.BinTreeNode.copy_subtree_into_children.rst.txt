@@ -1,0 +1,6 @@
+copy_subtree_into_children
+==========================
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.copy_subtree_into_children

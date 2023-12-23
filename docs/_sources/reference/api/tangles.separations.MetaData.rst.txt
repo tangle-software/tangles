@@ -1,0 +1,22 @@
+MetaData
+========
+
+.. currentmodule:: tangles.separations
+
+.. autoclass:: MetaData
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.MetaData.append
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`append`
+        - Append another piece of metadata to the same separation

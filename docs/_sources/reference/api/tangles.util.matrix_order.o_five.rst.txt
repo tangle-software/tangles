@@ -1,0 +1,6 @@
+o_five
+======
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: o_five

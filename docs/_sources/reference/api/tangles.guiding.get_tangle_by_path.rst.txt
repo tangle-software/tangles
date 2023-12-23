@@ -1,0 +1,6 @@
+get_tangle_by_path
+==================
+
+.. currentmodule:: tangles.guiding
+
+.. autofunction:: get_tangle_by_path

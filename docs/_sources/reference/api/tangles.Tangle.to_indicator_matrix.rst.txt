@@ -1,0 +1,6 @@
+to_indicator_matrix
+===================
+
+.. currentmodule:: tangles
+
+.. automethod:: Tangle.to_indicator_matrix

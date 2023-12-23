@@ -1,0 +1,6 @@
+append
+======
+
+.. currentmodule:: tangles.util.logic
+
+.. autofunction:: append

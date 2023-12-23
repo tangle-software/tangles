@@ -1,0 +1,6 @@
+minimize_cut
+============
+
+.. currentmodule:: tangles.separations.finding
+
+.. autofunction:: minimize_cut

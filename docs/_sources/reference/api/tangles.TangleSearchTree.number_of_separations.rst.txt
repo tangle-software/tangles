@@ -1,0 +1,6 @@
+number_of_separations
+=====================
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchTree.number_of_separations

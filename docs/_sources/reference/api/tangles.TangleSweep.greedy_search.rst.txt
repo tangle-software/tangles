@@ -1,0 +1,6 @@
+greedy_search
+=============
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSweep.greedy_search

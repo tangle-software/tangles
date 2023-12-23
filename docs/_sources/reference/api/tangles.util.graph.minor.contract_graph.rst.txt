@@ -1,0 +1,6 @@
+contract_graph
+==============
+
+.. currentmodule:: tangles.util.graph.minor
+
+.. autofunction:: contract_graph

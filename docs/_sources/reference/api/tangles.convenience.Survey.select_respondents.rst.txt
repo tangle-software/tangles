@@ -1,0 +1,6 @@
+select_respondents
+==================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.select_respondents

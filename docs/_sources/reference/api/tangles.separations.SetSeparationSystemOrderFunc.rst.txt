@@ -1,0 +1,9 @@
+SetSeparationSystemOrderFunc
+============================
+
+.. currentmodule:: tangles.separations
+
+.. autoclass:: SetSeparationSystemOrderFunc
+
+
+

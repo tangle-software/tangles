@@ -1,0 +1,6 @@
+leaves_in_subtree
+=================
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.leaves_in_subtree

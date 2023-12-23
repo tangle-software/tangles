@@ -1,0 +1,9 @@
+TreeNode
+========
+
+.. currentmodule:: tangles.util.tree
+
+.. autoclass:: TreeNode
+
+
+

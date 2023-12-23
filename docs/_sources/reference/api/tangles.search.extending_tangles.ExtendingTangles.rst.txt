@@ -1,0 +1,22 @@
+ExtendingTangles
+================
+
+.. currentmodule:: tangles.search.extending_tangles
+
+.. autoclass:: ExtendingTangles
+
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.search.extending_tangles.ExtendingTangles.extend_tangles
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`extend_tangles`
+        - Extend a list of tangles of the same order by adding `new_sep_id` into it

@@ -1,0 +1,24 @@
+tangles.search
+==============
+
+.. currentmodule:: tangles.search
+
+.. automodule:: tangles.search
+
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.search.extending_tangles
+      tangles.search.progress
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.search.extending_tangles`
+        - 
+      * - :mod:`tangles.search.progress`
+        - 
+
+

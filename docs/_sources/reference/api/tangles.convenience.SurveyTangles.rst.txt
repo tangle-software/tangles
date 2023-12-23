@@ -1,0 +1,56 @@
+SurveyTangles
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. autoclass:: SurveyTangles
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.SurveyTangles.feature_system
+      tangles.convenience.SurveyTangles.valid_agreement_lower_bound
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`feature_system`
+        - The feature system (or separation system) in use
+      * - :attr:`valid_agreement_lower_bound`
+        - Current agreement lower bound
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.SurveyTangles.change_agreement
+      tangles.convenience.SurveyTangles.initialize_search
+      tangles.convenience.SurveyTangles.ordered_metadata
+      tangles.convenience.SurveyTangles.search
+      tangles.convenience.SurveyTangles.sepcified_features
+      tangles.convenience.SurveyTangles.tangle_matrix
+      tangles.convenience.SurveyTangles.typical_answers
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`change_agreement`
+        - Change the agreement lower bound
+      * - :func:`initialize_search`
+        - This function starts a tangle search on survey data
+      * - :func:`ordered_metadata`
+        - Return the metadata of the features (or separations) sorted corresponding to the order used for the tangle search
+      * - :func:`search`
+        - Search tangles
+      * - :func:`sepcified_features`
+        - Determine which features could be specified by the tangles found for the current agreement
+      * - :func:`tangle_matrix`
+        - Create a matrix indicating how the features (or separations) are specified (or oriented) by the tangles
+      * - :func:`typical_answers`
+        - Create a dataframe containing the 'typical' answers given by each tangle

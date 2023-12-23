@@ -1,0 +1,6 @@
+epsilon_neighborhood_graph
+==========================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: epsilon_neighborhood_graph

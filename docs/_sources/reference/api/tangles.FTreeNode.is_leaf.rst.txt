@@ -1,0 +1,6 @@
+is_leaf
+=======
+
+.. currentmodule:: tangles
+
+.. automethod:: FTreeNode.is_leaf

@@ -1,0 +1,6 @@
+entropy
+=======
+
+.. currentmodule:: tangles.util.entropy
+
+.. autofunction:: entropy

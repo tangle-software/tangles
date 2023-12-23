@@ -1,0 +1,27 @@
+tangles.util.preprocessing
+==========================
+
+.. currentmodule:: tangles.util.preprocessing
+
+.. automodule:: tangles.util.preprocessing
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.preprocessing.balance
+      tangles.util.preprocessing.normalize_length
+      tangles.util.preprocessing.standardize
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`balance`
+        - Each data vector, along the specified axis, gets its median subtracted from it
+      * - :func:`normalize_length`
+        - Normalize the euclidean length of the data along the specified axis
+      * - :func:`standardize`
+        - Standardize data such that, along the specified axis, the mean is 0 and the standard

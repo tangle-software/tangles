@@ -1,0 +1,6 @@
+add_features
+============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.add_features

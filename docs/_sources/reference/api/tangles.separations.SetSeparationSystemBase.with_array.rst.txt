@@ -1,0 +1,6 @@
+with_array
+==========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.with_array

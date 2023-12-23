@@ -1,0 +1,6 @@
+set_label
+=========
+
+.. currentmodule:: tangles
+
+.. automethod:: ToTNode.set_label

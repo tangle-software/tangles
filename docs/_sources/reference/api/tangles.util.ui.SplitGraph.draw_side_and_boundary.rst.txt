@@ -1,0 +1,6 @@
+draw_side_and_boundary
+======================
+
+.. currentmodule:: tangles.util.ui
+
+.. automethod:: SplitGraph.draw_side_and_boundary

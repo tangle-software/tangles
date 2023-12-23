@@ -1,0 +1,9 @@
+TextTerm
+========
+
+.. currentmodule:: tangles.util.logic
+
+.. autoclass:: TextTerm
+
+
+

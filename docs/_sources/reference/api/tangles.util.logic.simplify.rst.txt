@@ -1,0 +1,6 @@
+simplify
+========
+
+.. currentmodule:: tangles.util.logic
+
+.. autofunction:: simplify

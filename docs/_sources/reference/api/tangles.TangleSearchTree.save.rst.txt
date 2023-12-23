@@ -1,0 +1,6 @@
+save
+====
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.save

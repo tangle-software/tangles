@@ -1,0 +1,6 @@
+is_guiding
+==========
+
+.. currentmodule:: tangles.guiding
+
+.. autofunction:: is_guiding

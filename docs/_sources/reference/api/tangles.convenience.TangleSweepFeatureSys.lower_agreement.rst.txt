@@ -1,0 +1,6 @@
+lower_agreement
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: TangleSweepFeatureSys.lower_agreement

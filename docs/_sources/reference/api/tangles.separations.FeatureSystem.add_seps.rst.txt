@@ -1,0 +1,6 @@
+add_seps
+========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: FeatureSystem.add_seps

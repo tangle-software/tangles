@@ -1,0 +1,6 @@
+tangle_matrix
+=============
+
+.. currentmodule:: tangles
+
+.. automethod:: UncrossingSweep.tangle_matrix

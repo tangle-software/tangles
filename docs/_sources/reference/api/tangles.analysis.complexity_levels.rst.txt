@@ -1,0 +1,6 @@
+complexity_levels
+=================
+
+.. currentmodule:: tangles.analysis
+
+.. autofunction:: complexity_levels

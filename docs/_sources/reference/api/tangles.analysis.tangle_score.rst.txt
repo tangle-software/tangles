@@ -1,0 +1,6 @@
+tangle_score
+============
+
+.. currentmodule:: tangles.analysis
+
+.. autofunction:: tangle_score

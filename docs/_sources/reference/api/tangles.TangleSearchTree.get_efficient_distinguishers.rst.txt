@@ -1,0 +1,6 @@
+get_efficient_distinguishers
+============================
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.get_efficient_distinguishers

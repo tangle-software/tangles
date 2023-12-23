@@ -1,0 +1,6 @@
+valid_agreement_lower_bound
+===========================
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: SurveyTangles.valid_agreement_lower_bound

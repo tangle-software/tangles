@@ -1,0 +1,6 @@
+distribute
+==========
+
+.. currentmodule:: tangles.util.logic
+
+.. autofunction:: distribute

@@ -1,0 +1,6 @@
+ordered_metadata
+================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.ordered_metadata

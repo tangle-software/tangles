@@ -1,0 +1,52 @@
+tangles.separations
+===================
+
+.. currentmodule:: tangles.separations
+
+.. automodule:: tangles.separations
+
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.atomic_sets
+      tangles.separations.finding
+      tangles.separations.util
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.separations.atomic_sets`
+        - 
+      * - :mod:`tangles.separations.finding`
+        - 
+      * - :mod:`tangles.separations.util`
+        - 
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.separations.FeatureSystem
+      tangles.separations.MetaData
+      tangles.separations.SetSeparationSystem
+      tangles.separations.SetSeparationSystemBase
+      tangles.separations.SetSeparationSystemOrderFunc
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`FeatureSystem`
+        - 
+      * - :class:`MetaData`
+        - Metadata for separations
+      * - :class:`SetSeparationSystem`
+        - 
+      * - :class:`SetSeparationSystemBase`
+        - 
+      * - :class:`SetSeparationSystemOrderFunc`
+        - 
+

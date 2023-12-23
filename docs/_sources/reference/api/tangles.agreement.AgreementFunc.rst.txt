@@ -1,0 +1,9 @@
+AgreementFunc
+=============
+
+.. currentmodule:: tangles.agreement
+
+.. autoclass:: AgreementFunc
+
+
+

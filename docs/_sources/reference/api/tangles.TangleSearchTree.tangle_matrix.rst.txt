@@ -1,0 +1,6 @@
+tangle_matrix
+=============
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.tangle_matrix

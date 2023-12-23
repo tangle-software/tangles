@@ -1,0 +1,6 @@
+tree
+====
+
+.. currentmodule:: tangles
+
+.. autoproperty:: UncrossingSweep.tree

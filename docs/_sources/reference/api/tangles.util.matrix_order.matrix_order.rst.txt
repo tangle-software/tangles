@@ -1,0 +1,6 @@
+matrix_order
+============
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: matrix_order

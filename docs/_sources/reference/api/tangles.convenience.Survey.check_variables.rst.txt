@@ -1,0 +1,6 @@
+check_variables
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.check_variables

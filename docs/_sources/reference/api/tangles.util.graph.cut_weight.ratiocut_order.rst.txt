@@ -1,0 +1,6 @@
+ratiocut_order
+==============
+
+.. currentmodule:: tangles.util.graph.cut_weight
+
+.. autofunction:: ratiocut_order

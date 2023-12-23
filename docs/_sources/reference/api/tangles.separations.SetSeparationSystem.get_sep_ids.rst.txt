@@ -1,0 +1,6 @@
+get_sep_ids
+===========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystem.get_sep_ids

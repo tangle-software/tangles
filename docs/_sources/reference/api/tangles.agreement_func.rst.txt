@@ -1,0 +1,6 @@
+agreement_func
+==============
+
+.. currentmodule:: tangles
+
+.. autofunction:: agreement_func

@@ -1,0 +1,6 @@
+leaves_in_subtree
+=================
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.leaves_in_subtree

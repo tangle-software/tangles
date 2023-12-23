@@ -1,0 +1,6 @@
+search_tree
+===========
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.search_tree

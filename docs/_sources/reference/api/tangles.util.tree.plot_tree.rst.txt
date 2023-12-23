@@ -1,0 +1,6 @@
+plot_tree
+=========
+
+.. currentmodule:: tangles.util.tree
+
+.. autofunction:: plot_tree

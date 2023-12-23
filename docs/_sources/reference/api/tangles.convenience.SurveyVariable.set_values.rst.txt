@@ -1,0 +1,6 @@
+set_values
+==========
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.set_values

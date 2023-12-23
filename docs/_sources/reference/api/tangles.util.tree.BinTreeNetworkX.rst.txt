@@ -1,0 +1,47 @@
+BinTreeNetworkX
+===============
+
+.. currentmodule:: tangles.util.tree
+
+.. autoclass:: BinTreeNetworkX
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.tree.BinTreeNetworkX.graph
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`graph`
+        - The underlying directed graph of the tree
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.tree.BinTreeNetworkX.draw
+      tangles.util.tree.BinTreeNetworkX.get_ids_from_label
+      tangles.util.tree.BinTreeNetworkX.get_label
+      tangles.util.tree.BinTreeNetworkX.relabel
+      tangles.util.tree.BinTreeNetworkX.tst_layout
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`draw`
+        - Draw the tree and label the tangles with their id
+      * - :func:`get_ids_from_label`
+        - Get a list of all tangle ids which are labeled in the tree by the specified label
+      * - :func:`get_label`
+        - Get the label of the node representing the tangle with the specified tangle id
+      * - :func:`relabel`
+        - Relabel a node of the tree
+      * - :func:`tst_layout`
+        - Position the nodes of the tree in the following way:

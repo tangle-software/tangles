@@ -1,0 +1,39 @@
+tangles.util
+============
+
+.. currentmodule:: tangles.util
+
+.. automodule:: tangles.util
+
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.entropy
+      tangles.util.graph
+      tangles.util.logic
+      tangles.util.matrix_order
+      tangles.util.preprocessing
+      tangles.util.tree
+      tangles.util.ui
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.util.entropy`
+        - 
+      * - :mod:`tangles.util.graph`
+        - 
+      * - :mod:`tangles.util.logic`
+        - 
+      * - :mod:`tangles.util.matrix_order`
+        - 
+      * - :mod:`tangles.util.preprocessing`
+        - 
+      * - :mod:`tangles.util.tree`
+        - 
+      * - :mod:`tangles.util.ui`
+        - 
+
+

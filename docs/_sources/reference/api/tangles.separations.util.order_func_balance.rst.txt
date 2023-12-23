@@ -1,0 +1,6 @@
+order_func_balance
+==================
+
+.. currentmodule:: tangles.separations.util
+
+.. autofunction:: order_func_balance

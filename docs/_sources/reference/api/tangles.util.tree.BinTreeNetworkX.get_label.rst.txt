@@ -1,0 +1,6 @@
+get_label
+=========
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNetworkX.get_label

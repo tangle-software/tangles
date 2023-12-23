@@ -1,0 +1,6 @@
+image_to_similarity_graph
+=========================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: image_to_similarity_graph

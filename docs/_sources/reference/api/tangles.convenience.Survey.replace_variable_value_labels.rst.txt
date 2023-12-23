@@ -1,0 +1,6 @@
+replace_variable_value_labels
+=============================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.replace_variable_value_labels

@@ -1,0 +1,6 @@
+path_from_root_indicator
+========================
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNode.path_from_root_indicator

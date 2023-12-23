@@ -1,0 +1,6 @@
+maximal_tangles
+===============
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchTree.maximal_tangles

@@ -1,0 +1,89 @@
+tangles
+=======
+
+.. currentmodule:: tangles
+
+.. automodule:: tangles
+
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.agreement
+      tangles.analysis
+      tangles.convenience
+      tangles.guiding
+      tangles.search
+      tangles.separations
+      tangles.util
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.agreement`
+        - 
+      * - :mod:`tangles.analysis`
+        - 
+      * - :mod:`tangles.convenience`
+        - 
+      * - :mod:`tangles.guiding`
+        - Calculate and analyse guiding sets
+      * - :mod:`tangles.search`
+        - 
+      * - :mod:`tangles.separations`
+        - 
+      * - :mod:`tangles.util`
+        - 
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.FTreeNode
+      tangles.Tangle
+      tangles.TangleSearchTree
+      tangles.TangleSweep
+      tangles.ToTEdge
+      tangles.ToTNode
+      tangles.TreeOfTangles
+      tangles.UncrossingSweep
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`FTreeNode`
+        - An Forbidden-Tuples-Tree (FTT)
+      * - :class:`Tangle`
+        - A node in the tangle search tree
+      * - :class:`TangleSearchTree`
+        - A rooted binary tree that is created while searching tangles
+      * - :class:`TangleSweep`
+        - Search object which builds and extends the tangle search tree
+      * - :class:`ToTEdge`
+        - An edge in a tree of tangles
+      * - :class:`ToTNode`
+        - A node in a tree of tangles
+      * - :class:`TreeOfTangles`
+        - A tree which nodes are precisely the maximal tangles in the tangle search tree
+      * - :class:`UncrossingSweep`
+        - A :class:`TangleSweep` wrapped with uncrossing functionality
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.agreement_func
+      tangles.uncross_distinguishers
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`agreement_func`
+        - Return an agreement function that calculates the agreement value for separations in the given separation system
+      * - :func:`uncross_distinguishers`
+        - Uncross the efficient distinguishers of tangles of at least the specified `agreement` value

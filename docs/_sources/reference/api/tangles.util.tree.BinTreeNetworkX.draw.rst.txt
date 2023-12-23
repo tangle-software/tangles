@@ -1,0 +1,6 @@
+draw
+====
+
+.. currentmodule:: tangles.util.tree
+
+.. automethod:: BinTreeNetworkX.draw

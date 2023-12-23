@@ -1,0 +1,6 @@
+visibility
+==========
+
+.. currentmodule:: tangles.analysis
+
+.. autofunction:: visibility

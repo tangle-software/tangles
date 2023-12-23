@@ -1,0 +1,6 @@
+is_valid_type
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyVariable.is_valid_type

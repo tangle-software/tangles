@@ -1,0 +1,65 @@
+tangles.util.logic
+==================
+
+.. currentmodule:: tangles.util.logic
+
+.. automodule:: tangles.util.logic
+
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.logic.sep_to_term
+      tangles.util.logic.term
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.util.logic.sep_to_term`
+        - 
+      * - :mod:`tangles.util.logic.term`
+        - A logcial term made up of "conjunctions of clauses which themselves are disjunctions of literals" is said to be in
+
+
+   .. rubric:: Classes
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.logic.ConjunctiveNormalForm
+      tangles.util.logic.DisjunctiveNormalForm
+      tangles.util.logic.LogicTerm
+      tangles.util.logic.TextTerm
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :class:`ConjunctiveNormalForm`
+        - 
+      * - :class:`DisjunctiveNormalForm`
+        - 
+      * - :class:`LogicTerm`
+        - 
+      * - :class:`TextTerm`
+        - 
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.util.logic.append
+      tangles.util.logic.distribute
+      tangles.util.logic.simplify
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`append`
+        - If the input is in CNF, calculates
+      * - :func:`distribute`
+        - If the input is in CNF, calculates
+      * - :func:`simplify`
+        - Simplifies a matrix in either CNF or DNF

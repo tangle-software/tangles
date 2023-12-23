@@ -1,0 +1,9 @@
+MatrixOrderSVD
+==============
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autoclass:: MatrixOrderSVD
+
+
+

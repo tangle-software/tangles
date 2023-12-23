@@ -1,0 +1,36 @@
+tangles.analysis
+================
+
+.. currentmodule:: tangles.analysis
+
+.. automodule:: tangles.analysis
+
+
+
+   .. rubric:: Functions
+
+   .. toctree::
+      :hidden:
+
+      tangles.analysis.coherence_levels
+      tangles.analysis.complexity_levels
+      tangles.analysis.hard_clustering_tuebingen
+      tangles.analysis.soft_clustering_tuebingen
+      tangles.analysis.tangle_score
+      tangles.analysis.visibility
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`coherence_levels`
+        - Calculate the coherence levels of tangles
+      * - :func:`complexity_levels`
+        - Calculates the complexity levels of tangles
+      * - :func:`hard_clustering_tuebingen`
+        - Implements hard clustering as described in the Tuebingen Paper
+      * - :func:`soft_clustering_tuebingen`
+        - Implements soft clustering as described in the Tuebingen Paper
+      * - :func:`tangle_score`
+        - Calculates the tangle scores, a measure of how much a point is 'contained' within a tangle
+      * - :func:`visibility`
+        - Calculate the visibility of the tangles in the tangle matrix

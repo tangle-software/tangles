@@ -1,0 +1,6 @@
+degree
+======
+
+.. currentmodule:: tangles
+
+.. automethod:: ToTNode.degree
