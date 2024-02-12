@@ -43,20 +43,6 @@ class MetaData:
         self.orientation = orientation
         self.next = None
 
-    @staticmethod
-    def from_dict(dcit: dict):
-        m = MetaData(dcit["type"], dcit["orientation"], dcit["type"])
-        next = dcit.get("next")
-        if next:
-            m.next = MetaData.from_dict(next)
-        return m
-
-    def to_dict(self):
-        dcit = {"type":self.type, "info":self.info, "orientation":self.orientation}
-        if self.next:
-            dcit["next"] = self.next.todict()
-        return dcit
-
     def append(self, metadata: 'MetaData'):
         """
         Append another piece of metadata to the same separation.
