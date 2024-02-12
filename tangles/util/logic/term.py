@@ -27,6 +27,7 @@ On the other hand (A and B) or C or (not A) would be encoded as
     (0 1  0)
 
 As you can see, it is not possible from the matrix to tell which of these two normal forms the matrices are in.
+
 """
 
 from abc import ABC, abstractmethod

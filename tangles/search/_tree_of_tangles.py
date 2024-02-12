@@ -1,6 +1,7 @@
-from typing import List,Union
+from typing import List, Union
 import numpy as np
 from tangles.util.tree import TreeNode
+
 
 class ToTNode(TreeNode):
     """
@@ -53,7 +54,7 @@ class ToTNode(TreeNode):
         self.label = label
 
     @property
-    def neighbours(self) -> List['ToTNode']:
+    def neighbours(self) -> List["ToTNode"]:
         """
         All neighbors of this node.
         """
@@ -66,12 +67,12 @@ class ToTNode(TreeNode):
             edge_set.update(node.edges)
         return list(edge_set)
 
-
     @property
     def star(self):
         sep_ids = np.array([e.sep_id for e in self.edges], dtype=int)
         orientations = self.reduced_tangle[[e.sep_idx for e in self.edges]]
         return sep_ids, orientations
+
 
 class ToTEdge:
     """
@@ -109,7 +110,12 @@ class TreeOfTangles:
     Each edge between two nodes corresponds to the efficient distinguisher of the incident nodes.
     """
 
-    def __init__(self, sep_ids: np.ndarray, nodes: List[ToTNode], edges: Union[List[ToTEdge],None] = None):
+    def __init__(
+        self,
+        sep_ids: np.ndarray,
+        nodes: List[ToTNode],
+        edges: Union[List[ToTEdge], None] = None,
+    ):
         self.sep_ids = sep_ids
         self.nodes = nodes
         self.tangle_matrix = None
@@ -128,9 +134,11 @@ class TreeOfTangles:
             A node of the tree.
         """
 
-        return self.nodes[0] if len(self.nodes)>0 else None
+        return self.nodes[0] if len(self.nodes) > 0 else None
 
-    def __eq__(self, other):    # does not check the tangle_idx, this means, trees coming from permuted tangle_matrices should still be equal
+    def __eq__(
+        self, other
+    ):  # does not check the tangle_idx, this means, trees coming from permuted tangle_matrices should still be equal
         if len(self.sep_ids) != len(other.sep_ids):
             return False
         if np.any(self.sep_ids != other.sep_ids):
@@ -147,12 +155,14 @@ class TreeOfTangles:
             e2 = sorted(n2.edges, key=lambda n: n.sep_id)
             if len(e1) != len(e2):
                 return False
-            for a,b in zip(e1, e2):
+            for a, b in zip(e1, e2):
                 if a.sep_id != b.sep_id:
                     return False
                 if a.sep_idx != b.sep_idx:
                     return False
-                if (a.other_end(n1).reduced_tangle != b.other_end(n2).reduced_tangle).any():
+                if (
+                    a.other_end(n1).reduced_tangle != b.other_end(n2).reduced_tangle
+                ).any():
                     return False
 
         return True
@@ -166,11 +176,14 @@ def create_tot(bin_tree_root, sep_ids, sep_idx, reduced_tangle_mat, le_func):
         children = bin_tree_root.children()
 
     if len(children) == 0:
-        return ToTNode(bin_tree_root.indicator_row, reduced_tangle_mat[bin_tree_root.indicator_row,:])
+        return ToTNode(
+            bin_tree_root.indicator_row,
+            reduced_tangle_mat[bin_tree_root.indicator_row, :],
+        )
 
-    edge = ToTEdge(sep_id = sep_ids[sep_idx], sep_idx = sep_idx)
-    node1 = create_tot(children[0], sep_ids, sep_idx+1, reduced_tangle_mat, le_func)
-    node2 = create_tot(children[1], sep_ids, sep_idx+1, reduced_tangle_mat, le_func)
+    edge = ToTEdge(sep_id=sep_ids[sep_idx], sep_idx=sep_idx)
+    node1 = create_tot(children[0], sep_ids, sep_idx + 1, reduced_tangle_mat, le_func)
+    node2 = create_tot(children[1], sep_ids, sep_idx + 1, reduced_tangle_mat, le_func)
 
     node1 = _find_incident_node(edge.sep_id, -1, node1, le_func)
     node2 = _find_incident_node(edge.sep_id, 1, node2, le_func)
@@ -181,17 +194,24 @@ def create_tot(bin_tree_root, sep_ids, sep_idx, reduced_tangle_mat, le_func):
 
     return node1
 
+
 def _find_incident_node(sep_id, sep_orientation, subtree_node, le_func):
     sub_tree_edges = subtree_node.all_tot_edges()
     if len(sub_tree_edges) == 0:
         return subtree_node
 
     best_edge = sub_tree_edges[0]
-    best_orientation = -1 if le_func(best_edge.sep_id, -1, sep_id, sep_orientation) else 1
+    best_orientation = (
+        -1 if le_func(best_edge.sep_id, -1, sep_id, sep_orientation) else 1
+    )
     for edge in sub_tree_edges[1:]:
         orientation = -1 if le_func(edge.sep_id, -1, sep_id, sep_orientation) else 1
         if le_func(best_edge.sep_id, best_orientation, edge.sep_id, orientation):
             best_edge = edge
             best_orientation = orientation
 
-    return best_edge.node2 if best_edge.node1.reduced_tangle[best_edge.sep_idx] == best_orientation else best_edge.node1
+    return (
+        best_edge.node2
+        if best_edge.node1.reduced_tangle[best_edge.sep_idx] == best_orientation
+        else best_edge.node1
+    )

@@ -3,6 +3,7 @@ import numpy as np
 import scipy.sparse as sparse
 import scipy.sparse.csgraph as csg
 
+
 def connected_component_indicators(A: Union[sparse.spmatrix, np.ndarray]) -> np.ndarray:
     """
     Compute a matrix containing indicator vectors of the connected components of a graph as columns.

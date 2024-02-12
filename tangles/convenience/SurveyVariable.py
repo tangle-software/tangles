@@ -25,7 +25,7 @@ class UnionOfIntervals:
         return UnionOfIntervals(-np.inf, 0, False, include_zero)
 
     @staticmethod
-    def create_with_isolated_points(iterable:Iterable):
+    def create_with_isolated_points(iterable: Iterable):
         iterator = iter(iterable)
         v = next(iterator, None)
         if v is None:
@@ -37,13 +37,15 @@ class UnionOfIntervals:
         return res
 
     @staticmethod
-    def create_with_tuples(tuples: list): # it's a union :-)
+    def create_with_tuples(tuples: list):  # it's a union :-)
         res = UnionOfIntervals(*tuples[0])
         for t in tuples[1:]:
             res = res | UnionOfIntervals(*t)
         return res
 
-    def __init__(self, min=0, max=0, min_incl=False, max_incl=False, prev=None, next=None):
+    def __init__(
+        self, min=0, max=0, min_incl=False, max_incl=False, prev=None, next=None
+    ):
         self.min, self.max, self.min_incl, self.max_incl = min, max, min_incl, max_incl
         self.prev, self.next = prev, next
 
@@ -62,10 +64,15 @@ class UnionOfIntervals:
         if self.is_all() and other.is_all():
             return True
 
-        return (self.min==other.min and self.max==other.max and self.min_incl==other.min_incl and self.max_incl==other.max_incl and
-                self.next == other.next) # we ignore prev, to be able to check tails (does anyone need this...? ;-) )
+        return (
+            self.min == other.min
+            and self.max == other.max
+            and self.min_incl == other.min_incl
+            and self.max_incl == other.max_incl
+            and self.next == other.next
+        )  # we ignore prev, to be able to check tails (does anyone need this...? ;-) )
 
-    def __contains__(self,p):
+    def __contains__(self, p):
         if not isinstance(p, numbers.Number):
             return False
         if self.min < p < self.max:
@@ -78,13 +85,13 @@ class UnionOfIntervals:
             return self.next.__contains__(p)
         return False
 
-
     def __str__(self):
         a, s = self, ""
         while True:
             s += f"{'[' if a.min_incl else '('}{a.min},{a.max}{']' if a.max_incl else ')'}"
-            if (a := a.next) is None: break
-            s += ' u '
+            if (a := a.next) is None:
+                break
+            s += " u "
         return s
 
     def __iter__(self):
@@ -95,7 +102,8 @@ class UnionOfIntervals:
 
     def __len__(self):
         a, l = self, 1
-        while (a := a.next): l += 1
+        while a := a.next:
+            l += 1
         return l
 
     def points(self):
@@ -105,9 +113,12 @@ class UnionOfIntervals:
             yield ptr.max, ptr.max_incl
             ptr = ptr.next
 
-
     def is_empty(self):
-        return self.min > self.max or self.min == self.max and not (self.min_incl and self.max_incl)
+        return (
+            self.min > self.max
+            or self.min == self.max
+            and not (self.min_incl and self.max_incl)
+        )
 
     def is_all(self):
         return self.min == -np.inf and self.max == np.inf
@@ -122,25 +133,51 @@ class UnionOfIntervals:
         if plist[0][0] == -np.inf:
             plist = plist[1:]
         else:
-            plist.insert(0,(-np.inf, True))
+            plist.insert(0, (-np.inf, True))
         if plist[-1][0] == np.inf:
             plist = plist[:-1]
         else:
             plist.append((np.inf, True))
-        res = res_ptr = UnionOfIntervals(plist[0][0], plist[1][0], not plist[0][1], not plist[1][1])
-        for i in range(2,len(plist), 2):
-            res_ptr.next = UnionOfIntervals(plist[i][0], plist[i + 1][0], not plist[i][1], not plist[i + 1][1], prev = res_ptr)
+        res = res_ptr = UnionOfIntervals(
+            plist[0][0], plist[1][0], not plist[0][1], not plist[1][1]
+        )
+        for i in range(2, len(plist), 2):
+            res_ptr.next = UnionOfIntervals(
+                plist[i][0],
+                plist[i + 1][0],
+                not plist[i][1],
+                not plist[i + 1][1],
+                prev=res_ptr,
+            )
             res_ptr = res_ptr.next
         return res
 
-    def __and__(self, other: 'UnionOfIntervals'):
+    def __and__(self, other: "UnionOfIntervals"):
         res, res_it, i1, i2 = None, None, self, other
         while i1 and i2:
-            lo, lo_incl = (i1.min, i1.min_incl) if i1.min > i2.min else (i2.min, i2.min_incl) if i1.min < i2.min else (i1.min, i1.min_incl and i2.min_incl)
-            hi, hi_incl = (i1.max, i1.max_incl) if i1.max < i2.max else (i2.max, i2.max_incl) if i1.max > i2.max else (i1.max, i1.max_incl and i2.max_incl)
+            lo, lo_incl = (
+                (i1.min, i1.min_incl)
+                if i1.min > i2.min
+                else (
+                    (i2.min, i2.min_incl)
+                    if i1.min < i2.min
+                    else (i1.min, i1.min_incl and i2.min_incl)
+                )
+            )
+            hi, hi_incl = (
+                (i1.max, i1.max_incl)
+                if i1.max < i2.max
+                else (
+                    (i2.max, i2.max_incl)
+                    if i1.max > i2.max
+                    else (i1.max, i1.max_incl and i2.max_incl)
+                )
+            )
             if lo < hi or lo == hi and (lo_incl or hi_incl):
                 if res_it:
-                    res_it.next = UnionOfIntervals(lo, hi, lo_incl, hi_incl, prev=res_it)
+                    res_it.next = UnionOfIntervals(
+                        lo, hi, lo_incl, hi_incl, prev=res_it
+                    )
                     res_it = res_it.next
                 else:
                     res = UnionOfIntervals(lo, hi, lo_incl, hi_incl)
@@ -152,18 +189,14 @@ class UnionOfIntervals:
                 i2 = i2.next
         return res if res else UnionOfIntervals.nothing()
 
-    def __or__(self, other: 'UnionOfIntervals'):
+    def __or__(self, other: "UnionOfIntervals"):
         return ~((~self) & (~other))
 
-    def __sub__(self, other: 'UnionOfIntervals'):
+    def __sub__(self, other: "UnionOfIntervals"):
         return self & (~other)
 
-    def __xor__(self, other: 'UnionOfIntervals'):
-        return (self-other) | (other-self)
-
-
-
-
+    def __xor__(self, other: "UnionOfIntervals"):
+        return (self - other) | (other - self)
 
 
 class SurveyVariable(ABC):
@@ -185,15 +218,35 @@ class SurveyVariable(ABC):
         A flag that is True, if we are sure that we can automatically create nice features for this question.
     """
 
-    numeric_types = ['scale', 'continuous', 'numeric', 'numerical', 'conti', 'contin', 'cont', 'num', 'numi']
+    numeric_types = [
+        "scale",
+        "continuous",
+        "numeric",
+        "numerical",
+        "conti",
+        "contin",
+        "cont",
+        "num",
+        "numi",
+    ]
     """possible names of numeric variables
     """
 
-    ordinal_types = ['ordinal', 'ord', 'ordi','ordin']
+    ordinal_types = ["ordinal", "ord", "ordi", "ordin"]
     """possible names of ordinal variables
     """
 
-    nominal_types = ['nominal', 'categorial', 'categorical', 'nom', 'nomi', 'nomin', 'cat', 'binary', 'bin']
+    nominal_types = [
+        "nominal",
+        "categorial",
+        "categorical",
+        "nom",
+        "nomi",
+        "nomin",
+        "cat",
+        "binary",
+        "bin",
+    ]
     """possible names of nominal variables
     """
 
@@ -212,19 +265,33 @@ class SurveyVariable(ABC):
             Whether the string is a valid.
         """
 
-        return (type_name in SurveyVariable.numeric_types or
-                type_name in SurveyVariable.ordinal_types or
-                type_name in SurveyVariable.nominal_types)
+        return (
+            type_name in SurveyVariable.numeric_types
+            or type_name in SurveyVariable.ordinal_types
+            or type_name in SurveyVariable.nominal_types
+        )
 
-    def __init__(self, name: str, type: str = 'unknown', label: Optional[str] = None, valid_values: Optional[dict] = None, invalid_values:Optional[dict] = None, is_usable: bool = False):
+    def __init__(
+        self,
+        name: str,
+        type: str = "unknown",
+        label: Optional[str] = None,
+        valid_values: Optional[dict] = None,
+        invalid_values: Optional[dict] = None,
+        is_usable: bool = False,
+    ):
         self.name = name
         self.type = type
         self.label = label
         self.valid_values = dict(sorted(valid_values.items())) if valid_values else {}
-        self.invalid_values = dict(sorted(invalid_values.items())) if invalid_values else {}
+        self.invalid_values = (
+            dict(sorted(invalid_values.items())) if invalid_values else {}
+        )
         self.is_usable = is_usable
 
-    def set_values(self, valid_values:Optional[dict] = None, invalid_values: Optional[dict] = None):
+    def set_values(
+        self, valid_values: Optional[dict] = None, invalid_values: Optional[dict] = None
+    ):
         """Set this survey variable's valid and invalid values.
 
         Parameters
@@ -240,7 +307,9 @@ class SurveyVariable(ABC):
         if invalid_values is not None:
             self.invalid_values = dict(sorted(invalid_values.items()))
 
-    def add_values(self, valid_values: Optional[dict] = None, invalid_values: Optional[dict] = None):
+    def add_values(
+        self, valid_values: Optional[dict] = None, invalid_values: Optional[dict] = None
+    ):
         """Add `valid_values` and `invalid_values` to this survey variable's valid and invalid values, respectively.
 
         Parameters
@@ -254,7 +323,9 @@ class SurveyVariable(ABC):
         if valid_values is not None:
             self.valid_values = dict(sorted((valid_values | self.valid_values).items()))
         if invalid_values is not None:
-            self.invalid_values = dict(sorted((invalid_values | self.invalid_values).items()))
+            self.invalid_values = dict(
+                sorted((invalid_values | self.invalid_values).items())
+            )
 
     def replace_values(self, mapping: dict):
         """Replace values by other values. The labels are retained.
@@ -265,8 +336,12 @@ class SurveyVariable(ABC):
             The mapping.
         """
 
-        self.valid_values = dict(sorted((mapping.get(v) or v,l) for v,l in self.valid_values.items()))
-        self.invalid_values = dict(sorted((mapping.get(v) or v,l) for v, l in self.invalid_values.items()))
+        self.valid_values = dict(
+            sorted((mapping.get(v) or v, l) for v, l in self.valid_values.items())
+        )
+        self.invalid_values = dict(
+            sorted((mapping.get(v) or v, l) for v, l in self.invalid_values.items())
+        )
 
     def set_value_labels(self, mapping: dict):
         """Replace value labels by other labels, if the corresponding values are in the mapping.
@@ -277,8 +352,12 @@ class SurveyVariable(ABC):
             The mapping.
         """
 
-        self.valid_values = dict(sorted((v, mapping.get(v) or l) for v, l in self.valid_values.items()))
-        self.invalid_values = dict(sorted((v, mapping.get(v) or l) for v, l in self.invalid_values.items()))
+        self.valid_values = dict(
+            sorted((v, mapping.get(v) or l) for v, l in self.valid_values.items())
+        )
+        self.invalid_values = dict(
+            sorted((v, mapping.get(v) or l) for v, l in self.invalid_values.items())
+        )
 
     def is_valid_type(self) -> bool:
         """Check the validity of this variable's type string.
@@ -290,7 +369,6 @@ class SurveyVariable(ABC):
         """
 
         return SurveyVariable.is_valid_type_name(self.type)
-
 
     def is_nominal_type(self):
         """Check if this variable is nominal.
@@ -344,8 +422,7 @@ class SurveyVariable(ABC):
             return False
         return op in cl.allowed_operations
 
-
-    def create_values(self) -> 'SurveyVariableValues':
+    def create_values(self) -> "SurveyVariableValues":
         """Create a :class:`SurveyVariableValues` object for this variable.
 
         Returns
@@ -393,22 +470,29 @@ class SurveyVariable(ABC):
 
     def to_row(self) -> list:
         """Return the information contained in this object as a row.
-        
+
         The returned row can be inserted in a :class:`pandas.DataFrame`.
 
         Returns
         -------
         list
-            A list of length 6 containing the name, the type, the label, the valid values, the invalid values 
+            A list of length 6 containing the name, the type, the label, the valid values, the invalid values
             and whether this variable is usable.
         """
 
-        return [self.name, self.type, self.label, self.valid_values, self.invalid_values, self.is_usable]
+        return [
+            self.name,
+            self.type,
+            self.label,
+            self.valid_values,
+            self.invalid_values,
+            self.is_usable,
+        ]
 
     def __str__(self) -> str:
         """Convert this SurveyVariable's information to a string.
-        
-        The information contains the name, the type, the label, the valid values, the invalid values 
+
+        The information contains the name, the type, the label, the valid values, the invalid values
         and whether this variable is usable.
 
         Returns
@@ -419,7 +503,7 @@ class SurveyVariable(ABC):
 
         return str(self.to_row())
 
-    def __copy__(self) -> 'SurveyVariable':
+    def __copy__(self) -> "SurveyVariable":
         """Copy this object.
 
         Returns
@@ -428,17 +512,25 @@ class SurveyVariable(ABC):
             A copy of this object.
         """
 
-        return SurveyVariable(self.name, self.type, self.label, self.valid_values.copy(), self.invalid_values.copy(), self.is_usable)
+        return SurveyVariable(
+            self.name,
+            self.type,
+            self.label,
+            self.valid_values.copy(),
+            self.invalid_values.copy(),
+            self.is_usable,
+        )
+
 
 class SurveyVariableValues:
-    """ This class manages the interaction of variables (and their lists of values) and features (or separations). 
+    """This class manages the interaction of variables (and their lists of values) and features (or separations).
 
     Objects of this class represent the values a survey variable can take after all or a part of the corresponding
     features (or separations) are specified (or oriented) by a tangle.
-    
-    For example: We assume we have a tangle that contains some specified features corresponding to this variable. 
+
+    For example: We assume we have a tangle that contains some specified features corresponding to this variable.
     If an ordinal variable can take values in :math:`\{1, \dots, 10\}` and our tangle contains two specified features,
-    one containing points with values greater than :math:`4` and one containing points with values smaller than 
+    one containing points with values greater than :math:`4` and one containing points with values smaller than
     :math:`7`, then the remaining possible values of this variable in our tangle are :math:`\{5,6\}`.
 
     Parameters
@@ -451,19 +543,21 @@ class SurveyVariableValues:
         self.var = var
 
     def __str__(self) -> str:
-        """ String representation.
+        """String representation.
 
         Returns
         -------
         str
             A string representation of this variable's possible values.
         """
-        
+
         return f"{self.var.name} [{self.var.type}]: values in {self.possible_values_representation}"
 
-    def update_values_for_specification(self, sep_orientation: int, sep_metadata: Tuple, metadata_orientation: int):
-        """ Update the list of possible values a variable can take.
-        
+    def update_values_for_specification(
+        self, sep_orientation: int, sep_metadata: Tuple, metadata_orientation: int
+    ):
+        """Update the list of possible values a variable can take.
+
         This function is called after a corresponding feature has been specified.
 
         Parameters
@@ -479,7 +573,11 @@ class SurveyVariableValues:
         if sep_orientation == 0:
             return
         if sep_orientation != metadata_orientation:
-            sep_metadata = (sep_metadata[0], SurveyVariableValues.invert_op(sep_metadata[1]), sep_metadata[2])
+            sep_metadata = (
+                sep_metadata[0],
+                SurveyVariableValues.invert_op(sep_metadata[1]),
+                sep_metadata[2],
+            )
         self._update_possible_values_impl(sep_metadata)
 
     @abstractmethod
@@ -487,8 +585,8 @@ class SurveyVariableValues:
         pass
 
     @abstractmethod
-    def possible_values_representation(self, insert_labels:  bool = False):
-        """ Return a representation of the possible values the corresponding variable can take (according to specifications seen so far).
+    def possible_values_representation(self, insert_labels: bool = False):
+        """Return a representation of the possible values the corresponding variable can take (according to specifications seen so far).
 
         Abstract function, to be implemented by specialised subclasses.
 
@@ -519,23 +617,32 @@ class SurveyVariableValues:
             The inverted operation.
         """
 
-        if op == '==': return '!='
-        elif op == '!=': return '=='
-        elif op == '<': return  '>='
-        elif op == '>': return '<='
-        elif op == '<=': return '>'
-        elif op == '>=': return '<'
-        elif op == 'in': return 'not in'
-        elif op == 'not in': return 'in'
+        if op == "==":
+            return "!="
+        elif op == "!=":
+            return "=="
+        elif op == "<":
+            return ">="
+        elif op == ">":
+            return "<="
+        elif op == "<=":
+            return ">"
+        elif op == ">=":
+            return "<"
+        elif op == "in":
+            return "not in"
+        elif op == "not in":
+            return "in"
         else:
             raise ValueError(f"invert_op: don't understand operation: {op}")
 
-class NominalVariableValues(SurveyVariableValues):
-    """ A nominal :class:`SurveyVariableValues` class.
 
-    The values a nominal variable can take is represented as set of possible values. 
+class NominalVariableValues(SurveyVariableValues):
+    """A nominal :class:`SurveyVariableValues` class.
+
+    The values a nominal variable can take is represented as set of possible values.
     This set is taking specifications of features corresponding to this variable into account, making it a subset of
-    all possible values of this variable. 
+    all possible values of this variable.
 
     Parameters
     ----------
@@ -543,7 +650,7 @@ class NominalVariableValues(SurveyVariableValues):
         Corresponding survey variable.
     """
 
-    allowed_operations = {'==','!=','in', 'not in'}
+    allowed_operations = {"==", "!=", "in", "not in"}
     """operations allowed for a nominal variable's values list"""
 
     def __init__(self, var: SurveyVariable):
@@ -553,10 +660,10 @@ class NominalVariableValues(SurveyVariableValues):
     def clear_possible_values(self):
         self.possible_values = set()
 
-    def possible_values_representation(self, insert_labels:  bool = False):
+    def possible_values_representation(self, insert_labels: bool = False):
         sorted_values = sorted(self.possible_values)
         if insert_labels:
-            if len(sorted_values) == 0: # happens in "black hole" tangles
+            if len(sorted_values) == 0:  # happens in "black hole" tangles
                 labels = "[]"
             elif len(sorted_values) == 1:
                 labels = f"{self.var.valid_values.get(sorted_values[0], None) or sorted_values[0]}"
@@ -570,33 +677,38 @@ class NominalVariableValues(SurveyVariableValues):
             return tuple(sorted_values)
 
     def _update_possible_values_impl(self, sep_metadata: Tuple):
-        assert(sep_metadata[0] == self.var.name)
-        if (op := sep_metadata[1]) == '==':
+        assert sep_metadata[0] == self.var.name
+        if (op := sep_metadata[1]) == "==":
             self.possible_values = {sep_metadata[2]}
-        elif op == '!=':
+        elif op == "!=":
             self.possible_values.difference_update({sep_metadata[2]})
-        elif op == 'in':
+        elif op == "in":
             self.possible_values.intersection_update(sep_metadata[2])
-        elif op == 'not in':
+        elif op == "not in":
             self.possible_values.difference_update(sep_metadata[2])
         else:
             raise ValueError(f"operation '{op}' not allowed for nominal variable")
 
 
 class OrdinalVariableValues(NominalVariableValues):
-    """ An ordinal :class:`SurveyVariableValues` class.
+    """An ordinal :class:`SurveyVariableValues` class.
 
-    The values a nominal variable can take is represented as set of possible values. 
+    The values a nominal variable can take is represented as set of possible values.
     This set is taking specifications of features corresponding to this variable into account, making it a subset of
-    all possible values of this variable. 
-    
+    all possible values of this variable.
+
     Parameters
     ----------
     var : :class:`SurveyVariable`
         Corresponding survey variable.
     """
 
-    allowed_operations = NominalVariableValues.allowed_operations | {'<', '<=', '>', '>='}
+    allowed_operations = NominalVariableValues.allowed_operations | {
+        "<",
+        "<=",
+        ">",
+        ">=",
+    }
     """operations allowed for a ordinal variable's values list"""
 
     def __init__(self, var: SurveyVariable):
@@ -608,8 +720,15 @@ class OrdinalVariableValues(NominalVariableValues):
             if num_poss_answers == 0:
                 return "[]"
             all_pos_v_sorted = sorted(self.var.valid_values.keys())
-            min_answer, max_answer = min(self.possible_values), max(self.possible_values)
-            if num_poss_answers>2 and all_pos_v_sorted.index(max_answer)-all_pos_v_sorted.index(min_answer) == num_poss_answers-1:
+            min_answer, max_answer = min(self.possible_values), max(
+                self.possible_values
+            )
+            if (
+                num_poss_answers > 2
+                and all_pos_v_sorted.index(max_answer)
+                - all_pos_v_sorted.index(min_answer)
+                == num_poss_answers - 1
+            ):
                 return f"[{self.var.valid_values[min_answer]}; ... ; {self.var.valid_values[max_answer]}]"
             else:
                 return super().possible_values_representation(True)
@@ -620,24 +739,32 @@ class OrdinalVariableValues(NominalVariableValues):
         if sep_metadata[1] in NominalVariableValues.allowed_operations:
             return super()._update_possible_values_impl(sep_metadata)
 
-        if (op := sep_metadata[1]) == '<':
-            self.possible_values = {v for v in self.possible_values if v < sep_metadata[2]}
-        elif op == '<=':
-            self.possible_values = {v for v in self.possible_values if v <= sep_metadata[2]}
-        elif op == '>':
-            self.possible_values = {v for v in self.possible_values if v > sep_metadata[2]}
-        elif op == '>=':
-            self.possible_values = {v for v in self.possible_values if v >= sep_metadata[2]}
+        if (op := sep_metadata[1]) == "<":
+            self.possible_values = {
+                v for v in self.possible_values if v < sep_metadata[2]
+            }
+        elif op == "<=":
+            self.possible_values = {
+                v for v in self.possible_values if v <= sep_metadata[2]
+            }
+        elif op == ">":
+            self.possible_values = {
+                v for v in self.possible_values if v > sep_metadata[2]
+            }
+        elif op == ">=":
+            self.possible_values = {
+                v for v in self.possible_values if v >= sep_metadata[2]
+            }
         else:
             raise ValueError(f"operation '{op}' not allowed for ordinal variable")
 
 
 class NumericalVariableValues(SurveyVariableValues):
-    """ A numeric :class:`SurveyVariableValues` class.
-    
-    The values a nominal variable can take is represented as set of possible values. 
+    """A numeric :class:`SurveyVariableValues` class.
+
+    The values a nominal variable can take is represented as set of possible values.
     This set is taking specifications of features corresponding to this variable into account, making it a subset of
-    all possible values of this variable. 
+    all possible values of this variable.
 
     Parameters
     ----------
@@ -645,7 +772,16 @@ class NumericalVariableValues(SurveyVariableValues):
         Corresponding survey variable.
     """
 
-    allowed_operations = {'<', '<=', '>', '>=', '==', '!=', 'in', 'not in'}  # is it enough?
+    allowed_operations = {
+        "<",
+        "<=",
+        ">",
+        ">=",
+        "==",
+        "!=",
+        "in",
+        "not in",
+    }  # is it enough?
     """operations allowed for a numerical variable's values range"""
 
     def __init__(self, var: SurveyVariable):
@@ -665,22 +801,39 @@ class NumericalVariableValues(SurveyVariableValues):
             return self.intervals
 
     def _update_possible_values_impl(self, sep_metadata: Tuple):
-        assert(sep_metadata[0] == self.var.name)
+        assert sep_metadata[0] == self.var.name
         op = sep_metadata[1]
-        if op == '==':
-            self.intervals = UnionOfIntervals(sep_metadata[2], sep_metadata[2], True, True)
-        elif op == '!=':
-            self.intervals -= UnionOfIntervals(sep_metadata[2], sep_metadata[2], True, True)
-        elif op[0] == '<':
-            self.intervals &=  UnionOfIntervals(-np.inf, sep_metadata[2], False, len(op) > 1 and op[1] == '=')
-        elif op[0] == '>':
-            self.intervals &= UnionOfIntervals(sep_metadata[2], np.inf, len(op) > 1 and op[1] == '=', False)
-        elif op == 'in':
-            sep_metadata_value = sep_metadata[2] if isinstance(sep_metadata[2], UnionOfIntervals) else UnionOfIntervals.create_with_isolated_points(sep_metadata[2])
+        if op == "==":
+            self.intervals = UnionOfIntervals(
+                sep_metadata[2], sep_metadata[2], True, True
+            )
+        elif op == "!=":
+            self.intervals -= UnionOfIntervals(
+                sep_metadata[2], sep_metadata[2], True, True
+            )
+        elif op[0] == "<":
+            self.intervals &= UnionOfIntervals(
+                -np.inf, sep_metadata[2], False, len(op) > 1 and op[1] == "="
+            )
+        elif op[0] == ">":
+            self.intervals &= UnionOfIntervals(
+                sep_metadata[2], np.inf, len(op) > 1 and op[1] == "=", False
+            )
+        elif op == "in":
+            sep_metadata_value = (
+                sep_metadata[2]
+                if isinstance(sep_metadata[2], UnionOfIntervals)
+                else UnionOfIntervals.create_with_isolated_points(sep_metadata[2])
+            )
             self.intervals &= sep_metadata_value
-        elif op == 'not in':
-            sep_metadata_value = sep_metadata[2] if isinstance(sep_metadata[2], UnionOfIntervals) else UnionOfIntervals.create_with_isolated_points(sep_metadata[2])
+        elif op == "not in":
+            sep_metadata_value = (
+                sep_metadata[2]
+                if isinstance(sep_metadata[2], UnionOfIntervals)
+                else UnionOfIntervals.create_with_isolated_points(sep_metadata[2])
+            )
             self.intervals -= sep_metadata_value
         else:
-            raise ValueError(f"operation '{op}' not allowed for scale variable {self.var.name}")
-
+            raise ValueError(
+                f"operation '{op}' not allowed for scale variable {self.var.name}"
+            )

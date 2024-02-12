@@ -10,7 +10,10 @@ import numpy as np
 from tangles.search import TangleSearchTree
 from tangles import Tangle
 
-def guided_tangle(tree: TangleSearchTree, feat_sys, subset: np.ndarray, min_agreement: int = 0) -> Tangle:
+
+def guided_tangle(
+    tree: TangleSearchTree, feat_sys, subset: np.ndarray, min_agreement: int = 0
+) -> Tangle:
     """
     For a given subset, find the maximal guided tangle.
 
@@ -39,7 +42,10 @@ def guided_tangle(tree: TangleSearchTree, feat_sys, subset: np.ndarray, min_agre
         guided_path[potential_zero_index:] = 0
     return get_tangle_by_path(tree, guided_path, min_agreement)
 
-def get_tangle_by_path(tree: TangleSearchTree, path: np.ndarray, min_agreement: int = 0) -> Tangle:
+
+def get_tangle_by_path(
+    tree: TangleSearchTree, path: np.ndarray, min_agreement: int = 0
+) -> Tangle:
     """
     Method for finding a tangle in the tangle search tree by path. The path contains -1/1
     values indicating whether to take the left or right child. The value 0 means that the path stops.
@@ -72,6 +78,7 @@ def get_tangle_by_path(tree: TangleSearchTree, path: np.ndarray, min_agreement: 
         node = candidate
     return node
 
+
 def is_guiding(subset: np.ndarray, tangle: Tangle, feature_system) -> bool:
     """
     Whether the specified subset is a guiding subset for the given tangle.
@@ -90,7 +97,7 @@ def is_guiding(subset: np.ndarray, tangle: Tangle, feature_system) -> bool:
     bool
         Whether the subset guides the tangle.
     """
-    
+
     core_ids = np.array([sep_id for sep_id, _ in tangle.core])
     core_ori = np.array([ori for _, ori in tangle.core])
     features_of_tangle = feature_system[core_ids][subset] * core_ori[np.newaxis, :]

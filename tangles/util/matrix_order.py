@@ -8,7 +8,12 @@ import os
 from tangles._typing import SetSeparationOrderFunction
 from typing import Union
 
-def matrix_order(M: Union[np.ndarray, sparse.spmatrix], feats: Union[np.ndarray, sparse.spmatrix], shift:float=0):
+
+def matrix_order(
+    M: Union[np.ndarray, sparse.spmatrix],
+    feats: Union[np.ndarray, sparse.spmatrix],
+    shift: float = 0,
+):
     """
     A general order function defined by a quadratic matrix.
 
@@ -36,9 +41,13 @@ def matrix_order(M: Union[np.ndarray, sparse.spmatrix], feats: Union[np.ndarray,
     """
 
     if isinstance(feats, np.ndarray):
-        return (feats * (M @ feats)).sum(axis=0) + shift * np.square(feats.sum(axis=0).astype(float))
+        return (feats * (M @ feats)).sum(axis=0) + shift * np.square(
+            feats.sum(axis=0).astype(float)
+        )
     else:
-        return feats.multiply(M @ feats).sum(axis=0) + shift * np.square(feats.sum(axis=0).astype(float))
+        return feats.multiply(M @ feats).sum(axis=0) + shift * np.square(
+            feats.sum(axis=0).astype(float)
+        )
 
 
 def o_five(laplacian: Union[np.ndarray, sparse.spmatrix]) -> SetSeparationOrderFunction:
@@ -55,7 +64,9 @@ def o_seven(J: Union[np.ndarray, sparse.spmatrix]) -> SetSeparationOrderFunction
     return lambda feats: matrix_order(J, feats)
 
 
-def covariance_order(A: Union[np.ndarray, sparse.spmatrix], feats: np.ndarray, shift:float=0):
+def covariance_order(
+    A: Union[np.ndarray, sparse.spmatrix], feats: np.ndarray, shift: float = 0
+):
     """Order function defined by the matrix :math:`A^T A`.
 
     For a feature indicator vector :math:`f` this function computes :math:`|f| = f^T A^T Af = (Af)^T Af`.
@@ -77,10 +88,12 @@ def covariance_order(A: Union[np.ndarray, sparse.spmatrix], feats: np.ndarray, s
         1-dimensional np.ndarray of length ``seps.shape[1]`` containing the orders.
     """
 
-    return np.square(A@feats).sum(axis=0) + shift * np.square(feats.sum(axis=0).astype(float))
+    return np.square(A @ feats).sum(axis=0) + shift * np.square(
+        feats.sum(axis=0).astype(float)
+    )
 
 
-def logdet_order(M:np.ndarray, feats:np.ndarray):
+def logdet_order(M: np.ndarray, feats: np.ndarray):
     """Order function defined by :math:`|f| = log( det( M_A )) + log( det( M_B ))` where :math:`f` is the bipartition indicator
     vector of the partition :math:`(A,B)`.
 
@@ -99,15 +112,14 @@ def logdet_order(M:np.ndarray, feats:np.ndarray):
 
     orders = np.empty(feats.shape[1])
     for i in range(feats.shape[1]):
-        sel_A = feats[:,i]>=0
-        sel_B = feats[:,i]<=0
-        L_A = M[np.ix_(sel_A,sel_A)]
+        sel_A = feats[:, i] >= 0
+        sel_B = feats[:, i] <= 0
+        L_A = M[np.ix_(sel_A, sel_A)]
         L_B = M[np.ix_(sel_B, sel_B)]
-        _,l1 = np.linalg.slogdet(L_A)
-        _,l2 = np.linalg.slogdet(L_B)
-        orders[i] = l1+l2
+        _, l1 = np.linalg.slogdet(L_A)
+        _, l2 = np.linalg.slogdet(L_B)
+        orders[i] = l1 + l2
     return orders
-
 
 
 class MatrixOrderSVD:
@@ -137,26 +149,28 @@ class MatrixOrderSVD:
 
     @staticmethod
     def _check_propack():
-        return int(os.getenv('SCIPY_USE_PROPACK', 0)) > 0
+        return int(os.getenv("SCIPY_USE_PROPACK", 0)) > 0
 
-    def __init__(self, A, mode='rows', variance_explained=0.8, shift = None, svd_args=None):
+    def __init__(
+        self, A, mode="rows", variance_explained=0.8, shift=None, svd_args=None
+    ):
         if svd_args is None:
             svd_args = {}
         if isinstance(A, sparse.spmatrix):
             if MatrixOrderSVD._check_propack():
-                svd_args['k'] = min(A.shape)
-                svd_args['solver'] = 'propack'
+                svd_args["k"] = min(A.shape)
+                svd_args["solver"] = "propack"
             else:
-                svd_args['k'] = min(A.shape)-1
-                svd_args['solver'] = 'arpack'
+                svd_args["k"] = min(A.shape) - 1
+                svd_args["solver"] = "arpack"
             self.U, self.s, self.Vt = sparse.linalg.svds(A, **svd_args)
             sort = np.argsort(self.s)[::-1]
-            self.U, self.s, self.Vt = self.U[:,sort], self.s[sort], self.Vt[sort,:]
+            self.U, self.s, self.Vt = self.U[:, sort], self.s[sort], self.Vt[sort, :]
         elif isinstance(A, np.ndarray):
-            svd_args['full_matrices'] = False
+            svd_args["full_matrices"] = False
             self.U, self.s, self.Vt = np.linalg.svd(A, **svd_args)
         else:
-            raise ValueError('unkwon matrix type')
+            raise ValueError("unkwon matrix type")
 
         self.variance_explained = variance_explained
         if variance_explained < 1:
@@ -164,11 +178,14 @@ class MatrixOrderSVD:
             v = np.cumsum(v) / v.sum()
             n = np.argmax(v >= variance_explained)
             if n > 0:
-                self.U, self.s, self.Vt = self.U[:,:n], self.s[:n], self.Vt[:n,:],
+                self.U, self.s, self.Vt = (
+                    self.U[:, :n],
+                    self.s[:n],
+                    self.Vt[:n, :],
+                )
 
         self.mode = mode
         self.shift = shift
-
 
     def __call__(self, feats):
         """Compute an approximation of :math:`f^T A^T Af` or  :math:`f^T AA^T f` (depending on `mode`=='rows' or
@@ -186,7 +203,7 @@ class MatrixOrderSVD:
         """
         if len(feats.shape) == 1:
             feats = feats[:, np.newaxis]
-        if self.mode == 'rows':
+        if self.mode == "rows":
             v = self.U.T @ feats
             o = np.square(v * self.s[:, np.newaxis]).sum(axis=0)
         else:
@@ -197,7 +214,13 @@ class MatrixOrderSVD:
         return o
 
 
-def margin_order_matrix(M: np.ndarray, margin:float, eps:float=1e-8, sparse_mat: bool = True, distance_p: float = 2):
+def margin_order_matrix(
+    M: np.ndarray,
+    margin: float,
+    eps: float = 1e-8,
+    sparse_mat: bool = True,
+    distance_p: float = 2,
+):
     """Turns a matrix of positions into a matrix of similarities (simply based on distances).
 
     A matrix order function (quadratic form) based on the returned matrix behaves like a "margin order function",

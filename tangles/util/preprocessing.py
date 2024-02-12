@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def standardize(data: np.ndarray, axis: int) -> np.ndarray:
     """
     Standardize data such that, along the specified axis, the mean is 0 and the standard
@@ -20,8 +21,9 @@ def standardize(data: np.ndarray, axis: int) -> np.ndarray:
     data_mean_0 = data - np.mean(data, axis=axis, keepdims=True)
     std = np.std(data_mean_0, axis=axis, keepdims=True)
     std[std == 0] = 1
-    standardized_data = data_mean_0/ std
+    standardized_data = data_mean_0 / std
     return standardized_data
+
 
 def balance(data: np.ndarray, axis: int) -> np.ndarray:
     """
@@ -41,6 +43,7 @@ def balance(data: np.ndarray, axis: int) -> np.ndarray:
         balanced_data.
     """
     return data - np.median(data, axis=axis, keepdims=True)
+
 
 def normalize_length(data: np.ndarray, axis: int) -> np.ndarray:
     """

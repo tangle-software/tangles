@@ -4,7 +4,7 @@ from tangles._typing import OrientedSep
 
 
 class Tangle(BinTreeNode):
-    """ A node in the tangle search tree. It represents a tangle.
+    """A node in the tangle search tree. It represents a tangle.
 
     The path of the tangle search tree from the root to this node determines the features in this tangle:
     Each edge on the path determines the orientation of a separation.
@@ -33,12 +33,17 @@ class Tangle(BinTreeNode):
         The agreement value of this tangle.
     """
 
-    def __init__(self, agreement: int, core:Optional[set[OrientedSep]] = None, parent: Optional['Tangle'] = None):
+    def __init__(
+        self,
+        agreement: int,
+        core: Optional[set[OrientedSep]] = None,
+        parent: Optional["Tangle"] = None,
+    ):
         super().__init__(parent)
-        self.core:set[OrientedSep] = core or set()
+        self.core: set[OrientedSep] = core or set()
         self.agreement = agreement
 
-    def copy(self) -> 'Tangle':
+    def copy(self) -> "Tangle":
         """Create a new tangle with the same core and agreement value.
 
         Returns
@@ -55,20 +60,24 @@ class Tangle(BinTreeNode):
         self.set_left_child(None)
         self.set_right_child(None)
 
-    def leaves_in_subtree(self, agreement: int = 0) -> list['Tangle']:
+    def leaves_in_subtree(self, agreement: int = 0) -> list["Tangle"]:
         leaves = []
         nodes = [self]
         while nodes:
             next_nodes = []
             for node in nodes:
-                children = [tangle for tangle in node.children() if tangle.agreement >= agreement]
+                children = [
+                    tangle
+                    for tangle in node.children()
+                    if tangle.agreement >= agreement
+                ]
                 next_nodes.extend(children)
                 if len(children) == 0:
                     leaves.append(node)
             nodes = next_nodes
         return leaves
 
-    def equal_data(self, node: 'Tangle') -> bool:
+    def equal_data(self, node: "Tangle") -> bool:
         """Check whether two tangles have the same data (core and agreement value).
 
         Returns

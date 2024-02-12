@@ -2,6 +2,7 @@ import numpy as np
 import scipy.sparse as sparse
 from typing import Union
 
+
 def laplacian(A):
     """
     Compute the combinatorial laplacian :math:`L = D-A`, where :math:`A` is the adjacency matrix of a graph :math:`G`
@@ -22,13 +23,14 @@ def laplacian(A):
         D = sparse.dia_array((A.sum(axis=0), [0]), shape=A.shape, dtype=float)
         return (D - A).tocsr()
     elif isinstance(A, sparse.spmatrix):
-        D = sparse.dia_matrix((A.sum(axis=0).A1,[0]), shape=A.shape, dtype=float)
-        return (D-A).tocsr()
+        D = sparse.dia_matrix((A.sum(axis=0).A1, [0]), shape=A.shape, dtype=float)
+        return (D - A).tocsr()
     elif isinstance(A, np.ndarray):
         return np.diag(A.sum(axis=0)) - A
     else:
         print("laplacian(A):  unkown matrix type")
         return None
+
 
 def normalized_laplacian(A):
     """
@@ -57,11 +59,12 @@ def normalized_laplacian(A):
         Lnorm = L.multiply(diag_1[np.newaxis, :]).multiply(diag_1[:, np.newaxis])
         return Lnorm.tocsr()
     elif isinstance(A, np.ndarray):
-        Lnorm = L*diag_1[np.newaxis, :]*diag_1[:, np.newaxis]
+        Lnorm = L * diag_1[np.newaxis, :] * diag_1[:, np.newaxis]
         return Lnorm
     else:
         print("normalized_laplacian(A):  unkown matrix type")
         return None
+
 
 def modularity_matrix(A: sparse.csr_matrix, D: np.ndarray = None) -> np.ndarray:
     """
@@ -80,4 +83,4 @@ def modularity_matrix(A: sparse.csr_matrix, D: np.ndarray = None) -> np.ndarray:
 
     if D is None:
         D = A.sum(axis=0).A1
-    return A.toarray() - D[:,np.newaxis]*D[np.newaxis,:]/D.sum()
+    return A.toarray() - D[:, np.newaxis] * D[np.newaxis, :] / D.sum()

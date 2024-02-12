@@ -5,8 +5,11 @@ from tangles.util.graph import laplacian
 
 from typing import Union
 
+
 class CutWeightOrder(OrderFuncDerivative):
-    def __init__(self, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array]):
+    def __init__(
+        self, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array]
+    ):
         self._A = adjacency_matrix
         self._L = laplacian(adjacency_matrix)
 
@@ -16,8 +19,11 @@ class CutWeightOrder(OrderFuncDerivative):
     def __call__(self, feats: np.ndarray) -> np.ndarray:
         return 0.25 * (feats * (self._L @ feats)).sum(axis=0)
 
+
 class RatioCutOrder(OrderFuncDerivative):
-    def __init__(self, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array]):
+    def __init__(
+        self, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array]
+    ):
         self._A = adjacency_matrix
         self._n = adjacency_matrix.sum()
         self._total = adjacency_matrix.shape[0]
@@ -32,16 +38,24 @@ class RatioCutOrder(OrderFuncDerivative):
         return np.array(change_vector)
 
     def __call__(self, feats: np.ndarray) -> np.ndarray:
-        side_size = (feats>0).sum(axis=0)
+        side_size = (feats > 0).sum(axis=0)
         denominator = side_size * (self._total - side_size)
         if isinstance(denominator, np.ndarray):
             denominator[denominator == 0] = 1
         elif denominator == 0:
             denominator = 1
-        return 0.25 * (self._n - (feats*(self._A@feats)).sum(axis=0)) * self._total / denominator
+        return (
+            0.25
+            * (self._n - (feats * (self._A @ feats)).sum(axis=0))
+            * self._total
+            / denominator
+        )
+
 
 class NCutOrder(OrderFuncDerivative):
-    def __init__(self, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array]):
+    def __init__(
+        self, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array]
+    ):
         self._A = adjacency_matrix
         self._diag = np.array(self._A.sum(axis=0).data)
         self._L = sparse.diags(self._diag) - self._A
@@ -57,13 +71,20 @@ class NCutOrder(OrderFuncDerivative):
         return np.array(change_vector)
 
     def __call__(self, feats: np.ndarray) -> np.ndarray:
-        vol = ((feats>0)*self._diag[:,np.newaxis]).sum(axis=0) if len(feats.shape) > 1 else self._diag[feats>0].sum()
-        denominator = (vol*(self._total-vol))
+        vol = (
+            ((feats > 0) * self._diag[:, np.newaxis]).sum(axis=0)
+            if len(feats.shape) > 1
+            else self._diag[feats > 0].sum()
+        )
+        denominator = vol * (self._total - vol)
         if isinstance(denominator, np.ndarray):
             denominator[denominator == 0] = 1
         elif denominator == 0:
             denominator = 1
-        return 0.25 * (feats*((self._L)@feats)).sum(axis=0) * self._total / denominator
+        return (
+            0.25 * (feats * ((self._L) @ feats)).sum(axis=0) * self._total / denominator
+        )
+
 
 def cut_weight_order(adjacency_matrix: sparse.csr_array):
     """Return the cut weight order function for a graph described by the given `adjacency_matrix`.
@@ -86,6 +107,7 @@ def cut_weight_order(adjacency_matrix: sparse.csr_array):
 
     return CutWeightOrder(adjacency_matrix)
 
+
 def ratiocut_order(adjacency_matrix: sparse.csr_array):
     """Return the ratiocut order function for a graph described by the given `adjacency_matrix`.
 
@@ -104,6 +126,7 @@ def ratiocut_order(adjacency_matrix: sparse.csr_array):
     """
 
     return RatioCutOrder(adjacency_matrix)
+
 
 def ncut_order(adjacency_matrix: sparse.csr_array):
     """Return the ncut order function for a graph described by the given `adjacency_matrix`.
@@ -126,11 +149,32 @@ def ncut_order(adjacency_matrix: sparse.csr_array):
 
     return NCutOrder(adjacency_matrix)
 
-def minimize_cut_weight(starting_feature: np.ndarray, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array], max_steps: int = int(1e8)) -> np.ndarray:
-    return minimize_cut(starting_feature, cut_weight_order(adjacency_matrix), max_steps=max_steps)
 
-def minimize_ncut_weight(starting_feature: np.ndarray, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array], max_steps: int = int(1e8)) -> np.ndarray:
-    return minimize_cut(starting_feature, ncut_order(adjacency_matrix), max_steps=max_steps)
+def minimize_cut_weight(
+    starting_feature: np.ndarray,
+    adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array],
+    max_steps: int = int(1e8),
+) -> np.ndarray:
+    return minimize_cut(
+        starting_feature, cut_weight_order(adjacency_matrix), max_steps=max_steps
+    )
 
-def minimize_ratiocut_weight(starting_feature: np.ndarray, adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array], max_steps: int = int(1e8)) -> np.ndarray:
-    return minimize_cut(starting_feature, ratiocut_order(adjacency_matrix), max_steps=max_steps)
+
+def minimize_ncut_weight(
+    starting_feature: np.ndarray,
+    adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array],
+    max_steps: int = int(1e8),
+) -> np.ndarray:
+    return minimize_cut(
+        starting_feature, ncut_order(adjacency_matrix), max_steps=max_steps
+    )
+
+
+def minimize_ratiocut_weight(
+    starting_feature: np.ndarray,
+    adjacency_matrix: Union[np.ndarray, sparse.spmatrix, sparse.csr_array],
+    max_steps: int = int(1e8),
+) -> np.ndarray:
+    return minimize_cut(
+        starting_feature, ratiocut_order(adjacency_matrix), max_steps=max_steps
+    )

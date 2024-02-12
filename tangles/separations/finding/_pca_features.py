@@ -2,7 +2,10 @@ import numpy as np
 from ._util import _threshold_partitions
 from typing import Optional, Union
 
-def pca_features(M: np.ndarray, k: Optional[int] = None, use_J: bool = False) -> Union[np.ndarray , tuple[np.ndarray, np.ndarray]]:
+
+def pca_features(
+    M: np.ndarray, k: Optional[int] = None, use_J: bool = False
+) -> Union[np.ndarray, tuple[np.ndarray, np.ndarray]]:
     """
     Generate features using a method inspired by Principal Component Analysis (PCA).
 
@@ -39,6 +42,6 @@ def pca_features(M: np.ndarray, k: Optional[int] = None, use_J: bool = False) ->
     _, U = np.linalg.eigh(I)
     if k is not None:
         k = min(U.shape[0], k)
-        bips = _threshold_partitions(U[:,:k])
-    bips *= bips[0:1,:]
+        bips = _threshold_partitions(U[:, :k])
+    bips *= bips[0:1, :]
     return M @ bips if not use_J else bips

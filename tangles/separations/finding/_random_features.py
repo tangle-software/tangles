@@ -1,6 +1,9 @@
 import numpy as np
 
-def random_features(num_features: int, num_elements: int, probability: float = 0.5) -> np.ndarray:
+
+def random_features(
+    num_features: int, num_elements: int, probability: float = 0.5
+) -> np.ndarray:
     """
     Generates an array of features randomly. For each feature, each element of the groundset is independently
     chosen to be contained within the feature with the given probability.
@@ -19,5 +22,7 @@ def random_features(num_features: int, num_elements: int, probability: float = 0
     np.ndarray
         An array of features.
     """
-    
-    return np.random.choice([1, -1], size=(num_elements, num_features), p=[probability, 1-probability])
+
+    return np.random.choice(
+        [1, -1], size=(num_elements, num_features), p=[probability, 1 - probability]
+    )
