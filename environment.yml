@@ -2,7 +2,7 @@ name: tangles-dev
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python>=3.11
   - bitarray
   - tqdm
   # QA
@@ -15,7 +15,7 @@ dependencies:
   # Scientific packages
   - numpy
   - matplotlib
-  - scipy=1.10.1
+  - scipy
   - scikit-image
   - scikit-learn
   - pandas
