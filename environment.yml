@@ -19,6 +19,7 @@ dependencies:
   - scikit-image
   - scikit-learn
   - pandas
+  - pyarrow
   - pyreadstat
   # Jupyter Notebooks
   - jupyterlab
