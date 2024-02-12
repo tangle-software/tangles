@@ -2,7 +2,7 @@ import numpy as np
 import scipy.sparse as sparse
 from typing import Union
 
-def laplacian(A: Union[sparse.spmatrix, sparse._arrays._sparray, np.ndarray]) -> Union[sparse.csr_matrix,np.ndarray,None]:
+def laplacian(A):
     """
     Compute the combinatorial laplacian :math:`L = D-A`, where :math:`A` is the adjacency matrix of a graph :math:`G`
     and :math:`D` is the diagonal matrix containing the degrees of :math:`G`.
@@ -14,11 +14,11 @@ def laplacian(A: Union[sparse.spmatrix, sparse._arrays._sparray, np.ndarray]) ->
 
     Returns
     -------
-    scipy.sparse.csr_matrix or np.ndarray
+    sparse csr array or np.ndarray
         The laplacian matrix.
     """
 
-    if isinstance(A, sparse._arrays._sparray):
+    if isinstance(A, sparse.sparray):
         D = sparse.dia_array((A.sum(axis=0), [0]), shape=A.shape, dtype=float)
         return (D - A).tocsr()
     elif isinstance(A, sparse.spmatrix):
@@ -30,19 +30,19 @@ def laplacian(A: Union[sparse.spmatrix, sparse._arrays._sparray, np.ndarray]) ->
         print("laplacian(A):  unkown matrix type")
         return None
 
-def normalized_laplacian(A: Union[sparse.spmatrix, np.ndarray]) -> Union[sparse.csr_matrix,np.ndarray,None]:
+def normalized_laplacian(A):
     """
     Compute the normalized laplacian :math:`L' = I - D^{-1/2} A D^{-1/2}`, where :math:`A` is the adjacency matrix of
     a graph :math:`G` and :math:`D` is the diagonal matrix containing the degrees of :math:`G`.
 
     Parameters
     ----------
-    A : sparse.spmatrix or np.ndarray
+    A : sparse array or np.ndarray
         Adjacency matrix.
 
     Returns
     -------
-    scipy.sparse.csr_matrix or np.ndarray
+    sparse csr array or np.ndarray
         The normalized laplacian matrix.
     """
 
@@ -50,7 +50,7 @@ def normalized_laplacian(A: Union[sparse.spmatrix, np.ndarray]) -> Union[sparse.
     dia = L.diagonal()
     diag_1 = np.zeros(L.shape[0])
     diag_1[dia != 0] = 1.0 / np.sqrt(dia[dia != 0])
-    if isinstance(A, sparse._arrays._sparray):
+    if isinstance(A, sparse.sparray):
         Lnorm = L.multiply(diag_1[np.newaxis, :]).multiply(diag_1[:, np.newaxis])
         return Lnorm.tocsr()
     elif isinstance(A, sparse.spmatrix):
