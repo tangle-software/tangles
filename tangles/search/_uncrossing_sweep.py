@@ -199,7 +199,29 @@ class UncrossingSweep:
 
         return mat
 
-    def create_tot(self, min_agreement, max_level=None, id_at_max_level=None):
+    def create_tot(self, min_agreement: int, max_level: Optional[int] =None, id_at_max_level: Optional[int] =None) -> TreeOfTangles:
+        """
+        Create a tree of tangles. 
+        
+        Note:
+        You should choose a min_agreement value which is not smaller than the limit of the tree of the sweep attribute.
+        Furthermore you should not set a value for both the max_level and the id_at_max_level.
+        
+        Parameters
+        ----------
+        min_agreement
+            Tangles which appear in the tree of tangles will have at least this agreement value.
+        max_level
+            Only consider tangles up to the max level. Optional.
+        id_at_max_level
+            Only consider tangles which do not orient separations below the separation with given id. Optional.
+            
+        Returns
+        -------
+        TreeOfTangle
+            The tree of tangles containing the maximal tangles. 
+        
+        """
         assert min_agreement >= self.sweep.tree.limit
         assert ((max_level is None) and (id_at_max_level is None)) or ((max_level is None) != (id_at_max_level is None))
 
