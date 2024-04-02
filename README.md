@@ -6,17 +6,17 @@ The unifying aim of the software published here is to facilitate applications of
 Tangles can find and analyse structure in big data sets, support the development of expert systems in contexts 
 such as medical diagnosis, help with the analysis of data in the social sciences and economics, and much more.
 
-Applications of tangles, as well as the basics of tangle theory, are described in the book
+Applications of tangles, as well as the basics of tangle theory, are described in the [book](https://www.tangles-book.com/book/)
 
     Reinhard Diestel
     Tangles: A structural approach to artificial intelligence in the empirical sciences
     Cambridge University Press 2024
 
 The software published here implements many of the ideas and algorithms described in this book, 
-and the two can be read side-by-side for maximum gain. However, the software has its own internal [documentation](https://tangle-software.github.io/tangles/) 
+and the two can be read side-by-side for maximum gain. However, the software has its own internal [documentation](https://tangle-software.github.io/tangles/reference/api/tangles.html) 
 too, as well as numerous references to corresponding passages in the book.
 
-Electronic access to the book will be via its dedicated [website](tangles-book.com).
+Electronic access to the book will be via its dedicated [website](https://www.tangles-book.com/book/).
 This website will serve also as a low-threshold entry point to the software in this repository, 
 by offering interactive examples of what tangles can do, 
 how the software published here allows the user to interact with tangles it finds in real data, and so on.
