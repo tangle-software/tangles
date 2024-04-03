@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Tangles'
-copyright = '2023, Tangle Software Contributors'
+copyright = '2024, Tangle Software Contributors'
 author = 'Tangle Software Contributors'
 
 
@@ -59,6 +59,21 @@ exclude_patterns = [
 # a list of builtin themes.
 #
 html_theme = 'pydata_sphinx_theme'
+
+html_theme_options = {
+    "icon_links": [
+        {
+            # Label for this link
+            "name": "GitHub",
+            # URL where the link will redirect
+            "url": "https://github.com/tangle-software/tangles",
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-github",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
+        }
+   ]
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
