@@ -1,0 +1,6 @@
+guess_variable_types
+====================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.guess_variable_types

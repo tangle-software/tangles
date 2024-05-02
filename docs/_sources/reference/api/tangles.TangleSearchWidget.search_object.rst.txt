@@ -1,0 +1,6 @@
+search_object
+=============
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchWidget.search_object

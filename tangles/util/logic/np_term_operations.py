@@ -35,7 +35,7 @@ def _filter_supersets(matrix: np.ndarray) -> tuple[np.ndarray, bool]:
     super_indices = list(set(np.nonzero(np.all(difference == 0, axis=0))[0]))
     my_slice = np.ones(matrix.shape[1], dtype=bool)
     my_slice[super_indices] = np.all(matrix[:, super_indices] == 0, axis=0)
-    return matrix[:, my_slice], np.any(my_slice == False)
+    return matrix[:, my_slice], np.any(my_slice is False)
 
 
 def _cancel_unique_in_place(matrix: np.ndarray) -> bool:

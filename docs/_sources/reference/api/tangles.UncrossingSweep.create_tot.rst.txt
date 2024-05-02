@@ -1,0 +1,6 @@
+create_tot
+==========
+
+.. currentmodule:: tangles
+
+.. automethod:: UncrossingSweep.create_tot

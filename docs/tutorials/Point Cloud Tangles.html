@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Point Cloud Tangles &#8212; Tangles  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/Point Cloud Tangles';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tangles in Images I" href="Tangles%20in%20Images%20I.html" />
+    <link rel="prev" title="Tangles of Personality Traits" href="Tangles%20of%20Personality%20Traits.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Tangles  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://www.tangles-book.com">
+                    Tangles Website
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/tangle-software/tangles" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://www.tangles-book.com">
+                    Tangles Website
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/tangle-software/tangles" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Survey%20Tangles.html">Survey Tangles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20of%20Personality%20Traits.html">Tangles of Personality Traits</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Point Cloud Tangles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20in%20Images%20I.html">Tangles in Images I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20in%20Images%20II.html">Tangles in Images II</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Point Cloud Tangles</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="point-cloud-tangles">
+<h1>Point Cloud Tangles<a class="headerlink" href="#point-cloud-tangles" title="Link to this heading">#</a></h1>
+<p>(Michael Hermann)</p>
+<p>A <em>Tangle</em> is a concept from graph theory useful to characterize densely connected sub-structures in graphs. In recent years, the graph based theory of tangles was adapted to more and more different data structures and finally cast into a data analytics technique. This notebook will provide a friendly introduction to one of the most simple things one can do with <em>Tangles</em>: <strong>Soft Clustering</strong> of points in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<p>We start with a short reminder on clustering and tangle theory and proceed with an in depth discussion of an example tangle analysis. The example is a <em>toy example</em> but can serve as a proof of concept and a nice introduction into tangle soft clustering.</p>
+<section id="clustering-and-tangles">
+<h2>1. Clustering and Tangles<a class="headerlink" href="#clustering-and-tangles" title="Link to this heading">#</a></h2>
+<p>We are living in an era of data. More and more aspects of our daily lives are influenced by algorithms driven by big collections of data. Thousands of companies, institutions and individuals are collecting massive amounts of data from an unconceivable multiplicity of different sources. The collectors’ motivation might sometimes not be the most descent - often the motivation is merely a capitalistic one - and maybe even more often, the collectors might not even know their own motivation, yet. In times of big data, miniscule storage costs allow to generate, collect and store data without any purpose just because it might contain something interesting that could be useful in the future. Finding out if such a data set contains anything interesting is the goal of <em>unsupervised learning</em>, a data analysis task aiming to detect patterns in unlabeled data. A very important and maybe the conceptually easiest task in unsupervised learning is <em>clustering</em>.</p>
+<section id="clustering-let-s-divide">
+<h3>1.1 Clustering - let’s divide<a class="headerlink" href="#clustering-let-s-divide" title="Link to this heading">#</a></h3>
+<p>The objective of clustering is to divide a set of objects <span class="math notranslate nohighlight">\(V\)</span> into a number of subsets <span class="math notranslate nohighlight">\(C_i \subseteq V, 1 \leq i \leq k\)</span>, called <em>clusters</em>, so that objects sharing the same cluster are in some sense similar, i.e. they somehow belong together, and objects in different clusters tend to be dissimilar. This definition is kind of abstract and there are many different ways to formulate concrete clustering objectives. We will not dive into the details but want to describe one very basic distinctive property of clustering algorithms and their results: In <em>hard clustering</em>, the clusters <span class="math notranslate nohighlight">\(C_i\)</span> form a <em>partition</em> of <span class="math notranslate nohighlight">\(V\)</span>, i.e. the data set <span class="math notranslate nohighlight">\(V = \dot{\bigcup}_i C_i\)</span> is a <em>disjoint union</em> of the clusters. This means, every point <span class="math notranslate nohighlight">\(v \in v\)</span> belongs to one and only one cluster. In <em>soft clustering</em> every data point is allowed to belong to multiple clusters. Usually, a soft clustering result assigns a <em>grade of membership</em> of every point to every cluster and an overall structure is captured in a <em>fuzzy</em> way by the differences in these membership grades. Usually soft clustering algorithms are computationally more expensive, but they have the advantage that their results often allow to assign a certain form of <em>confidence</em> in the result. For example, there might be points lying between two relatively obvious clusters. A hard clustering algorithm has to decide for one of the clusters while a soft clustering algorithm can stay indifferent if the cluster assignment cannot be done with high confidence: These data points could belong with high confidence to the two cluster aggregate, but with low confidence to one of them in isolation.</p>
+</section>
+<section id="tangles-let-s-work-together">
+<h3>1.2 Tangles - let’s work together<a class="headerlink" href="#tangles-let-s-work-together" title="Link to this heading">#</a></h3>
+<p>Every clustering algorithm trys to detect a <em>structure</em> within the data by dividing the set into subsets describing relations between the elements on a more global level. <em>Tangles</em> have the similar goal to detect structure in a data set but operate in a significantly different way.
+While clustering usually creates a single partition of the data reflecting its internal structure, tangles start with a set of partitions and describe the data using a particular way to combine information from multiple such partitions.
+In the following, we will try to shortly summarize the idea. A full treatment of all the theory’s beauty and complexity would go beyond the scope of this notebook. Please have a look at the <a class="reference external" href="http:www.tangles-book.com">tangles book</a> for a deeper understanding of the complete picture and discussions of many more interesting ideas.</p>
+</section>
+<section id="features-choose-your-side">
+<h3>1.3. Features - choose your side<a class="headerlink" href="#features-choose-your-side" title="Link to this heading">#</a></h3>
+<p>Suppose you have a set consisting of multiple (usually cheaply obtained) bipartitions of a data set <span class="math notranslate nohighlight">\(V\)</span>. Every bipartition <span class="math notranslate nohighlight">\(V = A \cup B\)</span> with <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span> can be represented by fixing one of the partition classes <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B = A^c\)</span>, where <span class="math notranslate nohighlight">\(A^c = V \setminus A\)</span> is the complement of <span class="math notranslate nohighlight">\(A\)</span> in <span class="math notranslate nohighlight">\(V\)</span>. We can interpret every bipartition of <span class="math notranslate nohighlight">\(V\)</span> as a <em>feature</em> that every data point either <em>has</em> or <em>not has</em>. If a data point <span class="math notranslate nohighlight">\(v \in V\)</span> does not have a feature <span class="math notranslate nohighlight">\(A\)</span>, this means if <span class="math notranslate nohighlight">\(v \notin A\)</span>, then we say <span class="math notranslate nohighlight">\(v\)</span> has the <em>inverse feature</em>, i.e. <span class="math notranslate nohighlight">\(v \in A^c\)</span>. We call every two-element set <span class="math notranslate nohighlight">\(F = \{A, A^c\}\)</span> a <em>potential feature</em> in <span class="math notranslate nohighlight">\(V\)</span> and its <em>sides</em>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A^c\)</span>, <em>specifications</em> of <span class="math notranslate nohighlight">\(F\)</span>.
+In the theory of tangles, a structure within a set can be an arbitrarily abstract concept, especially, such a structure does not need to be representable as a single subset or a collection of multiple subsets of <span class="math notranslate nohighlight">\(V\)</span>. Let’s suppose there is some abstract, hard to describe (sub-)structure in <span class="math notranslate nohighlight">\(V\)</span>. Then for every potential feature <span class="math notranslate nohighlight">\(F = \{A, A^c\}\)</span> of <span class="math notranslate nohighlight">\(V\)</span> there are exactly three possibilities:</p>
+<ul class="simple">
+<li><p>most of the substructure is covered by the feature <span class="math notranslate nohighlight">\(A \subset V\)</span>. If we look at <span class="math notranslate nohighlight">\(A\)</span> alone, the interesting structure (or a significant part of it) can still be recognized.</p></li>
+<li><p>most of the substructure is covered by the inverse feature <span class="math notranslate nohighlight">\(A^c\)</span>, and the structure (or a significant part of it) can still be identified within this subset</p></li>
+<li><p>the bipartition <span class="math notranslate nohighlight">\(\{A, A^c\}\)</span> <em>shatters</em> the interesting structure. The structure can neither be recognized in <span class="math notranslate nohighlight">\(A\)</span> nor in <span class="math notranslate nohighlight">\(A^c\)</span> if we look at these subsets in isolation.</p></li>
+</ul>
+</section>
+<section id="order-functions-not-all-features-are-created-equal">
+<h3>1.4. Order functions - not all features are created equal<a class="headerlink" href="#order-functions-not-all-features-are-created-equal" title="Link to this heading">#</a></h3>
+<p>A crucial fact regarding features on <span class="math notranslate nohighlight">\(V\)</span> is that not all of them are equally descriptive for a particular structure on <span class="math notranslate nohighlight">\(V\)</span>, independent of how this structure is defined or typified. Most potential features of <span class="math notranslate nohighlight">\(V\)</span> will not have anything to do with any interesting structure - these are features falling in the third category above - but other features are possibly able to capture <em>some aspects</em> of an interesting structure.
+Suppose, for simplicity, we can actually describe a part of an interesting substructure on <span class="math notranslate nohighlight">\(V\)</span> by a bunch of prototypical elements <span class="math notranslate nohighlight">\(R \subset V\)</span> and let <span class="math notranslate nohighlight">\(\{A, A^c\}\)</span> be a potential feature that is able to capture aspect of this structure. Then we should expect most of the elements of <span class="math notranslate nohighlight">\(R\)</span> to either be in <span class="math notranslate nohighlight">\(A\)</span> or in its complement <span class="math notranslate nohighlight">\(A^c\)</span> - either the <em>presence</em> or the <em>absence</em> of the feature <span class="math notranslate nohighlight">\(A\)</span> is significant for most of the elements of <span class="math notranslate nohighlight">\(R\)</span> and therefore the structure depicted by <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>The tangles-way to quantify the capability of a feature to capture aspects of a significant structure is to define an <em>order function</em> <span class="math notranslate nohighlight">\(o:2^V \rightarrow \mathbb{R}\)</span>. Such an order function assigns lower values to features that can be expected to be more descriptive of the structure in <span class="math notranslate nohighlight">\(V\)</span>. We usually require from the order function <span class="math notranslate nohighlight">\(o\)</span> additionally that every feature has the same order as its inverse.
+In practice, we rarely interpret the numerical value of an order function - even if we could do this for a lot of examples - but we use the function solely to sort a set of features <span class="math notranslate nohighlight">\(S\)</span> by increasing order with the goal to create a hierarchical system of nested subsets <span class="math notranslate nohighlight">\(\emptyset = S_0 \subset S_1 \subset S_2 \subset \dots \subset S_n = S\)</span>. Please note, that order functions are not required to be injective and therefore the sorting of <span class="math notranslate nohighlight">\(S\)</span> is not unique. This fact is merely an annoyance when describing related concept and can satisfyingly be treated in theory and practice, therefore we often handle order functions <em>as if they were injective</em>.</p>
+<p>In general, the concept of “powerful features” and “order functions” is problematic: Usually we neither know the structures we want to detect nor do we know exactly how to evaluate a feature’s power to detect aspects of these unknown structures. Therefore, we have to find a different strategy to define order functions. Such a strategy will usually depend on the data and the context or the question that is supposed to be answered by the analysis.
+In the context of clustering, the most natural approach to specify an order function is based on a definition of <em>point similarity</em>. Usually one can easily define a function <span class="math notranslate nohighlight">\(V \times V \rightarrow \mathbb{R}_{&gt;= 0}\)</span> that takes high values on pairs of very similar data points and zero if the two input data points are completely dissimilar. Let’s assume we have such a function and want the tangles to detect structures based on similarities between data points. Then a very natural way to quantify the representative power of a potential feature is to evaluate how similar the data points are inside the same specification and how dissimilar points are that lie in different specifications: A bipartition that can describe structures emerging from point similarities should not separate a lot of similar points.</p>
+</section>
+<section id="consistency-let-s-agree-on-one-point-at-least">
+<h3>1.5. Consistency - let’s agree on one point, at least<a class="headerlink" href="#consistency-let-s-agree-on-one-point-at-least" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(S\)</span> be a set of potential features. Then we call a set <span class="math notranslate nohighlight">\(\vec S\)</span> that contains exactly one specification of every potential feature in <span class="math notranslate nohighlight">\(S\)</span> a <em>specification</em> of <span class="math notranslate nohighlight">\(S\)</span>. Such a specification is called <em>consistent</em> if for every subset of three features <span class="math notranslate nohighlight">\(\{A, B, C\} \subseteq \vec S\)</span> at least one element in <span class="math notranslate nohighlight">\(V\)</span> exists that has all three features, i.e. <span class="math notranslate nohighlight">\(A \cap B \cap C \neq \emptyset\)</span> - or, from a dual point of view, if every triple of features agrees on at least one data point.
+It is not a rare situation that a consistent orientation satisfies a bit more than the consistency condition alone. If <span class="math notranslate nohighlight">\(\vec S\)</span> is a specification of <span class="math notranslate nohighlight">\(S\)</span>, we call the number <span class="math notranslate nohighlight">\(\alpha(\vec S) = \min_{A,B,C \in \vec S} |A \cap B \cap C|\)</span> the <em>agreement</em> of <span class="math notranslate nohighlight">\(\vec S\)</span>. Obviously, a consistent specification <span class="math notranslate nohighlight">\(\vec S\)</span> of <span class="math notranslate nohighlight">\(S\)</span> satisfies <span class="math notranslate nohighlight">\(\alpha(\vec S) &gt; 0\)</span>.</p>
+<p>We are finally ready to define our most important notion. We will not use the most general definition but the one that is most relevant (and best supported) in praxis: Let <span class="math notranslate nohighlight">\(\alpha_{\min} \in \mathbb{N}\)</span> be a fixed number. A <em>tangle</em> of a feature system <span class="math notranslate nohighlight">\(S\)</span> (with <em>minimum agreement</em> <span class="math notranslate nohighlight">\(\alpha_{\min}\)</span>) is a specification <span class="math notranslate nohighlight">\(\vec S\)</span> of <span class="math notranslate nohighlight">\(S\)</span> with agreement <span class="math notranslate nohighlight">\(\alpha(\vec S) \geq \alpha_{\min}\)</span>. The number <span class="math notranslate nohighlight">\(\alpha_{\min}\)</span> is usually called the <em>agreement parameter</em> or the <em>minimum agreement</em>.</p>
+</section>
+<section id="tangles-sweep-the-world">
+<h3>1.6. Tangles - sweep the world<a class="headerlink" href="#tangles-sweep-the-world" title="Link to this heading">#</a></h3>
+<p>If we have decided for a set of potential features <span class="math notranslate nohighlight">\(S\)</span> and an agreement parameter <span class="math notranslate nohighlight">\(\alpha_{\min}\)</span>, we are essentially ready to search tangles of <span class="math notranslate nohighlight">\(S\)</span>. We need to find every specification of <span class="math notranslate nohighlight">\(S\)</span> that satisfies the agreement condition. If <span class="math notranslate nohighlight">\(S\)</span> contains <span class="math notranslate nohighlight">\(|S|=k \in \mathbb{N}\)</span> features, we merely have to check <span class="math notranslate nohighlight">\(2^k\)</span> possible specification and every check of the agreement condition is cubic in <span class="math notranslate nohighlight">\(k\)</span>. The naive implementation then needs to compute <span class="math notranslate nohighlight">\(O(k) = k^3 2^k\)</span> intersections of our features. It’s obvious, that this is not tractable for relevant values of <span class="math notranslate nohighlight">\(k\)</span> and, equally obvious, that such an implementation is far from the best possible: If we fix the specification <span class="math notranslate nohighlight">\(\vec T\)</span> of any 3-subset <span class="math notranslate nohighlight">\(T \subseteq S\)</span>, there are <span class="math notranslate nohighlight">\(2^{k-3}\)</span> specifications of the complete feature set <span class="math notranslate nohighlight">\(S\)</span> which contain <span class="math notranslate nohighlight">\(\vec T\)</span>. The naive implementation would repeat the same work, i.e. checking the agreement of <span class="math notranslate nohighlight">\(\vec T\)</span>, an exponential number of times - clearly with the same result. The tangle library’s implementation therefore approaches the problem in a more structured way. We will not delve into every detail, but there are some side effects of the actual implementation that are worth mentioning.</p>
+<p>Let <span class="math notranslate nohighlight">\(o: S \rightarrow \mathbb{R}\)</span> be an order function. As anticipated above, we mainly use <span class="math notranslate nohighlight">\(o\)</span> to create a hierarchical set system <span class="math notranslate nohighlight">\(\{S_i : S_i \subset S_{i+1} 1 \leq i &lt; |S|\}\)</span> where <span class="math notranslate nohighlight">\(S_i\)</span> contains the <span class="math notranslate nohighlight">\(i\)</span> potential features of <span class="math notranslate nohighlight">\(S\)</span> with the smallest order (assuming an injective order function). Then the implemented search algorithm successively finds all tangles of <span class="math notranslate nohighlight">\(S_1, S_2, \dots, S_n\)</span>. All intermediate results are stored in a (rooted) tree called the <em>tangle search tree (TST)</em>. All nodes of this tree represent tangles and every edge between level <span class="math notranslate nohighlight">\(i-1\)</span> and <span class="math notranslate nohighlight">\(i\)</span> represents a specifications of the <span class="math notranslate nohighlight">\(i\)</span>-th separation, i.e. the single element of <span class="math notranslate nohighlight">\(S_i \setminus S_{i-1}\)</span>.
+Let <span class="math notranslate nohighlight">\(\tau\)</span> be a tangle of <span class="math notranslate nohighlight">\(S_i\)</span>. We find the corresponding specification by following the unique path from the root to <span class="math notranslate nohighlight">\(\tau\)</span>’s node and collecting the specifications associated with the traversed edges. The following image shows an example of a tangle search tree and illustrates the encoding of the specifications.</p>
+<p><img alt="A tangle search tree" src="../_images/TST.png" /></p>
+<p>To build the tree, we iteratively grow the tangle search tree level by level. If we want to search tangles of <span class="math notranslate nohighlight">\(S_{i+1}\)</span> and already have tangles of <span class="math notranslate nohighlight">\(S_i\)</span>, we simply check all nodes at level <span class="math notranslate nohighlight">\(i\)</span>, i.e. tangles of <span class="math notranslate nohighlight">\(S_i\)</span>, if they can be <em>extended</em> by one or both of the possible specifications of the potential feature in <span class="math notranslate nohighlight">\(S_{i+1} \setminus S_i\)</span>. This can be done in very simple way by collecting all 2-tuples of features that appear in at least one of the <span class="math notranslate nohighlight">\(S_i\)</span>-tangles and checking the agreement condition for all triples that can be obtained by combining every found 2-tuple with one of the new feature’s specifications.<br />
+If a tangle of <span class="math notranslate nohighlight">\(S_i\)</span> cannot be extended to a tangle of <span class="math notranslate nohighlight">\(S_{i+1}\)</span>, we call this tangle a <em>maximal tangle</em>. It is noteworthy that, in the worst case, we might not run across any maximal tangles at all. Then the number of tangles grows exponentially with the size of <span class="math notranslate nohighlight">\(S\)</span> and even an efficient implementation needing only a cubic number of agreement computations will still have exponential complexity. Thankfully, this daunting complexity is not relevant in practice at all: If we find our algorithm to create an exponentially large tangle search tree of for example <span class="math notranslate nohighlight">\(S_{20}\)</span>, the search can be aborted with good conscience as structures described by millions of tangles rarely satisfy any reasonable kind of inquisitiveness.</p>
+<p>The implementation provided by the tangle library is actually much more dynamic than the high level description we have seen in the last paragraph. The implemented algorithm is known under the name <em>Tangle Sweep</em>. The tangle sweep allows the agreement parameter to be changed afterward <em>without needing to rebuild the tangle search tree from ground up</em>.
+This flexibility is achieved by a slight change to the tree structure. We not only store the nodes that satisfy the currently chosen agreement parameter, but we remember the <em>first</em> nodes that <em>fail</em> the agreement test. Let’s  call these nodes <em>maximal nodes</em>. To avoid confusion, a <em>maximal tangle</em> then is a node that has two maximal nodes as children. Additionally, we store the agreement value <span class="math notranslate nohighlight">\(\alpha(\sigma)\)</span> for every maximal node <span class="math notranslate nohighlight">\(\sigma\)</span> in the tree.
+If the externally set agreement parameter falls below the internal agreement value of a maximal node, then the expansion of this node’s subtree is initiated similarly as if the tree would have been build with a lower agreement parameter right from the start.
+If the external agreement parameter is increased, the tree just stays the same. If maximal tangles are queried for a higher agreement, we just iterate through all notes and collect the ones that have two children with internal agreement below the query agreement.
+The algorithm thus allows to initiate a tangle search with a relatively high agreement parameter, resulting in a fast initial search, and allows to refine the tree by lowering the agreement step by step until a reasonable number of tangles is found. Going back to a higher agreement is always possible without any expensive computations. Please note, that this flexibility necessitates every query to the tree to be parametrised by an agreement parameter. Please consult the software’s <a class="reference external" href="https://tangle-software.github.io/tangles/reference/api/tangles.html">documenation</a> for more details.</p>
+</section>
+<section id="scores-back-to-fuzzy-clusters">
+<h3>1.7 Scores - Back to fuzzy clusters<a class="headerlink" href="#scores-back-to-fuzzy-clusters" title="Link to this heading">#</a></h3>
+<p>We started our small “tour de tangles” with an introduction to clustering. Let us now close the circle and find out how tangles can be converted to clusters.
+The tangle library provides multiple methods to create a soft or hard clustering from a tangle search tree. The simplest way is to directly evaluate a <em>tangle score</em> that describes the individual data point’s <em>grade of membership</em> in a tangle. The tangle scores can be computed by a simple matrix multiplication of a matrix containing the features’ indicator vectors as columns and a matrix containing the tangles’ orientation vectors as columns. Please consider the software’s documentation for further details.</p>
+<p>Tangle scores are especially useful if our data set can be embedded in the 2-dimensional plane in an interpretable way. Then the scores can be visualised appealingly as <em>heatmaps</em>. We will see a nice examples in the second part of this notebook.</p>
+</section>
+</section>
+<section id="tangle-soft-clustering-in-mathbb-r-2">
+<h2>2. Tangle soft clustering in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#tangle-soft-clustering-in-mathbb-r-2" title="Link to this heading">#</a></h2>
+<p>Let’s look at an example. We will first sample some nice data, describe a meaningful order function based on point similarity and finally investigate the tangles of two simple feature sets.</p>
+<section id="sampling-data">
+<h3>2.1. Sampling Data<a class="headerlink" href="#sampling-data" title="Link to this heading">#</a></h3>
+<p>We will investigate <em>Tangle Clustering</em> using a running example, therefore we start with creating sample data. To keep it simple, we sample <span class="math notranslate nohighlight">\(1000\)</span> points from a mixture of gaussians,  each gaussian with diagonal covariance matrix. We choose to have a mixture of <span class="math notranslate nohighlight">\(15\)</span> 2d-gaussians with mean sampled uniformly in <span class="math notranslate nohighlight">\([0,10)^2\)</span> and standard deviations chosen uniformly from the set <span class="math notranslate nohighlight">\(\{0.5,2\}^2\)</span>. The mixing weights are sampled uniformly from the interval <span class="math notranslate nohighlight">\([0.25,1]\)</span>. The reason why we choose the standard deviations from a set of two fixed values is arbitrary: it appeared to create blobs of gaussian data that look slightly more interesting.</p>
+<p>(Feel free to change the parameters and sample different data in the  second pass through this notebook!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">create_2d_test_data</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">return_center_assignment</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scales</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">scales</span> <span class="o">=</span> <span class="n">scales</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">sel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">means</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">weights</span><span class="o">/</span><span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="n">sel</span> <span class="o">=</span> <span class="n">sel</span><span class="p">[</span><span class="n">sel</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="n">sel</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">scales</span><span class="p">[</span><span class="n">sel</span><span class="p">,:]</span>
+    <span class="n">data</span> <span class="o">-=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">return_center_assignment</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">sel</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+
+<span class="n">n_centers</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">M</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">create_2d_test_data</span><span class="p">(</span><span class="n">means</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_centers</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> 
+                                 <span class="c1">#scales=0.5*np.ones((n_centers, 2)) + 0.5*np.random.random(size=(n_centers,2)),</span>
+                                 <span class="n">scales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_centers</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
+                                 <span class="n">weights</span><span class="o">=</span><span class="mf">0.25</span> <span class="o">+</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_centers</span><span class="p">),</span>
+                                 <span class="n">num_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the sampled data and investigate it visually:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;xb&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3506733c144740403885b611dcb5f90384936df65df7388cad6c51bd275b8e37.png" src="../_images/3506733c144740403885b611dcb5f90384936df65df7388cad6c51bd275b8e37.png" />
+</div>
+</div>
+<p>This looks good - not too easy, not too hard :-) The <span class="math notranslate nohighlight">\(15\)</span> clusters from the sampling process can not really be recognized. The cluster structure looks <em>hierarchical</em>: There are four clusters on highest level that should be very easy to detect. At least two of these high level clusters seem to be composed of multiple smaller clusters. Refining the clusters further could be difficult.</p>
+<p>If the data is sorted in a meaningful way, it is often insightful to plot a distance matrix. We compute this matrix and store it in a variable <code class="docutils literal notranslate"><span class="pre">distances</span></code> as we will also use it later to compute similarities between the data points.
+Please note, that sorting the points in such a way - data points sampled from the same gaussian are stored next to each other - would be very difficult in a situation where we want to analyse real data obtained from unknown distributions. If we could sort the matrix in a similar way, we would have solved the clustering problem. In other words: We need the data’s structure to sort the matrix in this way, and, the other way round, if we can sort the matrix in this way, we know the structure…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance_matrix</span>
+<span class="n">distances</span> <span class="o">=</span> <span class="n">distance_matrix</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;data point idx&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;data point idx&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0dfff7d605aca7e7157c42c9a196abe5c5b93ce1f70a4fd751f3696bfc643b15.png" src="../_images/0dfff7d605aca7e7157c42c9a196abe5c5b93ce1f70a4fd751f3696bfc643b15.png" />
+</div>
+</div>
+<p>Interestingly, one can clearly identify the <span class="math notranslate nohighlight">\(15\)</span> gaussian blobs, even if one cannot recognize these as clusters in the scatter plot of the data.
+Visually, some of the clusters can be separated more clearly from the remaining data. We can expect our algorithm to have an easier life on some of the clusters and may have difficulties with others. The hierarchical nature of the cluster structure can be guessed vaguely, but is not obvious.</p>
+</section>
+<section id="an-order-function-based-on-point-similarity">
+<h3>2.2. An order function based on point similarity<a class="headerlink" href="#an-order-function-based-on-point-similarity" title="Link to this heading">#</a></h3>
+<p>We compute a simple order function based on the distance matrix. This order function creates a sparse similarity matrix with entries depending on the point distances in a quite obvious way: Close points are similar, distance points are dissimilar. To be exact, if <span class="math notranslate nohighlight">\(D \in \mathbb{R}^{V \times V}\)</span> is the distance matrix and <span class="math notranslate nohighlight">\(t \in \mathbb{R}_{\ge 0}\)</span> is a threshold parameter, the entries of the similarity matrix <span class="math notranslate nohighlight">\(K \in \mathbb{R}^{V \times V}\)</span> are computed as</p>
+<div class="math notranslate nohighlight">
+\[K(u,v) = 1 - \frac{\min(D(u,v), t)}{t}\]</div>
+<p>that is, if the distance between two separated points is inside the interval <span class="math notranslate nohighlight">\([0,t)\)</span>, the similarity decreases linearly from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(0\)</span> with distance increasing from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(t\)</span>, if the distance is greater or equal to <span class="math notranslate nohighlight">\(t\)</span>, the similarity is <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>The tangle library provides the convenience function <a class="reference external" href="https://tangle-software.github.io/tangles/reference/api/tangles.util.matrix_order.linear_similarity_from_dist_matrix.html">linear_similarity_from_dist_matrix</a> to compute similarity matrices of this kind.</p>
+<p>Depending on the threshold parameter <span class="math notranslate nohighlight">\(t\)</span>, the resulting matrix can be very sparse - a very good reason to prefer similarity matrices over distance matrices if workingon bigger data sets.</p>
+<p>Finally, the order function is given by the <em>matrix order function</em> based on the negation of the similarity matrix <span class="math notranslate nohighlight">\(K\)</span>. Let <span class="math notranslate nohighlight">\(f \in \{-1,1\}^{V}\)</span> be the <em>feature indicator vector</em> of the potential feature <span class="math notranslate nohighlight">\(\{A, A^c\}\)</span>, this means <span class="math notranslate nohighlight">\(f(v) = 1\)</span> if <span class="math notranslate nohighlight">\(v \in A\)</span> and <span class="math notranslate nohighlight">\(f(v) = -1\)</span> otherwise. Then the order of <span class="math notranslate nohighlight">\(f\)</span> is computed as the quadratic form</p>
+<div class="math notranslate nohighlight">
+\[ o(f) = - f^T K f.\]</div>
+<p>This expression evaluates (and accumulates) the similarity of points on different sides of the bipartition <span class="math notranslate nohighlight">\(\{A, A^c\}\)</span>. A feature’s order is smaller if it separates fewer similar points.</p>
+<p>Let’s try to visualise an example of the order computation.
+It is helpful to take a different perspective on the order function. We can interpret the function as some kind of <em>matrix order approximation</em> to the loss function of a classifier evaluating points within a <em>margin</em> around an imaginary decision boundary between a bipartition’s sides.</p>
+<p>The plot shows a feature splitting the data set into two classes shown in red and blue. The decision boundary between red and blue points is approximated by a negligently regularized <em>support vector machine</em> and drawn as a thick black line. The order function depends only on separated pairs of points that are close to the decision boundary. The members of such pairs are connected by a line. The order depends on the sum of the lengths of these lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">point_clouds_helpers</span> <span class="kn">import</span> <span class="n">plot_margin_example</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_margin_example</span><span class="p">(</span><span class="n">M</span><span class="p">,(</span><span class="n">distances</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">centers</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]),:]</span><span class="o">&lt;</span><span class="mf">1.3</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/96bcca23988286d8df77d54aece8e83d8ccd33d22ba3fce286a71fa97e939712.png" src="../_images/96bcca23988286d8df77d54aece8e83d8ccd33d22ba3fce286a71fa97e939712.png" />
+</div>
+</div>
+<p>This order functions seems to make sense, but it has a suboptimal side effect: Unbalanced features, i.e. potential features where one specification has significantly smaller size than the other, tend to have lower order. This effect can be reduced by decreasing the margin size, but we cannot get rid of it completely. Having said that, this effect is not only bad: If the data set fades from a conglomerate of dense clusters to sparse regions at the border, the <em>outlier</em> points are not tightly related to the dense clusters and a feature describing these outlier points should not have high order.</p>
+<p>Let’s use the final cell of this section to do the technical stuff. We create the similarity matrix and a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> expression that computes the matrix order function based on the negated similarity matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.matrix_order</span> <span class="kn">import</span> <span class="n">linear_similarity_from_dist_matrix</span>
+
+<span class="n">sim_matrix</span> <span class="o">=</span> <span class="n">linear_similarity_from_dist_matrix</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">sparse_mat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">order_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">seps</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="n">seps</span> <span class="o">*</span> <span class="p">(</span><span class="n">sim_matrix</span> <span class="o">@</span> <span class="n">seps</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tangles-of-a-simple-feature-system">
+<h3>2.3. Tangles of a simple feature system<a class="headerlink" href="#tangles-of-a-simple-feature-system" title="Link to this heading">#</a></h3>
+<p>We are now ready to search tangles. We propose a very simple feature set that might appear naive but will work quite well. We start with <span class="math notranslate nohighlight">\(k\)</span> equidistant horizontal and <span class="math notranslate nohighlight">\(k\)</span> equidistant vertical lines through the data’s support and create one potential feature per line. Each feature splits the data set in a subset of points below, or left, and a subset of points above, or right, of the line.</p>
+<p>We choose <span class="math notranslate nohighlight">\(k=100\)</span> horizontal and vertical lines, respectively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">S_ax</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">S_ax</span><span class="p">[</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">t</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> 
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">S_ax</span><span class="p">[</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">t</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are not primarily interested in the splitting lines but in the resulting bipartitions of <span class="math notranslate nohighlight">\(V\)</span>. Not every line results in a unique bipartition, therefore we remove duplicates. Afterward, we sort by the order function defined in the last chapter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util</span> <span class="kn">import</span> <span class="n">unique_cols</span>
+<span class="n">S_ax</span> <span class="o">=</span> <span class="n">unique_cols</span><span class="p">(</span><span class="n">S_ax</span><span class="o">*</span><span class="n">S_ax</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,:])</span>
+<span class="n">S_ax</span> <span class="o">=</span> <span class="n">S_ax</span><span class="p">[:,</span><span class="n">order_fun</span><span class="p">(</span><span class="n">S_ax</span><span class="p">)</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">S_ax</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> unique features left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 92 unique features left
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is not a very big number of features, so we can investigate them all at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">ncols</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">S_ax</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">S_ax</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="n">S_ax</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;xr&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">S_ax</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="n">S_ax</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;xb&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\overrightarrow{{s_{{</span><span class="si">{0}</span><span class="s2">}}}}$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Axis aligned features sorted by increasing order&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/19a22b0718fade95a6ae7c24f91ec435f9db96c90f1efe0c4d5553c40412436c.png" src="../_images/19a22b0718fade95a6ae7c24f91ec435f9db96c90f1efe0c4d5553c40412436c.png" />
+</div>
+</div>
+<p>Most features do not look very helpful. A lot of them cut of a few outliers at the borders, i.e. are quite <em>unbalanced</em>, some cut straight through very dense regions. A small number of features seems to distinguish left from right and top from bottom in a reasonable way. We can expect the tangles to find at least the four obvious clusters at the top left, top, right, bottom left and bottom right.</p>
+<p>It seems that <em>some</em> features capture <em>some</em> aspects of the data’s structure. This is exactly where the order function comes into play: The “good” features are mixed into a range of less promising ones at “moderately” low order. The features <span class="math notranslate nohighlight">\(\overrightarrow{s_1}, \dots, \overrightarrow{s_{19}}\)</span> describe outliers at the borders, at <span class="math notranslate nohighlight">\(\overrightarrow{s_{20}}\)</span> the top is separated from the bottom and at <span class="math notranslate nohighlight">\(\overrightarrow{s_{32}}\)</span> the left is distinguished from the right. The features of high order seem to cut through quite dense areas, mostly.</p>
+<p>Ok, let’s just try it out. We have a very small and simple feature set, therefore we can afford to search tangles with a low agreement of <span class="math notranslate nohighlight">\(10\)</span>. The library provides a <a class="reference external" href="https://tangle-software.github.io/tangles/reference/api/tangles.convenience.search_tangles.html">convenience function</a> to handle simple cases like this:</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.convenience</span> <span class="kn">import</span> <span class="n">search_tangles</span><span class="p">,</span> <span class="n">DefaultProgressCallback</span>
+<span class="n">tangles</span> <span class="o">=</span> <span class="n">search_tangles</span><span class="p">(</span><span class="n">S_ax</span><span class="p">,</span> <span class="n">min_agreement</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">progress_callback</span><span class="o">=</span><span class="n">DefaultProgressCallback</span><span class="p">(</span><span class="n">show_info_while_running</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For an agreement parameter this low, the search results in <span class="math notranslate nohighlight">\(118\)</span> tangles. Obviously, the agreement is too low to make sense. We don’t want to split our data set of <span class="math notranslate nohighlight">\(1000\)</span> points into more than <span class="math notranslate nohighlight">\(100\)</span> fuzzy clusters. Thankfully, the <em>TangleSweep</em> algorithm allows us to increase the agreement parameter without rebuilding the tree.</p>
+<p>Let’s try a bigger agreement parameter and look at the tangles search tree. The tangle library provides a <a class="reference external" href="https://tangle-software.github.io/tangles/reference/api/tangles.util.tree.BinTreeNetworkX.draw.html">function</a> to draw the tangle search tree. The plot is a bit more complex, let’s draw it first and walk through the details afterward:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.tree</span> <span class="kn">import</span> <span class="n">BinTreeNetworkX</span>
+<span class="kn">from</span> <span class="nn">tangles.analysis</span> <span class="kn">import</span> <span class="n">tangle_score</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+
+<span class="n">agreement</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lightgray&quot;</span><span class="p">,</span> <span class="s2">&quot;lightgray&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="n">cmap</span><span class="o">=</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;mymap&#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">c</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">draw_tangle</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="n">bin_tree_node</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node_id</span><span class="p">][</span><span class="n">BinTreeNetworkX</span><span class="o">.</span><span class="n">node_attr_bin_tree_node</span><span class="p">]</span>
+    <span class="n">min_p</span><span class="p">,</span> <span class="n">max_p</span> <span class="o">=</span> <span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="n">min_p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xmax</span><span class="o">=</span><span class="n">max_p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="n">min_p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ymax</span><span class="o">=</span><span class="n">max_p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">min_p</span><span class="p">,</span> <span class="n">max_p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">min_p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">max_p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">min_p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">bin_tree_node</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1000</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bin_tree_node</span><span class="o">.</span><span class="n">path_from_root_indicator</span><span class="p">())[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:]</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">tangle_score</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">tangles</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">sep_ids</span><span class="p">[:</span><span class="n">path</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">tangles</span><span class="o">.</span><span class="n">sep_sys</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="n">bintree</span> <span class="o">=</span> <span class="n">BinTreeNetworkX</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">maximal_tangles</span><span class="p">(</span><span class="n">agreement</span><span class="o">=</span><span class="n">agreement</span><span class="p">,</span> <span class="n">include_splitting</span><span class="o">=</span><span class="s1">&#39;nodes&#39;</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">bintree</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">draw_node_label_func</span><span class="o">=</span><span class="n">draw_tangle</span><span class="p">,</span> <span class="n">draw_edge_label_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">node_label_size</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">draw_levels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+             <span class="n">level_label_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\overrightarrow{{s_{{</span><span class="si">{0}</span><span class="s2">}}}}$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.78</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.02</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Tangle score: &quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">cb</span>  <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">norm</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s2">&quot;low&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7a88ee9f75702fe88b3b178ece04324702213f9b8dafc29eb9ab4c4d733ea9cd.png" src="../_images/7a88ee9f75702fe88b3b178ece04324702213f9b8dafc29eb9ab4c4d733ea9cd.png" />
+</div>
+</div>
+<p>The plot shows a part of the tangle search tree. The complete tangle search tree is usually too big to be drawn while including all relevant details. Therefore, we extract only maximal tangles and so-called <em>splitting nodes</em>, these are non-maximal nodes that have two children, i.e. tangles that are split into two new tangles by the next feature. The nodes are drawn as miniature versions of the data set where the points’ tangle scores are indicated by color. Every leaf corresponds to a maximal tangle, so we have seven maximal tangles in total. The two tangles in the left subtree show clustesr in the top left and in the top right. The other subtree is a bit more complicated. First, a cluster in the lower left is separated, the lower right part is further refined into four clusters showing a particular hierarchical arrangement.</p>
+<p>The dotted horizontal lines show the levels of the tree. The levels are labeled by the first feature that is specified <em>directly after the drawn nodes</em>. The root corresponds to the complete data set. The first feature branching into the data set’s lower and upper part is <span class="math notranslate nohighlight">\(\overrightarrow{s_{20}}\)</span>. The node immediately before the branch shows a high tangle score for nearly every point except some outlier points close to the border. The exact specification of the features before, <span class="math notranslate nohighlight">\(\overrightarrow{s_{1}}, \dots, \overrightarrow{s_{19}}\)</span>, cannot be seen in the tree, all we know is, that the tree does not branch anywhere at these levels. The same applies to all other lines that skip multiple levels: for example, both subtrees of the node before <span class="math notranslate nohighlight">\(\overrightarrow{s_{32}}\)</span> are <em>paths</em>, i.e. all their nodes have degree <span class="math notranslate nohighlight">\(2\)</span>, but the left path and the right path might encode different specifications of the potential features <span class="math notranslate nohighlight">\(s_{33}\)</span> to <span class="math notranslate nohighlight">\(s_{65}\)</span>.</p>
+<p>The plot of the tangle search tree gives a good overview over the tangles and their hierarchical relationships, but the details of the tangle scores are not perfectly visible. The details can better be seen if we give the tangle scores a bit more space:</p>
+<p>We use the same agreement as above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">tangle_score</span><span class="p">(</span><span class="n">min_agreement</span><span class="o">=</span><span class="n">agreement</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;cols&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="o">:=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">4</span><span class="p">))),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="n">r</span><span class="o">*</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">scores</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximal tangles for agreement </span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Maximal tangles for agreement 30&#39;)
+</pre></div>
+</div>
+<img alt="../_images/b9df5bf97073a7fb45d3e3200062c2ba35039baccc315c82a9f9f927685270a3.png" src="../_images/b9df5bf97073a7fb45d3e3200062c2ba35039baccc315c82a9f9f927685270a3.png" />
+</div>
+</div>
+<p>The scores look mostly reasonable. The upper part of the cluster aggregation on the bottom right seems not to be separated very clearly.</p>
+<p>Next, we want to investigate the influence of the agreement parameter. We already have seen that we get way too many tangles for <span class="math notranslate nohighlight">\(\alpha_{\min} = 10\)</span> and a quite reasonable number of tangles for <span class="math notranslate nohighlight">\(\alpha_{\min} = 30\)</span>. Let’s investigate some more values:</p>
+<p>The next plot shows the number of tangles for an agreement parameter varying in the range <span class="math notranslate nohighlight">\([20,150]\)</span>. At some agreement levels, the plot shows the corresponding set of maximal tangles. The visualisation is the same as in the last plot: each tangle is visualised as a heatmap on a miniature version of the complete dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.ui</span> <span class="kn">import</span> <span class="n">plot_annotated</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_agg</span> <span class="kn">import</span> <span class="n">FigureCanvasAgg</span>
+
+<span class="n">agreement_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">151</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">anno_func</span><span class="p">(</span><span class="n">agreement</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">tangle_score</span><span class="p">(</span><span class="n">min_agreement</span><span class="o">=</span><span class="n">agreement</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;cols&#39;</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">/=</span> <span class="n">scores</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">M</span><span class="p">,(</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="p">((</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">FigureCanvasAgg</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">scores</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">canvas</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">buffer_rgba</span><span class="p">())</span>
+        
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plot_annotated</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">agreement_range</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">maximal_tangles</span><span class="p">(</span><span class="n">agreement</span><span class="p">))</span> <span class="k">for</span> <span class="n">agreement</span> <span class="ow">in</span> <span class="n">agreement_range</span><span class="p">],</span> 
+               <span class="n">annotation_x_positions</span><span class="o">=</span> <span class="p">[</span><span class="mi">77</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span> <span class="n">annotation_offsets</span><span class="o">=</span><span class="p">[(</span><span class="mi">300</span><span class="p">,</span><span class="mi">250</span><span class="p">),(</span><span class="mi">320</span><span class="p">,</span><span class="mi">130</span><span class="p">),(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="mi">20</span><span class="p">),(</span><span class="o">-</span><span class="mi">400</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">),(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span><span class="mi">150</span><span class="p">)],</span>
+               <span class="n">annotation_func</span> <span class="o">=</span> <span class="n">anno_func</span><span class="p">,</span> <span class="n">annotation_is_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annotation_zoom</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+               <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;agreement parameter&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;number of maximal tangles&quot;</span><span class="p">,</span>
+               <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Tangles at different agreement levels&quot;</span><span class="p">,</span>
+               <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/45a11096db3e02ba675925b7bce9c6475e28faac83aa646dc7e43ff0770b5cdc.png" src="../_images/45a11096db3e02ba675925b7bce9c6475e28faac83aa646dc7e43ff0770b5cdc.png" />
+</div>
+</div>
+<p>At level <span class="math notranslate nohighlight">\(\alpha_{\min} = 150\)</span>, we see only three tangles: top, bottom right and bottom left. If we lower the agreement to 105, the top part is further split into left and right part. Continuing to lower the agreement results in a successive refinement of the big cluster in the bottom right. At <span class="math notranslate nohighlight">\(\alpha_{\min} = 77\)</span> we are at the same situation as above for agreement <span class="math notranslate nohighlight">\(30\)</span>. For even lower agreements more and more other tangles are split further, but these tangles often only reflect small density fluctuations in the data.</p>
+<p>For example, at <span class="math notranslate nohighlight">\(\alpha_{\min} = 25\)</span>, the bottom left cluster is split into two reasonable clusters, at the same time, the top left is split into two regions of different density. This is actually nice, but the differences in scores are tiny and more powerful scoring schemes might be needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">tangle_score</span><span class="p">(</span><span class="n">min_agreement</span><span class="o">=</span><span class="n">agreement</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;cols&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="o">:=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">4</span><span class="p">))),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="n">r</span><span class="o">*</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">scores</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximal tangles for agreement </span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Maximal tangles for agreement 25&#39;)
+</pre></div>
+</div>
+<img alt="../_images/60e626a2d9086486ae28da25d2e7ba86642dbb5ac5bfb7d6c096b23aed2b8cde.png" src="../_images/60e626a2d9086486ae28da25d2e7ba86642dbb5ac5bfb7d6c096b23aed2b8cde.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>3. Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>Often astonishingly simple features can give quite good results. We have seen, that tangles can handle qualitatively diverse feature sets quite effectively. As long as we have <em>some</em> features that capture <em>some</em> aspects of <em>some</em> kind of structure in the data, tangles should be able to detect or at least emphasize it.</p>
+<p>There is a small caveat: This example was a toy example meant for educational purposes. The data set was especially handsome because we could easily visualise it, its structure and even the tangles. This is usually not the case and this is one of the biggest obstacles encountered in (unsupervised) data analysis as a whole and, in particular, even more in tangles. Often, one has to put significant effort in finding out the meaning of a tangle in the context of the data’s domain. However, this should not dissuade us from playing with this beautiful technique.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tangles%20of%20Personality%20Traits.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tangles of Personality Traits</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tangles%20in%20Images%20I.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tangles in Images I</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-and-tangles">1. Clustering and Tangles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-let-s-divide">1.1 Clustering - let’s divide</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangles-let-s-work-together">1.2 Tangles - let’s work together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-choose-your-side">1.3. Features - choose your side</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-functions-not-all-features-are-created-equal">1.4. Order functions - not all features are created equal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-let-s-agree-on-one-point-at-least">1.5. Consistency - let’s agree on one point, at least</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangles-sweep-the-world">1.6. Tangles - sweep the world</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scores-back-to-fuzzy-clusters">1.7 Scores - Back to fuzzy clusters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tangle-soft-clustering-in-mathbb-r-2">2. Tangle soft clustering in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-data">2.1. Sampling Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-order-function-based-on-point-similarity">2.2. An order function based on point similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tangles-of-a-simple-feature-system">2.3. Tangles of a simple feature system</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/tutorials/Point Cloud Tangles.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Tangle Software Contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

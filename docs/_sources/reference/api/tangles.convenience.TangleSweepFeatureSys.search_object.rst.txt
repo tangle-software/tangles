@@ -1,0 +1,6 @@
+search_object
+=============
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: TangleSweepFeatureSys.search_object

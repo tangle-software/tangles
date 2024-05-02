@@ -16,6 +16,7 @@ tangles.util.graph.similarity
       tangles.util.graph.similarity.cosine_similarity_graph_csr_data
       tangles.util.graph.similarity.epsilon_neighborhood_graph
       tangles.util.graph.similarity.grid_distance_graph
+      tangles.util.graph.similarity.hamming_similarity
       tangles.util.graph.similarity.image_to_similarity_graph
       tangles.util.graph.similarity.k_nearest_neighbors
 
@@ -30,6 +31,8 @@ tangles.util.graph.similarity
         - Creates a neighborhood graph from precomputed distances
       * - :func:`grid_distance_graph`
         - A function to create a grid-like graph where every vertex is connected to all neighbors that are close (in grid coordinates)
+      * - :func:`hamming_similarity`
+        - The hamming distance, named after Richard Hamming, is a similarity metric measuring the number
       * - :func:`image_to_similarity_graph`
         - Computes a similarity graph for pixels of an image
       * - :func:`k_nearest_neighbors`

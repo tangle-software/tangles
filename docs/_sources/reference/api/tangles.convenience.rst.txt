@@ -5,6 +5,19 @@ tangles.convenience
 
 .. automodule:: tangles.convenience
 
+   .. rubric:: Modules
+
+   .. toctree::
+      :hidden:
+
+      tangles.convenience.convenience_features
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :mod:`tangles.convenience.convenience_features`
+        - 
+
 
    .. rubric:: Classes
 
@@ -20,13 +33,13 @@ tangles.convenience
       tangles.convenience.OrderFunctionO4
       tangles.convenience.OrdinalVariableValues
       tangles.convenience.SimpleSurveyFeatureFactory
-      tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesBothSides
-      tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesImplicit
-      tangles.convenience.SimpleSurveyFeatureFactory_MissingValuesOwnFeatures
+      tangles.convenience.SimpleSurveyFeatureFactoryMissingValuesBothSides
+      tangles.convenience.SimpleSurveyFeatureFactoryMissingValuesImplicit
+      tangles.convenience.SimpleSurveyFeatureFactoryMissingValuesOwnFeatures
       tangles.convenience.Survey
       tangles.convenience.SurveyFeatureFactory
+      tangles.convenience.SurveyFeatureFactoryCherryPicker
       tangles.convenience.SurveyFeatureFactoryDecorator
-      tangles.convenience.SurveyFeatureFactory_CherryPicker
       tangles.convenience.SurveyTangles
       tangles.convenience.SurveyVariable
       tangles.convenience.SurveyVariableValues
@@ -41,33 +54,33 @@ tangles.convenience
       * - :class:`NumericalVariableValues`
         - A numeric :class:`SurveyVariableValues` class
       * - :class:`OrderFunctionO1`
-        - 
+        - Order function "O1" from the book
       * - :class:`OrderFunctionO1biased`
-        - 
+        - Biased version of order function "O1" from the book
       * - :class:`OrderFunctionO2`
-        - 
+        - Order function "O2" from the book
       * - :class:`OrderFunctionO3`
-        - 
+        - Order function "O3" from the book
       * - :class:`OrderFunctionO4`
-        - 
+        - Order function "O4" from the book
       * - :class:`OrdinalVariableValues`
         - An ordinal :class:`SurveyVariableValues` class
       * - :class:`SimpleSurveyFeatureFactory`
         - A simple survey factory, used as default factory
-      * - :class:`SimpleSurveyFeatureFactory_MissingValuesBothSides`
+      * - :class:`SimpleSurveyFeatureFactoryMissingValuesBothSides`
         - A simple survey factory that takes missing and invalid values into account
-      * - :class:`SimpleSurveyFeatureFactory_MissingValuesImplicit`
+      * - :class:`SimpleSurveyFeatureFactoryMissingValuesImplicit`
         - A simple survey factory that takes missing and invalid values into account
-      * - :class:`SimpleSurveyFeatureFactory_MissingValuesOwnFeatures`
+      * - :class:`SimpleSurveyFeatureFactoryMissingValuesOwnFeatures`
         - A simple survey factory that takes missing and invalid values into account
       * - :class:`Survey`
         - Objects of this class represent survey data and provide functions to prepare, clean and subset survey data
       * - :class:`SurveyFeatureFactory`
         - Abstract base class for feature factories
+      * - :class:`SurveyFeatureFactoryCherryPicker`
+        - A survey feature factory extending a default factory that allows to change the factory functions for individual
       * - :class:`SurveyFeatureFactoryDecorator`
         - A small decorator class that can extend the behaviour of another survey feature factory
-      * - :class:`SurveyFeatureFactory_CherryPicker`
-        - A survey feature factory extending a default factory that allows to change the factory functions for individual
       * - :class:`SurveyTangles`
         - Manages a tangle search on survey data
       * - :class:`SurveyVariable`
@@ -86,36 +99,39 @@ tangles.convenience
       :hidden:
 
       tangles.convenience.binary_unique_value_features
-      tangles.convenience.extensive_numericvar_features
+      tangles.convenience.create_features_all_unique_values
+      tangles.convenience.create_features_split_regular_bins
+      tangles.convenience.create_features_split_regular_ge
+      tangles.convenience.create_order_function
       tangles.convenience.feats2seps_invalids_to_both_sides
+      tangles.convenience.feature_factory_all_splits_ge
       tangles.convenience.nominalvar_features_all_cats
-      tangles.convenience.numericvar_features_inside_regular_bins
-      tangles.convenience.numericvar_features_split_regular_ge
-      tangles.convenience.ordinalvar_features_ge_all_splits
+      tangles.convenience.order_works_on_features
       tangles.convenience.search_tangles
       tangles.convenience.search_tangles_uncrossed
-      tangles.convenience.simple_unique_value_features
 
    .. list-table::
       :widths: 50 50
 
       * - :func:`binary_unique_value_features`
         - A feature factory function for binary variables
-      * - :func:`extensive_numericvar_features`
-        - A feature factory function for numeric variables that take a small number of unique values
+      * - :func:`create_features_all_unique_values`
+        - A simple feature factory function for variables that take a (small) number of unique values
+      * - :func:`create_features_split_regular_bins`
+        - A feature factory function creating features splitting the variable's range into equally sized bins
+      * - :func:`create_features_split_regular_ge`
+        - A feature factory function creating bipartitions splitting the dataset at equidistant thresholds between minimum and maximum the variable's range
+      * - :func:`create_order_function`
+        - Create a standard order function given by name
       * - :func:`feats2seps_invalids_to_both_sides`
         - A decorator turning a feature into a set separation by assigning invalid and missing answers to both sides of
+      * - :func:`feature_factory_all_splits_ge`
+        - A feature factory function splitting the range of a variable into two subsets using threholds at each unique value of the variable's range
       * - :func:`nominalvar_features_all_cats`
         - A feature factory function for nominal variables
-      * - :func:`numericvar_features_inside_regular_bins`
-        - A feature factory function for numeric variables
-      * - :func:`numericvar_features_split_regular_ge`
-        - A  feature factory function for numeric variables
-      * - :func:`ordinalvar_features_ge_all_splits`
-        - A feature factory function for ordinal variables
+      * - :func:`order_works_on_features`
+        - Helper function to find out if a named order function works on features
       * - :func:`search_tangles`
         - Search tangles and return a :class:`TangleSweepFeatureSys` (a container for the result)
       * - :func:`search_tangles_uncrossed`
         - Search tangles, uncross crossing distinguishers and return an object containing the result
-      * - :func:`simple_unique_value_features`
-        - A simple feature factory function for variables that take a (small) number of unique values

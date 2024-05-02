@@ -1,11 +1,11 @@
+from typing import Union
+import copy as cp
+import numbers
 import bitarray as ba
 import bitarray.util as ba_util
 import numpy as np
-from ._set_system_base import SetSeparationSystemBase, MetaData
 from tangles._typing import Feature
-from typing import Optional, Union
-import copy as cp
-import numbers
+from ._set_system_base import SetSeparationSystemBase, MetaData
 
 
 class BitarrayHashToIdMultimap:
@@ -15,7 +15,7 @@ class BitarrayHashToIdMultimap:
         np.random.seed(seed)
         mask_size = max(1, min(int(n * max_mask_size), hash_size // 2))
         num_masks = max(1, hash_size // mask_size)
-        for i in range(num_masks):
+        for _ in range(num_masks):
             mask = np.zeros(n, dtype=bool)
             mask[np.random.choice(n, mask_size, replace=False)] = 1
             self.masks.append(ba.frozenbitarray(mask.tolist()))
@@ -32,7 +32,7 @@ class BitarrayHashToIdMultimap:
         else:
             self.scramble = None
 
-    def copy(self) -> 'BitarrayHashToIdMultimap':
+    def copy(self) -> "BitarrayHashToIdMultimap":
         copy = BitarrayHashToIdMultimap(*self.params)
         copy.hash = cp.deepcopy(self.hash)
         return copy
@@ -66,11 +66,21 @@ class SetSeparationSystem(SetSeparationSystemBase):
     def __len__(self) -> int:
         return len(self.seps_ba[0])
 
-    def copy(self) -> 'SetSeparationSystem':
+    def copy(self) -> "SetSeparationSystem":
         copy = SetSeparationSystem(self.datasize)
         copy.seps_ba = (self.seps_ba[0].copy(), self.seps_ba[1].copy())
         copy.sep_hash_to_id = self.sep_hash_to_id.copy()
         return copy
+
+    def count_big_side(self, sep_id: int):
+        if sep_id >= len(self):
+            raise ValueError("unknown separation")
+        return self.seps_ba[0][sep_id].count()
+
+    def side_counts(self, sep_id: int) -> tuple[int, int]:
+        if sep_id >= len(self):
+            raise ValueError("unknown separation")
+        return self.seps_ba[0][sep_id].count(), self.seps_ba[1][sep_id].count()
 
     def get_single_sep_id_bit(self, sep_bit_a, sep_bit_b) -> tuple[int, np.int8]:
         a_match_pos, a_match_neg = self.sep_hash_to_id.get(sep_bit_a)
@@ -97,15 +107,19 @@ class SetSeparationSystem(SetSeparationSystemBase):
             sep_ids[i], orientations[i] = self.get_single_sep_id_bit(s_a, s_b)
         return sep_ids, orientations
 
-    def compute_infimum(self, sep_ids: np.ndarray, orientations: np.ndarray) -> tuple[np.ndarray]:
+    def compute_infimum(
+        self, sep_ids: Union[np.ndarray, list], orientations: Union[np.ndarray, list]
+    ) -> np.ndarray:
         off = (orientations[0] + 1) >> 1
-        sup_A = (self.seps_ba[1 - off][sep_ids[0]]).copy()
-        sup_B = (self.seps_ba[off][sep_ids[0]]).copy()
-        for i in range(1,len(sep_ids)):
-            off = (orientations[i] + 1) >> 1
-            sup_A &= self.seps_ba[1-off][sep_ids[i]]
-            sup_B |= self.seps_ba[off][sep_ids[i]]
-        sep = np.frombuffer(sup_A.unpack(), dtype=np.int8) - np.frombuffer(sup_B.unpack(), dtype=np.int8)
+        sup_a = (self.seps_ba[1 - off][sep_ids[0]]).copy()
+        sup_b = (self.seps_ba[off][sep_ids[0]]).copy()
+        for sep_id, ori in zip(sep_ids, orientations):
+            off = (ori + 1) >> 1
+            sup_a &= self.seps_ba[1 - off][sep_id]
+            sup_b |= self.seps_ba[off][sep_id]
+        sep = np.frombuffer(sup_a.unpack(), dtype=np.int8) - np.frombuffer(
+            sup_b.unpack(), dtype=np.int8
+        )
         return sep
 
     def _add_sep_bit(self, new_sep_bit_a, new_sep_bit_b) -> tuple[int, int]:
@@ -123,56 +137,112 @@ class SetSeparationSystem(SetSeparationSystemBase):
         new_sep_bit_b = ba.bitarray((new_sep[:, 0] <= 0).tolist())
         return self._add_sep_bit(new_sep_bit_a, new_sep_bit_b)
 
-    def _compute_infimum_of_two(self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int) -> tuple[int, np.int8]:
+    def _compute_and_add_corner(
+        self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int
+    ) -> tuple[int, np.int8]:
         off_a = (orientation_a + 1) >> 1
         off_b = (orientation_b + 1) >> 1
-        sup_A = (self.seps_ba[1-off_a][sep_id_a]) & (self.seps_ba[1-off_b][sep_id_b])
-        sup_B = (self.seps_ba[off_a][sep_id_a]) | (self.seps_ba[off_b][sep_id_b])
-        id, o = self.get_single_sep_id_bit(sup_A, sup_B)
+        sup_a = (self.seps_ba[1 - off_a][sep_id_a]) & (
+            self.seps_ba[1 - off_b][sep_id_b]
+        )
+        sup_b = (self.seps_ba[off_a][sep_id_a]) | (self.seps_ba[off_b][sep_id_b])
+        sep_id, o = self.get_single_sep_id_bit(sup_a, sup_b)
 
-        metadata = MetaData(((sep_id_a, orientation_a), (sep_id_b, orientation_b)), orientation=1, type='inf')
-        if id == -1:
-            id = len(self.seps_ba[0])
-            self.seps_ba[0].append(sup_A)
-            self.seps_ba[1].append(sup_B)
-            self.sep_hash_to_id.add(sup_A, id)
-            self.sep_hash_to_id.add(~sup_B, id)
+        metadata = MetaData(
+            ((sep_id_a, orientation_a), (sep_id_b, orientation_b)),
+            orientation=1,
+            dtype="inf",
+        )
+        if sep_id == -1:
+            sep_id = len(self.seps_ba[0])
+            self.seps_ba[0].append(sup_a)
+            self.seps_ba[1].append(sup_b)
+            self.sep_hash_to_id.add(sup_a, sep_id)
+            self.sep_hash_to_id.add(~sup_b, sep_id)
             self.sep_metadata.append(metadata)
-        elif id != sep_id_a and id != sep_id_b:
+        elif sep_id not in {sep_id_a, sep_id_b}:
             metadata.orientation = o
-            self.sep_metadata[id].append(metadata)
+            self.sep_metadata[sep_id].append(metadata)
 
-        return id, o
+        return sep_id, o
 
-
-    def _compute_le(self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int) -> bool:
+    def _compute_le(
+        self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int
+    ) -> bool:
         off_a = (orientation_a + 1) >> 1
         off_b = (orientation_b + 1) >> 1
-        a = (self.seps_ba[1-off_a][sep_id_a], self.seps_ba[off_a][sep_id_a])
-        b = (self.seps_ba[1-off_b][sep_id_b], self.seps_ba[off_b][sep_id_b])
-        return (a[0] | b[0]).count() == b[0].count() and (a[1] | b[1]).count() == a[1].count()
+        a = (self.seps_ba[1 - off_a][sep_id_a], self.seps_ba[off_a][sep_id_a])
+        b = (self.seps_ba[1 - off_b][sep_id_b], self.seps_ba[off_b][sep_id_b])
+        return (a[0] | b[0]).count() == b[0].count() and (a[1] | b[1]).count() == a[
+            1
+        ].count()
 
     def __getitem__(self, sep_ids) -> np.ndarray:
         if isinstance(sep_ids, numbers.Integral):
-            seps = np.frombuffer(self.seps_ba[0][sep_ids].unpack(), dtype=np.int8) - np.frombuffer(self.seps_ba[1][sep_ids].unpack(), dtype=np.int8)
+            seps = np.frombuffer(
+                self.seps_ba[0][sep_ids].unpack(), dtype=np.int8
+            ) - np.frombuffer(self.seps_ba[1][sep_ids].unpack(), dtype=np.int8)
         elif isinstance(sep_ids, slice):
             start, stop, step = sep_ids.indices(len(self.seps_ba[0]))
             seps = np.empty((self.datasize, (stop - start) // step), dtype=np.int8)
-            for i, id in enumerate(range(start, stop, step)):
-                seps[:, i] = np.frombuffer(self.seps_ba[0][id].unpack(), dtype=np.int8) - np.frombuffer(self.seps_ba[1][id].unpack(), dtype=np.int8)
+            for i, sep_id in enumerate(range(start, stop, step)):
+                seps[:, i] = np.frombuffer(
+                    self.seps_ba[0][sep_id].unpack(), dtype=np.int8
+                ) - np.frombuffer(self.seps_ba[1][sep_id].unpack(), dtype=np.int8)
             return seps
         else:
             seps = np.empty((self.datasize, len(sep_ids)), dtype=np.int8)
-            for i, id in enumerate(sep_ids):
-                seps[:, i] = np.frombuffer(self.seps_ba[0][id].unpack(), dtype=np.int8) - np.frombuffer(self.seps_ba[1][id].unpack(), dtype=np.int8)
+            for i, sep_id in enumerate(sep_ids):
+                seps[:, i] = np.frombuffer(
+                    self.seps_ba[0][sep_id].unpack(), dtype=np.int8
+                ) - np.frombuffer(self.seps_ba[1][sep_id].unpack(), dtype=np.int8)
         return seps
 
 
 class FeatureSystem(SetSeparationSystemBase):
-    def __init__(self, data_size):
+    def __init__(self, data_size: int):
+        """
+        Create a new features system.
+
+        The data size is the size of the ground set the features are a subset of.
+
+        Parameters
+        ----------
+        data_size
+            the size of the ground set.
+        """
         super().__init__(data_size)
         self.seps_ba: list[ba.bitarray] = []
         self.sep_hash_to_id = BitarrayHashToIdMultimap(data_size, 10000)
+
+    def count_big_side(self, feature_id: int) -> int:
+        if feature_id >= len(self):
+            raise ValueError("unknown feature")
+        return self.seps_ba[feature_id].count()
+
+    def side_counts(self, feature_id: int) -> tuple[int, int]:
+        if feature_id >= len(self):
+            raise ValueError("unknown separation")
+        s = self.seps_ba[feature_id].count()
+        return s, self.datasize - s
+
+    def feature_size(self, feat_id: int) -> int:
+        """
+        Returns
+        -------
+        int
+            The size of the given feature
+        """
+        return self.count_big_side(feat_id)
+
+    def feature_and_complement_size(self, feat_id: int) -> tuple[int, int]:
+        """
+        Returns
+        -------
+        pair of ints
+            size of the feature and its complement
+        """
+        return self.side_counts(feat_id)
 
     def all_feature_ids(self) -> np.ndarray:
         """
@@ -205,7 +275,9 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return super().is_nested(feature_id_1, feature_id_2)
 
-    def feature_metadata(self, feature_ids: Union[int, list, np.ndarray, None] = None) -> MetaData:
+    def feature_metadata(
+        self, feature_ids: Union[int, list, np.ndarray, range, None] = None
+    ) -> Union[MetaData, list[MetaData]]:
         """
         Return a list of all metadata of the feature `feature_id`.
 
@@ -222,7 +294,9 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return self.separation_metadata(feature_ids)
 
-    def add_features(self, new_features: np.ndarray, metadata=None) -> tuple[np.ndarray, np.ndarray]:
+    def add_features(
+        self, new_features: np.ndarray, metadata=None
+    ) -> tuple[np.ndarray, np.ndarray]:
         """
         Add features to the feature system.
 
@@ -230,6 +304,8 @@ class FeatureSystem(SetSeparationSystemBase):
         ----------
         new_features : np.ndarray
              A matrix of shape (number of points, number of features) representing the features.
+             A value of 1 represents the point being contained withing the feature and a value of
+             -1 represents the point not being contained within the feature.
         metadata : arraylike, optional
             An optional piece of metadata. Should be an arraylike of length (number of features).
 
@@ -243,7 +319,13 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return self.add_seps(new_features, metadata)
 
-    def infimum_of_two(self, feature_id_a: int, specification_a: int, feature_id_b: int, specification_b: int) -> tuple[int, int]:
+    def add_corner(
+        self,
+        feature_id_a: int,
+        specification_a: int,
+        feature_id_b: int,
+        specification_b: int,
+    ) -> tuple[int, int]:
         """
         Calculate the infimum of two features from the feature system and add this infimum as a
         new feature to the feature system.
@@ -265,9 +347,13 @@ class FeatureSystem(SetSeparationSystemBase):
             Feature id of the infimum and specification of the infimum.
         """
 
-        return super().infimum_of_two(feature_id_a, specification_a, feature_id_b, specification_b)
+        return super().add_corner(
+            feature_id_a, specification_a, feature_id_b, specification_b
+        )
 
-    def get_corners(self, feature_id_a: int, feature_id_b: int) -> tuple[np.ndarray, np.ndarray]:
+    def get_corners(
+        self, feature_id_a: int, feature_id_b: int
+    ) -> tuple[np.ndarray, np.ndarray]:
         """
         Calculate the four corners of two features in the feature system.
 
@@ -289,8 +375,10 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return super().get_corners(feature_id_a, feature_id_b)
 
-    def is_le(self, feat_id_a: int, specification_a: int, feat_id_b: int, specification_b: int) -> bool:
-        """
+    def is_le(
+        self, feat_id_a: int, specification_a: int, feat_id_b: int, specification_b: int
+    ) -> bool:
+        r"""
         Check if feature :math:`a` specified by `feat_id_a` is less than or equal to feature :math:`b` specified by `feat_id_b`,
         i.e. if :math:`a \le b`.
 
@@ -317,7 +405,9 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return super().is_le(feat_id_a, specification_a, feat_id_b, specification_b)
 
-    def is_subset(self, feat_id_a: int, specification_a: int, feat_id_b: int, specification_b: int) -> bool:
+    def is_subset(
+        self, feat_id_a: int, specification_a: int, feat_id_b: int, specification_b: int
+    ) -> bool:
         """
         Check if the feature `feat_id_a` is a subset of the feature `feat_id_b`.
 
@@ -340,13 +430,13 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return self.is_le(feat_id_a, specification_a, feat_id_b, specification_b)
 
-
-
-    def metadata_matrix(self,
-                        feature: Feature,
-                        data_list: list,
-                        normal_form: 'str' = 'disjunctive',
-                        _known_feature_matrices: dict[int, tuple] = None) -> np.ndarray:
+    def metadata_matrix(
+        self,
+        feature: Feature,
+        data_list: list,
+        normal_form: "str" = "disjunctive",
+        _known_feature_matrices: dict[int, tuple] = None,
+    ) -> np.ndarray:
         """
         Explain the meaning of a feature, generated by repeatedly taking corners of features,
         by calculating a simplified logical term which explains the feature.
@@ -369,10 +459,13 @@ class FeatureSystem(SetSeparationSystemBase):
             Matrix in CNF or DNF explaining the feature.
         """
 
-        return super().metadata_matrix(feature, data_list, normal_form, _known_feature_matrices)
+        return super().metadata_matrix(
+            feature, data_list, normal_form, _known_feature_matrices
+        )
 
-
-    def assemble_meta_info(self, feat_id: int, known_meta_info: dict[int, tuple] = None):
+    def assemble_meta_info(
+        self, feat_id: int, known_meta_info: dict[int, tuple] = None
+    ):
         """
         If the user has entered custom meta info for a feature, then that is prioritised before everything else.
         Otherwise, we check for the possibility of this feature merely being a corner of other features,
@@ -405,7 +498,8 @@ class FeatureSystem(SetSeparationSystemBase):
 
         return len(self.seps_ba)
 
-    def copy(self) -> 'FeatureSystem':
+    def copy(self) -> "FeatureSystem":
+        assert not "this does not copy all members, the copy might behave in odd ways!"
         copy = FeatureSystem(self.datasize)
         copy.seps_ba = self.seps_ba.copy()
         copy.sep_hash_to_id = self.sep_hash_to_id.copy()
@@ -450,10 +544,34 @@ class FeatureSystem(SetSeparationSystemBase):
             sep_ids[i], orientations[i] = self._get_single_sep_id_bit(s)
         return sep_ids, orientations
 
-    def compute_infimum(self, feat_ids: np.ndarray, specifications: np.ndarray) -> np.ndarray:
-        sup = (self.seps_ba[feat_ids[0]] if specifications[0] > 0 else ~self.seps_ba[feat_ids[0]]).copy()
-        for i in range(1,feat_ids.shape[0]):
-            sup &= self.seps_ba[feat_ids[i]] if specifications[i] > 0 else ~self.seps_ba[feat_ids[i]]
+    def compute_infimum(
+        self, feat_ids: Union[np.ndarray, list], specifications: Union[np.ndarray, list]
+    ) -> np.ndarray:
+        """
+        Compute the infimum (intersection) of the given list of features.
+
+        Parameters
+        ----------
+        feat_ids
+            the list of feature ids. The n-th feature intersected has id given by the
+            n-th element of this list/one-dimensional array.
+        specifications
+            the list of specifications. The specification of the n-th feature intersected has id given by the
+            n-th element of this list/one-dimensional array.
+
+        Returns
+        -------
+        np.ndarray
+            A +1/-1 indicator matrix specifying for every point of the ground set whether
+            it is contained within the infimum of the given features.
+        """
+        sup = (
+            self.seps_ba[feat_ids[0]]
+            if specifications[0] > 0
+            else ~self.seps_ba[feat_ids[0]]
+        ).copy()
+        for feat_id, spec in zip(feat_ids, specifications):
+            sup &= self.seps_ba[feat_id] if spec > 0 else ~self.seps_ba[feat_id]
         return 2 * np.frombuffer(sup.unpack(), dtype=np.int8) - 1
 
     def _add_sep_bit(self, new_sep_bit) -> tuple[int, int]:
@@ -468,23 +586,31 @@ class FeatureSystem(SetSeparationSystemBase):
         new_sep_bit = ba.bitarray((new_sep[:, 0] > 0).tolist())
         return self._add_sep_bit(new_sep_bit)
 
-    def _compute_infimum_of_two(self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int) -> tuple[int, int]:
+    def _compute_and_add_corner(
+        self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int
+    ) -> tuple[int, int]:
         a = self.seps_ba[sep_id_a] if orientation_a > 0 else ~self.seps_ba[sep_id_a]
         b = self.seps_ba[sep_id_b] if orientation_b > 0 else ~self.seps_ba[sep_id_b]
         sup = a & b
-        id, o = self._get_single_sep_id_bit(sup)
-        metadata = MetaData(((sep_id_a, orientation_a), (sep_id_b, orientation_b)), orientation=1, type='inf')
-        if id == -1:
-            id = len(self.seps_ba)
+        sep_id, o = self._get_single_sep_id_bit(sup)
+        metadata = MetaData(
+            ((sep_id_a, orientation_a), (sep_id_b, orientation_b)),
+            orientation=1,
+            dtype="inf",
+        )
+        if sep_id == -1:
+            sep_id = len(self.seps_ba)
             self.seps_ba.append(sup)
-            self.sep_hash_to_id.add(sup, id)
+            self.sep_hash_to_id.add(sup, sep_id)
             self.sep_metadata.append(metadata)
-        elif id != sep_id_a and id != sep_id_b:
+        elif sep_id != sep_id_a and sep_id != sep_id_b:
             metadata.orientation = o
-            self.sep_metadata[id].append(metadata)
-        return id, o
+            self.sep_metadata[sep_id].append(metadata)
+        return sep_id, o
 
-    def _compute_le(self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int) -> bool:
+    def _compute_le(
+        self, sep_id_a: int, orientation_a: int, sep_id_b: int, orientation_b: int
+    ) -> bool:
         a = self.seps_ba[sep_id_a] if orientation_a > 0 else ~self.seps_ba[sep_id_a]
         b = self.seps_ba[sep_id_b] if orientation_b > 0 else ~self.seps_ba[sep_id_b]
         return (a | b).count() == b.count()
@@ -509,11 +635,15 @@ class FeatureSystem(SetSeparationSystemBase):
         elif isinstance(feat_ids, slice):
             start, stop, step = feat_ids.indices(len(self.seps_ba))
             seps = np.empty((self.datasize, (stop - start) // step), dtype=np.int8)
-            for i, id in enumerate(range(start, stop, step)):
-                seps[:, i] = 2 * np.frombuffer(self.seps_ba[id].unpack(), dtype=np.int8) - 1
+            for i, sep_id in enumerate(range(start, stop, step)):
+                seps[:, i] = (
+                    2 * np.frombuffer(self.seps_ba[sep_id].unpack(), dtype=np.int8) - 1
+                )
             return seps
         else:
             seps = np.empty((self.datasize, len(feat_ids)), dtype=np.int8)
-            for i, id in enumerate(feat_ids):
-                seps[:, i] = 2 * np.frombuffer(self.seps_ba[id].unpack(), dtype=np.int8) - 1
+            for i, sep_id in enumerate(feat_ids):
+                seps[:, i] = (
+                    2 * np.frombuffer(self.seps_ba[sep_id].unpack(), dtype=np.int8) - 1
+                )
         return seps

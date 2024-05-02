@@ -1,0 +1,56 @@
+TangleSearchWidget
+==================
+
+.. currentmodule:: tangles
+
+.. autoclass:: TangleSearchWidget
+
+
+   .. rubric:: Properties
+
+   .. toctree::
+      :hidden:
+
+      tangles.TangleSearchWidget.all_oriented_feature_ids
+      tangles.TangleSearchWidget.original_feature_ids
+      tangles.TangleSearchWidget.search_object
+      tangles.TangleSearchWidget.sep_sys
+      tangles.TangleSearchWidget.tree
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :attr:`all_oriented_feature_ids`
+        - A list of ids of separations/features that were appended to the tree (including corners)
+      * - :attr:`original_feature_ids`
+        - A list of ids of separations/features that were appended to the tree (without corners)
+      * - :attr:`search_object`
+        - the low level search object used by this search object
+      * - :attr:`sep_sys`
+        - the separation system (feature system) used by this widget
+      * - :attr:`tree`
+        - the tangle search tree used by this widget
+
+
+
+   .. rubric:: Methods
+
+   .. toctree::
+      :hidden:
+
+      tangles.TangleSearchWidget.lower_agreement
+      tangles.TangleSearchWidget.oriented_feature_ids_for_agreement
+      tangles.TangleSearchWidget.tangle_matrix
+      tangles.TangleSearchWidget.tangle_score
+
+   .. list-table::
+      :widths: 50 50
+
+      * - :func:`lower_agreement`
+        - Extend nodes in the tangle search tree until the agreement search limit has decreased below the
+      * - :func:`oriented_feature_ids_for_agreement`
+        - A list of ids of separations/features that could be oriented at the given agreement level
+      * - :func:`tangle_matrix`
+        - Return the tangle matrix that describes all maximal tangles of at least the specified agreement
+      * - :func:`tangle_score`
+        - compute the tangles scores for given agreement

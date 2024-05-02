@@ -1,7 +1,8 @@
 from typing import Union
 import numpy as np
-import scipy.sparse as sparse
+from scipy import sparse
 import scipy.sparse.csgraph as csg
+
 
 def connected_component_indicators(A: Union[sparse.spmatrix, np.ndarray]) -> np.ndarray:
     """

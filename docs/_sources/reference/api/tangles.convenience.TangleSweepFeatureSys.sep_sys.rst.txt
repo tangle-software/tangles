@@ -1,0 +1,6 @@
+sep_sys
+=======
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: TangleSweepFeatureSys.sep_sys

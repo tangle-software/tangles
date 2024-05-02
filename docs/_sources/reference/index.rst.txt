@@ -1,5 +1,5 @@
-Reference
-*********
+API reference
+*************
 
    :Date: |today|
 

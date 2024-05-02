@@ -1,0 +1,6 @@
+original_feature_ids
+====================
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: TangleSweepFeatureSys.original_feature_ids

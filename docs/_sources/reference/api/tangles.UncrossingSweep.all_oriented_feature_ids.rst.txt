@@ -1,0 +1,6 @@
+all_oriented_feature_ids
+========================
+
+.. currentmodule:: tangles
+
+.. autoproperty:: UncrossingSweep.all_oriented_feature_ids

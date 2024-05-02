@@ -1,14 +1,13 @@
+from typing import Optional, Union
 import numpy as np
 from tangles.separations.system import SetSeparationSystemOrderFunc
-from ._sweep import TangleSweep
-from typing import Optional, Union
-
 import tangles.search.progress as tsp
+from ._sweep import TangleSweep
 
-def uncross_distinguishers(search: TangleSweep,
-                           sys_ord: SetSeparationSystemOrderFunc,
-                           agreement: int,
-                           verbose: bool = False) -> tuple[np.ndarray, np.ndarray]:
+
+def uncross_distinguishers(
+    search: TangleSweep, sys_ord: SetSeparationSystemOrderFunc, agreement: int
+) -> tuple[np.ndarray, np.ndarray]:
     """
     Uncross the efficient distinguishers of tangles of at least the specified `agreement` value.
 
@@ -32,8 +31,6 @@ def uncross_distinguishers(search: TangleSweep,
         todo: dont use sys ord
     agreement : int
         The minimum agreement value for tangles who's efficient distinguishers we attempt to uncross.
-    verbose : bool
-        If True, print the steps the program performs.
 
     Returns
     -------
@@ -46,7 +43,9 @@ def uncross_distinguishers(search: TangleSweep,
     return EfficientDistinguisherUncrossing(search, sys_ord, agreement).uncross()
 
 
-def _no_submodularity_error_message(sep_1: int, sep_2: int, corners: Union[list[int], np.ndarray]) -> str:
+def _no_submodularity_error_message(
+    sep_1: int, sep_2: int, corners: Union[list[int], np.ndarray]
+) -> str:
     return f"""
         We have encountered a critical error with your order function:
         The two separations which ids {sep_1} and {sep_2} have
@@ -54,7 +53,9 @@ def _no_submodularity_error_message(sep_1: int, sep_2: int, corners: Union[list[
     """
 
 
-def _empty_star_error_message(sep_1: int, sep_2: int, corners: Union[list[int], np.ndarray]) -> str:
+def _empty_star_error_message(
+    sep_1: int, sep_2: int, corners: Union[list[int], np.ndarray]
+) -> str:
     return f"""
         There is a problem with your agreement function:
         There exists a tangle which contains an empty star containing
@@ -65,18 +66,23 @@ def _empty_star_error_message(sep_1: int, sep_2: int, corners: Union[list[int], 
 
 
 class EfficientDistinguisherUncrossing:
-    def __init__(self, search: TangleSweep, sys_ord: SetSeparationSystemOrderFunc, agreement: int):
+    def __init__(
+        self, search: TangleSweep, sys_ord: SetSeparationSystemOrderFunc, agreement: int
+    ):
         self._search = search
         self._sys_ord = sys_ord
         self._sep_sys = sys_ord.sep_sys
         self._agreement = agreement
         self._known_ids = set(search.tree.sep_ids)
+        self._choose_most_balanced_corner = True
 
     def add_known_ids(self, ids):
         self._known_ids.update(ids)
 
     def find_first_cross(self) -> Optional[tuple[int, int]]:
-        _, efficient_d_id = self._search.tree.get_efficient_distinguishers(return_ids=True, agreement=self._agreement)
+        _, efficient_d_id = self._search.tree.get_efficient_distinguishers(
+            return_ids=True, agreement=self._agreement
+        )
         cross1, cross2 = self._sep_sys.find_first_cross(efficient_d_id)
         if cross1 is None:
             return None
@@ -85,7 +91,11 @@ class EfficientDistinguisherUncrossing:
     def uncross(self, progress_callback=None):
         num_corners_added = 0
         if progress_callback:
-            progress_callback(tsp.PROGRESS_TYPE_SOMETHING_STARTING, info="uncrossing", sweep=self._search)
+            progress_callback(
+                tsp.PROGRESS_TYPE_SOMETHING_STARTING,
+                info="uncrossing",
+                sweep=self._search,
+            )
         while True:
             if (potential_cross := self.find_first_cross()) is None:
                 break
@@ -96,14 +106,25 @@ class EfficientDistinguisherUncrossing:
 
             if progress_callback:
                 num_corners_added += len(new_corners)
-                progress_callback(tsp.PROGRESS_TYPE_UNCROSSING_RUNNING, uncrossing=self, num_corners_added=num_corners_added, sweep=self._search)
+                progress_callback(
+                    tsp.PROGRESS_TYPE_UNCROSSING_RUNNING,
+                    uncrossing=self,
+                    num_corners_added=num_corners_added,
+                    sweep=self._search,
+                )
 
         if progress_callback:
-            progress_callback(tsp.PROGRESS_TYPE_SOMETHING_FINISHED, info="uncrossing", sweep=self._search)
-        return self._search.tree.get_efficient_distinguishers(return_ids=True, agreement=self._agreement)
+            progress_callback(
+                tsp.PROGRESS_TYPE_SOMETHING_FINISHED,
+                info="uncrossing",
+                sweep=self._search,
+            )
+        return self._search.tree.get_efficient_distinguishers(
+            return_ids=True, agreement=self._agreement
+        )
 
     def uncrossing_step(self, sep_id_1: int, sep_id_2: int) -> Optional[list[int]]:
-        corner_ids, _ = self._sep_sys.get_corners(sep_id_1,sep_id_2)
+        corner_ids, _ = self._sep_sys.get_corners(sep_id_1, sep_id_2)
 
         chosen_corner_ids = self._choose_corner_ids(sep_id_1, sep_id_2, corner_ids)
 
@@ -111,19 +132,38 @@ class EfficientDistinguisherUncrossing:
             print(_no_submodularity_error_message(sep_id_1, sep_id_2, corner_ids))
             return None
 
-        filtered_chosen_corner_ids = [id for id in chosen_corner_ids if id not in self._known_ids]
+        filtered_chosen_corner_ids = [
+            id for id in chosen_corner_ids if id not in self._known_ids
+        ]
         if not filtered_chosen_corner_ids:
             print(_empty_star_error_message(sep_id_1, sep_id_2, corner_ids))
             return None
 
+        if self._choose_most_balanced_corner and len(filtered_chosen_corner_ids) > 1:
+            sizes = np.array(
+                [
+                    min(self._sep_sys.side_counts(sep_id))
+                    for sep_id in filtered_chosen_corner_ids
+                ]
+            )
+            filtered_chosen_corner_ids = [filtered_chosen_corner_ids[sizes.argmax()]]
+
         self._insert_into_search(filtered_chosen_corner_ids)
         return filtered_chosen_corner_ids
 
-    def _choose_corner_ids(self, sep_1: int, sep_2: int, corner_ids: Union[list[int], np.ndarray]):
+    def _choose_corner_ids(
+        self, sep_1: int, sep_2: int, corner_ids: Union[list[int], np.ndarray]
+    ):
         max_order = max(self._sys_ord.injective_order_value([sep_1, sep_2]))
-        return np.array(corner_ids)[self._sys_ord.injective_order_value(corner_ids) < max_order]
+        return np.array(corner_ids)[
+            self._sys_ord.injective_order_value(corner_ids) < max_order
+        ]
 
     def _insert_into_search(self, corner_ids: Union[list[int], np.ndarray]):
         for corner_id in corner_ids:
             self._known_ids.add(corner_id)
-            self._search.insert_separation(self._sys_ord.get_insertion_index(self._search.tree.sep_ids, corner_id), corner_id, self._agreement)
+            self._search.insert_separation(
+                self._sys_ord.get_insertion_index(self._search.tree.sep_ids, corner_id),
+                corner_id,
+                self._agreement,
+            )

@@ -45,6 +45,7 @@ tangles
       tangles.FTreeNode
       tangles.Tangle
       tangles.TangleSearchTree
+      tangles.TangleSearchWidget
       tangles.TangleSweep
       tangles.ToTEdge
       tangles.ToTNode
@@ -60,6 +61,8 @@ tangles
         - A node in the tangle search tree
       * - :class:`TangleSearchTree`
         - A rooted binary tree that is created while searching tangles
+      * - :class:`TangleSearchWidget`
+        - 
       * - :class:`TangleSweep`
         - Search object which builds and extends the tangle search tree
       * - :class:`ToTEdge`
@@ -78,6 +81,7 @@ tangles
       :hidden:
 
       tangles.agreement_func
+      tangles.create_tot
       tangles.uncross_distinguishers
 
    .. list-table::
@@ -85,5 +89,7 @@ tangles
 
       * - :func:`agreement_func`
         - Return an agreement function that calculates the agreement value for separations in the given separation system
+      * - :func:`create_tot`
+        - 
       * - :func:`uncross_distinguishers`
         - Uncross the efficient distinguishers of tangles of at least the specified `agreement` value

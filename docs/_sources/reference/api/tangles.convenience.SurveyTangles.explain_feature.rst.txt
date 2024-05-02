@@ -1,0 +1,6 @@
+explain_feature
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.explain_feature

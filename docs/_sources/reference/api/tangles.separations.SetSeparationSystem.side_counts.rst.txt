@@ -1,0 +1,6 @@
+side_counts
+===========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystem.side_counts

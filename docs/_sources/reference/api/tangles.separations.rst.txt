@@ -30,6 +30,7 @@ tangles.separations
    .. toctree::
       :hidden:
 
+      tangles.separations.AdvancedFeatureSystem
       tangles.separations.FeatureSystem
       tangles.separations.MetaData
       tangles.separations.SetSeparationSystem
@@ -39,6 +40,8 @@ tangles.separations
    .. list-table::
       :widths: 50 50
 
+      * - :class:`AdvancedFeatureSystem`
+        - 
       * - :class:`FeatureSystem`
         - 
       * - :class:`MetaData`

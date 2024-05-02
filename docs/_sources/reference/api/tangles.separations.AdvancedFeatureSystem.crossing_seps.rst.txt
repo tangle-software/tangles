@@ -1,0 +1,6 @@
+crossing_seps
+=============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.crossing_seps

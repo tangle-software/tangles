@@ -1,0 +1,6 @@
+create_features_all_unique_values
+=================================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: create_features_all_unique_values

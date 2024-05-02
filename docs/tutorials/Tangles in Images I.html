@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tangles in Images I &#8212; Tangles  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/Tangles in Images I';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tangles in Images II" href="Tangles%20in%20Images%20II.html" />
+    <link rel="prev" title="Point Cloud Tangles" href="Point%20Cloud%20Tangles.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Tangles  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://www.tangles-book.com">
+                    Tangles Website
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/tangle-software/tangles" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://www.tangles-book.com">
+                    Tangles Website
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/tangle-software/tangles" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Survey%20Tangles.html">Survey Tangles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20of%20Personality%20Traits.html">Tangles of Personality Traits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Point%20Cloud%20Tangles.html">Point Cloud Tangles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tangles in Images I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20in%20Images%20II.html">Tangles in Images II</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Tangles in Images I</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="" src="../_images/CoverImage.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tangles-in-images-i">
+<h1>Tangles in Images I<a class="headerlink" href="#tangles-in-images-i" title="Link to this heading">#</a></h1>
+<p>(Michael Hermann)</p>
+<p>In this tutorial we explore the use of tangles for image processing, more specific, as a potential preprocessing step for the task of <strong>Image Segmentation</strong> or <strong>Image Understanding</strong>.</p>
+<p>If we want a computer to ‘understand’ an image, usually the first step - potentially after some low-level preparations - is to partition the image into regions corresponding to <em>objects</em> or otherwise semantically meaningful parts (for example ‘foreground’ and ‘background’ …). The goal of mage understanding is to find out <em>what these objects and regions actually are</em> and thereby allow a computer to automatically understand the content and meaning of an image.
+Image Understanding looks like a quite hard task. A <strong>tangle based approach</strong>, used as an enhanced method for <em>hierarchical and fuzzy Image Segmentation</em>, could be a helpful sub-step: Tangles do not only provide a (soft) partition of the image into regions but additionally are able to describe spatial relations between these regions. Moreover, a tangle of an image does not have to be a region that is disjoint to other regions or the remaining image. The fuzzy nature of structures detectable by tangles allows to interpret a tangle as some kind of <em>hot spot</em> (a subset of interest) within an image without being forced to specify an exact border around an interesting region. Tangles can be seen as some kind of <strong>attention mechanism</strong> that might be beneficially integrated into powerful higher level methods.</p>
+<p>Let us shortly recap what tangles actually are and how they can be used to analyse structured data sets:</p>
+<p>Tangles provide a way to identify coherent subsets of a data set <span class="math notranslate nohighlight">\(V\)</span> by <em>selecting</em> a typical subset of a set of predefined <em>features</em> describing the elements of <span class="math notranslate nohighlight">\(V\)</span>. In the simplest case such a feature is <em>binary</em> - every data point has a particular feature or does not have it. A binary feature therefore partitions the data set into two sets, the points with and without the feature. For this reason we often call the features <em>bipartitions</em> (or more general <em>separations</em>). This perspective is particularly intuitive in images: A feature describes a subset of the image, this is often a region, i.e. a connected subset of the image, but it does not have to be.
+If we interpret a feature as a bipartition, the presence or absence of a feature can be described as an <em>orientation</em> of the corresponding bipartition. For each bipartition <span class="math notranslate nohighlight">\(\{A,B\}\)</span> of <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(A \cup B = V, A \cap B = \emptyset\)</span>, we define two <em>orientations</em> <span class="math notranslate nohighlight">\((A,B)\)</span> and <span class="math notranslate nohighlight">\((B,A)\)</span>. An oriented feature provides a sense of <em>localisation</em>: we say the oriented bipartition <span class="math notranslate nohighlight">\((A,B)\)</span> <em>points</em> to all subsets of <span class="math notranslate nohighlight">\(V\)</span> that are contained in <span class="math notranslate nohighlight">\(B\)</span>.
+If <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> is a set of (unoriented) bipartitions, we denote the set of oriented bipartitions by <span class="math notranslate nohighlight">\(\vec{\mathcal{S}}\)</span>. An orientation <span class="math notranslate nohighlight">\(\tau\)</span> of <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> (or <span class="math notranslate nohighlight">\(\vec{\mathcal{S}}\)</span>) is a subset of <span class="math notranslate nohighlight">\(\vec{\mathcal{S}}\)</span> that contains exactly one orientation of every bipartition in <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>. A <em>tangle</em> of <span class="math notranslate nohighlight">\(\mathcal S\)</span> is an orientation of <span class="math notranslate nohighlight">\(\mathcal S\)</span> that satisfies additional <em>consistency criteria</em>. The mathematical definition of a tangle is very general and powerful but a bit abstract, so in practical use cases we usually just demand that the intersection of three oriented features contains at least some previously specified number of data points. We call this number the <em>agreement parameter</em>.
+A tangle describes a coherent subset of the data by specifying the location with help of a set of given bipartitions of the data (the feature set). As stated above, such a coherent subset is usually not made explicit: <em>we know where it is but do not specify exactly what it is</em>. This fact, on one hand, makes the tangle approach very powerful, but, on the other hand, can make it difficult to interpret the results.
+Fortunately, our task at hand, Image Segmentation, is a bit different: A tangle of an image can be visualised in a very appealing way as <em>heat map</em> on the image visualising some kind of fuzzy <em>attention hot spot</em>.</p>
+<p>In this notebook, we want to explore a very simple task inspired by an example in the <a class="reference external" href="http://www.tangles-book.com/book">Tangles-Book</a>: Our goal is to find tangles in a binary image of a single <em>Times New Roman</em>-letter.</p>
+<p>Let’s first have a look at the input image. We read an image file using a small helper function <code class="docutils literal notranslate"><span class="pre">read_letters</span></code> and extract one of the letters - following the book, we choose the letter ‘L’.</p>
+<p>(The image file contains the letters T A N G L E S; feel free to change the letter in your second pass through the notebook…)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">letters_helpers</span> <span class="kn">import</span> <span class="n">read_letters</span>
+
+<span class="n">letter_img</span> <span class="o">=</span> <span class="n">read_letters</span><span class="p">(</span><span class="s2">&quot;images/Tangles.png&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">0.99</span><span class="p">)[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">letter_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0e9682a5116f471af872959083a3229e59164d5aeda5174a1b97ab0d52263436.png" src="../_images/0e9682a5116f471af872959083a3229e59164d5aeda5174a1b97ab0d52263436.png" />
+</div>
+</div>
+<p>In its simplest form, a tangle analysis always needs the same ingredients:</p>
+<ol class="arabic simple">
+<li><p>a <strong>set of data points</strong> <span class="math notranslate nohighlight">\(V\)</span></p></li>
+<li><p>a set <span class="math notranslate nohighlight">\(\vec{\mathcal{S}}\)</span> of <strong>features</strong> (<strong>bipartitions</strong>/<strong>separations</strong>) that is able to capture interesting aspects of the image’s structure</p></li>
+<li><p>a meaningful <strong>order function</strong> <span class="math notranslate nohighlight">\(|\cdot|: S \mapsto \mathbb{R}\)</span> to sort our separations in order of ascending cost or complexity.</p></li>
+<li><p>the <strong>agreement parameter</strong> <span class="math notranslate nohighlight">\(\alpha \in \mathbb{N}\)</span>, subtly influencing the ‘size’ of the substructures the resulting tangles are supposed to describe</p></li>
+</ol>
+<p>The first point might seem obvious, but there is a ton of possibilities to represent an image as a collection of <em>data points</em>. The simplest one is the obvious one: an image is a set of pixels, each having a location and a color. Slightly more elaborate, we could represent an image as a collection of <em>superpixels</em>, these are connected regions of similar colors. Another possibility would be to follow a more geometric approach and represent an image by a collection of contained shapes given by a parametrisation of their boundary.</p>
+<p>In this tutorial, we will follow the most simple approach: our data set consists of a set of <em>pixels</em>, each given by a <em>location</em> in the image and an <em>intensity value</em>.</p>
+<p>The location of a pixel is encoded implicitly: We store the pixels in a two-dimensional matrix <span class="math notranslate nohighlight">\(I\)</span> of size <span class="math notranslate nohighlight">\(width \times height\)</span>. The pixel value is <span class="math notranslate nohighlight">\(I(x,y)=1\)</span> if the pixel at position <span class="math notranslate nohighlight">\((x,y)\)</span> is in the background, otherwise it is zero, <span class="math notranslate nohighlight">\(I(x,y)=0\)</span>. (In reality: because of antialiasing, some pixel values are within the open interval <span class="math notranslate nohighlight">\((0,1)\)</span>; we removed the antialiasing in our example by quantizing the intensity values)</p>
+<p>The next thing we need is a <strong>set of features</strong>. As we work with a quite artificial example, we can create our features in an informed way: We are not interested in separating the background, so we focus on partitions of the foreground - the letter “L” - only. A simple but quite elegant approach is the following:</p>
+<ul class="simple">
+<li><p>we search the pixel positions at the boundary of the letter, these are all white pixels that have a black neighbor</p></li>
+<li><p>sort all boundary points <span class="math notranslate nohighlight">\(p_1, \dots, p_n\)</span> of the foreground <em>consecutively</em>, i.e. <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(p_{i+1}\)</span> are neighbors on the boundary of the letter</p></li>
+<li><p>for every point <span class="math notranslate nohighlight">\(p\)</span> in the boundary of the letter:</p>
+<ul>
+<li><p>compute the distance <span class="math notranslate nohighlight">\(d(p, p_j)\)</span> to every other boundary pixel <span class="math notranslate nohighlight">\(p_j \neq p\)</span></p></li>
+<li><p>find <span class="math notranslate nohighlight">\(q_1, \dots, q_k\)</span> where <span class="math notranslate nohighlight">\(d(p_i,q_j)\)</span> takes a local minimum along the boundary</p></li>
+<li><p>split the letter at the line from <span class="math notranslate nohighlight">\(p\)</span> to <span class="math notranslate nohighlight">\(q := argmin_{q_i} d(p,q_i)\)</span></p></li>
+<li><p>create two features, one for each of the split’s sides</p></li>
+<li><p>(possible extension) split the letter not only at the line from <span class="math notranslate nohighlight">\(p\)</span> to <span class="math notranslate nohighlight">\(q\)</span> but create splitting lines from <span class="math notranslate nohighlight">\(p\)</span> to all the boundary points <span class="math notranslate nohighlight">\(q_{-k}, \dots, q_{-1}, q, q_1, \dots q_k\)</span> where <span class="math notranslate nohighlight">\(g_{l}\)</span> is a <span class="math notranslate nohighlight">\(|l|\)</span>-hop neighbor of <span class="math notranslate nohighlight">\(q\)</span> on the boundary; if <span class="math notranslate nohighlight">\(l&lt;0\)</span> we hop in negative direction (depending on the sorting above).</p></li>
+</ul>
+</li>
+</ul>
+<p>We represent features (separations) by <em>oriented indicator functions</em>, these are functions that take the value <span class="math notranslate nohighlight">\(1\)</span> on all points that have the feature and <span class="math notranslate nohighlight">\(-1\)</span> on all points that do not have the feature. This representation is quite comfortable: The <em>inverse</em> of a feature <span class="math notranslate nohighlight">\(f\)</span> then is simply the feature <span class="math notranslate nohighlight">\(-f\)</span>.</p>
+<p>Like above, we could work with a 2-dimensional matrix to store the features, so an oriented feature could be realised by a function <span class="math notranslate nohighlight">\(f:[\text{width}] \times [\text{height}] \rightarrow \{-1,1\}\)</span>, but we choose a slightly more general representation to be in par with some tools in the tangle software library. In fact, we use a <em>flattened</em> representation, this means we fix an ordering of the pixels - usually we traverse the image row by row - and store an oriented features as <span class="math notranslate nohighlight">\(-1/1\)</span>-vectors of size <span class="math notranslate nohighlight">\(\text{width}\cdot\text{height}\)</span>. This entails a small inconvenience as we have to convert the representations back and forth for visualisation or interpretation but, if we use <code class="docutils literal notranslate"><span class="pre">numpy</span></code>’s standard matrix layout, this can often be done by a simple <code class="docutils literal notranslate"><span class="pre">reshape</span></code> operation.</p>
+<p>The following cell shows a straight forward implementation of the feature generation using some helpful tools from <a class="reference external" href="https://scipy.org">scipy</a> and <a class="reference external" href="https://scikit-image.org">scikit-image</a>. The resulting features are stored in a matrix <code class="docutils literal notranslate"><span class="pre">S</span></code> of size <span class="math notranslate nohighlight">\(\text{pixels} \times \text{features}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">skimage.draw</span> <span class="kn">import</span> <span class="n">polygon2mask</span>
+<span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">find_contours</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance_matrix</span>
+<span class="kn">from</span> <span class="nn">tangles.util</span> <span class="kn">import</span> <span class="n">unique_cols</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
+
+
+<span class="k">def</span> <span class="nf">k_smallest_local_min</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">include_diff0</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;small helper function to compute the &#39;k&#39; smallest local minima in an array given by &#39;f&#39;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        f:</span>
+<span class="sd">            array where we want to find local minima</span>
+
+<span class="sd">        k:</span>
+<span class="sd">            number of local minima</span>
+
+<span class="sd">        include_diff0:</span>
+<span class="sd">            if True, we include indices where the first difference is zero (plateaus)</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        np.ndarray: list of indices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">idcs</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="o">-</span><span class="n">f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># search peaks in negated array</span>
+    <span class="k">if</span> <span class="n">include_diff0</span><span class="p">:</span>   <span class="c1"># add plateaus (if requested)</span>
+        <span class="n">idcs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idcs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">((</span><span class="n">f</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>  
+    <span class="k">return</span> <span class="n">idcs</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">idcs</span><span class="p">],</span> <span class="n">k</span><span class="p">)[:</span><span class="n">k</span><span class="p">]]</span>  <span class="c1"># return</span>
+
+
+<span class="k">def</span> <span class="nf">dist_loc_min_seps</span><span class="p">(</span><span class="n">letter_img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">both_directions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">num_take_neighbors</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">neighbor_skip</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create separations of a black-and-white image containing a filled foreground shape. Every separation is defined by a line between a contour point and its closest &#39;counterpart&#39; on the contour.</span>
+<span class="sd">        The counterpart point of a contour point p is the contour point where the distance to p takes its smallest positive local minimum if the contour points are iterated in consecutive order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        letter_img:</span>
+<span class="sd">            2d-array containing the image of the letter</span>
+
+<span class="sd">        both_directions:</span>
+<span class="sd">            if True, return two separations for every splitting line, this is both parts of the foreground if the foreground is split at the found line</span>
+
+<span class="sd">        num_take_neighbors:</span>
+<span class="sd">            if positive, search not only one splitting line per contour point, but multiple connecting the contour point to the neighbors of its counterpart point</span>
+
+<span class="sd">        neighbor_skip:</span>
+<span class="sd">            if positive, don&#39;t take all neighbors but skip the number of points between to taken neighbor points</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray: list of indices</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="c1"># make sure we don&#39;t have silly inputs:</span>
+    <span class="n">num_take_neighbors</span><span class="p">,</span> <span class="n">neighbor_skip</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num_take_neighbors</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">neighbor_skip</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># find contour pixels, i.e. all letter pixels which have a background pixel as neighbor:</span>
+    <span class="n">contour</span> <span class="o">=</span> <span class="n">find_contours</span><span class="p">(</span><span class="n">letter_img</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># if we create more than one split per contour pixel, we extend the array of contour pixels in both directions to avoid being forced to handle the wrapping around in the loop later:</span>
+    <span class="n">contour_extension_offset</span> <span class="o">=</span> <span class="n">num_take_neighbors</span><span class="o">*</span><span class="p">(</span><span class="n">neighbor_skip</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">contour_extended</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">contour</span><span class="p">[</span><span class="o">-</span><span class="n">contour_extension_offset</span><span class="p">:],</span><span class="n">contour</span><span class="p">,</span> <span class="n">contour</span><span class="p">[:</span><span class="n">contour_extension_offset</span><span class="p">]]</span>
+
+    <span class="c1"># compute all distances between all pairs of contour points:</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">distance_matrix</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">contour</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># some helpers:</span>
+    <span class="n">num_pixels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># number of pixels</span>
+    <span class="n">image_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">letter_img</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">)</span> <span class="c1"># a mask of the letter (flattened)</span>
+    <span class="n">letter_upper_left_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">image_mask</span><span class="p">)</span> <span class="c1"># the index of the first foreground pixel in the flattened image</span>
+
+    <span class="c1"># let&#39;s create the separations:</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">num_pixels</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">dist</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">num_take_neighbors</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>  <span class="c1"># an array to store the separations (all stuff is always flattened...)</span>
+
+    <span class="c1"># the first separation separates foreground and background</span>
+    <span class="n">S</span><span class="p">[</span><span class="n">image_mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>  <span class="nb">range</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+        <span class="c1"># find indices of two smallest local minima:</span>
+        <span class="n">loc_min</span> <span class="o">=</span> <span class="n">k_smallest_local_min</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># find points defining the first splitting line:</span>
+        <span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">loc_min</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">loc_min</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">i</span> <span class="k">else</span> <span class="n">loc_min</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">num_take_neighbors</span><span class="o">*</span><span class="p">(</span><span class="n">neighbor_skip</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># create splitting lines in a loop, p is kept fixed, q traverses the neighbors of the local minimum</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">num_take_neighbors</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># the points at indices p and r define our next splitting line:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">q</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">neighbor_skip</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># extract contour points that define the border of one of the split&#39;s sides:</span>
+            <span class="n">poly_points</span> <span class="o">=</span> <span class="n">contour_extended</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">+</span><span class="n">contour_extension_offset</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">+</span><span class="n">contour_extension_offset</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+            <span class="c1"># create a mask from the polygon, flatten it and make sure, only pixels belonging to the foreground are within the mask:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">polygon2mask</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">poly_points</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">image_mask</span>
+
+            <span class="c1"># we normalise the separations to be positive on the first foreground pixel:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">mask</span><span class="p">[</span><span class="n">letter_upper_left_idx</span><span class="p">]:</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">image_mask</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">mask</span>
+
+            <span class="c1"># store the separations in our result array:</span>
+            <span class="n">S</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">num_take_neighbors</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># if we want both splits, we append the intersection of the inverse separation with the foreground:</span>
+    <span class="k">if</span> <span class="n">both_directions</span><span class="p">:</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">S</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="o">-</span><span class="n">S</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span> <span class="n">S</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">])))</span>
+
+    <span class="c1"># remove duplicates and return the result:</span>
+    <span class="k">return</span> <span class="n">unique_cols</span><span class="p">(</span><span class="n">S</span><span class="p">[:,</span> <span class="p">(</span><span class="n">S</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s have a look at these splitting lines. The following plot shows splitting lines created for selected boundary points. If the notebook is run in mode <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, the plot is interactive, and allows to select different boundary points. You can drag a splitting line around the boundary by holding down the button while moving the mouse.
+For simplicity, we only show the splitting lines between a point and the minimal local minimum. The extended concept should be clear.
+The function <code class="docutils literal notranslate"><span class="pre">plot_letter_sep_examples</span></code> just mimics parts of the algorihm above and is moved to a helper file to not distract you from the more important things.
+(The plot can be made interactive by activating notebook mode)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib notebook</span>
+<span class="kn">from</span> <span class="nn">letters_helpers</span> <span class="kn">import</span> <span class="n">plot_letter_sep_examples</span>
+
+<span class="n">plot_letter_sep_examples</span><span class="p">(</span><span class="n">letter_img</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/19293cc0e6b3ad100dbc01aac593f22cbbab7596da2fd5cf3e817accab8e3fa7.png" src="../_images/19293cc0e6b3ad100dbc01aac593f22cbbab7596da2fd5cf3e817accab8e3fa7.png" />
+</div>
+</div>
+<p>Let’s create these features using the function defined above. We use the extended approach and create splitting lines to ten further boundary points in each direction (skipping every second point):
+(Unfortunately, this will take some time…)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">dist_loc_min_seps</span><span class="p">(</span><span class="n">letter_img</span><span class="p">,</span> <span class="n">both_directions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_take_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">neighbor_skip</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have </span><span class="si">{</span><span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> features in total&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 20159 features in total
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some features are more informative than others. We want our features to describe the piuxels’ spatial relationships. A feature appears more descriptive of the structure if the contained pixels are closer to each other (on average). Additionally, a feature appears to be in some sense ‘more natural’ if it does not separate a lot of adjacent pixels. We will use the latter fact to define our third important ingredient of a tangle analysis, the <strong>order function</strong>:</p>
+<p>To evaluate (and sort) our features, we count the number of equally colored adjacent pixels that are separated from each other. We can realize this order function in the easiest way as a <strong>matrix order function</strong>. Such an order function computes the order of a feature as the value of the quadratic form <span class="math notranslate nohighlight">\(f^tMf\)</span> where <span class="math notranslate nohighlight">\(f \in \mathbb{R}^V\)</span> is the <em>oriented indicator vector</em> of a feature. This is the vector containing the value <span class="math notranslate nohighlight">\(f(v)=1\)</span> for <span class="math notranslate nohighlight">\(v \in V\)</span> if <span class="math notranslate nohighlight">\(v\)</span> has the particular feature and <span class="math notranslate nohighlight">\(f(v)=-1\)</span> otherwise.
+The matrix <span class="math notranslate nohighlight">\(M\)</span> can be defined as the <em>Laplacian</em> of a <em>pixel adjacency graph</em>. The nodes of this graph are the pixels and two pixels have an edge between them if they are adjacent and have the same color. Then the value of quadratic form is proportional to the weight of a <em>cut</em> in this graph, this means, it is exactly what we want: It counts the number of pairs of adjacent pixels that are separated by the feature.</p>
+<p>We define a function to create this adjacency graph in the next cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">graph</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="k">def</span> <span class="nf">create_graph</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">weight_bg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">weight_fg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">fg_thresh</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span>
+
+    <span class="c1"># create a mask of the foreground; we use a threshold to counteract the antialiasing:</span>
+    <span class="n">fg_mask</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&lt;</span> <span class="n">fg_thresh</span>
+
+    <span class="c1"># create adjacency matrix of a graph containing edges between background pixels and set the weight according to the corresponding parameter:</span>
+    <span class="n">A_bg</span><span class="p">,</span> <span class="n">nodes_bg</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">pixel_graph</span><span class="p">(</span><span class="o">~</span><span class="n">fg_mask</span><span class="p">)</span>
+    <span class="n">A_bg</span><span class="o">.</span><span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">weight_bg</span>
+
+    <span class="c1"># create adjacency matrix of a graph containing edges between foreground pixels and set the weight according to the corresponding parameter:</span>
+    <span class="n">A_fg</span><span class="p">,</span> <span class="n">nodes_fg</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">pixel_graph</span><span class="p">(</span><span class="n">fg_mask</span><span class="p">)</span>
+    <span class="n">A_fg</span><span class="o">.</span><span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">weight_fg</span>
+
+    <span class="c1"># combine both adjacency matrices; resulting graph will have no edges between background and foreground.</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A_bg</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">A_bg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A_fg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))),</span>
+                          <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">A_fg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A_bg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">A_fg</span><span class="p">))))</span>
+
+    <span class="c1"># the rows and columns of the result are somehow jumbled, so we restore the original order of the pixels,</span>
+    <span class="c1"># so that the rows and columns are ordered according to row major order of the pixels in the image array:</span>
+    <span class="n">sorting</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">nodes_bg</span><span class="p">,</span> <span class="n">nodes_fg</span><span class="p">))</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">sorting</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">sorting</span><span class="p">]</span>
+
+    <span class="c1"># return the result:</span>
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next figure shows an excerpt of the pixel adjacency graph. If the notebook is run in mode <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, the figure is interactive and allows to change the zoomed section. The zoomed image shows the pixels as dots and the edges between them as lines. Please note that foreground pixels do not have edges to background pixels because only equally colored adjacent pixels are connected by an edge. The cut edges are colored in red.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib notebook</span>
+
+<span class="c1">#import a function to plot a nice detail view of the graph:</span>
+<span class="kn">from</span> <span class="nn">letters_helpers</span> <span class="kn">import</span> <span class="n">create_zoom_plot</span>
+
+<span class="c1"># use the function defined above to create the adjacency graph:</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">create_graph</span><span class="p">(</span><span class="n">letter_img</span><span class="p">)</span>
+
+<span class="c1"># show the plot:</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">picker</span> <span class="o">=</span> <span class="n">create_zoom_plot</span><span class="p">(</span><span class="n">letter_img</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">S</span><span class="p">[:,</span><span class="mi">400</span><span class="p">],</span> <span class="n">zoom_half_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">picker</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">with_callback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2b286d81577293f9502fb348b00da59bab201f337d3c0feb881c44a4fffc5d45.png" src="../_images/2b286d81577293f9502fb348b00da59bab201f337d3c0feb881c44a4fffc5d45.png" />
+</div>
+</div>
+<p>Let’s sort the features using this order function. Our order function is not injective. On the contrary, for most order values we have quite a lot of features. For example, all separations cutting through the middle part of the vertical bar have the same order.
+It’s often favorable to have an injective order function, therefore we enforce injectivity by creating a <em>compound order function</em> and sort the features with equal order value by the smaller size of one of its sides…</p>
+<p>Please note: The injectivity is not necessary for our example, but the compound order function has the side effect to sort ranges of features with equal order in a somehow meaningful way, avoiding the appearance of <em>some</em> fake tangles (not all, but some ;-). We will see details about this fact later… )</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.graph.cut_weight</span> <span class="kn">import</span> <span class="n">CutWeightOrder</span>
+<span class="kn">from</span> <span class="nn">tangles.separations.util</span> <span class="kn">import</span> <span class="n">compound_order</span><span class="p">,</span> <span class="n">order_func_min_side_size</span>
+
+<span class="c1"># create the &#39;original&#39; cut weight order function:</span>
+<span class="n">order_func</span> <span class="o">=</span> <span class="n">CutWeightOrder</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="c1"># create a compound order function object of the cut weight order function and an order function based on the minimal size of a separation&#39;s side: </span>
+<span class="n">order_func_with_balance</span> <span class="o">=</span> <span class="n">compound_order</span><span class="p">([</span><span class="n">order_func_min_side_size</span><span class="p">,</span> <span class="n">order_func</span><span class="p">])</span>
+
+<span class="c1"># actually compute the order:</span>
+<span class="n">c_orders</span> <span class="o">=</span> <span class="n">order_func_with_balance</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="c1"># sort S according to this order function:</span>
+<span class="n">sorting</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="n">c_orders</span><span class="p">)</span>
+<span class="n">S_ordered</span> <span class="o">=</span> <span class="n">S</span><span class="p">[:,</span> <span class="n">sorting</span><span class="p">]</span>
+
+<span class="c1"># additionally sort the orders, we discard the balance information:</span>
+<span class="n">orders</span> <span class="o">=</span> <span class="n">c_orders</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">sorting</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s investigate the induced total order of the feature system <span class="math notranslate nohighlight">\(\mathcal S\)</span>:
+(If the notebook is run with <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, the plot is interactive)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib notebook</span>
+
+<span class="c1"># import a helper function to plot the orders and add annotations for some example separations:</span>
+<span class="kn">from</span> <span class="nn">tangles.util.ui</span> <span class="kn">import</span> <span class="n">plot_annotated</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_annotated</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)),</span> <span class="n">orders</span><span class="p">,</span> <span class="n">annotation_x_positions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span>
+               <span class="n">annotation_offsets</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">),(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span><span class="mi">120</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">150</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">)],</span>
+               <span class="n">annotation_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">idx</span><span class="p">:</span> <span class="n">S_ordered</span><span class="p">[:,</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+               <span class="n">annotation_is_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annotation_zoom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+               <span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;feature index (level)&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;order&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8f4f4fc1a65c4a8c55d0c85535e809b0a15b6fe21e5bc43c71e1402ade631911.png" src="../_images/8f4f4fc1a65c4a8c55d0c85535e809b0a15b6fe21e5bc43c71e1402ade631911.png" />
+</div>
+</div>
+<p>It looks reasonable: The feature <span class="math notranslate nohighlight">\(s\)</span> separating the foreground from the background has the lowest order <span class="math notranslate nohighlight">\(|s| = 0\)</span>, followed by the features that cut through the thinnest part of the letter.
+Some low order separations are quite unbalanced. The reason is that the thinnest parts of the letter are the ends of the serifs and our order function does not take the balance into account. We could remove them, but, fortunately, this does not hurt the tangle analysis, on the contrary: in many cases these small separations are essential to avoid <em>fake tangles</em>.</p>
+<p>We finally need to choose the agreement parameter <code class="docutils literal notranslate"><span class="pre">min_agreement</span></code> of the tangle search algorithm. We want our tangles to point to the salient regions of the letter ‘L’, so we want to discourage orientations of two neighbouring cuts through the horizontal or vertical bar pointing to a very small region between them. The vertical bar is 24 pixels wide, so it is reasonable to choose a mininimal agreement a bit bigger. It turns out, that <code class="docutils literal notranslate"><span class="pre">min_agreement=25</span></code> works quite well.</p>
+<p>Let’s create all the data types we need for the tangle search and start a <em>Tangle Sweep</em>:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.separations</span> <span class="kn">import</span> <span class="n">FeatureSystem</span>
+<span class="kn">from</span> <span class="nn">tangles</span> <span class="kn">import</span> <span class="n">TangleSweep</span><span class="p">,</span> <span class="n">agreement_func</span>
+<span class="kn">from</span> <span class="nn">tangles.search.progress</span> <span class="kn">import</span> <span class="n">DefaultProgressCallback</span>
+
+<span class="c1"># set a globally used agreement parameter</span>
+<span class="n">min_agreement</span> <span class="o">=</span> <span class="mi">25</span>  
+
+<span class="c1"># create an internally optimised feature system containing the separations in S:</span>
+<span class="n">sep_sys</span> <span class="o">=</span> <span class="n">FeatureSystem</span><span class="o">.</span><span class="n">with_array</span><span class="p">(</span><span class="n">S_ordered</span><span class="p">)</span>
+
+<span class="c1"># create a tangle sweep object:</span>
+<span class="n">sweep</span> <span class="o">=</span> <span class="n">TangleSweep</span><span class="p">(</span><span class="n">agreement_func</span><span class="p">(</span><span class="n">sep_sys</span><span class="p">),</span> <span class="n">sep_sys</span><span class="o">.</span><span class="n">is_le</span><span class="p">,</span> <span class="n">sep_ids</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sep_sys</span><span class="p">)))</span>
+
+<span class="c1"># sweep slightly low enough so the tree contains valid information for our chosen minimum agreement:</span>
+<span class="n">sweep</span><span class="o">.</span><span class="n">sweep_below</span><span class="p">(</span><span class="n">min_agreement</span><span class="p">,</span> <span class="n">progress_callback</span><span class="o">=</span><span class="n">DefaultProgressCallback</span><span class="p">(</span><span class="n">show_info_while_running</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># request the matrix containing the tangle orientations for our chosen minimum agreement:</span>
+<span class="n">tangle_mat</span> <span class="o">=</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(</span><span class="n">agreement</span><span class="o">=</span><span class="n">min_agreement</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In small examples like this we can plot the <em>Tangle Search Tree</em>. We do not plot the complete tree - its height is around 20000 levels - but only extract the most important information: The <em>maximal tangles</em> and the <em>splitting tangles</em>. The latter are the tangles that are split into two tangles by the next bipartition.</p>
+<p>The plot shows a tree where each node corresponds to a tangle and each edge corresponds to a feature. The tangles are visualised by the tangle scores of the pixels. The tangle score describes a pixel’s <em>grade of membership</em> in a tangle. We only show the distinguishing features of minimal order. The numbers on the right show the levels of the Tangle Search Tree and, in parentheses, the order of the feature oriented thereafter.
+A tangle arises at the level of its minimal distinguisher - in the plot this is one level after the level of its parent node. Tangles shown as leafs do not exist on higher levels except the ones at the last level. The last ones might disappear at the next level or not, the figure does not show details of the further lifespan - we only know they’re still alive at this level.</p>
+<p>We draw the tree with help of the class <code class="docutils literal notranslate"><span class="pre">BinTreeNetworkX</span></code>. This class allows to layout and draw a (small) binary tree in a quite nice way. We customize the visualisation by providing two simple callback functions:</p>
+<p>(Warning: it unfortunately takes quite some time to draw this tree: We have to draw a lot of images…)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.analysis</span> <span class="kn">import</span> <span class="n">tangle_score</span>
+<span class="kn">from</span> <span class="nn">tangles.util.tree</span> <span class="kn">import</span> <span class="n">BinTreeNetworkX</span>
+
+<span class="c1"># callback function to draw the tree&#39;s nodes:</span>
+<span class="k">def</span> <span class="nf">draw_tangle</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="n">bin_tree_node</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node_id</span><span class="p">][</span><span class="n">BinTreeNetworkX</span><span class="o">.</span><span class="n">node_attr_bin_tree_node</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">bin_tree_node</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">letter_img</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1000</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bin_tree_node</span><span class="o">.</span><span class="n">path_from_root_indicator</span><span class="p">())[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:]</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">tangle_score</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">sep_ids</span><span class="p">[:</span><span class="n">path</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">sep_sys</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+
+<span class="c1"># callback function to draw the tree&#39;s edges:</span>
+<span class="k">def</span> <span class="nf">draw_sep</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="n">child_id</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="n">bin_tree_parent</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">parent_id</span><span class="p">][</span><span class="n">BinTreeNetworkX</span><span class="o">.</span><span class="n">node_attr_bin_tree_node</span><span class="p">]</span>
+    <span class="n">sep_idx</span> <span class="o">=</span> <span class="n">bin_tree_parent</span><span class="o">.</span><span class="n">level</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">child_id</span><span class="p">][</span><span class="n">BinTreeNetworkX</span><span class="o">.</span><span class="n">node_attr_is_originally_left_child</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="o">-</span><span class="n">sep_sys</span><span class="p">[</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">sep_ids</span><span class="p">[</span><span class="n">sep_idx</span><span class="p">]]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sep_sys</span><span class="p">[</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">sep_ids</span><span class="p">[</span><span class="n">sep_idx</span><span class="p">]]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+        
+
+<span class="c1"># extract tangles</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">maximal_tangles</span><span class="p">(</span><span class="n">agreement</span><span class="o">=</span><span class="n">min_agreement</span><span class="p">,</span> <span class="n">max_level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_splitting</span><span class="o">=</span><span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
+
+<span class="c1"># create a visualisation of the binary tree and draw it:</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">BinTreeNetworkX</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">draw_node_label_func</span><span class="o">=</span><span class="n">draw_tangle</span><span class="p">,</span> <span class="n">draw_edge_label_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">node_label_size</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">edge_label_size</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">draw_levels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+          <span class="n">level_label_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l</span><span class="si">:}</span><span class="se">\n</span><span class="s2">(</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">orders</span><span class="p">[</span><span class="n">l</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="k">if</span> <span class="n">l</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/483f95ea2995ef8aa1b129e5c363e7f2a27df4210ce6bcd32f619b86e3db12fa.png" src="../_images/483f95ea2995ef8aa1b129e5c363e7f2a27df4210ce6bcd32f619b86e3db12fa.png" />
+</div>
+</div>
+<p>Let’s investigate this plot in a bit more detail: The very first separation (order 0) separates the foreground from the background. Both orientations satisfy our agreement requirement, so the trivial tangle orienting an empty set of features is immediately split into two tangles. One is the background, the other one the foreground, i.e. the letter “L”. Every tangle in the tree is drawn at the maximal level where it exists.
+The background tangle (the left branch exiting the root) exists over all levels, so it is drawn at the bottom of the plot.
+The tangle describing the foreground (in total) exists until level 1868, where it is split into two tangles, one representing the right serif, the other one pointing to the letter’s thick vertical bar. The bunch of maximal tangles on the right most branch seem to be <em>fake tangles</em>, the actual tangle pointing to the serif is shown at level 9935. After this level it disappears because the next level’s separation splits the serif into two parts which both do not satisfy our agreement condition anymore.
+At level 10033, the tangle representing the vertical bar is split into a bunch of tangles describing the upper part and a bunch of tangles describing the lower part. The latter is more robust: it withstands until level 19046 (bearing some more fake tangles in its lifetime) while the upper part dies at level 17763 (again after spawning some branches of fake tangles).</p>
+<p>Often the Tangle Search Tree is too big to be plotted like above (in this example it’s actually already borderline). Nevertheless, the relationships between order/level and the number of tangles that life at this level is quite interesting and can often be used as heuristic to find good parameters for the tangle search. We can analyse the tangles at different levels of the tree in a different way in the following interactive plot:</p>
+<p>The x-axis of the following plot corresponds to the number <span class="math notranslate nohighlight">\(k\)</span> of oriented separations, i.e. te  level, the blue curve shows the number of <span class="math notranslate nohighlight">\(k\)</span>-tangles. The orange curve shows the order of the features. For some <span class="math notranslate nohighlight">\(k\)</span> the tangles are plotted as score images.</p>
+<p>The following plot can again be customised in a very simple way by providing a callback function.</p>
+<p>(Like above, this plot can be made interactive with <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>. The interactive plot allows to investigate k-tangles at different levels by clicking the mouse.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib notebook</span>
+
+<span class="kn">from</span> <span class="nn">letters_helpers</span> <span class="kn">import</span> <span class="n">all_scores_in_one_image</span>
+
+<span class="k">def</span> <span class="nf">ktangle_anno</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">min_agreement</span><span class="p">):</span>
+    <span class="n">t_mat</span> <span class="o">=</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">k_tangle_matrix</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="n">agreement</span><span class="o">=</span><span class="n">min_agreement</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t_mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">tangle_score</span><span class="p">(</span><span class="n">t_mat</span><span class="p">,</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">sep_ids</span><span class="p">[:</span><span class="n">t_mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">sep_sys</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">all_scores_in_one_image</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">max_cols</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    
+
+<span class="kn">from</span> <span class="nn">tangles.util.ui</span> <span class="kn">import</span> <span class="n">plot_annotated</span>
+
+<span class="n">num_k_tangles</span> <span class="o">=</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">level_sizes_for_agreement</span><span class="p">(</span><span class="n">min_agreement</span><span class="p">)</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plot_annotated</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num_k_tangles</span><span class="p">)),</span> <span class="n">num_k_tangles</span><span class="p">,</span> <span class="n">annotation_x_positions</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">9935</span><span class="p">,</span> <span class="mi">17200</span><span class="p">,</span> <span class="mi">19040</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_k_tangles</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">annotation_offsets</span><span class="o">=</span><span class="p">[(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">350</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">450</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">)],</span> <span class="n">annotation_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">idx</span><span class="p">:</span> <span class="n">ktangle_anno</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">min_agreement</span><span class="p">),</span> <span class="n">annotation_is_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annotation_zoom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+               <span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;feature index (level)&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;number of tangles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;order of separation&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d87b51f8c3435517b2cfee4f83264a938e0653c0b4bee51aa5849e94bb670319.png" src="../_images/d87b51f8c3435517b2cfee4f83264a938e0653c0b4bee51aa5849e94bb670319.png" />
+</div>
+</div>
+<p>The curve shows some small bumps but is nearly monotone for longer periods. This is a very good sign and indicates that we have chosen the parameters (features, order, agreement) in a sensible way. It is not always easy to achieve this situation, but often curves like this can help a lot to find the right parameters.</p>
+<p>What happens, for example, if we choose an obviously too small agreement parameter, say <code class="docutils literal notranslate"><span class="pre">min_agreement=5</span></code>?</p>
+<p>We call the following effect the <strong>explosion</strong>… Please note, that the separation system is rich enough to allow the tangle search to discard most of the fake tangles a few levels later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have to sweep to a lower agreement...</span>
+<span class="n">sweep</span><span class="o">.</span><span class="n">sweep_below</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># compute the number of k-tangles at each level:</span>
+<span class="n">num_k_tangles</span> <span class="o">=</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">level_sizes_for_agreement</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># plot the result:</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plot_annotated</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num_k_tangles</span><span class="p">)),</span> <span class="n">num_k_tangles</span><span class="p">,</span> <span class="n">annotation_x_positions</span><span class="o">=</span><span class="p">[</span><span class="mi">1869</span><span class="p">,</span> <span class="mi">10034</span><span class="p">,</span> <span class="mi">12400</span><span class="p">,</span> <span class="mi">16395</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_k_tangles</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">annotation_offsets</span><span class="o">=</span><span class="p">[(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">),(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">80</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">)],</span> <span class="n">annotation_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">idx</span><span class="p">:</span> <span class="n">ktangle_anno</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">annotation_is_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annotation_zoom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+               <span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;feature index (level)&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;number of tangles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;order of separation&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8b56d881fe214b8757bcb41f89055ffc056315064b1c28f6058e10ab9ef51271.png" src="../_images/8b56d881fe214b8757bcb41f89055ffc056315064b1c28f6058e10ab9ef51271.png" />
+</div>
+</div>
+<p>At some level we always find tangles that can be extended by both orientations of follow-up features. A slightly different version of the tree visualisation can shed more light on this fact. We plot the subtree containing the nodes at level 10105 and their paths to the root:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">k_tangles</span><span class="p">(</span><span class="n">agreement</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10094</span><span class="p">,</span> <span class="n">include_splitting</span><span class="o">=</span><span class="s1">&#39;nodes&#39;</span><span class="p">)</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">BinTreeNetworkX</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">draw_node_label_func</span><span class="o">=</span><span class="n">draw_tangle</span><span class="p">,</span> <span class="n">draw_edge_label_func</span><span class="o">=</span><span class="n">draw_sep</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">node_label_size</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">edge_label_size</span><span class="o">=</span><span class="mf">0.0125</span><span class="p">,</span> <span class="n">draw_levels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">level_label_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l</span><span class="si">:}</span><span class="se">\n</span><span class="s2">(</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">orders</span><span class="p">[</span><span class="n">l</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/470b18704972fe04bb2645ba489cc4f862dc34d6f9fcb7f9a06e053e8e92f433.png" src="../_images/470b18704972fe04bb2645ba489cc4f862dc34d6f9fcb7f9a06e053e8e92f433.png" />
+</div>
+</div>
+<p>From level 10033 on, we can extend the tangles on the left branch nearly at every level in both directions. This tangle points to the thick left bar of the “L” and, as the bar has a width of 24, the features splitting horizontally through this bar can be oriented in both directions.
+The fake tangles disappear as soon as we take enough features into account which split <em>sloped</em> through the horizontal bar.</p>
+<p>Please note: In theory, one has to orient all bipartitions of the same order in one step. It is an artefact of the implementation that we can analyse the tree in detail in this example. Otherwise, the tree would not be binary but split into a big number of subtrees everytime the order function increases (see curve above).</p>
+<p>Apart from our most important ingredient, the feature system, there are mainly two parameters influencing the result of the tangle search: the agreement parameter and the number of potential features that are actually specified (i.e. the level where the tree is cut). It can be interesting to play with these two parameters to enhance the intuition about their effect. If the current task allows to visualise the tangles in a meaningful way - like here - the tangle library provides a small tool to make choosing parameters a bit easier, the <code class="docutils literal notranslate"><span class="pre">XYPicker</span></code>. The next cell shows a very minimal implementation of an application for our dataset. As the picker is interactive, it makes most sense to run the cell in <code class="docutils literal notranslate"><span class="pre">notebook</span></code>-mode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib notebook (it seems, these interactive plots do not work anymore :-( )</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tangles.util.ui</span> <span class="kn">import</span> <span class="n">XYPicker</span>
+
+
+<span class="k">def</span> <span class="nf">update_scores</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+    <span class="n">agreement</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">agreement</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">tangle_score</span><span class="p">(</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">k_tangle_matrix</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">agreement</span><span class="o">=</span><span class="n">agreement</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">level</span><span class="p">),</span> <span class="n">sep_sys</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">all_scores_in_one_image</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tangles at level </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+    <span class="n">scores_all</span> <span class="o">=</span> <span class="n">tangle_score</span><span class="p">(</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(</span><span class="n">agreement</span><span class="o">=</span><span class="n">agreement</span><span class="p">,</span> <span class="n">max_level</span><span class="o">=</span><span class="n">level</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">level</span><span class="p">),</span> <span class="n">sep_sys</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">all_scores_in_one_image</span><span class="p">(</span><span class="n">scores_all</span><span class="p">,</span> <span class="n">letter_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximal tangles at level at most </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agreement: </span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">level</span><span class="p">,</span> <span class="n">agreement</span>
+
+
+<span class="n">sweep</span><span class="o">.</span><span class="n">sweep_below</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">picker</span> <span class="o">=</span> <span class="n">XYPicker</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">update_scores</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">sep_ids</span><span class="p">)],</span> <span class="p">[</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="n">picker</span><span class="o">.</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Level&quot;</span>
+<span class="n">picker</span><span class="o">.</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Agreement&quot;</span>
+<span class="n">picker</span><span class="o">.</span><span class="n">callback_object</span> <span class="o">=</span> <span class="p">[</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">picker</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">15000</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">with_callback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ad3fc2b69d428cd26153ec2e3f994cc20c64ce4ce3b8919e073a462223482e63.png" src="../_images/ad3fc2b69d428cd26153ec2e3f994cc20c64ce4ce3b8919e073a462223482e63.png" />
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Point%20Cloud%20Tangles.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Point Cloud Tangles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tangles%20in%20Images%20II.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tangles in Images II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/tutorials/Tangles in Images I.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Tangle Software Contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

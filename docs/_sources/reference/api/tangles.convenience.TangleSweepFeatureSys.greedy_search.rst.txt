@@ -1,6 +1,0 @@
-greedy_search
-=============
-
-.. currentmodule:: tangles.convenience
-
-.. automethod:: TangleSweepFeatureSys.greedy_search

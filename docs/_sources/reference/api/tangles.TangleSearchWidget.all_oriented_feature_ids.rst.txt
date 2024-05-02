@@ -1,0 +1,6 @@
+all_oriented_feature_ids
+========================
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchWidget.all_oriented_feature_ids

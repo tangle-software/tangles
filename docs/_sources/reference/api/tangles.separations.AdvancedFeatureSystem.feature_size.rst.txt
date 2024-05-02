@@ -1,0 +1,6 @@
+feature_size
+============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.feature_size

@@ -1,0 +1,6 @@
+compute_infimum
+===============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.compute_infimum
