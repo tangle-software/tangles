@@ -1,0 +1,6 @@
+all_feature_ids
+===============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.all_feature_ids

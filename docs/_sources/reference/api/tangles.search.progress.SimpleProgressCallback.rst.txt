@@ -1,0 +1,9 @@
+SimpleProgressCallback
+======================
+
+.. currentmodule:: tangles.search.progress
+
+.. autoclass:: SimpleProgressCallback
+
+
+

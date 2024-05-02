@@ -2,17 +2,23 @@ from typing import Optional
 import numpy as np
 from tangles.analysis._get_subtrees import get_subtrees
 
-def visibility(tangle_matrix:np.ndarray, column_orders:np.ndarray, coherence:Optional[np.ndarray]=None, complexity:Optional[np.ndarray] = None):
+
+def visibility(
+    tangle_matrix: np.ndarray,
+    column_orders: np.ndarray,
+    coherence: Optional[np.ndarray] = None,
+    complexity: Optional[np.ndarray] = None,
+):
     """
-    Calculate the visibility of the tangles in the tangle matrix. 
-    
+    Calculate the visibility of the tangles in the tangle matrix.
+
     The visibility is the difference between the order at which a tangle ceases to exist (its coherence) and the order
     at which it can first be distinguished from all other tangles it is not contained in (its complexity).
 
     Parameters
     ----------
     tangle_matrix : np.ndarray
-        A (tangles x separations)-matrix encoding how a tangle orients a separation. 
+        A (tangles x separations)-matrix encoding how a tangle orients a separation.
         Contains the orientation of the separation if the tangle orients the separation and otherwise 0.
     column_orders : np.ndarray
         The orders of the separations in the columns of the `tangle_matrix`.
@@ -35,21 +41,22 @@ def visibility(tangle_matrix:np.ndarray, column_orders:np.ndarray, coherence:Opt
         complexity_lvl = complexity_levels(tangle_matrix)
     coherence = column_orders[coherence_lvl]
     complexity = column_orders[complexity_lvl]
-    return coherence-complexity
+    return coherence - complexity
 
-def coherence_levels(tangle_matrix:np.ndarray):
+
+def coherence_levels(tangle_matrix: np.ndarray):
     """
-    Calculate the coherence levels of tangles. 
-    
-    The coherence level of a tangle, given a tangle matrix, 
-    is the smallest index of a column where it has a zero. 
+    Calculate the coherence levels of tangles.
+
+    The coherence level of a tangle, given a tangle matrix,
+    is the smallest index of a column where it has a zero.
     This corresponds to the level at which the tangles ceases to exist for the first time.
     In case a tangle does not have such a zero its coherence level is -1 instead.
 
     Parameters
     ----------
     tangle_matrix : np.ndarray
-        A (tangles x separations)-matrix encoding how a tangle orients a separation. 
+        A (tangles x separations)-matrix encoding how a tangle orients a separation.
         Contains the orientation of the separation if the tangle orients the separation and otherwise 0.
 
     Returns
@@ -63,10 +70,10 @@ def coherence_levels(tangle_matrix:np.ndarray):
     return max_index
 
 
-def complexity_levels(tangle_matrix:np.ndarray):
+def complexity_levels(tangle_matrix: np.ndarray):
     """
-    Calculates the complexity levels of tangles. 
-    
+    Calculates the complexity levels of tangles.
+
     The complexity level of a tangle, given a tangle_matrix, is the smallest index such that if the tangle matrix were
     sliced until this index the tangle would be distinguishable from every other tangle it is not contained in.
     This corresponds to the level at which the tangle starts to exist for the first time.
@@ -74,7 +81,7 @@ def complexity_levels(tangle_matrix:np.ndarray):
     Parameters
     ----------
     tangle_matrix : np.ndarray
-        A (tangles x separations)-matrix encoding how a tangle orients a separation. 
+        A (tangles x separations)-matrix encoding how a tangle orients a separation.
         Contains the orientation of the separation if the tangle orients the separation and otherwise 0.
 
     Returns
@@ -88,6 +95,12 @@ def complexity_levels(tangle_matrix:np.ndarray):
         return result
     distinguisher_idx, left_ids, right_ids = get_subtrees(tangle_matrix)
     if np.sum(left_ids) + np.sum(right_ids) > 1:
-        result[left_ids] = complexity_levels(tangle_matrix[left_ids][:, distinguisher_idx:]) + distinguisher_idx
-        result[right_ids] = complexity_levels(tangle_matrix[right_ids][:, distinguisher_idx:]) + distinguisher_idx
+        result[left_ids] = (
+            complexity_levels(tangle_matrix[left_ids][:, distinguisher_idx:])
+            + distinguisher_idx
+        )
+        result[right_ids] = (
+            complexity_levels(tangle_matrix[right_ids][:, distinguisher_idx:])
+            + distinguisher_idx
+        )
     return result

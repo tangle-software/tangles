@@ -95,12 +95,12 @@ class RecursionLogic:
             <= np.minimum(second_term.array, text_term.array)
         ):
             return second_term
-        elif np.all(
+        if np.all(
             np.minimum(second_term.array, text_term.array)
             <= np.minimum(first_term.array, text_term.array)
         ):
             return first_term
-        elif second_term.array.sum() <= first_term.array.sum():
+        if second_term.array.sum() <= first_term.array.sum():
             return first_term.or_(second_term)
         return second_term.or_(first_term)
 

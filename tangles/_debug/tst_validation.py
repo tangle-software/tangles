@@ -4,8 +4,13 @@ from tangles.search import TangleSearchTree
 from tangles import Tangle
 from tangles.agreement import memoize_agreement_func
 
-def is_tst_valid(tangle_search_tree: TangleSearchTree, le_func: LessOrEqFunc, agreement_func: AgreementFunc,
-                 intended_agreement: int):
+
+def is_tst_valid(
+    tangle_search_tree: TangleSearchTree,
+    le_func: LessOrEqFunc,
+    agreement_func: AgreementFunc,
+    intended_agreement: int,
+):
     if not check_limit(tangle_search_tree, intended_agreement):
         print("Limit is wrong: ", tangle_search_tree.limit)
         return False
@@ -23,8 +28,10 @@ def is_tst_valid(tangle_search_tree: TangleSearchTree, le_func: LessOrEqFunc, ag
         return False
     return True
 
-def check_limit(tangle_search_tree: TangleSearchTree, agreement:int):
+
+def check_limit(tangle_search_tree: TangleSearchTree, agreement: int):
     return tangle_search_tree.limit < agreement
+
 
 def check_number_of_children(tangle_search_tree: TangleSearchTree):
     for idx, level in tangle_search_tree._levels(tangle_search_tree.root, 0):
@@ -38,22 +45,27 @@ def check_number_of_children(tangle_search_tree: TangleSearchTree):
                 if node.right_child:
                     if (tangle_search_tree.sep_ids[idx], 1) in node.right_child.core:
                         return False
-                    if (node.core is not node.right_child.core) or (node.agreement != node.right_child.agreement):
+                    if (node.core is not node.right_child.core) or (
+                        node.agreement != node.right_child.agreement
+                    ):
                         return False
                 if node.left_child:
                     if (tangle_search_tree.sep_ids[idx], -1) in node.left_child.core:
                         return False
-                    if (node.core is not node.left_child.core) or (node.agreement != node.left_child.agreement):
+                    if (node.core is not node.left_child.core) or (
+                        node.agreement != node.left_child.agreement
+                    ):
                         return False
     return True
 
-def check_core(tangle_search_tree: TangleSearchTree, le_func:LessOrEqFunc):
+
+def check_core(tangle_search_tree: TangleSearchTree, le_func: LessOrEqFunc):
     for idx, level in tangle_search_tree._levels(tangle_search_tree.root, 0):
         for node in level:
             if node.parent:
-                new_sep = (tangle_search_tree.sep_ids[idx-1], 1)
+                new_sep = (tangle_search_tree.sep_ids[idx - 1], 1)
                 if node.parent.left_child is node:
-                    new_sep = (tangle_search_tree.sep_ids[idx-1], -1)
+                    new_sep = (tangle_search_tree.sep_ids[idx - 1], -1)
                 if new_sep not in node.core:
                     new_sep_shadowed = False
                     for sep in node.core:
@@ -76,6 +88,7 @@ def check_core(tangle_search_tree: TangleSearchTree, le_func:LessOrEqFunc):
                         return False
     return True
 
+
 def check_agreement_falling(tangle_search_tree: TangleSearchTree):
     for _, level in tangle_search_tree._levels(tangle_search_tree.root, 0):
         for node in level:
@@ -84,16 +97,22 @@ def check_agreement_falling(tangle_search_tree: TangleSearchTree):
                 return False
     return True
 
-def check_agreement_correct(tangle_search_tree: TangleSearchTree, agreement_func: AgreementFunc):
+
+def check_agreement_correct(
+    tangle_search_tree: TangleSearchTree, agreement_func: AgreementFunc
+):
     mem_agreement = memoize_agreement_func(agreement_func)
     for idx, level in tangle_search_tree._levels(tangle_search_tree.root, 0):
         for node in level:
             if node.parent:
-                new_sep = (tangle_search_tree.sep_ids[idx-1], 1)
+                new_sep = (tangle_search_tree.sep_ids[idx - 1], 1)
                 if node.parent.left_child is node:
-                    new_sep = (tangle_search_tree.sep_ids[idx-1], -1)
+                    new_sep = (tangle_search_tree.sep_ids[idx - 1], -1)
                 if new_sep in node.core:
-                    if (node.parent.agreement >= node.agreement and node.agreement != node.parent.agreement):
+                    if (
+                        node.parent.agreement >= node.agreement
+                        and node.agreement != node.parent.agreement
+                    ):
                         calc = _calculate_node_agreement(node, mem_agreement, new_sep)
                         if not calc == node.agreement:
                             return False
@@ -103,7 +122,10 @@ def check_agreement_correct(tangle_search_tree: TangleSearchTree, agreement_func
                             return False
     return True
 
-def _calculate_node_agreement(node: Tangle, agreement_func: AgreementFunc, new_sep: OrientedSep):
+
+def _calculate_node_agreement(
+    node: Tangle, agreement_func: AgreementFunc, new_sep: OrientedSep
+):
     if len(node.core) == 1:
         return agreement_func(np.array([new_sep[0]]), np.array([new_sep[1]]))
     sep_ids = np.empty(3, dtype=int)

@@ -1,104 +1,106 @@
 # type: ignore
-import pytest
+# import pytest
 
-from tangles.tests.path import get_test_data_path
-from tangles._debug.tst_validation import is_tst_valid
-from tangles.separations import SetSeparationSystem
-from tangles import TangleSweep, agreement_func
-from tangles.util.graph.minor import contract_graph
-from tangles.separations.atomic_sets import atomic_to_seps, seps_to_atomic
-from tangles.util.graph import laplacian, normalized_laplacian
-from tangles.separations.finding import spectral_features
-import networkx as nx
-import numpy as np
-from scipy import sparse
+# import networkx as nx
+# import numpy as np
+# from scipy import sparse
 
-def _load_mona_graph():
-  return sparse.load_npz(get_test_data_path("graphs/mona.npz"))
+# from tangles.tests.path import get_test_data_path
+# from tangles._debug.tst_validation import is_tst_valid
+# from tangles.separations import SetSeparationSystem
+# from tangles import TangleSweep, agreement_func
+# from tangles.util.graph.minor import contract_graph
+# from tangles.separations.atomic_sets import atomic_to_seps, seps_to_atomic
+# from tangles.util.graph import laplacian, normalized_laplacian
+# from tangles.separations.finding import spectral_features
+
+# def _load_mona_graph():
+# return sparse.load_npz(get_test_data_path("graphs/mona.npz"))
 
 
 def _run_atomic_graph_barabasi_test():
-  # G = nx.barabasi_albert_graph(500, 2, seed=86)
-  # A = nx.adjacency_matrix(G)
+    # G = nx.barabasi_albert_graph(500, 2, seed=86)
+    # A = nx.adjacency_matrix(G)
 
-  # L = nx.laplacian_matrix(G)
-  # l, U = np.linalg.eigh(L)
-  # S = -np.ones((U.shape[0], 10), dtype=np.int8)
-  # S[U[:, 1:11] > 0] = 1
+    # L = nx.laplacian_matrix(G)
+    # l, U = np.linalg.eigh(L)
+    # S = -np.ones((U.shape[0], 10), dtype=np.int8)
+    # S[U[:, 1:11] > 0] = 1
 
-  # A_reduced, atoms = contract_graph(A, S)
+    # A_reduced, atoms = contract_graph(A, S)
 
-  # # check neighbourhoods in reduced graph:
-  # for u in range(A_reduced.shape[0]):
-  #   V_u = atoms[u]
-  #   V_neighbors = [(neighbor, atoms[neighbor]) for neighbor in np.nonzero(A_reduced[u, :])[1]]
+    # # check neighbourhoods in reduced graph:
+    # for u in range(A_reduced.shape[0]):
+    #   V_u = atoms[u]
+    #   V_neighbors = [(neighbor, atoms[neighbor]) for neighbor in np.nonzero(A_reduced[u, :])[1]]
 
-  #   # all neighbors of V_u must be in the 'hull' of V_u here!
-  #   neighborsInG = A[V_u, :].nonzero()[1]
-  #   if not set(neighborsInG).issubset(set(V_u).union(*[v[1] for v in V_neighbors])):
-  #     print("atomic_graph_barabasi_test: vertex in atom has neighbor outside of neighboring atoms -> FAILURE")
-  #     return False
+    #   # all neighbors of V_u must be in the 'hull' of V_u here!
+    #   neighborsInG = A[V_u, :].nonzero()[1]
+    #   if not set(neighborsInG).issubset(set(V_u).union(*[v[1] for v in V_neighbors])):
+    #     print("atomic_graph_barabasi_test: vertex in atom has neighbor outside of neighboring atoms -> FAILURE")
+    #     return False
 
-  #   # there must be an edge to V_u from every V_neighbor
-  #   for V_v in V_neighbors:
-  #     edgesV_uToV_v = A[V_u, :][:, V_v[1]]
-  #     if edgesV_uToV_v.data.shape[0] == 0:
-  #       print("atomic_graph_barabasi_test: nonadjacent atoms have an edge in reduced graph -> FAILURE")
-  #       return False
+    #   # there must be an edge to V_u from every V_neighbor
+    #   for V_v in V_neighbors:
+    #     edgesV_uToV_v = A[V_u, :][:, V_v[1]]
+    #     if edgesV_uToV_v.data.shape[0] == 0:
+    #       print("atomic_graph_barabasi_test: nonadjacent atoms have an edge in reduced graph -> FAILURE")
+    #       return False
 
-  #     weight = edgesV_uToV_v.sum()
-  #     if np.abs(weight - A_reduced[u, V_v[0]]) > 1e-10:
-  #       print("atomic_graph_barabasi_test: weight does not match")
-  #       return False
+    #     weight = edgesV_uToV_v.sum()
+    #     if np.abs(weight - A_reduced[u, V_v[0]]) > 1e-10:
+    #       print("atomic_graph_barabasi_test: weight does not match")
+    #       return False
 
-  # # check mapping sep <-> sep reduced
-  # S_a = seps_to_atomic(S, atoms)
-  # S_b = atomic_to_seps(S_a, atoms)
+    # # check mapping sep <-> sep reduced
+    # S_a = seps_to_atomic(S, atoms)
+    # S_b = atomic_to_seps(S_a, atoms)
 
-  # if np.any(S_b != S):
-  #   print("atomic_graph_barabasi_test: atomSepsToSeps(atomSepsToSeps(...))  -> FAILURE")
-  #   return False
+    # if np.any(S_b != S):
+    #   print("atomic_graph_barabasi_test: atomSepsToSeps(atomSepsToSeps(...))  -> FAILURE")
+    #   return False
 
-  # return True
-  pass
+    # return True
+    pass
 
 
 def _run_atomic_components_graph_test_mona():
-  # A = _load_mona_graph()
-  # L = normalized_laplacian(A)
-  # S = spectral_bipartitions(L, 13)[:, 1:]
+    # A = _load_mona_graph()
+    # L = normalized_laplacian(A)
+    # S = spectral_bipartitions(L, 13)[:, 1:]
 
-  # A_reduced, components = atomic_components(A, S, min_atom_size=100)
+    # A_reduced, components = atomic_components(A, S, min_atom_size=100)
 
-  # # check neighbourhoods in reduced graph:
-  # for u in range(A_reduced.shape[0]):
-  #   V_u = components[u]
-  #   V_neighbors = [components[neighbor] for neighbor in np.nonzero(A_reduced[u, :])[1]]
+    # # check neighbourhoods in reduced graph:
+    # for u in range(A_reduced.shape[0]):
+    #   V_u = components[u]
+    #   V_neighbors = [components[neighbor] for neighbor in np.nonzero(A_reduced[u, :])[1]]
 
-  #   # all neighbors of V_u must be in the 'hull' of V_u here!
-  #   neighbors_in_G = A[V_u, :].nonzero()[1]
-  #   if not set(neighbors_in_G).issubset(set(V_u).union(*V_neighbors)):
-  #     print("__testAtomicGraphForImage: vertex in atom has neighbor outside of neighboring atoms -> FAILURE")
-  #     return False
+    #   # all neighbors of V_u must be in the 'hull' of V_u here!
+    #   neighbors_in_G = A[V_u, :].nonzero()[1]
+    #   if not set(neighbors_in_G).issubset(set(V_u).union(*V_neighbors)):
+    #     print("__testAtomicGraphForImage: vertex in atom has neighbor outside of neighboring atoms -> FAILURE")
+    #     return False
 
-  #   # there must be an edge to V_u from every V_neighbor
-  #   for V_v in V_neighbors:
-  #     if A[V_u, :][:, V_v].data.shape[0] == 0:
-  #       print("__testAtomicGraphForImage: nonadjacent atoms have an edge in reduced graph -> FAILURE")
-  #       return False
+    #   # there must be an edge to V_u from every V_neighbor
+    #   for V_v in V_neighbors:
+    #     if A[V_u, :][:, V_v].data.shape[0] == 0:
+    #       print("__testAtomicGraphForImage: nonadjacent atoms have an edge in reduced graph -> FAILURE")
+    #       return False
 
-  # S_d = graph_distance_partitions(A_reduced, 2)
-  # S_b = atomic_to_seps(S_d, components)  # this direction should work
-  # S_a = seps_to_atomic(S_b, components)
+    # S_d = graph_distance_partitions(A_reduced, 2)
+    # S_b = atomic_to_seps(S_d, components)  # this direction should work
+    # S_a = seps_to_atomic(S_b, components)
 
-  # if np.any(S_a != S_d):
-  #   print("__testAtomicGraphForImage: atomSepsToSeps(atomSepsToSeps(...))  -> FAILURE")
-  #   return False
+    # if np.any(S_a != S_d):
+    #   print("__testAtomicGraphForImage: atomSepsToSeps(atomSepsToSeps(...))  -> FAILURE")
+    #   return False
 
-  # print("__testAtomicGraphForImage: all ok :-)")
+    # print("__testAtomicGraphForImage: all ok :-)")
 
-  # return True
-  pass
+    # return True
+    pass
+
 
 # def graph_distance_partitions(A, max_dist:int = 2) -> np.ndarray:
 #     """

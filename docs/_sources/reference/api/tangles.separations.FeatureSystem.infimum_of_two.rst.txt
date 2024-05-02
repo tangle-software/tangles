@@ -1,6 +1,0 @@
-infimum_of_two
-==============
-
-.. currentmodule:: tangles.separations
-
-.. automethod:: FeatureSystem.infimum_of_two

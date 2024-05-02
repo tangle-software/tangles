@@ -1,0 +1,6 @@
+__getitem__
+===========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.__getitem__

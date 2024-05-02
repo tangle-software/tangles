@@ -1,0 +1,6 @@
+create_features_split_regular_bins
+==================================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: create_features_split_regular_bins

@@ -47,10 +47,17 @@ class XYPicker:
     Furthermore, all of the parameters which the :meth:`__init__` function takes are also attributes.
     """
 
-    def __init__(self, ax, sel_callback,
-                 xrange, yrange, xticks=10, yticks=10,
-                 continuous_update=False,
-                 draw_custom_picker=None):
+    def __init__(
+        self,
+        ax,
+        sel_callback,
+        xrange,
+        yrange,
+        xticks=10,
+        yticks=10,
+        continuous_update=False,
+        draw_custom_picker=None,
+    ):
         self.ax = ax
         self.sel_callback = sel_callback
         self.callback_object = None
@@ -58,13 +65,26 @@ class XYPicker:
         self.xrange, self.yrange = xrange, yrange
         self.sel_xy = (sum(xrange) / 2, sum(yrange) / 2)
 
-        self.xticks = xticks if (isinstance(xticks, list) or isinstance(xticks, np.ndarray) or isinstance(xticks, range)) \
-                             else np.linspace(*xrange, xticks)
-        self.yticks = yticks if (isinstance(yticks, list) or isinstance(yticks, np.ndarray) or isinstance(yticks, range)) \
-                             else np.linspace(*yrange, yticks)
+        self.xticks = (
+            xticks
+            if (
+                isinstance(xticks, list)
+                or isinstance(xticks, np.ndarray)
+                or isinstance(xticks, range)
+            )
+            else np.linspace(*xrange, xticks)
+        )
+        self.yticks = (
+            yticks
+            if (
+                isinstance(yticks, list)
+                or isinstance(yticks, np.ndarray)
+                or isinstance(yticks, range)
+            )
+            else np.linspace(*yrange, yticks)
+        )
 
         self.xlabel, self.ylabel = None, None
-
 
         self._cid = []
         self.continuous_update = continuous_update
@@ -72,11 +92,10 @@ class XYPicker:
 
         self.draw_custom_picker = draw_custom_picker
 
-
     def show(self, sel_x=None, sel_y=None, with_callback=False):
         """
-        Connects all of the listeners and redraws the plot. 
-        
+        Connects all of the listeners and redraws the plot.
+
         Optionally with a default selection.
 
         Parameters
@@ -92,17 +111,20 @@ class XYPicker:
         fig = self.ax.get_figure()
         for c in self._cid:
             self.ax.get_figure().mpl_disconnect(c)
-        self._cid = [fig.canvas.mpl_connect('button_press_event', self._onclick)]
-        self._cid.append(fig.canvas.mpl_connect('key_press_event', self._onkey))
+        self._cid = [fig.canvas.mpl_connect("button_press_event", self._onclick)]
+        self._cid.append(fig.canvas.mpl_connect("key_press_event", self._onkey))
         if self.continuous_update:
-            self._cid.append(fig.canvas.mpl_connect('motion_notify_event', self._onmove))
-            self._cid.append(fig.canvas.mpl_connect('button_release_event', self._onrelease))
+            self._cid.append(
+                fig.canvas.mpl_connect("motion_notify_event", self._onmove)
+            )
+            self._cid.append(
+                fig.canvas.mpl_connect("button_release_event", self._onrelease)
+            )
 
         self.sel_xy = sel_x, sel_y
         if with_callback:
             self._callback(sel_x, sel_y)
         self.update()
-
 
     def update(self):
         """Redraws the plot."""
@@ -118,29 +140,29 @@ class XYPicker:
         ax.set_ylim(*self.yrange)
         ax.set_xlim(*self.xrange)
         if sel_xy is not None:
-            ax.scatter(*sel_xy, marker='o')
+            ax.scatter(*sel_xy, marker="o")
         ax.set_yticks(self.yticks)
         ax.set_xticks(self.xticks)
         ax.set_xlabel(self.xlabel)
         ax.set_ylabel(self.ylabel)
         ax.grid(True)
 
-    def _callback(self,x,y):
-        x,y = np.clip(x, *self.xrange), np.clip(y, *self.yrange)
+    def _callback(self, x, y):
+        x, y = np.clip(x, *self.xrange), np.clip(y, *self.yrange)
         if self.callback_object is None:
-            self.sel_xy = self.sel_callback(x,y)
+            self.sel_xy = self.sel_callback(x, y)
         else:
-            self.sel_xy = self.sel_callback(x,y, self.callback_object)
+            self.sel_xy = self.sel_callback(x, y, self.callback_object)
 
     def _onkey(self, event):
-        if event.key=="left":
-            self._callback(self.sel_xy[0]-1, self.sel_xy[1])
-        elif event.key=="right":
-            self._callback(self.sel_xy[0]+1, self.sel_xy[1])
-        elif event.key=="up":
-            self._callback(self.sel_xy[0], self.sel_xy[1]+1)
-        elif event.key=="down":
-            self._callback(self.sel_xy[0], self.sel_xy[1]-1)
+        if event.key == "left":
+            self._callback(self.sel_xy[0] - 1, self.sel_xy[1])
+        elif event.key == "right":
+            self._callback(self.sel_xy[0] + 1, self.sel_xy[1])
+        elif event.key == "up":
+            self._callback(self.sel_xy[0], self.sel_xy[1] + 1)
+        elif event.key == "down":
+            self._callback(self.sel_xy[0], self.sel_xy[1] - 1)
         else:
             return
         self.update()
@@ -162,19 +184,22 @@ class XYPicker:
 
 
 if __name__ == "__main__":
-    #import matplotlib as mpl
-    #mpl.use('MacOSX')
+    # import matplotlib as mpl
+    # mpl.use('MacOSX')
     import numpy as np
-    fig, axes = plt.subplots(nrows=2,ncols=1, figsize=(10,10))
+
+    fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(10, 10))
 
     def cb(sel_x, sel_y, x):
         axes[0].clear()
         axes[0].set_xlim(x[0], x[-1])
-        axes[0].set_ylim(-1.5,  1.5)
-        axes[0].plot(x, sel_y*np.cos(x*sel_x))
+        axes[0].set_ylim(-1.5, 1.5)
+        axes[0].plot(x, sel_y * np.cos(x * sel_x))
         return sel_x, sel_y
 
-    test = XYPicker(axes[1], cb, [0, 10], [0,2], xticks=range(10), yticks=[0,0.5,1,1.5])
+    test = XYPicker(
+        axes[1], cb, [0, 10], [0, 2], xticks=range(10), yticks=[0, 0.5, 1, 1.5]
+    )
     test.xlabel = "Frequency"
     test.ylabel = "Amplitude"
     test.callback_object = np.arange(-np.pi, np.pi, 0.01)

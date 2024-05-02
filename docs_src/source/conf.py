@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Tangles'
-copyright = '2024, Tangle Software Contributors'
-author = 'Tangle Software Contributors'
+project = "Tangles"
+copyright = "2024, Tangle Software Contributors"
+author = "Tangle Software Contributors"
 
 
 # -- General configuration ---------------------------------------------------
@@ -27,11 +27,7 @@ author = 'Tangle Software Contributors'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-  'sphinx.ext.autodoc',
-  'sphinx.ext.autosummary',
-  'myst_nb'
-]
+extensions = ["sphinx.ext.autodoc", "sphinx.ext.autosummary", "myst_nb"]
 
 myst_enable_extensions = [
     "amsmath",
@@ -43,7 +39,7 @@ myst_enable_extensions = [
 myst_url_schemes = ("http", "https", "mailto")
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -52,15 +48,21 @@ exclude_patterns = [
     # "tutorials"
 ]
 
+nb_execution_mode = "cache"
+
+nb_execution_timeout = -1
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pydata_sphinx_theme'
+html_theme = "pydata_sphinx_theme"
 
 html_theme_options = {
+    "external_links": [
+        {"name": "Tangles Website", "url": "https://www.tangles-book.com"}
+    ],
     "icon_links": [
         {
             # Label for this link
@@ -72,7 +74,7 @@ html_theme_options = {
             # The type of image to be used (see below for details)
             "type": "fontawesome",
         }
-   ]
+    ]
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -82,4 +84,4 @@ html_theme_options = {
 html_static_path = []
 
 # An icon graphic. E.g. displayed in tabs.
-html_favicon = 'favicon.ico'
+html_favicon = "favicon.ico"

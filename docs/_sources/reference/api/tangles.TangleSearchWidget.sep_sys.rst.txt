@@ -1,0 +1,6 @@
+sep_sys
+=======
+
+.. currentmodule:: tangles
+
+.. autoproperty:: TangleSearchWidget.sep_sys

@@ -1,0 +1,6 @@
+set_valid_and_invalid_variable_values
+=====================================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: Survey.set_valid_and_invalid_variable_values

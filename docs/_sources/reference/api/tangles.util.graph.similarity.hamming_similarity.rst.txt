@@ -1,0 +1,6 @@
+hamming_similarity
+==================
+
+.. currentmodule:: tangles.util.graph.similarity
+
+.. autofunction:: hamming_similarity

@@ -30,10 +30,12 @@ SurveyTangles
       :hidden:
 
       tangles.convenience.SurveyTangles.change_agreement
+      tangles.convenience.SurveyTangles.explain_feature
       tangles.convenience.SurveyTangles.initialize_search
+      tangles.convenience.SurveyTangles.load
       tangles.convenience.SurveyTangles.ordered_metadata
       tangles.convenience.SurveyTangles.search
-      tangles.convenience.SurveyTangles.sepcified_features
+      tangles.convenience.SurveyTangles.specified_features
       tangles.convenience.SurveyTangles.tangle_matrix
       tangles.convenience.SurveyTangles.typical_answers
 
@@ -42,13 +44,17 @@ SurveyTangles
 
       * - :func:`change_agreement`
         - Change the agreement lower bound
+      * - :func:`explain_feature`
+        - Create a dataframe containing information about a feature specification
       * - :func:`initialize_search`
         - This function starts a tangle search on survey data
+      * - :func:`load`
+        - Load a :class:`SurveyTangles` from files
       * - :func:`ordered_metadata`
         - Return the metadata of the features (or separations) sorted corresponding to the order used for the tangle search
       * - :func:`search`
         - Search tangles
-      * - :func:`sepcified_features`
+      * - :func:`specified_features`
         - Determine which features could be specified by the tangles found for the current agreement
       * - :func:`tangle_matrix`
         - Create a matrix indicating how the features (or separations) are specified (or oriented) by the tangles

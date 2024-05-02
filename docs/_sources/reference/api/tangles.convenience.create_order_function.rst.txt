@@ -1,0 +1,6 @@
+create_order_function
+=====================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: create_order_function

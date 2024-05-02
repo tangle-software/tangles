@@ -1,6 +1,0 @@
-sepcified_features
-==================
-
-.. currentmodule:: tangles.convenience
-
-.. automethod:: SurveyTangles.sepcified_features

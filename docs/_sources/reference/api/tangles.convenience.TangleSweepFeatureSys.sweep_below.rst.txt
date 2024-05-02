@@ -1,6 +1,0 @@
-sweep_below
-===========
-
-.. currentmodule:: tangles.convenience
-
-.. automethod:: TangleSweepFeatureSys.sweep_below

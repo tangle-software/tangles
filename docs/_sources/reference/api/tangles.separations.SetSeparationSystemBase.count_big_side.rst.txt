@@ -1,0 +1,6 @@
+count_big_side
+==============
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: SetSeparationSystemBase.count_big_side

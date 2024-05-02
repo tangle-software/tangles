@@ -1,0 +1,6 @@
+lower_agreement
+===============
+
+.. currentmodule:: tangles
+
+.. automethod:: UncrossingSweep.lower_agreement

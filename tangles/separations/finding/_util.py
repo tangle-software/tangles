@@ -1,6 +1,9 @@
 import numpy as np
 
-def _threshold_partitions(U: np.ndarray, threshold: float = 0, small_side_le:bool = True) -> np.ndarray:
+
+def _threshold_partitions(
+    U: np.ndarray, threshold: float = 0, small_side_le: bool = True
+) -> np.ndarray:
     """
     Turn real valued vectors into partition indicator vectors by assigning indices to sides according to a threshold
 

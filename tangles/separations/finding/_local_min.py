@@ -1,5 +1,6 @@
-import numpy as np
 from abc import ABC
+import numpy as np
+
 
 class OrderFuncDerivative(ABC):
     """
@@ -15,9 +16,10 @@ class OrderFuncDerivative(ABC):
 
         This method is abstract and needs to be overwritten.
         """
-        pass
 
-    def change_discrete_derivative(self, feat: np.ndarray, derivative: np.ndarray, change_index: int) -> np.ndarray:
+    def change_discrete_derivative(
+        self, feat: np.ndarray, derivative: np.ndarray, change_index: int
+    ) -> np.ndarray:
         """
         This method does not need to be overwritten but it could help performance to overwrite it.
         """
@@ -25,7 +27,12 @@ class OrderFuncDerivative(ABC):
         new_sep[change_index] = -new_sep[change_index]
         return self.discrete_derivative(new_sep)
 
-def minimize_cut(starting_feature: np.ndarray, order_derivative: OrderFuncDerivative, max_steps: int = int(1e8)) -> np.ndarray:
+
+def minimize_cut(
+    starting_feature: np.ndarray,
+    order_derivative: OrderFuncDerivative,
+    max_steps: int = int(1e8),
+) -> np.ndarray:
     """Find a locally minimal cut in a graph starting with the cut specified by `starting_feature`.
 
     Parameters
@@ -51,6 +58,8 @@ def minimize_cut(starting_feature: np.ndarray, order_derivative: OrderFuncDeriva
         best_change = np.argmin(derivative)
         if derivative[best_change] >= 0:
             break
-        derivative = order_derivative.change_discrete_derivative(feature, derivative, best_change)
+        derivative = order_derivative.change_discrete_derivative(
+            feature, derivative, best_change
+        )
         feature[best_change] = -feature[best_change]
     return feature

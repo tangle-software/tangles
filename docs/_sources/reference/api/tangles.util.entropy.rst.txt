@@ -27,10 +27,10 @@ tangles.util.entropy
       * - :func:`datapointwise_information_gains`
         - Compute information gains between `feats` and every single column of `data`
       * - :func:`entropy`
-        - Compute the discrete entropy of every column of `X`
+        - Compute the discrete entropy of every column of `x`
       * - :func:`information_gain`
         - Order function based on information gain by adding each feature
       * - :func:`joint_entropy`
-        - Compute the discrete joint entropy of `X`
+        - Compute the discrete joint entropy of `x`
       * - :func:`pairwise_mutual_information`
         - Compute a matrix that contains the pairwise mutual information between the columns of `data`

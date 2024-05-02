@@ -1,0 +1,6 @@
+linear_similarity_from_dist_matrix
+==================================
+
+.. currentmodule:: tangles.util.matrix_order
+
+.. autofunction:: linear_similarity_from_dist_matrix

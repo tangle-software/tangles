@@ -1,0 +1,6 @@
+add_corner
+==========
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.add_corner

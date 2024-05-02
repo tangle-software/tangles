@@ -1,0 +1,6 @@
+feature_factory_all_splits_ge
+=============================
+
+.. currentmodule:: tangles.convenience
+
+.. autofunction:: feature_factory_all_splits_ge

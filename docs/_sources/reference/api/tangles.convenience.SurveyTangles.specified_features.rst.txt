@@ -1,0 +1,6 @@
+specified_features
+==================
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyTangles.specified_features

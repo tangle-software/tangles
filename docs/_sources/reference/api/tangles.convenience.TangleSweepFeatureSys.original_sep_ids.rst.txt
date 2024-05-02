@@ -1,6 +1,0 @@
-original_sep_ids
-================
-
-.. currentmodule:: tangles.convenience
-
-.. autoproperty:: TangleSweepFeatureSys.original_sep_ids

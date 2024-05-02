@@ -1,0 +1,6 @@
+all_oriented_feature_ids
+========================
+
+.. currentmodule:: tangles.convenience
+
+.. autoproperty:: TangleSweepFeatureSys.all_oriented_feature_ids

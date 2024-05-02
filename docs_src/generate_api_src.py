@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 def dot_path(module: list) -> str:
-    return '.'.join(module)
+    return ".".join(module)
 
 
 def rel_path(parents: list, name: str):
@@ -28,7 +28,7 @@ class Generator:
     def generate(self, parents, name, template, bindings):
         t = self.environment.get_template(template)
         c = t.render(**bindings)
-        with open(f"{self.target}/{rel_path(parents, name)}.rst", 'w') as out:
+        with open(f"{self.target}/{rel_path(parents, name)}.rst", "w") as out:
             out.write(c)
 
 
@@ -65,7 +65,7 @@ class FunctionDocNode(DocNode):
         bindings = {
             "module": dot_path(parents),
             "name": self.name,
-            "title": title(self.name)
+            "title": title(self.name),
         }
         g.generate(parents, self.name, "function.rst", bindings)
 
@@ -74,7 +74,7 @@ class FunctionDocNode(DocNode):
 
 
 class MethodDocNode(DocNode):
-    def __init__(self, name: str, obj, uid : str):
+    def __init__(self, name: str, obj, uid: str):
         super().__init__(name, obj)
         self._uid = uid
 
@@ -86,7 +86,7 @@ class MethodDocNode(DocNode):
             "module": dot_path(parents[:-1]),
             "class": parents[-1],
             "name": self.name,
-            "title": title(self.name)
+            "title": title(self.name),
         }
         g.generate(parents, self.name, "method.rst", bindings)
 
@@ -95,7 +95,7 @@ class MethodDocNode(DocNode):
 
 
 class PropertyDocNode(DocNode):
-    def __init__(self, name: str, obj, uid : str):
+    def __init__(self, name: str, obj, uid: str):
         super().__init__(name, obj)
         self._uid = uid
 
@@ -107,7 +107,7 @@ class PropertyDocNode(DocNode):
             "module": dot_path(parents[:-1]),
             "class": parents[-1],
             "name": self.name,
-            "title": title(self.name)
+            "title": title(self.name),
         }
         g.generate(parents, self.name, "property.rst", bindings)
 
@@ -116,7 +116,9 @@ class PropertyDocNode(DocNode):
 
 
 class ClassDocNode(DocNode):
-    def __init__(self, name: str, obj: object, methods: list[DocNode], properties: list[DocNode]):
+    def __init__(
+        self, name: str, obj: object, methods: list[DocNode], properties: list[DocNode]
+    ):
         super().__init__(name, obj)
         self.methods = methods
         self.properties = properties
@@ -132,12 +134,22 @@ class ClassDocNode(DocNode):
             "module": dot_path(parents),
             "name": self.name,
             "properties": [
-                (rel_path(parents + [self.name], prop.name), prop.name, prop.get_short_description()) for prop in self.properties
+                (
+                    rel_path(parents + [self.name], prop.name),
+                    prop.name,
+                    prop.get_short_description(),
+                )
+                for prop in self.properties
             ],
             "methods": [
-                (rel_path(parents + [self.name], method.name), method.name, method.get_short_description()) for method in self.methods
+                (
+                    rel_path(parents + [self.name], method.name),
+                    method.name,
+                    method.get_short_description(),
+                )
+                for method in self.methods
             ],
-            "title": title(self.name)
+            "title": title(self.name),
         }
         g.generate(parents, self.name, "class.rst", bindings)
 
@@ -146,7 +158,14 @@ class ClassDocNode(DocNode):
 
 
 class ModuleDocNode(DocNode):
-    def __init__(self, name: str, obj: object, sub_mods: list[DocNode], classes: list[DocNode], functions: list[DocNode]):
+    def __init__(
+        self,
+        name: str,
+        obj: object,
+        sub_mods: list[DocNode],
+        classes: list[DocNode],
+        functions: list[DocNode],
+    ):
         super().__init__(name, obj)
         self.sub_mods = sub_mods
         self.classes = classes
@@ -164,15 +183,22 @@ class ModuleDocNode(DocNode):
         bindings = {
             "module": dot_path(module),
             "sub_mods": [
-                (rel_path(module, sub_mod.name), sub_mod.name, sub_mod.get_short_description()) for sub_mod in self.sub_mods
+                (
+                    rel_path(module, sub_mod.name),
+                    sub_mod.name,
+                    sub_mod.get_short_description(),
+                )
+                for sub_mod in self.sub_mods
             ],
             "classes": [
-                (rel_path(module, cls.name), cls.name, cls.get_short_description()) for cls in self.classes
+                (rel_path(module, cls.name), cls.name, cls.get_short_description())
+                for cls in self.classes
             ],
             "functions": [
-                (rel_path(module, func.name), func.name, func.get_short_description()) for func in self.functions
+                (rel_path(module, func.name), func.name, func.get_short_description())
+                for func in self.functions
             ],
-            "title": title(dot_path(module))
+            "title": title(dot_path(module)),
         }
         g.generate(parents, self.name, "module.rst", bindings)
 
@@ -224,8 +250,24 @@ def process_property(name, prop, uid):
 def process_class(pruner, name, cls):
     if name.startswith("_"):
         return None
-    methods = pruner.prune([process_method(name, func, ".".join([cls.__module__, cls.__name__, name])) for name, func in sorted(inspect.getmembers(cls, lambda x: inspect.ismethod(x) or inspect.isfunction(x)))])
-    properties = pruner.prune([process_property(name, prop, ".".join([cls.__module__, cls.__name__, name])) for name, prop in sorted(inspect.getmembers(cls, lambda x: isinstance(x, property)))])
+    methods = pruner.prune(
+        [
+            process_method(name, func, ".".join([cls.__module__, cls.__name__, name]))
+            for name, func in sorted(
+                inspect.getmembers(
+                    cls, lambda x: inspect.ismethod(x) or inspect.isfunction(x)
+                )
+            )
+        ]
+    )
+    properties = pruner.prune(
+        [
+            process_property(name, prop, ".".join([cls.__module__, cls.__name__, name]))
+            for name, prop in sorted(
+                inspect.getmembers(cls, lambda x: isinstance(x, property))
+            )
+        ]
+    )
     return ClassDocNode(name, cls, methods, properties)
 
 
@@ -233,12 +275,31 @@ def process_module(pruner, name, mod):
     if name.startswith("_"):
         return None
 
-    classes = pruner.prune([process_class(pruner, name, cls) for name, cls in sorted(inspect.getmembers(mod, predicate=inspect.isclass)) if
-                            cls.__module__.startswith(mod.__name__)])
-    functions = pruner.prune([process_function(name, func) for name, func in sorted(inspect.getmembers(mod, predicate=inspect.isfunction)) if
-                              func.__module__.startswith(mod.__name__)])
-    sub_mods = pruner.prune([process_module(pruner, name, sub_mod) for name, sub_mod in sorted(inspect.getmembers(mod, predicate=inspect.ismodule)) if
-                             sub_mod.__name__.startswith(mod.__name__)])
+    classes = pruner.prune(
+        [
+            process_class(pruner, name, cls)
+            for name, cls in sorted(inspect.getmembers(mod, predicate=inspect.isclass))
+            if cls.__module__.startswith(mod.__name__)
+        ]
+    )
+    functions = pruner.prune(
+        [
+            process_function(name, func)
+            for name, func in sorted(
+                inspect.getmembers(mod, predicate=inspect.isfunction)
+            )
+            if func.__module__.startswith(mod.__name__)
+        ]
+    )
+    sub_mods = pruner.prune(
+        [
+            process_module(pruner, name, sub_mod)
+            for name, sub_mod in sorted(
+                inspect.getmembers(mod, predicate=inspect.ismodule)
+            )
+            if sub_mod.__name__.startswith(mod.__name__)
+        ]
+    )
 
     if sub_mods or classes or functions:
         return ModuleDocNode(name, mod, sub_mods, classes, functions)
@@ -248,12 +309,17 @@ def list_modules(base, current):
     current_abs = path.join(base, current)
     if path.isfile(current_abs) and current_abs.endswith(".py"):
         return [[current[:-3]]]
-    return [[current], *[
-        [current, *m]
-        for f in sorted(os.listdir(current_abs))
-        if not (f.startswith("__") or f.startswith("tests") or f.startswith(".")) # don't parse hidden files..
-        for m in list_modules(path.join(base, current), f)
-    ]]
+    return [
+        [current],
+        *[
+            [current, *m]
+            for f in sorted(os.listdir(current_abs))
+            if not (
+                f.startswith("__") or f.startswith("tests") or f.startswith(".")
+            )  # don't parse hidden files..
+            for m in list_modules(path.join(base, current), f)
+        ],
+    ]
 
 
 def generate_tangle_reference():
@@ -264,7 +330,10 @@ def generate_tangle_reference():
         shutil.rmtree(target)
     os.mkdir(target)
 
-    modules = {m: import_module(m) for m in [dot_path(mm) for mm in list_modules(tangles_root, "tangles")]}
+    modules = {
+        m: import_module(m)
+        for m in [dot_path(mm) for mm in list_modules(tangles_root, "tangles")]
+    }
 
     p = Pruner()
     doc = process_module(p, "tangles", modules["tangles"])

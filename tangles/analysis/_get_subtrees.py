@@ -1,6 +1,7 @@
 import numpy as np
 
-def get_subtrees(tangle_matrix:np.ndarray):
+
+def get_subtrees(tangle_matrix: np.ndarray):
     """
     Consider two subtrees of the TST and return the column index of the separation which separates the two subtrees
     and whether a tangle is in the left subtree, in the right subtree or in neither subtree.
@@ -27,7 +28,11 @@ def get_subtrees(tangle_matrix:np.ndarray):
     tangle_matrix_made_equal = tangle_matrix * tangle_matrix[[max_order_tangle]]
     column_equal = np.all(tangle_matrix_made_equal >= 0, axis=0)
     if np.all(column_equal):
-        return -1, np.array([False] * tangle_matrix.shape[0]), np.array([False] * tangle_matrix.shape[0])
+        return (
+            -1,
+            np.array([False] * tangle_matrix.shape[0]),
+            np.array([False] * tangle_matrix.shape[0]),
+        )
     distinguisher_idx = np.argmax(column_equal == 0)
     right_leaf_ids = tangle_matrix[:, distinguisher_idx] > 0
     left_leaf_ids = tangle_matrix[:, distinguisher_idx] < 0

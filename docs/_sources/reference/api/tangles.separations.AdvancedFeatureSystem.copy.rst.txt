@@ -1,0 +1,6 @@
+copy
+====
+
+.. currentmodule:: tangles.separations
+
+.. automethod:: AdvancedFeatureSystem.copy

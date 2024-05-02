@@ -11,6 +11,7 @@ tangles.agreement
    .. toctree::
       :hidden:
 
+      tangles.agreement.AdvancedAgreementFunc
       tangles.agreement.AgreementFunc
       tangles.agreement.AgreementFuncBitarray
       tangles.agreement.AgreementFuncBitarrayBips
@@ -19,8 +20,10 @@ tangles.agreement
    .. list-table::
       :widths: 50 50
 
-      * - :class:`AgreementFunc`
+      * - :class:`AdvancedAgreementFunc`
         - 
+      * - :class:`AgreementFunc`
+        - Interface for an agreement function
       * - :class:`AgreementFuncBitarray`
         - 
       * - :class:`AgreementFuncBitarrayBips`

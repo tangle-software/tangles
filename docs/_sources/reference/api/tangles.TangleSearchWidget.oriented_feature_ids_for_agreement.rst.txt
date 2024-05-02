@@ -1,0 +1,6 @@
+oriented_feature_ids_for_agreement
+==================================
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchWidget.oriented_feature_ids_for_agreement

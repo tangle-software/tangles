@@ -15,7 +15,9 @@ def create_test_data(centers, scale, counts):
     M = np.empty((np.sum(counts), centers.shape[1]))
     idx = 0
     for c, s, n in zip(centers, scale, counts):
-        M[idx:idx + n, :] = c + np.random.normal(0, s, n * c.shape[0]).reshape(n, c.shape[0])
+        M[idx : idx + n, :] = c + np.random.normal(0, s, n * c.shape[0]).reshape(
+            n, c.shape[0]
+        )
         idx += n
     return M
 
@@ -33,7 +35,9 @@ def sampled_pairs_hyperplane_seps(M, num_seps):
     d /= l
     p = 0.5 * (M[idcs[:, 0]] + M[idcs[:, 1]])
 
-    B = ((M[:, :, np.newaxis] - p[:, :, np.newaxis].T) * d[:, :, np.newaxis].T).sum(axis=1) > 0
+    B = ((M[:, :, np.newaxis] - p[:, :, np.newaxis].T) * d[:, :, np.newaxis].T).sum(
+        axis=1
+    ) > 0
     S = -np.ones(B.shape, dtype=np.int8)
     S[B] = 1
     return S, p, d
@@ -69,15 +73,17 @@ def uncross_distinguishers_hyperplanes_test(seed=29292):
             break
 
     t = time.time()
-    disting_levels, disting_sep_ids = uncross_distinguishers(search, sep_sys_ord, 2, verbose=False)
+    disting_levels, disting_sep_ids = uncross_distinguishers(
+        search, sep_sys_ord, 2, verbose=False
+    )
     print(f"tot took: {time.time() - t}")
 
     cross1, cross2 = sep_sys.find_first_cross(disting_sep_ids)
-    assert (cross1 is None)
+    assert cross1 is None
 
     # do they distinguish all tangles?
     tangles = search.tree.tangle_matrix(2)
-    assert (faster_uniquerows(tangles[:, disting_levels]).shape[0] == tangles.shape[0])
+    assert faster_uniquerows(tangles[:, disting_levels]).shape[0] == tangles.shape[0]
 
     print(f"Result: {disting_sep_ids}")
 
@@ -102,10 +108,10 @@ def uncross_distinguishers_hyperplanes_test(seed=29292):
     print(f"tot took: {time.time() - t}")
 
     cross1, cross2 = sep_sys.find_first_cross(disting_sep_ids)
-    assert (cross1 is None)
+    assert cross1 is None
 
     tangles2 = search2.tree.tangle_matrix(2)
-    assert (faster_uniquerows(tangles2[:, disting_levels]).shape[0] == tangles2.shape[0])
+    assert faster_uniquerows(tangles2[:, disting_levels]).shape[0] == tangles2.shape[0]
 
     print(f"Result: {disting_sep_ids}")
 

@@ -1,0 +1,6 @@
+compute_corner_features
+=======================
+
+.. currentmodule:: tangles.convenience.convenience_features
+
+.. autofunction:: compute_corner_features

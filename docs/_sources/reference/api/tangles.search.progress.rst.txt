@@ -12,10 +12,13 @@ tangles.search.progress
       :hidden:
 
       tangles.search.progress.DefaultProgressCallback
+      tangles.search.progress.SimpleProgressCallback
 
    .. list-table::
       :widths: 50 50
 
       * - :class:`DefaultProgressCallback`
         - A default progress callable for the tangle search
+      * - :class:`SimpleProgressCallback`
+        - A simpler (and much faster) progress callable for the tangle search
 

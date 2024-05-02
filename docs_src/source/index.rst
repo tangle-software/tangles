@@ -7,5 +7,5 @@ Tangle Software Documentation
 .. toctree::
    :maxdepth: 2
 
-   tutorials/index
    reference/index
+   tutorials/index

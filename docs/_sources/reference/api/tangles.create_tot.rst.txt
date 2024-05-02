@@ -1,0 +1,6 @@
+create_tot
+==========
+
+.. currentmodule:: tangles
+
+.. autofunction:: create_tot

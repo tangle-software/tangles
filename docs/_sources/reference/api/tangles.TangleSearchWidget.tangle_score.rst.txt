@@ -1,0 +1,6 @@
+tangle_score
+============
+
+.. currentmodule:: tangles
+
+.. automethod:: TangleSearchWidget.tangle_score

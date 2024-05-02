@@ -38,20 +38,20 @@ Survey
       tangles.convenience.Survey.copy
       tangles.convenience.Survey.count_number_of_unique_answers
       tangles.convenience.Survey.count_valid_answers_per_respondent
-      tangles.convenience.Survey.guess_missing_variable_ranges
-      tangles.convenience.Survey.guess_missing_variable_types
+      tangles.convenience.Survey.guess_variable_types
+      tangles.convenience.Survey.guess_variable_value_lists
       tangles.convenience.Survey.interpret_column_selection
       tangles.convenience.Survey.load
-      tangles.convenience.Survey.replace_variable_names
       tangles.convenience.Survey.replace_variable_value_labels
       tangles.convenience.Survey.replace_variable_values
       tangles.convenience.Survey.save
       tangles.convenience.Survey.select_questions
       tangles.convenience.Survey.select_respondents
       tangles.convenience.Survey.set_pyreadstat_meta_data
+      tangles.convenience.Survey.set_valid_and_invalid_variable_values
       tangles.convenience.Survey.set_variable_labels
+      tangles.convenience.Survey.set_variable_names
       tangles.convenience.Survey.set_variable_types
-      tangles.convenience.Survey.set_variable_value_lists
       tangles.convenience.Survey.summarize
       tangles.convenience.Survey.variable_info
 
@@ -70,16 +70,14 @@ Survey
         - Count the number of unique answers for selected columns
       * - :func:`count_valid_answers_per_respondent`
         - Count the number of valid answers for each respondent
-      * - :func:`guess_missing_variable_ranges`
-        - Guess missing variable value lists from data
-      * - :func:`guess_missing_variable_types`
+      * - :func:`guess_variable_types`
         - Guess missing variable types from data
+      * - :func:`guess_variable_value_lists`
+        - Guess missing variable value lists from data
       * - :func:`interpret_column_selection`
         - Interpret different ways to select a subset of columns (or variables)
       * - :func:`load`
         - Load a :class:`Survey` from files
-      * - :func:`replace_variable_names`
-        - Replace the names of selected variables
       * - :func:`replace_variable_value_labels`
         - Replace variable value labels according to the dictionary `mapping`
       * - :func:`replace_variable_values`
@@ -92,12 +90,14 @@ Survey
         - A new survey containing a subset of the rows
       * - :func:`set_pyreadstat_meta_data`
         - Use metadata returned from the python package pyreadstat to set properties of the variables (or questions)
+      * - :func:`set_valid_and_invalid_variable_values`
+        - Set the dictionaries of valid and invalid values (and their labels) for selected variables
       * - :func:`set_variable_labels`
         - Set the labels (which often is the question text) of selected variables
+      * - :func:`set_variable_names`
+        - Replace the names of selected variables
       * - :func:`set_variable_types`
-        - Guess missing variable value lists from data
-      * - :func:`set_variable_value_lists`
-        - Set the dictionaries of valid and invalid values (and their labels) for selected variables
+        - Set the type of the variables specified by `column_selection`
       * - :func:`summarize`
         - Create a summary of some interesting aspects of this survey
       * - :func:`variable_info`

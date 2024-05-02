@@ -1,0 +1,6 @@
+set_factoryfunc
+===============
+
+.. currentmodule:: tangles.convenience
+
+.. automethod:: SurveyFeatureFactoryCherryPicker.set_factoryfunc

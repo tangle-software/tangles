@@ -1,13 +1,13 @@
 from typing import TypeVar, Optional
 import numpy as np
-from tangles.util.tree._tree import TreeNode
+from ._graph import TreeNode
 
-Node = TypeVar("Node", bound='BinTreeNode')
+Node = TypeVar("Node", bound="BinTreeNode")
 NodeRef = Optional[Node]
 
 
 class BinTreeNode(TreeNode):
-    """ Node of a BinTree.
+    """Node of a BinTree.
 
     Note: when a node is created, the `parent` attribute of `left_child` and of `right_child` is set to this node.
 
@@ -30,7 +30,12 @@ class BinTreeNode(TreeNode):
         The right child of the node. If `right_child` is None then the node has no right child.
     """
 
-    def __init__(self: Node, parent: NodeRef = None, left_child: NodeRef = None, right_child: NodeRef = None) -> None:
+    def __init__(
+        self: Node,
+        parent: NodeRef = None,
+        left_child: NodeRef = None,
+        right_child: NodeRef = None,
+    ) -> None:
         self.parent = parent
         self.left_child = left_child
         self.right_child = right_child
@@ -94,14 +99,17 @@ class BinTreeNode(TreeNode):
     def num_children(self):
         return (1 if self.left_child else 0) + (1 if self.right_child else 0)
 
-
     def remove_single_parents_in_subtree(self):
-        if self.left_child: self.left_child._remove_single_parents_in_subtree_internal(self, -1)
-        if self.right_child: self.right_child._remove_single_parents_in_subtree_internal(self, 1)
+        if self.left_child:
+            self.left_child._remove_single_parents_in_subtree_internal(self, -1)
+        if self.right_child:
+            self.right_child._remove_single_parents_in_subtree_internal(self, 1)
 
     def _attach_to_parent(self, new_parent, lr_indicator):
-        if lr_indicator<0: new_parent.set_left_child(self)
-        else: new_parent.set_right_child(self)
+        if lr_indicator < 0:
+            new_parent.set_left_child(self)
+        else:
+            new_parent.set_right_child(self)
 
     def _remove_single_parents_in_subtree_internal(self, parent_to_keep, lr_indicator):
         if self.left_child and self.right_child:
@@ -109,12 +117,15 @@ class BinTreeNode(TreeNode):
             self.left_child._remove_single_parents_in_subtree_internal(self, -1)
             self.right_child._remove_single_parents_in_subtree_internal(self, 1)
         elif self.left_child:
-            self.left_child._remove_single_parents_in_subtree_internal(parent_to_keep, lr_indicator)
+            self.left_child._remove_single_parents_in_subtree_internal(
+                parent_to_keep, lr_indicator
+            )
         elif self.right_child:
-            self.right_child._remove_single_parents_in_subtree_internal(parent_to_keep, lr_indicator)
+            self.right_child._remove_single_parents_in_subtree_internal(
+                parent_to_keep, lr_indicator
+            )
         else:
             self._attach_to_parent(parent_to_keep, lr_indicator)
-
 
     def detach(self: Node) -> None:
         """Detach the node by removing its pointer to its parent and the parents pointer to it."""
@@ -157,7 +168,9 @@ class BinTreeNode(TreeNode):
 
         return start_node_copy
 
-    def copy_subtree_into_children(self, left: bool = True, right: bool = True):   # TODO: Find official name for this operation!
+    def copy_subtree_into_children(
+        self, left: bool = True, right: bool = True
+    ):  # TODO: Find official name for this operation!
         """
         Replace each child by a copy of the subtree starting at this node.
         """
@@ -178,7 +191,7 @@ class BinTreeNode(TreeNode):
         self.set_right_child(right_node)
 
     def children(self: Node) -> list[Node]:
-        """ Return the list of children of this node.
+        """Return the list of children of this node.
 
         Returns
         -------
@@ -193,17 +206,20 @@ class BinTreeNode(TreeNode):
             children.append(self.right_child)
         return children
 
-
-    def child(self, child_identifier:int):
-        return self.left_child if child_identifier<0 else self.right_child
+    def child(self, child_identifier: int):
+        return self.left_child if child_identifier < 0 else self.right_child
 
     def sibling(self) -> Optional[Node]:
         if self.parent:
-            return self.parent.right_child if self is self.parent.left_child else self.parent.left_child
+            return (
+                self.parent.right_child
+                if self is self.parent.left_child
+                else self.parent.left_child
+            )
         return None
 
     def leaves_in_subtree(self: Node, max_depth: Optional[int] = None) -> list[Node]:
-        """ Find all leaves in the binary tree.
+        """Find all leaves in the binary tree.
 
         Parameters
         ----------
@@ -232,7 +248,7 @@ class BinTreeNode(TreeNode):
         return leaves + nodes
 
     def level_in_subtree(self: Node, depth: int) -> list[Node]:
-        """ Return all the nodes at a certain `depth` below this node.
+        """Return all the nodes at a certain `depth` below this node.
 
         Parameters
         ----------
@@ -261,19 +277,19 @@ class BinTreeNode(TreeNode):
         levels = []
         while current_level:
             levels.append(current_level)
-            current_level = sum((n.children() for n in current_level),[])
+            current_level = sum((n.children() for n in current_level), [])
         return levels
 
     def is_leaf(self: Node) -> bool:
-        """Whether this node is a leaf. 
-        
+        """Whether this node is a leaf.
+
         A leaf is a node with no children.
         """
 
         return self.left_child is None and self.right_child is None
 
     def level(self: Node) -> int:
-        """ Returns the level of this node.
+        """Returns the level of this node.
 
         The root has level 0.
 
@@ -291,7 +307,7 @@ class BinTreeNode(TreeNode):
         return level
 
     def path_from_root_indicator(self: Node) -> list[int]:
-        """ Returns the list of sides one has to take to go from the root to this node.
+        """Returns the list of sides one has to take to go from the root to this node.
 
         The value 1 denotes going right, the value -1 denotes going left.
 
@@ -327,7 +343,7 @@ class BinTreeNode(TreeNode):
     @staticmethod
     def to_indicator_matrix(nodes: list[Node]) -> np.ndarray:
         """Turn a list of nodes into an indicator matrix.
-        
+
         The indicator matrix is the matrix containing, in its rows, the path-from-root-indicators of the nodes given.
         The rows are sorted the same way the nodes are.
 
@@ -343,17 +359,21 @@ class BinTreeNode(TreeNode):
             depth of a node in `nodes`.
         """
 
-        if len(nodes)==0:
-            return np.empty((0,0))
+        if len(nodes) == 0:
+            return np.empty((0, 0))
 
         indicators = [node.path_from_root_indicator() for node in nodes]
         if len(indicators) == 0:
-            return np.empty((0,0))
+            return np.empty((0, 0))
         max_len = max(len(indicator) for indicator in indicators)
-        return np.vstack([indicator + [0] * (max_len - len(indicator)) for indicator in indicators])
+        return np.vstack(
+            [indicator + [0] * (max_len - len(indicator)) for indicator in indicators]
+        )
 
     @classmethod
-    def from_indicator_matrix(cls, indicator_matrix: np.ndarray, root: Node = None) -> 'BinTreeNode':
+    def from_indicator_matrix(
+        cls, indicator_matrix: np.ndarray, root: Node = None
+    ) -> "BinTreeNode":
         """Turn an indicator matrix back into a binary tree.
 
         Parameters
@@ -366,9 +386,9 @@ class BinTreeNode(TreeNode):
         BinTreeNode
             The root of a binary tree which contains every path from the indicator matrix as a node.
         """
-        
-        if len(indicator_matrix.shape)==1:
-            indicator_matrix = indicator_matrix.reshape(1,indicator_matrix.shape[0])
+
+        if len(indicator_matrix.shape) == 1:
+            indicator_matrix = indicator_matrix.reshape(1, indicator_matrix.shape[0])
 
         root = root or cls()
         for i, path in enumerate(indicator_matrix):
@@ -386,25 +406,3 @@ class BinTreeNode(TreeNode):
                     node = node.left_child
             node.indicator_row = i
         return root
-
-
-if __name__=="__main__":
-    from tangles.util.tree._nx_bin_tree import BinTreeNetworkX
-    mat = np.array([[-1,1,-1,1,1],
-                    [-1,-1,1,-1,1],
-                    [-1,-1,-1,1,1],
-                    [-1,1,-1,1,-1],
-                    [-1,-1,1,1,1],
-                    [ 1,-1,1,1,1]])
-
-    bintree = BinTreeNode.from_indicator_matrix(mat)
-    levels = bintree.all_levels_in_subtree()
-    for i, l in enumerate(levels):
-        for n in l:
-            n.depth = i
-
-    bintree.remove_single_parents_in_subtree()
-
-    nxbintree = BinTreeNetworkX(bintree.all_nodes())
-    nxbintree.tst_layout([n.depth for n in nxbintree._nodes])
-    nxbintree.draw()

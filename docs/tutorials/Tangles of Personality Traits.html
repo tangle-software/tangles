@@ -1,0 +1,2280 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tangles of Personality Traits &#8212; Tangles  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/Tangles of Personality Traits';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Point Cloud Tangles" href="Point%20Cloud%20Tangles.html" />
+    <link rel="prev" title="Survey Tangles" href="Survey%20Tangles.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Tangles  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://www.tangles-book.com">
+                    Tangles Website
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/tangle-software/tangles" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://www.tangles-book.com">
+                    Tangles Website
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/tangle-software/tangles" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Survey%20Tangles.html">Survey Tangles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tangles of Personality Traits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Point%20Cloud%20Tangles.html">Point Cloud Tangles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20in%20Images%20I.html">Tangles in Images I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tangles%20in%20Images%20II.html">Tangles in Images II</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Tangles of...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tangles-of-personality-traits">
+<h1>Tangles of Personality Traits<a class="headerlink" href="#tangles-of-personality-traits" title="Link to this heading">#</a></h1>
+<p>In this notebook we demonstrate different aspects of the tangle-analysis. We will cover setting up a Survey object, the tangle search, order functions, the tree of tangles and more. We do so by giving a structural analysis of a questionnaire on the Big Five personality traits. We will explore the following problems:</p>
+<p><strong>Coherent groups of questions</strong><br />
+We identify coherent structures within the questions. This lets us verify that there are five groups of related questions, called factors.</p>
+<p><strong>Typical mindsets</strong><br />
+We analyze the most typical ways of answering the questionnaire. These typical ways can be interpreted as mindsets of the participants.</p>
+<p><strong>A tree-structure of mindsets</strong><br />
+We structure typical mindsets by representing them as nodes in a tree — a tree of tangles.</p>
+<p><strong>Intervals of typical answers</strong><br />
+With a different setup of features, a tangle will give us, for each question, an interval in which answers to this question typically lie.</p>
+<p>We will focus on the demonstration of techniques provided by the tangle library. While we will get some interesting insights into the considered survey, this is not an exhaustive survey analysis.</p>
+<section id="the-data">
+<h2>1. The Data<a class="headerlink" href="#the-data" title="Link to this heading">#</a></h2>
+<p>Let us start by having a look at our data. The <a class="reference external" href="https://en.wikipedia.org/wiki/Big_Five_personality_traits">five factor model of personality</a> (also known as the OCEAN model or simply “Big Five”) proposes that the personality of a person can be described, meaningfully, by how much each of the following five traits, called <em>factors</em>, apply to the person:</p>
+<ul class="simple">
+<li><p><strong>E</strong> for extraversion</p></li>
+<li><p><strong>N</strong> for neuroticism</p></li>
+<li><p><strong>A</strong> for agreeableness</p></li>
+<li><p><strong>C</strong> for conscientiousness</p></li>
+<li><p><strong>O</strong> for openness to experience</p></li>
+</ul>
+<p>The data is provided in this repository, so you will not have to download it. We found the data (<a class="reference external" href="https://openpsychometrics.org/_rawdata/">here</a>: download link “BIG5”). Let’s load the data into our notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">load_big_five_data</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">var_labels</span><span class="p">,</span> <span class="n">factors</span> <span class="o">=</span> <span class="n">load_big_five_data</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of participants: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of questions in the questionnaire: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of participants: 19384
+Number of questions in the questionnaire: 50
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are ten questions for each of the five factors E, N, A, C and O (<a class="reference external" href="https://ipip.ori.org/new_ipip-50-item-scale.htm">details</a>).
+Let’s have a look at how the first participant rated the first ten statements, those measuring extraversion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">participant_rating</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">var_labels</span><span class="p">,</span> <span class="n">participant_rating</span><span class="p">))[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">var_names</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Statement&#39;</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Statement</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E1</th>
+      <td>I am the life of the party.</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>E2</th>
+      <td>I don't talk a lot.</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>I feel comfortable around people.</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E4</th>
+      <td>I keep in the background.</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>I start conversations.</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E6</th>
+      <td>I have little to say.</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>I talk to a lot of different people at parties.</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>E8</th>
+      <td>I don't like to draw attention to myself.</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>I don't mind being the center of attention.</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>E10</th>
+      <td>I am quiet around strangers.</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Each line shows, from left to right,</p>
+<ul class="simple">
+<li><p>an abbreviation: E for the factor extraversion plus a statement index;</p></li>
+<li><p>the actual statement, as presented to the participants;</p></li>
+<li><p>how the first participant rated the statement, assigning an integer value in 1 (strong disagreement) to 5 (strong agreement).</p></li>
+</ul>
+<p>Looks like an extroverted participant!</p>
+<p>Note, the statements E2, E4, E6, E8 and E10 are <em>negatively keyed</em>: a typical extroverted person will rate them low instead of high.</p>
+<p>The rating behaviour itself varies from participant to participant. Some answer in a more extreme way, preferring ratings of 1 and 5, others use more gentle ratings like 2 and 4. To avoid this affecting our analysis we <strong>standardize the data</strong>: for each participant we center its ratings at the participant’s mean rating and scale them by the standard deviation of the participant’s ratings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">remove_rows_with_zero_std</span><span class="p">,</span> <span class="n">standardize_ratings</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">remove_rows_with_zero_std</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># we cannot divide by the standard deviation if it is zero</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">standardize_ratings</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dataset, which previously had discrete values in <span class="math notranslate nohighlight">\(\{1, 2, 3, 4, 5\}\)</span>, now has continuous values. Let’s see how this changed the answers of the first participant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">styled_bar_plot</span>
+<span class="n">styled_bar_plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Ratings of the First Participant&#39;</span><span class="p">,</span> <span class="n">var_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/22ed7014fb9ac6459557b39be0655d2723ce76fd7892fef5b02474ee10e3e475.png" src="../_images/22ed7014fb9ac6459557b39be0655d2723ce76fd7892fef5b02474ee10e3e475.png" />
+</div>
+</div>
+<p>We get a rough overview of how the first participant rated.
+Yet, it is hard to read because of the <strong>negatively keyed statements</strong>. For example, it would be nice to tell the participant’s extraversion from the plot.</p>
+<p>To fix this we invert the ratings of all negatively keyed statements.
+Moreover, we tag the name of all inverted variables by changing, e.g., “E2” to “¬E2”, and the same for the variable labels.
+This will considerably improve interpretability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">keying</span>
+
+<span class="n">keyed_X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">keying</span><span class="p">)</span>
+<span class="n">keyed_var_names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">l</span> <span class="k">if</span> <span class="n">neg</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;¬</span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">neg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">var_names</span><span class="p">,</span> <span class="n">keying</span><span class="p">)])</span>
+<span class="n">keyed_var_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">s</span> <span class="k">if</span> <span class="n">neg</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;¬</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">neg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">var_labels</span><span class="p">,</span> <span class="n">keying</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us have a look at the answers of the first participant again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">styled_bar_plot</span><span class="p">(</span><span class="n">keyed_X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Keyed Ratings of the First Participant&#39;</span><span class="p">,</span> <span class="n">keyed_var_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fdc0574778f6ac48779a08287c1e11c5df23b0d5f281086318d078fb58b88fd3.png" src="../_images/fdc0574778f6ac48779a08287c1e11c5df23b0d5f281086318d078fb58b88fd3.png" />
+</div>
+</div>
+<p>This plot has a remarkably clear structure! It allows for an easy characterization:</p>
+<ul class="simple">
+<li><p>The first participant gives a high rating to most statements of the factors E, A, C, and O. Clearly, the participant seems to be an extroverted, agreeable, and conscientious person that is open to experience.</p></li>
+<li><p>Contrarily, all N statements are rated low, so the participant is not neurotic.</p></li>
+</ul>
+<p>This seems like a plausible, even <em>typical</em>, combination of the factors.
+But did we just pick someone with such a clear profile by chance, or does this combination correspond to a typical mindset within all participants of the survey?
+We will investigate this question in the later section on typical mindsets.</p>
+</section>
+<section id="surveys-and-features">
+<h2>2. Surveys and Features<a class="headerlink" href="#surveys-and-features" title="Link to this heading">#</a></h2>
+<p>Our library provides a convenient helper object for preparing survey data for tangle analysis.
+We prepare the data by initializing a <code class="docutils literal notranslate"><span class="pre">Survey</span></code> object and a <code class="docutils literal notranslate"><span class="pre">SurveyFeatureFactory</span></code> object.</p>
+<p>First, we set up the <code class="docutils literal notranslate"><span class="pre">Survey</span></code> object, which manages survey data and its corresponding metadata.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.convenience</span> <span class="kn">import</span> <span class="n">Survey</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">Survey</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">keyed_X</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">keyed_var_names</span><span class="p">))</span>
+<span class="n">survey</span><span class="o">.</span><span class="n">set_variable_labels</span><span class="p">(</span><span class="n">keyed_var_labels</span><span class="p">)</span>
+<span class="n">survey</span><span class="o">.</span><span class="n">set_variable_types</span><span class="p">(</span><span class="s1">&#39;numerical&#39;</span><span class="p">)</span>
+
+<span class="n">survey</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()</span> <span class="c1"># checking that everything is set up correctly</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>type</th>
+      <th>label</th>
+      <th>valid_values</th>
+      <th>invalid_values</th>
+      <th>is_usable</th>
+      <th>num_valid_answers</th>
+      <th>num_unique_answers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E1</th>
+      <td>0</td>
+      <td>E1</td>
+      <td>numerical</td>
+      <td>I am the life of the party.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10326</td>
+    </tr>
+    <tr>
+      <th>¬E2</th>
+      <td>1</td>
+      <td>¬E2</td>
+      <td>numerical</td>
+      <td>¬I don't talk a lot.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10580</td>
+    </tr>
+    <tr>
+      <th>E3</th>
+      <td>2</td>
+      <td>E3</td>
+      <td>numerical</td>
+      <td>I feel comfortable around people.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10196</td>
+    </tr>
+    <tr>
+      <th>¬E4</th>
+      <td>3</td>
+      <td>¬E4</td>
+      <td>numerical</td>
+      <td>¬I keep in the background.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10275</td>
+    </tr>
+    <tr>
+      <th>E5</th>
+      <td>4</td>
+      <td>E5</td>
+      <td>numerical</td>
+      <td>I start conversations.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10217</td>
+    </tr>
+    <tr>
+      <th>¬E6</th>
+      <td>5</td>
+      <td>¬E6</td>
+      <td>numerical</td>
+      <td>¬I have little to say.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9975</td>
+    </tr>
+    <tr>
+      <th>E7</th>
+      <td>6</td>
+      <td>E7</td>
+      <td>numerical</td>
+      <td>I talk to a lot of different people at parties.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10556</td>
+    </tr>
+    <tr>
+      <th>¬E8</th>
+      <td>7</td>
+      <td>¬E8</td>
+      <td>numerical</td>
+      <td>¬I don't like to draw attention to myself.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10379</td>
+    </tr>
+    <tr>
+      <th>E9</th>
+      <td>8</td>
+      <td>E9</td>
+      <td>numerical</td>
+      <td>I don't mind being the center of attention.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10607</td>
+    </tr>
+    <tr>
+      <th>¬E10</th>
+      <td>9</td>
+      <td>¬E10</td>
+      <td>numerical</td>
+      <td>¬I am quiet around strangers.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10225</td>
+    </tr>
+    <tr>
+      <th>N1</th>
+      <td>10</td>
+      <td>N1</td>
+      <td>numerical</td>
+      <td>I get stressed out easily.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10044</td>
+    </tr>
+    <tr>
+      <th>¬N2</th>
+      <td>11</td>
+      <td>¬N2</td>
+      <td>numerical</td>
+      <td>¬I am relaxed most of the time.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10201</td>
+    </tr>
+    <tr>
+      <th>N3</th>
+      <td>12</td>
+      <td>N3</td>
+      <td>numerical</td>
+      <td>I worry about things.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9260</td>
+    </tr>
+    <tr>
+      <th>¬N4</th>
+      <td>13</td>
+      <td>¬N4</td>
+      <td>numerical</td>
+      <td>¬I seldom feel blue.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10281</td>
+    </tr>
+    <tr>
+      <th>N5</th>
+      <td>14</td>
+      <td>N5</td>
+      <td>numerical</td>
+      <td>I am easily disturbed.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10045</td>
+    </tr>
+    <tr>
+      <th>N6</th>
+      <td>15</td>
+      <td>N6</td>
+      <td>numerical</td>
+      <td>I get upset easily.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9939</td>
+    </tr>
+    <tr>
+      <th>N7</th>
+      <td>16</td>
+      <td>N7</td>
+      <td>numerical</td>
+      <td>I change my mood a lot.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9798</td>
+    </tr>
+    <tr>
+      <th>N8</th>
+      <td>17</td>
+      <td>N8</td>
+      <td>numerical</td>
+      <td>I have frequent mood swings.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9858</td>
+    </tr>
+    <tr>
+      <th>N9</th>
+      <td>18</td>
+      <td>N9</td>
+      <td>numerical</td>
+      <td>I get irritated easily.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9884</td>
+    </tr>
+    <tr>
+      <th>N10</th>
+      <td>19</td>
+      <td>N10</td>
+      <td>numerical</td>
+      <td>I often feel blue.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10059</td>
+    </tr>
+    <tr>
+      <th>¬A1</th>
+      <td>20</td>
+      <td>¬A1</td>
+      <td>numerical</td>
+      <td>¬I feel little concern for others.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10004</td>
+    </tr>
+    <tr>
+      <th>A2</th>
+      <td>21</td>
+      <td>A2</td>
+      <td>numerical</td>
+      <td>I am interested in people.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9362</td>
+    </tr>
+    <tr>
+      <th>¬A3</th>
+      <td>22</td>
+      <td>¬A3</td>
+      <td>numerical</td>
+      <td>¬I insult people.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9795</td>
+    </tr>
+    <tr>
+      <th>A4</th>
+      <td>23</td>
+      <td>A4</td>
+      <td>numerical</td>
+      <td>I sympathize with others' feelings.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8994</td>
+    </tr>
+    <tr>
+      <th>¬A5</th>
+      <td>24</td>
+      <td>¬A5</td>
+      <td>numerical</td>
+      <td>¬I am not interested in other people's problems.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9611</td>
+    </tr>
+    <tr>
+      <th>A6</th>
+      <td>25</td>
+      <td>A6</td>
+      <td>numerical</td>
+      <td>I have a soft heart.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9405</td>
+    </tr>
+    <tr>
+      <th>¬A7</th>
+      <td>26</td>
+      <td>¬A7</td>
+      <td>numerical</td>
+      <td>¬I am not really interested in others.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9407</td>
+    </tr>
+    <tr>
+      <th>A8</th>
+      <td>27</td>
+      <td>A8</td>
+      <td>numerical</td>
+      <td>I take time out for others.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9392</td>
+    </tr>
+    <tr>
+      <th>A9</th>
+      <td>28</td>
+      <td>A9</td>
+      <td>numerical</td>
+      <td>I feel others' emotions.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9048</td>
+    </tr>
+    <tr>
+      <th>A10</th>
+      <td>29</td>
+      <td>A10</td>
+      <td>numerical</td>
+      <td>I make people feel at ease.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9456</td>
+    </tr>
+    <tr>
+      <th>C1</th>
+      <td>30</td>
+      <td>C1</td>
+      <td>numerical</td>
+      <td>I am always prepared.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10046</td>
+    </tr>
+    <tr>
+      <th>¬C2</th>
+      <td>31</td>
+      <td>¬C2</td>
+      <td>numerical</td>
+      <td>¬I leave my belongings around.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10582</td>
+    </tr>
+    <tr>
+      <th>C3</th>
+      <td>32</td>
+      <td>C3</td>
+      <td>numerical</td>
+      <td>I pay attention to details.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9066</td>
+    </tr>
+    <tr>
+      <th>¬C4</th>
+      <td>33</td>
+      <td>¬C4</td>
+      <td>numerical</td>
+      <td>¬I make a mess of things.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10050</td>
+    </tr>
+    <tr>
+      <th>C5</th>
+      <td>34</td>
+      <td>C5</td>
+      <td>numerical</td>
+      <td>I get chores done right away.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10433</td>
+    </tr>
+    <tr>
+      <th>¬C6</th>
+      <td>35</td>
+      <td>¬C6</td>
+      <td>numerical</td>
+      <td>¬I often forget to put things back in their pr...</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10453</td>
+    </tr>
+    <tr>
+      <th>C7</th>
+      <td>36</td>
+      <td>C7</td>
+      <td>numerical</td>
+      <td>I like order.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9933</td>
+    </tr>
+    <tr>
+      <th>¬C8</th>
+      <td>37</td>
+      <td>¬C8</td>
+      <td>numerical</td>
+      <td>¬I shirk my duties.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9818</td>
+    </tr>
+    <tr>
+      <th>C9</th>
+      <td>38</td>
+      <td>C9</td>
+      <td>numerical</td>
+      <td>I follow a schedule.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10394</td>
+    </tr>
+    <tr>
+      <th>C10</th>
+      <td>39</td>
+      <td>C10</td>
+      <td>numerical</td>
+      <td>I am exacting in my work.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9338</td>
+    </tr>
+    <tr>
+      <th>O1</th>
+      <td>40</td>
+      <td>O1</td>
+      <td>numerical</td>
+      <td>I have a rich vocabulary.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9821</td>
+    </tr>
+    <tr>
+      <th>¬O2</th>
+      <td>41</td>
+      <td>¬O2</td>
+      <td>numerical</td>
+      <td>¬I have difficulty understanding abstract ideas.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9469</td>
+    </tr>
+    <tr>
+      <th>O3</th>
+      <td>42</td>
+      <td>O3</td>
+      <td>numerical</td>
+      <td>I have a vivid imagination.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8783</td>
+    </tr>
+    <tr>
+      <th>¬O4</th>
+      <td>43</td>
+      <td>¬O4</td>
+      <td>numerical</td>
+      <td>¬I am not interested in abstract ideas.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>9326</td>
+    </tr>
+    <tr>
+      <th>O5</th>
+      <td>44</td>
+      <td>O5</td>
+      <td>numerical</td>
+      <td>I have excellent ideas.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8948</td>
+    </tr>
+    <tr>
+      <th>¬O6</th>
+      <td>45</td>
+      <td>¬O6</td>
+      <td>numerical</td>
+      <td>¬I do not have a good imagination.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8764</td>
+    </tr>
+    <tr>
+      <th>O7</th>
+      <td>46</td>
+      <td>O7</td>
+      <td>numerical</td>
+      <td>I am quick to understand things.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8791</td>
+    </tr>
+    <tr>
+      <th>O8</th>
+      <td>47</td>
+      <td>O8</td>
+      <td>numerical</td>
+      <td>I use difficult words.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>10294</td>
+    </tr>
+    <tr>
+      <th>O9</th>
+      <td>48</td>
+      <td>O9</td>
+      <td>numerical</td>
+      <td>I spend time reflecting on things.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8598</td>
+    </tr>
+    <tr>
+      <th>O10</th>
+      <td>49</td>
+      <td>O10</td>
+      <td>numerical</td>
+      <td>I am full of ideas.</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>8758</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Everything looks just as expected.</p>
+<p>Now, we will <strong>define the features</strong>.</p>
+<p>For each statement we define a feature that contains all participants who “agree” with the statement. For our purposes, we say that a participant <em>agrees</em> with a statement, if the participant’s rating of the statement is greater than the median of all ratings of that statement.
+Conversely, we say that the participant disagrees, if the rating is less than or equal to the median.</p>
+<p>To implement this, we configure a <code class="docutils literal notranslate"><span class="pre">SurveyFeatureFactory</span></code>. Together with the <code class="docutils literal notranslate"><span class="pre">Survey</span></code> object, this will be all we need to search for tangles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.convenience</span> <span class="kn">import</span> <span class="n">SimpleSurveyFeatureFactory</span>
+
+<span class="c1"># the invalid_values parameter is solely for compatibility with the feature factory </span>
+<span class="k">def</span> <span class="nf">split_at_median</span><span class="p">(</span><span class="n">single_col</span><span class="p">,</span> <span class="n">invalid_values</span><span class="p">):</span>
+    <span class="n">single_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">single_col</span><span class="p">)</span>
+    <span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">single_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">feature</span> <span class="o">=</span> <span class="p">(</span><span class="n">single_col</span> <span class="o">&gt;</span> <span class="n">median</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">single_col</span> <span class="o">&lt;=</span> <span class="n">median</span><span class="p">)</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+    <span class="n">metadata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="n">median</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">feature</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">metadata</span>
+
+<span class="k">def</span> <span class="nf">create_median_feature_factory</span><span class="p">(</span><span class="n">survey</span><span class="p">):</span>
+    <span class="n">median_feature_factory</span> <span class="o">=</span> <span class="n">SimpleSurveyFeatureFactory</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>
+    <span class="n">median_feature_factory</span><span class="o">.</span><span class="n">numvar_func</span> <span class="o">=</span> <span class="n">split_at_median</span>
+    <span class="k">return</span> <span class="n">median_feature_factory</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the median to define the features is but one of many options. A different definition comes with a different interpretation of the features and, consequently, a different interpretation of the tangles we will find.</p>
+<p>The possibility to choose the definition of the features is an important tool in the tangle search process that opens up possibilities for the user to customise their analysis.</p>
+</section>
+<section id="verifying-the-coherence-of-the-factors">
+<h2>3. Verifying the Coherence of the Factors<a class="headerlink" href="#verifying-the-coherence-of-the-factors" title="Link to this heading">#</a></h2>
+<p>We saw above that an extroverted person will probably rate all ten statements related to extraversion high (after reversing negatively keyed statements), indicating that all ten statements hold for this person. Thus, we suspect that if for a participant one of the E statements holds, typically all other E statements hold as well. We will verify that this is indeed the case.</p>
+<section id="the-coherence-of-factor-e-extraversion">
+<h3>3.1 The coherence of factor E (extraversion)<a class="headerlink" href="#the-coherence-of-factor-e-extraversion" title="Link to this heading">#</a></h3>
+<p>To do this, we search for tangles on the ten features corresponding to the statements E1, E2, …, E10. Using <code class="docutils literal notranslate"><span class="pre">select_questions()</span></code>, we create a new survey that contains only E statements, and the <code class="docutils literal notranslate"><span class="pre">SurveyTangles.search()</span></code> method lets us search for tangles on the features created for those statements.</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.convenience</span> <span class="kn">import</span> <span class="n">SurveyTangles</span>
+
+<span class="n">E_questions</span> <span class="o">=</span> <span class="n">survey</span><span class="o">.</span><span class="n">select_questions</span><span class="p">(</span><span class="k">lambda</span> <span class="n">variable</span><span class="p">:</span> <span class="s1">&#39;E&#39;</span> <span class="ow">in</span> <span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">agreement</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="n">tangles</span> <span class="o">=</span> <span class="n">SurveyTangles</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">E_questions</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">feature_factory</span><span class="o">=</span><span class="n">create_median_feature_factory</span><span class="p">(</span><span class="n">E_questions</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A brief word on the <strong>agreement value</strong>:<br />
+As a rule of thumb, 10% of the data set size (in this case approximately 2000) is a good value to start with and will often yield multiple interpretable tangles.</p>
+<p>So why do we use agreement 4000? Because we are interested in only the most typical combinations of statement ratings. That is, in terms of tangle terminology, the tangles with the highest agreement. By a little trial and error, agreement of 4000 turns out to be a good value, giving us the first complete tangles.</p>
+<p>Let’s inspect the tangles we found using the tangle matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">plot_tangle_matrix</span>
+
+<span class="n">tangle_matrix</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">()</span>
+<span class="n">plot_tangle_matrix</span><span class="p">(</span><span class="n">tangle_matrix</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Tangle Matrix for Factor E (agreement=</span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">E_questions</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()[</span><span class="s1">&#39;name&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/58874e8afb8bc16f592bb6e5888d291a1bb6b4c267a4819ef9ef5e2e29c8e694.png" src="../_images/58874e8afb8bc16f592bb6e5888d291a1bb6b4c267a4819ef9ef5e2e29c8e694.png" />
+</div>
+</div>
+<p>Row by row, the tangle matrix shows all tangles that were found. Focusing on one tangle, the column entries specify how the tangle orients the features identified by the labels of the columns. Here, a blue entry indicates disagreement to the statement and a yellow entry indicates agreement to the statement.</p>
+<p>We find two very characteristic tangles. That’s a great result! Let’s interpret them:<br />
+The two most typical ways to rate the statements of factor E is to</p>
+<ul class="simple">
+<li><p>either agree to none of them  (tangle 0)</p></li>
+<li><p>or to agree to all of them (tangle 1).</p></li>
+</ul>
+<p>Thus, we verified that the statements of factor E form a coherent structure within the dataset.</p>
+</section>
+<section id="the-coherence-of-all-factors">
+<h3>3.2 The coherence of all factors<a class="headerlink" href="#the-coherence-of-all-factors" title="Link to this heading">#</a></h3>
+<p>Let’s check the same for all five factors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreements</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="mi">4000</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="mi">3500</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="mi">2600</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We found the agreement values as we did for the factor E above.</p>
+<p>The fact that for factor O the agreement needs to be chosen smaller than for factor E is interesting:<br />
+We can think of the agreement value as a measure of how typical the tangle is: the fact that the O tangles have a lower agreement value than the E tangles indicates that agreeing or disagreeing to all O factors is less typical than agreeing or disagreeing to all E factors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">factor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">factors</span><span class="p">):</span>
+    <span class="n">questions_selection</span> <span class="o">=</span> <span class="n">survey</span><span class="o">.</span><span class="n">select_questions</span><span class="p">(</span><span class="k">lambda</span> <span class="n">variable</span><span class="p">:</span> <span class="n">factor</span> <span class="ow">in</span> <span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">feat_fac</span> <span class="o">=</span> <span class="n">create_median_feature_factory</span><span class="p">(</span><span class="n">questions_selection</span><span class="p">)</span>
+    <span class="n">agreement</span> <span class="o">=</span> <span class="n">agreements</span><span class="p">[</span><span class="n">factor</span><span class="p">]</span>
+    <span class="n">tangles</span> <span class="o">=</span> <span class="n">SurveyTangles</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">questions_selection</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">feature_factory</span><span class="o">=</span><span class="n">feat_fac</span><span class="p">,</span> <span class="n">progress_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">plot_tangle_matrix</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;Factor </span><span class="si">{</span><span class="n">factor</span><span class="si">}</span><span class="s1"> (agreement=</span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> 
+                       <span class="n">questions_selection</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3e38d252b32d696a5b94d7a4952fb957c164eeb127e246d03fb9bc201d2d4506.png" src="../_images/3e38d252b32d696a5b94d7a4952fb957c164eeb127e246d03fb9bc201d2d4506.png" />
+</div>
+</div>
+<p>Excellent, we can verify the coherence of all five factors.</p>
+<p>What about the <strong>incomplete tangles</strong> of factors A, C and O? In scenarios where we are working with an order function, incomplete tangles can be valuable for interpretation. Remember that the order function determines the order in which the tangle search tries to specify the potential features. Usually we trie to choose an order function such that the tangle search specifies potential features of more general statements first and of more specific statements last. Consequently, an incomplete tangle is a tangle that describes groups in more general terms, while a complete tangle goes into more details. We will introduce an order function later in this notebook.</p>
+<p>We don’t use an order function here, so the incomplete tangles aren’t valuable for interpretation and we can ignore them.</p>
+<p>However, we can explain the incomplete tangles to give some insights into the search process. Let’s focus on the factor A:</p>
+<ul class="simple">
+<li><p>Remember that, searching for tangles, we try to find specifications of the given ten potential features, such that the intersection of any three of the features is larger than the agreement value. The tangle search checks this feature by feature, in our case starting with A1 and A2 (going from left to right in the matrix).</p></li>
+<li><p>The incomplete tangles specify the first two features A1 and A2 differently. Tangle 1 corresponds to a participant feeling little concern for others but at the same time being interested in people (and vice versa for tangle 0). This is a somewhat contradictory combination of statements, so the number of such participants is not large. Yet, it is still greater than the agreement value, so the tangle search doesn’t stop trying to specify features.</p></li>
+<li><p>In the next step, the tangle search checks triples of specifications of A1, A2 and A3 (i.e. it intersect the previous intersections of A1 and A2 with both specifications of A3). This leads to intersections that are smaller than the agreement value. As a result, the tangle search stops extending these tangles any further and the tangles are shown in the tangle matrix with only A1 and A2 specified.</p></li>
+</ul>
+</section>
+</section>
+<section id="typical-mindsets">
+<h2>4. Typical Mindsets <a id='typical_mindsets'></a><a class="headerlink" href="#typical-mindsets" title="Link to this heading">#</a></h2>
+<p>In the previous section, we searched tangles separately for the five factors E, N, A, C and O. Now, we will search for tangles on all factors at once. This will let us identify typical mindsets of the participants of the survey.</p>
+<p>Again, we start with a relatively high agreement.</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">1800</span>
+<span class="n">tangles</span> <span class="o">=</span> <span class="n">SurveyTangles</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">survey</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">feature_factory</span><span class="o">=</span><span class="n">create_median_feature_factory</span><span class="p">(</span><span class="n">survey</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As in the previous section, only the complete tangles are of interest because we don’t use an order function yet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">plot_big5_tangle_matrix</span>
+
+<span class="n">plot_big5_tangle_matrix</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(),</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e3489e8f5009486b64cf6072328cff38eb5d745a2da0aeb2fdb9ecdfb5c57d83.png" src="../_images/e3489e8f5009486b64cf6072328cff38eb5d745a2da0aeb2fdb9ecdfb5c57d83.png" />
+</div>
+</div>
+<p>Interesting! The two most common combinations of statements perfectly align with the factors, i.e. all statements within a factor are specified in the same way. This is not too surprising: we already saw this structure in the previous section.</p>
+<p>What’s new is that the most typical mindsets that are present in the participants are</p>
+<ul class="simple">
+<li><p>Tangle 1: people who are extroverted (E), agreeable (A), conscientious (C) and open for experience (O), but not neurotic (N)</p></li>
+<li><p>Tangle 0: people with the opposite personality traits</p></li>
+</ul>
+<p>These mindsets follow an intuition for what personality traits typically appear together. For example, you wouldn’t usually expect a person to be neurotic and extroverted at the same time.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">change_agreement()</span></code> method, we can lower the agreement value and see what new tangles will be found, without having to redo the calculations necessary for the higher agreement value in the previous search.</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">1700</span>
+<span class="n">tangles</span><span class="o">.</span><span class="n">change_agreement</span><span class="p">(</span><span class="n">agreement</span><span class="p">,</span> <span class="n">force_tree_update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_big5_tangle_matrix</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(),</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8128715586e536809885a50a3ca1c4fcadd5efd270bf95988ebbd72863ca14fa.png" src="../_images/8128715586e536809885a50a3ca1c4fcadd5efd270bf95988ebbd72863ca14fa.png" />
+</div>
+</div>
+<p>Two new tangles, both of them just varying statement O9 which is “I spend time reflecting on things.”. This tells us that the ratings of the O9 statement do not align as consistently with the overall O factor ratings as they do for the other O statements. The reasons behind this can only be guessed but it may be because the statement is not very specific and rating the intensity or amount of time spend on reflecting things might be hard to judge objectively.</p>
+<p>Note that we essentially found two tangles, plus two tangles that contain precisely the inverted features.</p>
+<p>Take, for example, the tangles in row 1 and 2: one might think that the combinations of factors in tangle 1 are as typically found in the survey data as the combination of factors in tangle 2. This might be, but is not necessarily the case: recall, that we defined the features by the median of a statement, which leads to very <em>balanced</em> features (i.e. a feature and its inverse are of almost the same size). Consequently, whenever a tangle has high agreement, it is not surprising that its inverse tangle also has high agreement. How we define the features has a strong influence on the results of the tangle search.</p>
+<p>Let us lower the agreement once more.</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">1648</span>
+<span class="n">tangles</span><span class="o">.</span><span class="n">change_agreement</span><span class="p">(</span><span class="n">agreement</span><span class="p">,</span> <span class="n">force_tree_update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_big5_tangle_matrix</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(),</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6f4d1dc59dbccfd4106375b80f20ac2c14b34debaa95fa3bbf930c4e4fa2320f.png" src="../_images/6f4d1dc59dbccfd4106375b80f20ac2c14b34debaa95fa3bbf930c4e4fa2320f.png" />
+</div>
+</div>
+<p>New tangles! Some tangles differ only in how O9 is specified, which makes the tangle matrix a bit harder to read. Yet, we can clearly make out two new typical mindsets:</p>
+<ul class="simple">
+<li><p>extroverted, agreeable and conscientious; but not neurotic and not open for experience</p></li>
+<li><p>extroverted, agreeable and open for experience; but not neurotic and not conscientious</p></li>
+</ul>
+<p>Can we find more tangles that reveal typical combinations of factors if we lower the agreement value just a little more?</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">1645</span>
+<span class="n">tangles</span><span class="o">.</span><span class="n">change_agreement</span><span class="p">(</span><span class="n">agreement</span><span class="p">,</span> <span class="n">force_tree_update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_big5_tangle_matrix</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(),</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cbbb06b2e523bd9a2b1fe29e8fbbdecd0b193b716adbeb2b39da3d2b84f021c6.png" src="../_images/cbbb06b2e523bd9a2b1fe29e8fbbdecd0b193b716adbeb2b39da3d2b84f021c6.png" />
+</div>
+</div>
+<p>Yes. We pick out the tangles with newly appearing combinations:</p>
+<ul class="simple">
+<li><p>row at index 2: neurotic and conscientious; but not extroverted, not agreeable and not open for experience</p></li>
+<li><p>row at index 11: neurotic and open for experience; but not extroverted, not agreeable and not conscientious</p></li>
+</ul>
+<p>Note that, for this agreement, not all factors are distinguishable. E.g. all tangles that indicate disagreement to the E statements also indicate agreement to the N statements and vice versa.</p>
+<p>We stop decreasing the agreement at this point, but feel free to go on and play around with different agreement values.<br />
+Note that at some point (try agreement 1500) the number of tangles increases drastically, making interpretations hard. Picking appropriate values for the agreement is crucial.</p>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<p>We found the six most typical mindsets present in the data set. Let us get an overview and visualize the results in a simple picture, where each row shows a typical mindset (from the most typical one in the first row to the least typical one in the last row).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">plot_mindsets</span>
+
+<span class="n">typical_mindsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">plot_mindsets</span><span class="p">(</span><span class="n">typical_mindsets</span><span class="p">,</span> <span class="s1">&#39;Most Typical Mindsets&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f306668aa467c10dd203a912c9d10cd9f961672daa84d010058b41f6cfd32bfe.png" src="../_images/f306668aa467c10dd203a912c9d10cd9f961672daa84d010058b41f6cfd32bfe.png" />
+</div>
+</div>
+<p>If we have a closer look, we notice an interesting detail: the six mindsets we found can actually be described by only three mindsets and their inverses. Let’s visualize them again but ordering them pairwise with their inverses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_mindsets</span><span class="p">(</span><span class="n">typical_mindsets</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]],</span> <span class="s1">&#39;Most Typical Mindsets (Pairwise Order)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0249648262365816cdebc48eb38d26f823ea6d89bbadf87c4ea894fbfa107727.png" src="../_images/0249648262365816cdebc48eb38d26f823ea6d89bbadf87c4ea894fbfa107727.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="a-tree-structure-on-mindsets">
+<h2>5. A Tree Structure on Mindsets<a class="headerlink" href="#a-tree-structure-on-mindsets" title="Link to this heading">#</a></h2>
+<p>In this section we will calculate a <em>tree of tangles (TOT)</em>, which will structure the tangles as nodes in a tree. Remember that tangles represent typical mindsets, so plotting the TOT lets us obtain a structure of typical mindsets in the data.</p>
+<p>To obtain our goal we need to</p>
+<ul class="simple">
+<li><p>define an order function,</p></li>
+<li><p>search tangles,</p></li>
+<li><p>calculate a TOT for these tangles,</p></li>
+<li><p>and give the TOT a meaningful visualization.</p></li>
+</ul>
+<section id="define-an-order-function">
+<h3>5.1 Define an order function<a class="headerlink" href="#define-an-order-function" title="Link to this heading">#</a></h3>
+<p>To calculate a TOT we need a submodular <strong>order function</strong> on the features. The definition of the order function has a great influence on what tangles will be found and how the tree of tangles will look like. Choosing and tweaking this definition is an important tool in the tangle workflow and can - and should - be utilised to obtain results that allow for the analysis of aspects of interest.</p>
+<p>In this section we will implement the order function <em>(O1)</em> from the <a class="reference external" href="https://tangles-book.com">Tangles book</a>. For a partition <span class="math notranslate nohighlight">\(\{A,B\}\)</span> it is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-56901452-2b42-402d-abcf-98325148952b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-56901452-2b42-402d-abcf-98325148952b" title="Permalink to this equation">#</a></span>\[\begin{align}
+\sum_{a \in A} \sum_{b \in B} \sigma(a,b),
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma(a,b)\)</span> is a function measuring the similarity of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> and should be chosen such that it fits the problem at hand. In our specific application, we set <span class="math notranslate nohighlight">\(\sigma(a,b) = 1\)</span>, if <span class="math notranslate nohighlight">\(b\)</span> is one of the <span class="math notranslate nohighlight">\(k\)</span> most similar participants to <span class="math notranslate nohighlight">\(a\)</span>, and otherwise  <span class="math notranslate nohighlight">\(\sigma(a,b) = 0\)</span>. We will motivate this specific definition of <span class="math notranslate nohighlight">\(\sigma\)</span> later.</p>
+<p><strong>Overview</strong></p>
+<p>Step by step we will</p>
+<ol class="arabic simple">
+<li><p>for any two participants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, count on how many questions they agree;</p></li>
+<li><p>for each participant <span class="math notranslate nohighlight">\(a\)</span>, determine the <span class="math notranslate nohighlight">\(k\)</span> participants that agree with <span class="math notranslate nohighlight">\(a\)</span> on the most questions, i.e. that are most similar to <span class="math notranslate nohighlight">\(a\)</span>;</p></li>
+<li><p>define the order function <em>(O1)</em> as described above.</p></li>
+</ol>
+<p><strong>1. Count agreements on questions</strong></p>
+<p>We count on how many questions two participants agree. Technically this is implemented using the Hamming distance.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a> is a tool that is usually used to describe the difference between two strings, counting the number of positions at which the symbols of the strings differ. We transfer this concept to the questionnaire data: given two participants we count the questions on which the participants <em>disagree</em> (to calculate the similarity of participants this works just as well as counting their agreements).</p>
+<p>To do so, we need a discretization of the ratings a participant gave, turning the ratings into binary answers: yes or no.</p>
+<p>It is fortunate that we already have such a discretization! Turning the ratings into binary values is exactly what we did when we defined the features in the first section. Thus, we can calculate the distance matrix using the matrix of features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span>
+
+<span class="n">feature_factory</span> <span class="o">=</span> <span class="n">create_median_feature_factory</span><span class="p">(</span><span class="n">survey</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">feature_factory</span><span class="o">.</span><span class="n">create_features</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">hamming_distance</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;hamming&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2. Determine the most similar participants</strong></p>
+<p>For each participant, we determine the <span class="math notranslate nohighlight">\(k\)</span> participants that disagree on the fewest questions.</p>
+<p>This can be done by calculating a <span class="math notranslate nohighlight">\(k\)</span>-nearest-neighbour graph. The graph is represented by an <a class="reference external" href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>, which can then be used as the similarity matrix containing at index <span class="math notranslate nohighlight">\((i,j)\)</span> the similarity <span class="math notranslate nohighlight">\(\sigma(i,j)\)</span> of the <span class="math notranslate nohighlight">\(i\)</span>-th and the <span class="math notranslate nohighlight">\(j\)</span>-th participant.</p>
+<p>Experience has shown that considering only the <span class="math notranslate nohighlight">\(k\)</span> most similar participants often is a good choice to define <span class="math notranslate nohighlight">\(\sigma\)</span> with. One advantage of it is that we can easily analyze basic properties of the <span class="math notranslate nohighlight">\(k\)</span>-nearest-neighbour graph like its number of components or its average degree. Furthermore, we can adjust the graph to our needs by modifying its adjacency matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.graph.similarity</span> <span class="kn">import</span> <span class="n">k_nearest_neighbors</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">k_nn_matrix</span> <span class="o">=</span> <span class="n">k_nearest_neighbors</span><span class="p">(</span><span class="n">hamming_distance</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">similarity_matrix</span> <span class="o">=</span> <span class="n">k_nn_matrix</span> <span class="o">+</span> <span class="n">k_nn_matrix</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We go for a <strong>small value</strong> <span class="math notranslate nohighlight">\(k\)</span>, using <span class="math notranslate nohighlight">\(k=2\)</span>. Why?</p>
+<ul class="simple">
+<li><p>In many cases a small value (e.g. 4 or smaller) is enough to capture the most important structure in the data. Imagine a subset of participants that are very similar to each other. We want these participants to be part of a dense area in the <span class="math notranslate nohighlight">\(k\)</span>-nearest-neighbour graph and a small value for <span class="math notranslate nohighlight">\(k\)</span> is sufficient to achieve this.</p></li>
+<li><p>Moreover, we benefit from the sparsity of the adjacency matrix as it leads to faster calculations in all following steps that involve the order function.</p></li>
+</ul>
+<p>Also note the last line: it’s a simple trick to obtain a symmetric matrix. This step is not obligatory, but the symmetry allows us to interpret the matrix as a similarity matrix, which simplifies the interpretation and analysis of the matrix.</p>
+<p>Let’s check some basic properties of the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse.csgraph</span> <span class="kn">import</span> <span class="n">connected_components</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;#non-zero entries: </span><span class="si">{</span><span class="n">similarity_matrix</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;#connected components: </span><span class="si">{</span><span class="n">connected_components</span><span class="p">(</span><span class="n">similarity_matrix</span><span class="p">,</span><span class="w"> </span><span class="n">directed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="w"> </span><span class="n">return_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#non-zero entries: 66100
+#connected components: 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The graph is dense enough to be made up of only one component but still quite sparse (66,098 non-zero entries compared to a total 374,809,600 entries in the adjacency matrix).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="p">(</span><span class="n">similarity_matrix</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">degrees</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">degrees</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">degrees</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">degrees</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Histogram of Vertex Degrees in the </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">-nn Graph (Max. Degree: </span><span class="si">{</span><span class="n">degrees</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bd62def3fe3061a9c4194aa03a653958f4b960bd7e50cf28280d3b1bdc1441b2.png" src="../_images/bd62def3fe3061a9c4194aa03a653958f4b960bd7e50cf28280d3b1bdc1441b2.png" />
+</div>
+</div>
+<p>Most vertices are of degree 2. But while the the number of vertices of large degree quickly declines, there are vertices of degree up to 59.</p>
+<p><strong>3. Define the order function</strong></p>
+<p>Finally, we define the order function <em>(O1)</em>.</p>
+<p>To do so, we use the <code class="docutils literal notranslate"><span class="pre">matrix_order()</span></code> function provided by the tangle library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.matrix_order</span> <span class="kn">import</span> <span class="n">matrix_order</span>
+
+<span class="k">def</span> <span class="nf">order_function</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">matrix_order</span><span class="p">(</span><span class="o">-</span><span class="n">similarity_matrix</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">order_function()</span></code> does not literately calculate the order function <em>(O1)</em>, but an order function that induces the same order on our features as <em>(O1)</em> does. Thus, we can go with <code class="docutils literal notranslate"><span class="pre">order_function()</span></code>, which has a more efficient implementation, and achieve the same results in the following calculations.</p>
+<p>Let’s have a look at the orders it assigns to the 50 original features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="n">order_function</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)),</span> <span class="n">order</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature Orders&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_names</span><span class="p">)),</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2b216d2dc3e9bcc77c876a0993ce6a2de4b405542e223ee43306dc4c159769d3.png" src="../_images/2b216d2dc3e9bcc77c876a0993ce6a2de4b405542e223ee43306dc4c159769d3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Features, sorted lowest to highest order:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">var_names</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">order</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Features, sorted lowest to highest order:
+[&#39;E3&#39; &#39;E5&#39; &#39;E7&#39; &#39;N8&#39; &#39;A7&#39; &#39;N7&#39; &#39;A4&#39; &#39;E4&#39; &#39;A5&#39; &#39;E1&#39; &#39;E10&#39; &#39;E2&#39; &#39;A9&#39; &#39;N1&#39;
+ &#39;O10&#39; &#39;N9&#39; &#39;N6&#39; &#39;O1&#39; &#39;O2&#39; &#39;C4&#39; &#39;N10&#39; &#39;E6&#39; &#39;E9&#39; &#39;N2&#39; &#39;O8&#39; &#39;O5&#39; &#39;E8&#39; &#39;A2&#39;
+ &#39;C9&#39; &#39;C5&#39; &#39;O3&#39; &#39;A1&#39; &#39;C6&#39; &#39;A10&#39; &#39;A6&#39; &#39;C1&#39; &#39;C2&#39; &#39;O4&#39; &#39;O6&#39; &#39;C7&#39; &#39;N3&#39; &#39;O7&#39;
+ &#39;A8&#39; &#39;C10&#39; &#39;C8&#39; &#39;N4&#39; &#39;A3&#39; &#39;N5&#39; &#39;C3&#39; &#39;O9&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>While all factors have features of relatively low and of relatively high order, factor E has most features of low order and factors O and C have most features of high order.</p>
+<p>What does this tell us?</p>
+<ul class="simple">
+<li><p>For our order function, the order of a feature is high if it separates the participants within dense areas of the graph, whereas it is low if dense areas get separated to a lesser extend.</p></li>
+<li><p>In other words, a low order feature of factor E partitions the participants such that on average two similar (i.e. small Hamming distance) participants are more likely to be in the same part of the bipartition. Conversely, a factor O or factor C feature of high order has a stronger tendency to separate two similar participants.</p></li>
+</ul>
+<p>The order of the features will have a recognisable impact on how the tangles in the TOT look like. We will address this effect later.</p>
+</section>
+<section id="search-tangles">
+<h3>5.2 Search tangles<a class="headerlink" href="#search-tangles" title="Link to this heading">#</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">order_function()</span></code> that we just defined to specify the order of the features, let’s search for tangles.
+Note that we set the uncross parameter to True: this will add features that are logical combinations of the original features, called <em>corners</em>. These are necessary to be able to compute a TOT.
+We call the process of adding corners <em>uncrossing</em>.</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">tangles</span> <span class="o">=</span> <span class="n">SurveyTangles</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">survey</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">feature_factory</span><span class="o">=</span><span class="n">feature_factory</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_function</span><span class="p">,</span> <span class="n">uncross</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total number of features in the search result: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">feature_system</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of features in the search result: 758
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_tangle_matrix</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="s1">&#39;Tangle Matrix (only Original Features)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/693a60ffe7b5f6e224effab167bdc550140e1ba1e0e46f207833879f5ac7c6dd.png" src="../_images/693a60ffe7b5f6e224effab167bdc550140e1ba1e0e46f207833879f5ac7c6dd.png" />
+</div>
+</div>
+<p>Let us address a property of the tangle matrix that might seem odd:<br />
+The tangles in the upper part of the tangle matrix do not specify any of the original separations. However, this is not a problem, since uncrossing added features that are corners of the original features (and of previously added corners), i.e. they are logical combinations of the original features. The tangles in the upper part of the tangle matrix specify many of those corners, so these tangle nonetheless contain information about the statements corresponding to the original features.</p>
+</section>
+<section id="plot-a-tree-of-tangles">
+<h3>5.3 Plot a tree of tangles<a class="headerlink" href="#plot-a-tree-of-tangles" title="Link to this heading">#</a></h3>
+<p>Now we calculate the tree of tangles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tot</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">sweep</span><span class="o">.</span><span class="n">create_tot</span><span class="p">(</span><span class="n">agreement</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">tangles.util.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">tot</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3eb42ef2c237cfd7823ff0f79af7db70bc50402e4047b57c3ab87e3c1a7c49fb.png" src="../_images/3eb42ef2c237cfd7823ff0f79af7db70bc50402e4047b57c3ab87e3c1a7c49fb.png" />
+</div>
+</div>
+<p>This was simple - but unfortunately there is not too much to make of it: it shows the overall structure, but we need more information about the tangles. Each node of the tree is a tangle, so we need to define a plot that visualises each of these tangles. In the above plot every node can then be replaced with this visualisation.</p>
+<p>How to best visualize a tangle differs from application to application. In our case, we want the plot to show how much a tangle represents each of the five factors. More precisely, to each tangle we want to assign five values that indicate how the tangle relates to the five factors. We call this five values <em>factor weights</em>.</p>
+<p>Given a tangle, to calculate its factor weights we will</p>
+<ol class="arabic simple">
+<li><p>calculate factor weights for each participant;</p></li>
+<li><p>for all participants, calculate the tangle score with respect to the given tangle;</p></li>
+<li><p>calculate the factor weights of the tangle, which we define as a score-weighted sum of the factor weights of all participants.</p></li>
+</ol>
+<p><strong>1. Factor weights for each participant</strong></p>
+<p>We go with a simple approach: given a participants ratings to the 10 statements of a factor, the factor weight for this factor is the mean value of the ratings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_factor_weights_per_participant</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">features</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">factor_weights_per_participant</span> <span class="o">=</span> <span class="n">calc_factor_weights_per_participant</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2. Tangle scores</strong></p>
+<p>Given a tangle, the score is a measure of how much a participant is ‘contained’ within the tangle. There are different scoring algorithms implemented in the tangle library. We use the <code class="docutils literal notranslate"><span class="pre">soft_clustering_tuebingen</span></code> algorithm as it turns out to deliver good results for this use case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.analysis</span> <span class="kn">import</span> <span class="n">soft_clustering_tuebingen</span>
+
+<span class="n">tangle_matrix</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">sweep</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(</span><span class="n">only_initial_seps</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">soft_clustering_tuebingen</span><span class="p">(</span><span class="n">tangle_matrix</span><span class="p">,</span> <span class="n">tangles</span><span class="o">.</span><span class="n">sweep</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">_sep_ids</span><span class="p">[:</span><span class="n">tangle_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">tangles</span><span class="o">.</span><span class="n">feature_system</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3. Factor weights of a tangle</strong></p>
+<p>Now, given a tangle we can calculate its factor weights as a score-weighted sum of all participants factor weights.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.radar_plot_util</span> <span class="kn">import</span> <span class="n">soft_max</span>
+
+<span class="k">def</span> <span class="nf">calc_factor_weights_by_score_weighted_participants</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">factor_weights_per_participant</span><span class="p">,</span> <span class="n">tangle_idx</span><span class="p">,</span> <span class="n">soft_max_scaling</span><span class="p">):</span>
+    <span class="n">soft_maxed_scores</span> <span class="o">=</span> <span class="n">soft_max</span><span class="p">(</span><span class="n">scores</span><span class="p">[:,</span><span class="n">tangle_idx</span><span class="p">],</span> <span class="n">scaling</span><span class="o">=</span><span class="n">soft_max_scaling</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">factor_weights_per_participant</span> <span class="o">*</span> <span class="n">soft_maxed_scores</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Plotting factor weights</strong></p>
+<p>What’s left to implement is how to plot the factor weights of a tangle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.radar_plot_util</span> <span class="kn">import</span> <span class="n">create_factor_weights_radar_plot</span>
+
+<span class="k">def</span> <span class="nf">plot_factor_weights_by_score_weighted_participants</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">sweep</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">factor_weights_per_participant</span><span class="p">,</span> <span class="n">soft_max_scaling</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">factor_weights</span> <span class="o">=</span> <span class="n">calc_factor_weights_by_score_weighted_participants</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">factor_weights_per_participant</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">tangle_idx</span><span class="p">,</span> <span class="n">soft_max_scaling</span><span class="p">)</span>
+    <span class="c1"># use the location size as plot title</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">star</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">location_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sweep</span><span class="o">.</span><span class="n">sep_sys</span><span class="o">.</span><span class="n">compute_infimum</span><span class="p">(</span><span class="o">*</span><span class="n">node</span><span class="o">.</span><span class="n">star</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">location_size</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">create_factor_weights_radar_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">factor_weights</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">location_size</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the bigger part of the code that is responsible for the plotting of the factor weights is hidden in the imports. This is mostly matplotlib setup and not interesting when getting to know tangles so we do not recommend to dig into this code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.radar_plot</span> <span class="kn">import</span> <span class="n">radar_factory</span>
+<span class="kn">from</span> <span class="nn">src.radar_plot_util</span> <span class="kn">import</span> <span class="n">node_sizes_by_location_sizes</span><span class="p">,</span> <span class="n">efficient_distinguisher_tree_level_annotation</span>
+
+<span class="c1"># matplotlib setup: we need to register a new axes projection type</span>
+<span class="n">radar_factory</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">&#39;polygon&#39;</span><span class="p">)</span>
+
+<span class="n">node_sizes</span> <span class="o">=</span> <span class="n">node_sizes_by_location_sizes</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">sweep</span><span class="p">,</span> <span class="n">tot</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">tot</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+          <span class="n">plot_node</span><span class="o">=</span><span class="k">lambda</span> <span class="n">node</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">plot_factor_weights_by_score_weighted_participants</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">tangles</span><span class="o">.</span><span class="n">sweep</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">factor_weights_per_participant</span><span class="p">),</span> 
+          <span class="n">node_size</span><span class="o">=</span><span class="n">node_sizes</span><span class="p">,</span>
+          <span class="n">ax_projection</span><span class="o">=</span><span class="s1">&#39;radar&#39;</span><span class="p">,</span>
+          <span class="n">plot_edge_annotation</span><span class="o">=</span><span class="n">efficient_distinguisher_tree_level_annotation</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">sweep</span><span class="p">,</span> <span class="n">tot</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tree of Tangles (k=</span><span class="si">{</span><span class="mi">2</span><span class="si">}</span><span class="s1">, agreement=</span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1635399b22eaf979dfffb82c84566eead0578df70c6f88b84fe8c722c9d35eb6.png" src="../_images/1635399b22eaf979dfffb82c84566eead0578df70c6f88b84fe8c722c9d35eb6.png" />
+</div>
+</div>
+<p>A green triangle indicates a positive and a red triangle indicates a negative factor weight. The size of the triangle indicates the magnitude of the factor weight. Furthermore, the title of each node tells us the size of the <em>location</em> of that tangle (i.e. the size of the intersection of all efficient distinguishers associated with the adjacent edges).</p>
+<p>The blue annotation at each edge shows the tree level at which the efficient distinguisher corresponding to the edge appears in the <em>tangle search tree</em>. The <em>tangle search tree</em> contains the features of lowest order at its lowest levels, so a small tree level comes with a small feature order, and vice versa. Usually, we think of features at a smaller tree level (that is, of lower order) as features that split the set of participants by a more general criterion. Conversely, features at a higher tree level correspond to more specific criteria.</p>
+<p>The TOT gives an overview over all tangles found. There is a subtree that contains different facets of mindsets of (more or less) extroverted participants, while another subtree contains that of introverted participants.</p>
+</section>
+</section>
+<section id="typical-ranges-of-ratings">
+<h2>6. Typical Ranges of Ratings<a class="headerlink" href="#typical-ranges-of-ratings" title="Link to this heading">#</a></h2>
+<p>In the previous sections we have defined one potential feature for each statement. For each participant, this gave us a true/false classification for each of the 50 statements. Now, we will follow a more fine-grained approach. For each statement <span class="math notranslate nohighlight">\(q\)</span> we create not one but four potential features:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s_1=\{q \geq 2\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_2=\{q \geq 3\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_3=\{q \geq 4\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_4=\{q \geq 5\}\)</span></p></li>
+</ul>
+<p>Given a tangle that specifies a subset of these potential features we can derive an <strong>interval of typical ratings</strong> of <span class="math notranslate nohighlight">\(q\)</span>. Let’s have a look at an example. Assume a tangle contains <span class="math notranslate nohighlight">\(s_2\)</span> and <span class="math notranslate nohighlight">\(s_{4}^C\)</span>. Participants that are in both <span class="math notranslate nohighlight">\(s_2\)</span> and <span class="math notranslate nohighlight">\(s_{4}^C\)</span> gave <span class="math notranslate nohighlight">\(q\)</span> a rating of at least 3, but not 5 or higher, resulting in the rating interval <span class="math notranslate nohighlight">\(q \in [3,4]\)</span>.</p>
+<section id="features-at-thresholds">
+<h3>6.1 Features at thresholds<a class="headerlink" href="#features-at-thresholds" title="Link to this heading">#</a></h3>
+<p>Analysing intervals of typical answers is a great way to do tangle analysis; not only for this survey, but for surveys containing ordinal variables in general.
+For that reason, users of the tangle library are provided with this functionality, and all what’s left to do is to properly set up a <code class="docutils literal notranslate"><span class="pre">Survey</span></code> object!</p>
+<p>Given this <code class="docutils literal notranslate"><span class="pre">Survey</span></code> object, the tangle library is able to</p>
+<ul class="simple">
+<li><p>automatically create the necessary features (features like <span class="math notranslate nohighlight">\(s_i\)</span> above), and</p></li>
+<li><p>automatically calculate typical intervals of values, given the tangle search results.</p></li>
+</ul>
+<p>We start fresh and load the data from file again. In this example, we limit ourselves to the <strong>subset of N-factor (neuroticism) statements</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">var_names</span><span class="p">,</span> <span class="n">var_labels</span><span class="p">,</span> <span class="n">factors</span> <span class="o">=</span> <span class="n">load_big_five_data</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">remove_rows_with_zero_std</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">N_idxs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">X_N</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">N_idxs</span><span class="p">]</span>
+<span class="n">var_names_N</span> <span class="o">=</span> <span class="n">var_names</span><span class="p">[</span><span class="n">N_idxs</span><span class="p">]</span>
+<span class="n">var_labels_N</span> <span class="o">=</span> <span class="n">var_labels</span><span class="p">[</span><span class="n">N_idxs</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s set up a <code class="docutils literal notranslate"><span class="pre">Survey</span></code> object containing the data of N statements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">survey_N</span> <span class="o">=</span> <span class="n">Survey</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="n">N_idxs</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">var_names_N</span><span class="p">))</span>
+<span class="n">survey_N</span><span class="o">.</span><span class="n">set_variable_labels</span><span class="p">(</span><span class="n">var_labels_N</span><span class="p">)</span>
+<span class="n">survey_N</span><span class="o">.</span><span class="n">set_variable_types</span><span class="p">(</span><span class="s1">&#39;ordinal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need to take care of the negatively keyed statements N2 and N4. Just like we did for the data in the previous section, we tag the name and the label of all negatively keyed variables with a “¬” and reverse the rating scale. This way, for negatively keyed statements, 1 to 5 becomes 5 to 1. The method <code class="docutils literal notranslate"><span class="pre">replace_variable_values()</span></code> is a convenient way to do this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.utilities</span> <span class="kn">import</span> <span class="n">keying_N</span>
+
+<span class="n">keyed_var_names_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">l</span> <span class="k">if</span> <span class="n">neg</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;¬</span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">neg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">var_names_N</span><span class="p">,</span> <span class="n">keying_N</span><span class="p">)])</span>
+<span class="n">keyed_var_labels_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">s</span> <span class="k">if</span> <span class="n">neg</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;¬</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">neg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">var_labels_N</span><span class="p">,</span> <span class="n">keying_N</span><span class="p">)])</span>
+
+<span class="n">survey_N</span><span class="o">.</span><span class="n">set_variable_names</span><span class="p">(</span><span class="n">keyed_var_names_N</span><span class="p">)</span>
+<span class="n">survey_N</span><span class="o">.</span><span class="n">set_variable_labels</span><span class="p">(</span><span class="n">keyed_var_labels_N</span><span class="p">)</span>
+<span class="n">survey_N</span><span class="o">.</span><span class="n">replace_variable_values</span><span class="p">(</span><span class="n">keyed_var_names_N</span><span class="p">[</span><span class="n">keying_N</span><span class="o">==-</span><span class="mi">1</span><span class="p">],</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">suppress_check_var_warning</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s complete the survey setup and check the <code class="docutils literal notranslate"><span class="pre">variable_info()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">survey_N</span><span class="o">.</span><span class="n">guess_variable_value_lists</span><span class="p">(</span><span class="n">mark_added_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">survey_N</span><span class="o">.</span><span class="n">variable_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>type</th>
+      <th>label</th>
+      <th>valid_values</th>
+      <th>invalid_values</th>
+      <th>is_usable</th>
+      <th>num_valid_answers</th>
+      <th>num_unique_answers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>N1</th>
+      <td>0</td>
+      <td>N1</td>
+      <td>ordinal</td>
+      <td>I get stressed out easily.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>¬N2</th>
+      <td>1</td>
+      <td>¬N2</td>
+      <td>ordinal</td>
+      <td>¬I am relaxed most of the time.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N3</th>
+      <td>2</td>
+      <td>N3</td>
+      <td>ordinal</td>
+      <td>I worry about things.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>¬N4</th>
+      <td>3</td>
+      <td>¬N4</td>
+      <td>ordinal</td>
+      <td>¬I seldom feel blue.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N5</th>
+      <td>4</td>
+      <td>N5</td>
+      <td>ordinal</td>
+      <td>I am easily disturbed.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N6</th>
+      <td>5</td>
+      <td>N6</td>
+      <td>ordinal</td>
+      <td>I get upset easily.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N7</th>
+      <td>6</td>
+      <td>N7</td>
+      <td>ordinal</td>
+      <td>I change my mood a lot.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N8</th>
+      <td>7</td>
+      <td>N8</td>
+      <td>ordinal</td>
+      <td>I have frequent mood swings.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N9</th>
+      <td>8</td>
+      <td>N9</td>
+      <td>ordinal</td>
+      <td>I get irritated easily.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>N10</th>
+      <td>9</td>
+      <td>N10</td>
+      <td>ordinal</td>
+      <td>I often feel blue.</td>
+      <td>{1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}</td>
+      <td>{}</td>
+      <td>True</td>
+      <td>19360</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Great, the survey is ready to go.</p>
+</section>
+<section id="feature-order-prefer-balanced-features">
+<h3>6.2 Feature Order: Prefer Balanced Features<a class="headerlink" href="#feature-order-prefer-balanced-features" title="Link to this heading">#</a></h3>
+<p>Next, we define an order function. Our goal is to favour balanced features (that is, features that split the set of participants into two roughly equally sized subsets) over unbalanced features. Thus, balanced features should get a low order assigned to and unbalanced features should get a high order assigned to.</p>
+<p>To achieve this, we use the <strong>negated discrete entropy</strong>:</p>
+<ul class="simple">
+<li><p>Given a feature, the discrete entropy is large if the feature is very balanced and it is small if the feature is very unbalanced.</p></li>
+<li><p>However, we want balanced features to get a low order, so we negate the discrete entropy.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tangles.util.entropy</span> <span class="kn">import</span> <span class="n">entropy</span>
+
+<span class="k">def</span> <span class="nf">order_function</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">entropy</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see that this choice for the order function makes sense, let’s focus on the features <span class="math notranslate nohighlight">\(s_1, ..., s_4\)</span> of a single statement. Specifying the most balanced features first, we decide if the interval is in the lower or in the upper range of the rating scale (w.r.t. the median of the ratings). Then, proceeding with less and less balanced features we gradually refine the interval.</p>
+<p>We plot the orders to get a feeling for how the intervals will get composed of the specified features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">SimpleSurveyFeatureFactory</span><span class="p">(</span><span class="n">survey_N</span><span class="p">)</span><span class="o">.</span><span class="n">create_features</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">order_function</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;grey&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature Orders&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5bf6905443091c538587604a860d91f7a8f2f992d93050d305cd0eddcddd0c29.png" src="../_images/5bf6905443091c538587604a860d91f7a8f2f992d93050d305cd0eddcddd0c29.png" />
+</div>
+</div>
+<p>First specifying the features with the lowest order and then adding more and more features will narrow the intervals described by the tangle.</p>
+<p>Note that for most statements there exists a feature with relatively low order as well as a feature with relatively high order. Thus, when searching for tangles, the statements will get added in a “mixed” manner, narrowing the ten intervals roughly uniformly.</p>
+</section>
+<section id="interval-tangles">
+<h3>6.3 Interval tangles<a class="headerlink" href="#interval-tangles" title="Link to this heading">#</a></h3>
+<p>Now, let’s search for tangles and have a look at the tangle matrix.</p>
+<div class="cell tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agreement</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">tangles</span> <span class="o">=</span> <span class="n">SurveyTangles</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">survey_N</span><span class="p">,</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tangle_matrix</span> <span class="o">=</span> <span class="n">tangles</span><span class="o">.</span><span class="n">tangle_matrix</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plot_tangle_matrix</span><span class="p">(</span><span class="n">tangle_matrix</span><span class="p">,</span> 
+                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tangle_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> Tangles (</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tangle_matrix</span><span class="p">),</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">feature_system</span><span class="p">))</span><span class="si">}</span><span class="s1"> complete) for agreement </span><span class="si">{</span><span class="n">agreement</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                   <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">info</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">tangles</span><span class="o">.</span><span class="n">ordered_metadata</span><span class="p">()],</span>
+                   <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))[</span><span class="mi">1</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7e86b789311d2d05f7df1c6df4450a170bf9b1acf76a607f4be6516c720de378.png" src="../_images/7e86b789311d2d05f7df1c6df4450a170bf9b1acf76a607f4be6516c720de378.png" />
+</div>
+</div>
+<p>We will not have a closer look the first eight tangles, as they are to unspecific and will not yield interesting intervals. Let’s visualise the intervals of the remaining tangles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.rating_interval_util</span> <span class="kn">import</span> <span class="n">plot_typical_answers</span>
+
+<span class="n">plot_typical_answers</span><span class="p">(</span><span class="n">tangles</span><span class="o">.</span><span class="n">typical_answers</span><span class="p">(</span><span class="n">insert_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">8</span><span class="p">:],</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">survey_N</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ba34a04fa55bc91e5143db9e124095961c45bdf11995713e2b4bbc95bcc1fb16.png" src="../_images/ba34a04fa55bc91e5143db9e124095961c45bdf11995713e2b4bbc95bcc1fb16.png" />
+</div>
+</div>
+<p>Each entry in the plot shows an interval, e.g. N1 in tangle 0 depicts <span class="math notranslate nohighlight">\([4,5]\)</span>.</p>
+<p>When interpreting the results, keep in mind that the rating scale of the negatively keyed statements N2 and N4 is reversed. Here is a look-up table for the N statements:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>N1</p></th>
+<th class="head"><p>N2</p></th>
+<th class="head"><p>N3</p></th>
+<th class="head"><p>N4</p></th>
+<th class="head"><p>N5</p></th>
+<th class="head"><p>N6</p></th>
+<th class="head"><p>N7</p></th>
+<th class="head"><p>N8</p></th>
+<th class="head"><p>N9</p></th>
+<th class="head"><p>N10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><sub>I get stressed out easily.<sub></p></td>
+<td><p><sub>I am relaxed most of the time.<sub></p></td>
+<td><p><sub>I worry about things.<sub></p></td>
+<td><p><sub>I seldom feel blue.<sub></p></td>
+<td><p><sub>I am easily disturbed.<sub></p></td>
+<td><p><sub>I get upset easily.<sub></p></td>
+<td><p><sub>I change my mood a lot.<sub></p></td>
+<td><p><sub>I have frequent mood swings.<sub></p></td>
+<td><p><sub>I get irritated easily.<sub></p></td>
+<td><p><sub>I often feel blue.<sub></p></td>
+</tr>
+</tbody>
+</table>
+<p>We can recognize three groups of tangles:</p>
+<ol class="arabic simple">
+<li><p><strong>Tangles 5, 6:</strong> These tangles don’t consist of intervals, but of a single value for each statement. Interestingly, moderate ratings are the most common way to rate the N statements.</p></li>
+<li><p><strong>Tangles 2, 3:</strong> We see two typical types of participants that <strong>don’t</strong> have a <strong>neurotic</strong> tendency.</p>
+<ul class="simple">
+<li><p>Tangle 2 is straightforward. All statements get a low rating.</p></li>
+<li><p>Tangle 3 represents participants that don’t have typical neurotic character traits, but feel blue from time to time.</p></li>
+</ul>
+</li>
+<li><p><strong>Tangles 0, 1, 4:</strong> We see the two most typical ways of how participants with a <strong>neurotic</strong> tendency rate the statements.</p>
+<ul class="simple">
+<li><p>Tangle 4 is straightforward.</p></li>
+<li><p>Tangle 1 represents participants that are neurotic, but don’t necessarily worry to much about things.</p></li>
+<li><p>Tangle 0 is similar, but additionally this facet captures participants that feel blue less often than most participants with a neurotic tendency.</p></li>
+</ul>
+</li>
+</ol>
+<p>Note a strange detail concerning tangle 0: While ¬N4 has a low to medium rating, N10, which can be see as an equivalent of ¬N4, has a medium to high rating. It may be interesting to investigate further into the relation of ¬N4 and N10 ratings!</p>
+<p>Finally, two notes on this result:</p>
+<ul class="simple">
+<li><p>The choice of feature order has a great influence on the results. Playing around with different feature orders is a nice way to get a feeling for the data and to better understand the tangle search process.</p></li>
+<li><p>Moreover, to get a valuable interpretation we choose a specific viewpoint on our data, namely, we only have a look at the N statements. Our experiments showed that if we instead look at the statements of one of the other four factors, the interval tangles may not reveal as much structural information as they do for N. The same holds if we consider all 50 statements at once: Firstly, interpretation is difficult because the large number of intervals can be overwhelming, and secondly, the vast majority of the found interval tangles differs just slightly, which makes most tangles uninteresting.</p></li>
+</ul>
+<p>We encourage the user to play around with the setup of the tangle search to find other fruitful viewpoints on the data.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Survey%20Tangles.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Survey Tangles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Point%20Cloud%20Tangles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Point Cloud Tangles</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">1. The Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surveys-and-features">2. Surveys and Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-the-coherence-of-the-factors">3. Verifying the Coherence of the Factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-coherence-of-factor-e-extraversion">3.1 The coherence of factor E (extraversion)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-coherence-of-all-factors">3.2 The coherence of all factors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-mindsets">4. Typical Mindsets <a id="typical_mindsets"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-tree-structure-on-mindsets">5. A Tree Structure on Mindsets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-an-order-function">5.1 Define an order function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-tangles">5.2 Search tangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-tree-of-tangles">5.3 Plot a tree of tangles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-ranges-of-ratings">6. Typical Ranges of Ratings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-at-thresholds">6.1 Features at thresholds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-order-prefer-balanced-features">6.2 Feature Order: Prefer Balanced Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interval-tangles">6.3 Interval tangles</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/tutorials/Tangles of Personality Traits.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Tangle Software Contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
